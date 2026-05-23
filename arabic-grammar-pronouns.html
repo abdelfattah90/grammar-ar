@@ -1,0 +1,2181 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>علم النحو — الضمائر</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --purple: #b370a4;
+        --purple-light: #c98fbb;
+        --purple-dark: #8a5280;
+        --blue: #72add4;
+        --blue-light: #9dc5e0;
+        --blue-dark: #4e8ab5;
+        --bg: #f2f2f2;
+        --white: #ffffff;
+        --dark: #3e3e48;
+        --dark2: #3a3a52;
+        --text: #3a3350;
+        --text-light: #6a6080;
+        --gold: #c9a84c;
+        --gold-light: #f0d080;
+        --green: #4caf7a;
+        --green-light: #80d4a8;
+        --shadow: 0 4px 20px rgba(179, 112, 164, 0.12);
+        --shadow-hover: 0 8px 32px rgba(179, 112, 164, 0.22);
+        --radius: 14px;
+        --radius-sm: 8px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Scheherazade New', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        direction: rtl;
+        line-height: 1.9;
+        font-size: 16px;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--white);
+        border-bottom: 3px solid var(--purple);
+        box-shadow: 0 2px 16px rgba(179, 112, 164, 0.15);
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+      }
+      nav::-webkit-scrollbar {
+        display: none;
+      }
+      .nav-brand {
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--purple);
+        padding: 14px 10px;
+        border-left: 2px solid var(--bg);
+        margin-left: 8px;
+        flex-shrink: 0;
+      }
+      nav a {
+        display: inline-block;
+        padding: 10px 14px;
+        color: var(--text-light);
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 600;
+        border-radius: var(--radius-sm);
+        transition: all 0.2s;
+        flex-shrink: 0;
+      }
+      nav a:hover,
+      nav a.active {
+        background: var(--purple);
+        color: var(--white);
+      }
+
+      /* ── LAYOUT ── */
+      .hero {
+        background: linear-gradient(135deg, var(--purple) 0%, var(--blue) 100%);
+        color: var(--white);
+        text-align: center;
+        padding: 60px 20px 50px;
+      }
+      .hero h1 {
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+      .hero p {
+        font-size: 1.1rem;
+        opacity: 0.88;
+      }
+      .hero-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        padding: 4px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+      }
+
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 40px 20px 60px;
+      }
+
+      section {
+        margin-bottom: 60px;
+        scroll-margin-top: 80px;
+      }
+
+      .section-title {
+        font-size: 1.55rem;
+        font-weight: 800;
+        color: var(--purple-dark);
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-title::after {
+        content: '';
+        flex: 1;
+        height: 3px;
+        background: linear-gradient(to left, transparent, var(--purple));
+        border-radius: 2px;
+      }
+      .section-num {
+        background: var(--purple);
+        color: var(--white);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        font-weight: 800;
+        flex-shrink: 0;
+      }
+
+      /* ── DEF BOX ── */
+      .def-box {
+        background: var(--white);
+        border: 2px solid var(--gold);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin-bottom: 22px;
+        position: relative;
+        box-shadow: 0 2px 12px rgba(201, 168, 76, 0.12);
+      }
+      .def-box::before {
+        content: '📖 تعريف';
+        position: absolute;
+        top: -13px;
+        right: 20px;
+        background: var(--gold);
+        color: var(--white);
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 2px 12px;
+        border-radius: 20px;
+      }
+      .def-box p {
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      /* ── QURAN BOX ── */
+      .quran-box {
+        background: linear-gradient(135deg, #f7f7f7 0%, #fcfffd 100%);
+        border: 2px solid var(--green);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin: 18px 0;
+        position: relative;
+        box-shadow: 0 2px 12px rgba(76, 175, 122, 0.1);
+      }
+      .quran-box::before {
+        content: '🌿 قرآن كريم';
+        position: absolute;
+        top: -13px;
+        right: 20px;
+        background: var(--green);
+        color: var(--white);
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 2px 12px;
+        border-radius: 20px;
+      }
+      .quran-text {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #1a5c35;
+        line-height: 2.1;
+        margin-bottom: 8px;
+        text-align: center;
+      }
+      .quran-note {
+        font-size: 0.9rem;
+        color: #3a7a55;
+        font-weight: 500;
+      }
+
+      /* ── DIAGRAM ── */
+      .diagram {
+        background: var(--dark);
+        border-radius: var(--radius);
+        padding: 28px 24px;
+        margin: 22px 0;
+        color: #e0e0f0;
+        font-family: 'Scheherazade New', sans-serif;
+      }
+      .diagram-title {
+        color: var(--light);
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 18px;
+        text-align: center;
+      }
+
+      /* ── CARDS ── */
+      .card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 22px 24px;
+        margin-bottom: 16px;
+        box-shadow: var(--shadow);
+        border-top: 4px solid var(--purple);
+        transition: box-shadow 0.2s;
+      }
+      .card:hover {
+        box-shadow: var(--shadow-hover);
+      }
+      .card-title {
+        font-weight: 800;
+        font-size: 1.05rem;
+        color: var(--purple-dark);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .card.blue {
+        border-top-color: var(--blue);
+      }
+      .card.blue .card-title {
+        color: var(--blue-dark);
+      }
+      .card.green {
+        border-top-color: var(--green);
+      }
+      .card.green .card-title {
+        color: #2e7a50;
+      }
+      .card.gold {
+        border-top-color: var(--gold);
+      }
+      .card.gold .card-title {
+        color: #8a6020;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+        margin-bottom: 22px;
+      }
+
+      /* ── PILLS / TAGS ── */
+      .tag {
+        display: inline-block;
+        padding: 3px 12px;
+        border-radius: 20px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        margin: 3px;
+      }
+      .tag-ism {
+        background: #ede0f8;
+        color: #6a2e8a;
+      }
+      .tag-fil {
+        background: #dceefb;
+        color: #1a5c8a;
+      }
+      .tag-hrf {
+        background: #fdeedd;
+        color: #8a5010;
+      }
+      .tag-marifa {
+        background: #fdf0e0;
+        color: #8a6020;
+        border: 1px solid var(--gold);
+      }
+      .tag-nakira {
+        background: #e8f4ff;
+        color: #1a5080;
+        border: 1px solid var(--blue);
+      }
+      .tag-example {
+        background: #f0f0f0;
+        color: #444;
+      }
+      .tag-highlight {
+        background: var(--purple);
+        color: white;
+      }
+      .tag-green {
+        background: #e0f5e8;
+        color: #2a6a40;
+      }
+
+      /* ── TABLES ── */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        margin: 16px 0;
+        font-size: 0.95rem;
+      }
+      th {
+        background: var(--purple);
+        color: var(--white);
+        padding: 12px 16px;
+        font-weight: 700;
+        text-align: center;
+      }
+      td {
+        padding: 10px 16px;
+        text-align: center;
+        border-bottom: 1px solid #efe8f4;
+        color: var(--text);
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      tr:nth-child(even) td {
+        background: #faf5fc;
+      }
+      tr:hover td {
+        background: #f3ecf9;
+      }
+      .th-blue th {
+        background: var(--blue);
+      }
+      .th-gold th {
+        background: var(--gold);
+      }
+      .th-dark th {
+        background: var(--dark);
+      }
+
+      /* ── IRAB TABLE ── */
+      .irab-word {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: var(--purple-dark);
+      }
+      .irab-type {
+        color: var(--blue-dark);
+        font-weight: 600;
+      }
+      .irab-sign {
+        color: var(--gold);
+        font-weight: 700;
+      }
+      .irab-note {
+        color: var(--text-light);
+        font-size: 0.88rem;
+      }
+
+      /* ── SUM GRID ── */
+      .sum-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        margin-top: 30px;
+      }
+      .sum-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 20px;
+        text-align: center;
+        box-shadow: var(--shadow);
+        border-bottom: 4px solid var(--purple);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .sum-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
+      }
+      .sum-card:nth-child(2) {
+        border-bottom-color: var(--blue);
+      }
+      .sum-card:nth-child(3) {
+        border-bottom-color: var(--green);
+      }
+      .sum-card:nth-child(4) {
+        border-bottom-color: var(--gold);
+      }
+      .sum-card:nth-child(5) {
+        border-bottom-color: var(--purple-light);
+      }
+      .sum-icon {
+        font-size: 2rem;
+        margin-bottom: 8px;
+      }
+      .sum-title {
+        font-weight: 800;
+        font-size: 1rem;
+        color: var(--text);
+        margin-bottom: 6px;
+      }
+      .sum-text {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+
+      /* ── PRONOUN VISUAL GRID ── */
+      .pronoun-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 10px;
+        margin: 16px 0;
+      }
+      .pronoun-card {
+        background: var(--white);
+        border: 2px solid var(--purple);
+        border-radius: 10px;
+        padding: 12px 10px;
+        text-align: center;
+        transition: all 0.2s;
+      }
+      .pronoun-card:hover {
+        background: var(--purple);
+        color: var(--white);
+      }
+      .pronoun-card:hover .pc-label {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .pc-word {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: var(--purple-dark);
+      }
+      .pronoun-card:hover .pc-word {
+        color: var(--white);
+      }
+      .pc-label {
+        font-size: 0.75rem;
+        color: var(--text-light);
+        margin-top: 4px;
+      }
+
+      .pronoun-card.blue {
+        border-color: var(--blue);
+      }
+      .pronoun-card.blue .pc-word {
+        color: var(--blue-dark);
+      }
+      .pronoun-card.blue:hover {
+        background: var(--blue);
+      }
+
+      /* ── NOTE ── */
+      .note {
+        background: #fdf4ff;
+        border-right: 4px solid var(--purple);
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        padding: 14px 18px;
+        margin: 14px 0;
+        font-size: 0.93rem;
+        color: var(--text);
+      }
+      .note strong {
+        color: var(--purple-dark);
+      }
+
+      .highlight-word {
+        background: linear-gradient(
+          to top,
+          var(--purple-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .highlight-blue {
+        background: linear-gradient(
+          to top,
+          var(--blue-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+
+      /* ── FLEX ROW ── */
+      .flex-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 12px 0;
+        align-items: flex-start;
+      }
+
+      /* ── ATTACHED PRONOUN BOXES ── */
+      .attach-demo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        margin: 16px 0;
+        flex-wrap: wrap;
+      }
+      .attach-part {
+        padding: 10px 16px;
+        font-size: 1.1rem;
+        font-weight: 800;
+        border: 2px solid;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 70px;
+      }
+      .attach-part.pronoun {
+        background: var(--purple);
+        color: white;
+        border-color: var(--purple-dark);
+        border-radius: 8px 0 0 8px;
+      }
+      .attach-part.base {
+        background: var(--blue);
+        color: white;
+        border-color: var(--blue-dark);
+        border-radius: 0 8px 8px 0;
+      }
+      .attach-label {
+        font-size: 0.7rem;
+        font-weight: 500;
+        opacity: 0.85;
+        margin-top: 4px;
+      }
+
+      /* ── DIAGRAM ASCII ── */
+      .tree {
+        font-family: 'Scheherazade New', monospace;
+        font-size: 1rem;
+        line-height: 1.8;
+        color: #ffffff;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 600px) {
+        nav {
+          gap: 4px;
+          padding: 0 10px;
+        }
+        nav a {
+          padding: 10px 10px;
+          font-size: 0.82rem;
+        }
+        .hero {
+          padding: 40px 16px 36px;
+        }
+        main {
+          padding: 28px 14px 50px;
+        }
+        .def-box,
+        .quran-box {
+          padding: 18px 16px;
+        }
+        .def-box::before,
+        .quran-box::before {
+          right: 14px;
+        }
+        .quran-text {
+          font-size: 1.05rem;
+        }
+        table {
+          font-size: 0.85rem;
+        }
+        td,
+        th {
+          padding: 8px 10px;
+        }
+        .pronoun-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .sum-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .attach-demo {
+          flex-direction: column;
+        }
+        .attach-part.pronoun {
+          border-radius: 8px 8px 0 0;
+        }
+        .attach-part.base {
+          border-radius: 0 0 8px 8px;
+        }
+      }
+
+      /* ── SEPARATOR ── */
+      .sep {
+        height: 2px;
+        background: linear-gradient(
+          to left,
+          transparent,
+          var(--purple),
+          transparent
+        );
+        margin: 30px 0;
+        border-radius: 2px;
+      }
+
+      /* ── SCROLL REVEAL (simple) ── */
+      section {
+        animation: fadeUp 0.4s ease both;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <div class="nav-brand">الضمائر</div>
+      <a href="#s1">التعريف والأنواع</a>
+      <a href="#s2">المنفصلة</a>
+      <a href="#s3">المتصلة</a>
+      <a href="#s4">ضمير الشأن</a>
+      <a href="#s5">الإعراب</a>
+      <a href="#s6">الملخص</a>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-badge">أساسيات علم النحو</div>
+      <h1>الضمائر</h1>
+      <p>تعريفها · أنواعها · إعرابها · شواهدها من القرآن الكريم</p>
+    </div>
+
+    <main>
+      <!-- ══════════════════════════════════════════════════
+     SECTION 1 — تعريف الضمير وأنواعه
+══════════════════════════════════════════════════ -->
+      <section id="s1">
+        <h2 class="section-title">
+          <span class="section-num">١</span>تعريف الضمير وأنواعه
+        </h2>
+
+        <div class="def-box">
+          <p>
+            <strong>الضمير</strong> هو اسمٌ مبنيٌّ يدلُّ على متكلِّم أو مخاطَب
+            أو غائب. وهو من <span class="tag tag-marifa">المعارف</span> لأنه
+            يدلُّ على شيءٍ معيَّن معروف لدى المتحدِّث.
+          </p>
+        </div>
+
+        <div class="note">
+          <strong>لماذا هو مبني؟</strong> لأنَّ الضمير لا يتغيَّر آخره بتغيُّر
+          موقعه الإعرابي، بخلاف الأسماء المعرَبة. فكلمة «هو» تبقى «هو» سواء كانت
+          فاعلاً أو مبتدأ.
+        </div>
+
+        <!-- شجرة التصنيف -->
+        <div class="diagram">
+          <div class="diagram-title">🌳 تصنيف الضمائر — نظرة شاملة</div>
+          <div class="tree">
+            الضَّمِير │ ┌─────────────┴─────────────┐ مُنفَصِل مُتَّصِل │ │
+            ┌─────┴─────┐ ┌────────┴────────┐ رَفْع نَصْب ضمائر ضمائر ضمائر
+            وجَرّ الرَّفع النَّصب الجَرّ المتصلة المتصلة المتصلة (التاء، (الهاء،
+            (الهاء، نا، ياء كاف، ني) كاف، ياء)
+          </div>
+        </div>
+
+        <!-- أنواع من حيث المرجع -->
+        <h3
+          style="
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--blue-dark);
+            margin: 24px 0 14px;
+          "
+        >
+          أنواع الضمير من حيث المتحدَّث عنه
+        </h3>
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title">🗣 ضمير المتكلِّم</div>
+            <p>يدلُّ على الشخص الذي يتكلَّم.</p>
+            <div style="margin-top: 10px">
+              <span class="tag tag-highlight">أنا</span>
+              <span class="tag tag-highlight">نحن</span>
+              <span class="tag tag-highlight">نا (المتصلة)</span>
+              <span class="tag tag-highlight">ياء المتكلم</span>
+            </div>
+            <div class="quran-box" style="margin-top: 12px">
+              <div class="quran-text">
+                ﴿إِنَّنِي أَنَا اللَّهُ لَا إِلَٰهَ إِلَّا أَنَا﴾
+              </div>
+              <div class="quran-note">
+                طه: ١٤ — <span class="highlight-word">أَنَا</span> ضمير متكلِّم
+                منفصل.
+              </div>
+            </div>
+          </div>
+          <div class="card blue">
+            <div class="card-title">👂 ضمير المخاطَب</div>
+            <p>يدلُّ على الشخص الذي يُكلَّم ويُخاطَب.</p>
+            <div style="margin-top: 10px">
+              <span class="tag tag-fil">أنتَ</span>
+              <span class="tag tag-fil">أنتِ</span>
+              <span class="tag tag-fil">أنتما</span>
+              <span class="tag tag-fil">أنتم</span>
+              <span class="tag tag-fil">أنتنَّ</span>
+            </div>
+            <div class="quran-box" style="margin-top: 12px">
+              <div class="quran-text">
+                ﴿إِنَّكَ أَنتَ الْعَلِيمُ الْحَكِيمُ﴾
+              </div>
+              <div class="quran-note">
+                البقرة: ٣٢ — <span class="highlight-word">أنتَ</span> ضمير
+                مخاطَب منفصل.
+              </div>
+            </div>
+          </div>
+          <div class="card green">
+            <div class="card-title">👤 ضمير الغائب</div>
+            <p>يدلُّ على شخص أو شيء غير حاضر في الحديث.</p>
+            <div style="margin-top: 10px">
+              <span class="tag tag-green">هو</span>
+              <span class="tag tag-green">هي</span>
+              <span class="tag tag-green">هما</span>
+              <span class="tag tag-green">هم</span>
+              <span class="tag tag-green">هنَّ</span>
+            </div>
+            <div class="quran-box" style="margin-top: 12px">
+              <div class="quran-text">﴿وَهُوَ الْعَزِيزُ الرَّحِيمُ﴾</div>
+              <div class="quran-note">
+                يس: ٥ — <span class="highlight-word">هُوَ</span> ضمير غائب
+                منفصل.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- أنواع من حيث الظهور -->
+        <h3
+          style="
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--blue-dark);
+            margin: 24px 0 14px;
+          "
+        >
+          أنواع الضمير من حيث الظهور
+        </h3>
+        <div class="card-grid">
+          <div class="card gold">
+            <div class="card-title">✍️ الضمير البارز</div>
+            <p>ضمير له صورة لفظية واضحة يمكن النطق بها والكتابة.</p>
+            <div style="margin-top: 8px">
+              <span class="tag tag-marifa">أنا</span>
+              <span class="tag tag-marifa">هو</span>
+              <span class="tag tag-marifa">ـه</span>
+              <span class="tag tag-marifa">ـك</span>
+            </div>
+            <p
+              style="
+                margin-top: 8px;
+                font-size: 0.9rem;
+                color: var(--text-light);
+              "
+            >
+              مثال: <strong>أنتَ</strong> كتبتَ الدرس
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-title">🔍 الضمير المستتر</div>
+            <p>
+              ضمير لا صورة له في اللفظ، نقدِّره في الذهن ويُعرَب «ضمير مستتر».
+            </p>
+            <div style="margin-top: 8px">
+              <span class="tag tag-ism">جوازًا</span>
+              <span class="tag tag-fil">وجوبًا</span>
+            </div>
+            <p
+              style="
+                margin-top: 8px;
+                font-size: 0.9rem;
+                color: var(--text-light);
+              "
+            >
+              مثال: «<strong>اكتبْ</strong>» — فاعله ضمير مستتر وجوبًا تقديره
+              «أنت».
+            </p>
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>الفرق بين الاستتار الجائز والواجب:</strong><br />
+          • <strong>واجب:</strong> لا يمكن ذكر الضمير بحال، مثل فعل الأمر
+          «اقرأْ» والمضارع المبدوء بـ«أ» (أكتبُ) و«ن» (نكتبُ).<br />
+          • <strong>جائز:</strong> يمكن إحلال اسم ظاهر محلَّه، مثل: «الطالبُ
+          نجحَ» — «هو» محلُّ الضمير.
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+     SECTION 2 — الضمائر المنفصلة
+══════════════════════════════════════════════════ -->
+      <section id="s2">
+        <h2 class="section-title">
+          <span class="section-num">٢</span>الضمائر المنفصلة
+        </h2>
+
+        <div class="def-box">
+          <p>
+            <strong>الضمير المنفصل</strong> هو ما يمكن النطق به مستقلاً في أول
+            الكلام أو ابتداءً، ولا يحتاج إلى كلمة تسبقه يتصل بها.
+          </p>
+        </div>
+
+        <!-- ضمائر الرفع المنفصلة -->
+        <h3
+          style="
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--purple-dark);
+            margin: 20px 0 12px;
+          "
+        >
+          أ) ضمائر الرفع المنفصلة
+        </h3>
+        <p style="margin-bottom: 14px; color: var(--text-light)">
+          تقع في محلِّ رفع (مبتدأ أو خبر أو فاعل أو نائب فاعل).
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>الضمير</th>
+              <th>النوع</th>
+              <th>العدد</th>
+              <th>مثال</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word">أنا</td>
+              <td><span class="tag tag-ism">متكلم</span></td>
+              <td>مفرد</td>
+              <td>أنا أدرسُ النحو</td>
+            </tr>
+            <tr>
+              <td class="irab-word">نحن</td>
+              <td><span class="tag tag-ism">متكلم</span></td>
+              <td>جمع / مثنى</td>
+              <td>نحن نحبُّ العربيَّة</td>
+            </tr>
+            <tr>
+              <td class="irab-word">أنتَ / أنتِ</td>
+              <td><span class="tag tag-fil">مخاطب</span></td>
+              <td>مفرد</td>
+              <td>أنتَ تفهمُ جيِّدًا</td>
+            </tr>
+            <tr>
+              <td class="irab-word">أنتما</td>
+              <td><span class="tag tag-fil">مخاطب</span></td>
+              <td>مثنى</td>
+              <td>أنتما مجتهدان</td>
+            </tr>
+            <tr>
+              <td class="irab-word">أنتم / أنتنَّ</td>
+              <td><span class="tag tag-fil">مخاطب</span></td>
+              <td>جمع</td>
+              <td>أنتم الفائزون</td>
+            </tr>
+            <tr>
+              <td class="irab-word">هو</td>
+              <td><span class="tag tag-green">غائب</span></td>
+              <td>مفرد مذكر</td>
+              <td>هو العالمُ الكبير</td>
+            </tr>
+            <tr>
+              <td class="irab-word">هي</td>
+              <td><span class="tag tag-green">غائب</span></td>
+              <td>مفرد مؤنث</td>
+              <td>هي الفائزةُ</td>
+            </tr>
+            <tr>
+              <td class="irab-word">هما</td>
+              <td><span class="tag tag-green">غائب</span></td>
+              <td>مثنى</td>
+              <td>هما يتسابقان</td>
+            </tr>
+            <tr>
+              <td class="irab-word">هم</td>
+              <td><span class="tag tag-green">غائب</span></td>
+              <td>جمع مذكر</td>
+              <td>هم الطلابُ المتفوِّقون</td>
+            </tr>
+            <tr>
+              <td class="irab-word">هنَّ</td>
+              <td><span class="tag tag-green">غائب</span></td>
+              <td>جمع مؤنث</td>
+              <td>هنَّ المعلِّمات</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Grid بصري لضمائر الرفع -->
+        <div class="pronoun-grid" style="margin-top: 18px">
+          <div class="pronoun-card">
+            <div class="pc-word">أنا</div>
+            <div class="pc-label">متكلم — مفرد</div>
+          </div>
+          <div class="pronoun-card">
+            <div class="pc-word">نحن</div>
+            <div class="pc-label">متكلم — جمع/مثنى</div>
+          </div>
+          <div class="pronoun-card blue">
+            <div class="pc-word">أنتَ</div>
+            <div class="pc-label">مخاطب — م.ذ</div>
+          </div>
+          <div class="pronoun-card blue">
+            <div class="pc-word">أنتِ</div>
+            <div class="pc-label">مخاطب — م.أ</div>
+          </div>
+          <div class="pronoun-card blue">
+            <div class="pc-word">أنتما</div>
+            <div class="pc-label">مخاطب — مثنى</div>
+          </div>
+          <div class="pronoun-card blue">
+            <div class="pc-word">أنتم</div>
+            <div class="pc-label">مخاطب — ج.ذ</div>
+          </div>
+          <div class="pronoun-card blue">
+            <div class="pc-word">أنتنَّ</div>
+            <div class="pc-label">مخاطب — ج.أ</div>
+          </div>
+          <div class="pronoun-card" style="border-color: var(--green)">
+            <div class="pc-word" style="color: var(--green)">هو</div>
+            <div class="pc-label">غائب — م.ذ</div>
+          </div>
+          <div class="pronoun-card" style="border-color: var(--green)">
+            <div class="pc-word" style="color: var(--green)">هي</div>
+            <div class="pc-label">غائب — م.أ</div>
+          </div>
+          <div class="pronoun-card" style="border-color: var(--green)">
+            <div class="pc-word" style="color: var(--green)">هما</div>
+            <div class="pc-label">غائب — مثنى</div>
+          </div>
+          <div class="pronoun-card" style="border-color: var(--green)">
+            <div class="pc-word" style="color: var(--green)">هم</div>
+            <div class="pc-label">غائب — ج.ذ</div>
+          </div>
+          <div class="pronoun-card" style="border-color: var(--green)">
+            <div class="pc-word" style="color: var(--green)">هنَّ</div>
+            <div class="pc-label">غائب — ج.أ</div>
+          </div>
+        </div>
+
+        <!-- أمثلة قرآنية -->
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 24px 0 10px;
+          "
+        >
+          شواهد قرآنية على ضمائر الرفع المنفصلة
+        </h3>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿قَالُوا سُبْحَانَكَ لَا عِلْمَ لَنَا إِلَّا مَا عَلَّمْتَنَا ۖ
+            إِنَّكَ أَنتَ الْعَلِيمُ الْحَكِيمُ﴾
+          </div>
+          <div class="quran-note">
+            البقرة: ٣٢ — <span class="highlight-word">أنتَ</span>: ضمير منفصل
+            مبني على الفتح في محلِّ رفع توكيد للضمير المتصل في «إنَّكَ».
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿نَحْنُ نَقُصُّ عَلَيْكَ أَحْسَنَ الْقَصَصِ﴾
+          </div>
+          <div class="quran-note">
+            يوسف: ٣ — <span class="highlight-word">نحن</span>: ضمير منفصل مبني
+            على الضم في محلِّ رفع مبتدأ.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿هُوَ الَّذِي خَلَقَ لَكُم مَّا فِي الْأَرْضِ جَمِيعًا﴾
+          </div>
+          <div class="quran-note">
+            البقرة: ٢٩ — <span class="highlight-word">هُوَ</span>: ضمير منفصل
+            غائب مبني على الفتح في محلِّ رفع مبتدأ.
+          </div>
+        </div>
+
+        <!-- ضمائر النصب والجر المنفصلة -->
+        <h3
+          style="
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--purple-dark);
+            margin: 28px 0 12px;
+          "
+        >
+          ب) ضمائر النصب والجرِّ المنفصلة
+        </h3>
+
+        <div class="def-box" style="margin-bottom: 16px">
+          <p>
+            تقع في محلِّ نصب أو جرٍّ، وتُستخدم بعد الحروف الناسخة والنواصب أو في
+            أسلوب الاختصاص. وهي محصورة في صيغة «إيَّا + ضمير».
+          </p>
+        </div>
+
+        <table class="th-blue">
+          <thead>
+            <tr>
+              <th>الضمير</th>
+              <th>النوع</th>
+              <th>مثال</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word">إيَّايَ</td>
+              <td><span class="tag tag-ism">متكلم مفرد</span></td>
+              <td>إيَّايَ تقصد</td>
+            </tr>
+            <tr>
+              <td class="irab-word">إيَّانا</td>
+              <td><span class="tag tag-ism">متكلم جمع</span></td>
+              <td>إيَّانا عاقبتَ</td>
+            </tr>
+            <tr>
+              <td class="irab-word">إيَّاكَ / إيَّاكِ</td>
+              <td><span class="tag tag-fil">مخاطب</span></td>
+              <td>إيَّاكَ نعبدُ</td>
+            </tr>
+            <tr>
+              <td class="irab-word">إيَّاكما</td>
+              <td><span class="tag tag-fil">مخاطب مثنى</span></td>
+              <td>إيَّاكما أقصد</td>
+            </tr>
+            <tr>
+              <td class="irab-word">إيَّاكم / إيَّاكنَّ</td>
+              <td><span class="tag tag-fil">مخاطب جمع</span></td>
+              <td>إيَّاكم حذَّرت</td>
+            </tr>
+            <tr>
+              <td class="irab-word">إيَّاه / إيَّاها</td>
+              <td><span class="tag tag-green">غائب</span></td>
+              <td>إيَّاه أردتُ</td>
+            </tr>
+            <tr>
+              <td class="irab-word">إيَّاهما</td>
+              <td><span class="tag tag-green">غائب مثنى</span></td>
+              <td>إيَّاهما كلَّمتُ</td>
+            </tr>
+            <tr>
+              <td class="irab-word">إيَّاهم / إيَّاهنَّ</td>
+              <td><span class="tag tag-green">غائب جمع</span></td>
+              <td>إيَّاهم أكرمتُ</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ﴾
+          </div>
+          <div class="quran-note">
+            الفاتحة: ٥ — <span class="highlight-word">إيَّاكَ</span> الأولى:
+            ضمير منفصل مبني على الفتح في محلِّ نصب مفعول به مقدَّم لـ«نعبد».
+            وتقديمه يفيد الحصر والتخصيص.
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>لماذا «إيَّا»؟</strong> لمَّا كان الضمير المنفصل في محلِّ نصب
+          أو جرٍّ، احتاج العرب إلى لفظٍ مستقلٍّ يحمله، فجاءت «إيَّا» وعاءً له،
+          وتتصل بها لواحق هي الضمير الحقيقي (الكاف، الياء، نا...).
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+     SECTION 3 — الضمائر المتصلة
+══════════════════════════════════════════════════ -->
+      <section id="s3">
+        <h2 class="section-title">
+          <span class="section-num">٣</span>الضمائر المتصلة وما تتصل به
+        </h2>
+
+        <div class="def-box">
+          <p>
+            <strong>الضمير المتصل</strong> هو ما لا يقع ابتداءَ الكلام ولا بعد
+            «إلاَّ» في الاختيار، بل يتصل بما قبله من فعلٍ أو اسمٍ أو حرفٍ،
+            ويُكتب معه في وحدة واحدة.
+          </p>
+        </div>
+
+        <!-- مخطط ما تتصل به الضمائر -->
+        <div class="diagram">
+          <div class="diagram-title">📎 ما تتصل به الضمائر المتصلة</div>
+          <div class="tree">
+            الضمير المتصل يتصل بـ:
+            ┌────────────────────────────────────────────┐ │ ١. الفعل │ ٢. الاسم
+            │ ٣. الحرف │ │ │ │ │ │ - فاعلاً │ مضافاً │ اسماً للحرف │ │ (ضربتُ) │
+            إليه │ الناسخ │ │ - مفعولاً │ (كتابُكَ) │ (إنَّهُ) │ │ (كلَّمه) │ │
+            │ │ - فاعلاً │ │ - مجروراً │ │ ومفعولاً │ │ بحرف جر │ │ (أعطاهُ) │ │
+            (بِهِ، لَه) │ └────────────────────────────────────────────┘
+          </div>
+        </div>
+
+        <!-- الضمائر التي تتصل بالفعل فقط -->
+        <h3
+          style="
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--purple-dark);
+            margin: 22px 0 12px;
+          "
+        >
+          أ) ضمائر تتصل بالفعل فقط (للرفع)
+        </h3>
+        <p style="margin-bottom: 14px; color: var(--text-light)">
+          هذه الضمائر لا تتصل بالأسماء ولا بالحروف، ودورها دائمًا رفع الفاعل.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>الضمير</th>
+              <th>اسمه</th>
+              <th>المثال</th>
+              <th>الإعراب المختصر</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word">تُ / تَ / تِ</td>
+              <td>تاء الفاعل</td>
+              <td>كتبتُ — كتبتَ — كتبتِ</td>
+              <td>ضمير في محلِّ رفع فاعل</td>
+            </tr>
+            <tr>
+              <td class="irab-word">نا</td>
+              <td>نا الفاعلين</td>
+              <td>كتبنا</td>
+              <td>ضمير في محلِّ رفع فاعل</td>
+            </tr>
+            <tr>
+              <td class="irab-word">تُما</td>
+              <td>تاء المثنى</td>
+              <td>كتبتُما</td>
+              <td>ضمير في محلِّ رفع فاعل</td>
+            </tr>
+            <tr>
+              <td class="irab-word">تُم / تُنَّ</td>
+              <td>تاء الجمع</td>
+              <td>كتبتُم — كتبتُنَّ</td>
+              <td>ضمير في محلِّ رفع فاعل</td>
+            </tr>
+            <tr>
+              <td class="irab-word">واو الجماعة</td>
+              <td>الواو</td>
+              <td>كتبوا — يكتبون</td>
+              <td>ضمير في محلِّ رفع فاعل</td>
+            </tr>
+            <tr>
+              <td class="irab-word">نون النسوة</td>
+              <td>النون</td>
+              <td>كتبنَ — يكتبنَ</td>
+              <td>ضمير في محلِّ رفع فاعل</td>
+            </tr>
+            <tr>
+              <td class="irab-word">ألف الاثنين</td>
+              <td>الألف</td>
+              <td>كتبا — يكتبان</td>
+              <td>ضمير في محلِّ رفع فاعل</td>
+            </tr>
+            <tr>
+              <td class="irab-word">ياء المخاطبة</td>
+              <td>الياء</td>
+              <td>تكتبين</td>
+              <td>ضمير في محلِّ رفع فاعل</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ﴾
+          </div>
+          <div class="quran-note">
+            الذاريات: ٥٦ — <span class="highlight-word">تُ</span> في «خلقتُ»:
+            تاء الفاعل، ضمير متصل في محلِّ رفع فاعل. و<span
+              class="highlight-word"
+              >واو</span
+            >
+            في «يعبدون»: في محلِّ رفع فاعل.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿قَالُوا سُبْحَانَكَ لَا عِلْمَ لَنَا إِلَّا مَا عَلَّمْتَنَا﴾
+          </div>
+          <div class="quran-note">
+            البقرة: ٣٢ — <span class="highlight-word">واو الجماعة</span> في
+            «قالوا»: ضمير في محلِّ رفع فاعل.
+          </div>
+        </div>
+
+        <!-- الضمائر التي تتصل بالفعل والاسم والحرف -->
+        <h3
+          style="
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--purple-dark);
+            margin: 28px 0 12px;
+          "
+        >
+          ب) ضمائر تتصل بالفعل والاسم والحرف (للنصب والجرِّ)
+        </h3>
+
+        <div class="card-grid">
+          <div class="card blue">
+            <div class="card-title">🔤 هاء الغيبة (هُ / هُم / هَا / هُما)</div>
+            <p>أشهر الضمائر المتصلة، تتصل بأنواع الكلم الثلاثة.</p>
+            <div style="margin-top: 10px">
+              <span class="tag tag-fil">مع فعل: ضربَهُ</span>
+              <span class="tag tag-ism">مع اسم: كتابُهُ</span>
+              <span class="tag tag-hrf">مع حرف: عليهِ</span>
+            </div>
+            <div class="quran-box" style="margin-top: 12px">
+              <div class="quran-text">﴿إِنَّهُ هُوَ السَّمِيعُ الْعَلِيمُ﴾</div>
+              <div class="quran-note">
+                البقرة: ١٣٧ — الهاء في «إنَّهُ»: ضمير في محلِّ نصب اسم إنَّ.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">🔤 كاف المخاطب (كَ / كِ / كُم / كُنَّ)</div>
+            <p>تدلُّ على المخاطَب، وتأتي في محلِّ نصب أو جرٍّ.</p>
+            <div style="margin-top: 10px">
+              <span class="tag tag-fil">أكرمَكَ</span>
+              <span class="tag tag-ism">ربُّكَ</span>
+              <span class="tag tag-hrf">عليكَ</span>
+            </div>
+            <div class="quran-box" style="margin-top: 12px">
+              <div class="quran-text">﴿مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ﴾</div>
+              <div class="quran-note">
+                الضحى: ٣ — الكاف في «ودَّعَكَ»: ضمير في محلِّ نصب مفعول به.
+              </div>
+            </div>
+          </div>
+          <div class="card green">
+            <div class="card-title">🔤 ياء المتكلِّم</div>
+            <p>تدلُّ على المتكلِّم المفرد، تسبق بكسرة أو نون وقاية.</p>
+            <div style="margin-top: 10px">
+              <span class="tag tag-fil">كلَّمَني</span>
+              <span class="tag tag-ism">كتابي</span>
+              <span class="tag tag-hrf">إنِّي / إنَّني</span>
+            </div>
+            <div class="quran-box" style="margin-top: 12px">
+              <div class="quran-text">
+                ﴿وَاعْتَصِمُوا بِحَبْلِ اللَّهِ جَمِيعًا وَلَا تَفَرَّقُوا ۚ
+                وَاذْكُرُوا نِعْمَتَ اللَّهِ عَلَيْكُمْ﴾
+              </div>
+              <div class="quran-note">
+                آل عمران: ١٠٣ — «كم» في «عليكم»: ضمير في محلِّ جرٍّ بحرف الجرِّ
+                «على».
+              </div>
+            </div>
+          </div>
+          <div class="card gold">
+            <div class="card-title">🔤 نا الفاعلين / المفعولين</div>
+            <p>تأتي فاعلاً ومفعولاً ومجرورةً حسب الموضع.</p>
+            <div style="margin-top: 10px">
+              <span class="tag tag-fil">كتبنا (فاعل)</span>
+              <span class="tag tag-ism">كلَّمَنا (مفعول)</span>
+              <span class="tag tag-hrf">ربُّنا (جر)</span>
+            </div>
+            <div class="quran-box" style="margin-top: 12px">
+              <div class="quran-text">
+                ﴿رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا﴾
+              </div>
+              <div class="quran-note">
+                البقرة: ٢٨٦ — «نا» في «ربَّنا»: ضمير في محلِّ جرٍّ بالإضافة.
+                و«نا» في «تؤاخذنا»: مفعول به.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- جدول تفصيلي اتصال الضمائر -->
+        <h3
+          style="
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--blue-dark);
+            margin: 24px 0 12px;
+          "
+        >
+          جدول ما يتصل به كلُّ ضمير
+        </h3>
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>الضمير</th>
+              <th>يتصل بالفعل</th>
+              <th>يتصل بالاسم</th>
+              <th>يتصل بالحرف</th>
+              <th>موقعه الإعرابي</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word">تاء الفاعل</td>
+              <td>✅</td>
+              <td>❌</td>
+              <td>❌</td>
+              <td>رفع (فاعل)</td>
+            </tr>
+            <tr>
+              <td class="irab-word">نا الفاعلين</td>
+              <td>✅</td>
+              <td>❌</td>
+              <td>❌</td>
+              <td>رفع (فاعل)</td>
+            </tr>
+            <tr>
+              <td class="irab-word">واو الجماعة</td>
+              <td>✅</td>
+              <td>❌</td>
+              <td>❌</td>
+              <td>رفع (فاعل)</td>
+            </tr>
+            <tr>
+              <td class="irab-word">نون النسوة</td>
+              <td>✅</td>
+              <td>❌</td>
+              <td>❌</td>
+              <td>رفع (فاعل)</td>
+            </tr>
+            <tr>
+              <td class="irab-word">ألف الاثنين</td>
+              <td>✅</td>
+              <td>❌</td>
+              <td>❌</td>
+              <td>رفع (فاعل)</td>
+            </tr>
+            <tr>
+              <td class="irab-word">هاء الغيبة</td>
+              <td>✅</td>
+              <td>✅</td>
+              <td>✅</td>
+              <td>نصب / جر</td>
+            </tr>
+            <tr>
+              <td class="irab-word">كاف المخاطب</td>
+              <td>✅</td>
+              <td>✅</td>
+              <td>✅</td>
+              <td>نصب / جر</td>
+            </tr>
+            <tr>
+              <td class="irab-word">ياء المتكلِّم</td>
+              <td>✅</td>
+              <td>✅</td>
+              <td>✅</td>
+              <td>نصب / جر</td>
+            </tr>
+            <tr>
+              <td class="irab-word">نا المفعول</td>
+              <td>✅</td>
+              <td>✅</td>
+              <td>✅</td>
+              <td>نصب / جر</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- تمثيل بصري للاتصال -->
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 24px 0 10px;
+          "
+        >
+          تمثيل بصري لاتصال الضمير
+        </h3>
+        <div class="attach-demo">
+          <div class="attach-part base">
+            <span>كتابُ</span><span class="attach-label">الاسم الأصل</span>
+          </div>
+          <div class="attach-part pronoun">
+            <span>هُ</span><span class="attach-label">الضمير</span>
+          </div>
+        </div>
+        <p
+          style="
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+          "
+        >
+          ← «كتابُهُ» = اسم + ضمير متصل مجرور بالإضافة
+        </p>
+
+        <div class="attach-demo" style="margin-top: 16px">
+          <div class="attach-part base">
+            <span>كلَّمَ</span><span class="attach-label">الفعل</span>
+          </div>
+          <div class="attach-part pronoun">
+            <span>هُ</span><span class="attach-label">الضمير</span>
+          </div>
+        </div>
+        <p
+          style="
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+          "
+        >
+          ← «كلَّمَهُ» = فعل + ضمير متصل في محلِّ نصب مفعول به
+        </p>
+
+        <div class="attach-demo" style="margin-top: 16px">
+          <div class="attach-part base">
+            <span>إنَّ</span><span class="attach-label">الحرف الناسخ</span>
+          </div>
+          <div class="attach-part pronoun">
+            <span>هُ</span><span class="attach-label">الضمير</span>
+          </div>
+        </div>
+        <p
+          style="
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+          "
+        >
+          ← «إنَّهُ» = حرف ناسخ + ضمير متصل في محلِّ نصب اسم إنَّ
+        </p>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+     SECTION 4 — ضمير الشأن
+══════════════════════════════════════════════════ -->
+      <section id="s4">
+        <h2 class="section-title">
+          <span class="section-num">٤</span>ضمير الشأن والقصَّة
+        </h2>
+
+        <div class="def-box">
+          <p>
+            <strong>ضمير الشأن</strong> (ويُسمَّى ضمير القصَّة) هو ضمير غائب
+            مفرد (<span class="highlight-word">هو</span> أو
+            <span class="highlight-word">هي</span>) يأتي في أوَّل الكلام،
+            ويُفسِّره ما بعده من الجملة. والغرض منه التعظيم والتنبيه على أنَّ ما
+            سيلي أمرٌ جليلٌ يستحقُّ الاهتمام.
+          </p>
+        </div>
+
+        <!-- مخطط توضيحي -->
+        <div class="diagram">
+          <div class="diagram-title">🔎 بنية ضمير الشأن</div>
+          <div class="tree">
+            ┌──────────────────────────────────────────────────┐ │ ضمير الشأن +
+            جملة مفسِّرة (خبره) │ │ │ │ مثال: │ │ «إنَّهُ لا يُفلحُ الظالمون» │
+            │ ↓ │ │ [إنَّ] + [هُ = ضمير الشأن، اسم إنَّ] │ │ + [جملة «لا يُفلحُ
+            الظالمون» = الخبر] │
+            └──────────────────────────────────────────────────┘
+          </div>
+        </div>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title">📌 شروط ضمير الشأن</div>
+            <ul style="list-style: none; padding: 0">
+              <li
+                style="
+                  margin-bottom: 8px;
+                  display: flex;
+                  gap: 8px;
+                  align-items: flex-start;
+                "
+              >
+                <span style="color: var(--purple); font-size: 1.1rem">•</span>
+                <span>يكون مفردًا مذكرًا «هو» أو مؤنثًا «هي»</span>
+              </li>
+              <li
+                style="
+                  margin-bottom: 8px;
+                  display: flex;
+                  gap: 8px;
+                  align-items: flex-start;
+                "
+              >
+                <span style="color: var(--purple); font-size: 1.1rem">•</span>
+                <span>لا مرجعَ له يسبقه في الكلام</span>
+              </li>
+              <li
+                style="
+                  margin-bottom: 8px;
+                  display: flex;
+                  gap: 8px;
+                  align-items: flex-start;
+                "
+              >
+                <span style="color: var(--purple); font-size: 1.1rem">•</span>
+                <span
+                  >يُفسَّر بجملة تليه (وهي خبره إن كان مبتدأً، أو اسمه إن دخل
+                  عليه ناسخ)</span
+                >
+              </li>
+              <li style="display: flex; gap: 8px; align-items: flex-start">
+                <span style="color: var(--purple); font-size: 1.1rem">•</span>
+                <span>الجملة المفسِّرة لا تكون نكرة محضة</span>
+              </li>
+            </ul>
+          </div>
+          <div class="card blue">
+            <div class="card-title">🎯 الغرض البلاغي</div>
+            <p>يُستخدم ضمير الشأن لـ:</p>
+            <ul style="list-style: none; padding: 0; margin-top: 8px">
+              <li style="margin-bottom: 6px">
+                🔹 التعظيم: أنَّ ما سيذكر بعده أمرٌ عظيم
+              </li>
+              <li style="margin-bottom: 6px">
+                🔹 التنبيه: تهيئة ذهن السامع لاستقبال الخبر
+              </li>
+              <li style="margin-bottom: 6px">
+                🔹 الاهتمام: إبراز أهمية الجملة الآتية
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- أمثلة تطبيقية -->
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 20px 0 10px;
+          "
+        >
+          أمثلة تطبيقية
+        </h3>
+        <table>
+          <thead>
+            <tr>
+              <th>الجملة</th>
+              <th>الضمير</th>
+              <th>موقعه</th>
+              <th>المفسِّر</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>إنَّهُ لا يُفلح الكاذبون</td>
+              <td class="irab-word">هُ</td>
+              <td>اسم إنَّ</td>
+              <td>جملة «لا يفلح الكاذبون»</td>
+            </tr>
+            <tr>
+              <td>هوَ العلمُ نورٌ</td>
+              <td class="irab-word">هوَ</td>
+              <td>مبتدأ</td>
+              <td>جملة «العلمُ نورٌ»</td>
+            </tr>
+            <tr>
+              <td>ظنَّهُ زيدٌ قائمًا</td>
+              <td class="irab-word">هُ</td>
+              <td>مفعول به أول</td>
+              <td>جملة «زيدٌ قائمًا»</td>
+            </tr>
+            <tr>
+              <td>هيَ الحقيقةُ تعلو</td>
+              <td class="irab-word">هيَ</td>
+              <td>مبتدأ (مؤنث)</td>
+              <td>جملة «الحقيقةُ تعلو»</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- شواهد قرآنية -->
+        <div class="quran-box">
+          <div class="quran-text">﴿قُلْ هُوَ اللَّهُ أَحَدٌ﴾</div>
+          <div class="quran-note">
+            الإخلاص: ١ — <span class="highlight-word">هُوَ</span>: ضمير الشأن،
+            مبتدأ أول، وجملة «اللهُ أحدٌ» مبتدأ ثانٍ وخبر في محلِّ رفع خبر
+            المبتدأ الأول (ضمير الشأن). <br />الغرض: تفخيم هذا الخبر العظيم
+            وتعظيمه قبل النطق به.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿فَإِنَّهَا لَا تَعْمَى الْأَبْصَارُ وَلَٰكِن تَعْمَى الْقُلُوبُ
+            الَّتِي فِي الصُّدُورِ﴾
+          </div>
+          <div class="quran-note">
+            الحج: ٤٦ — <span class="highlight-word">ها</span> في «فإنَّها»: ضمير
+            شأن مؤنث، اسم إنَّ، والجملة بعده «لا تعمى الأبصار» خبر إنَّ.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿إِنَّهُ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ اللَّهَ لَا يُضِيعُ أَجْرَ
+            الْمُحْسِنِينَ﴾
+          </div>
+          <div class="quran-note">
+            يوسف: ٩٠ — <span class="highlight-word">هُ</span> في «إنَّهُ»: ضمير
+            الشأن، اسم إنَّ، والجملة الشرطية «من يتَّقِ ويصبرْ» خبره.
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>تنبيه نحوي:</strong> ضمير الشأن لا يُثنَّى ولا يُجمَع ولا
+          يؤنَّث إلا إذا كان خبره جملةً مؤنثة كقوله تعالى «فإنَّها لا تعمى
+          الأبصار». وهو دائمًا للغائب.
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+     SECTION 5 — إعراب الضمائر
+══════════════════════════════════════════════════ -->
+      <section id="s5">
+        <h2 class="section-title">
+          <span class="section-num">٥</span>إعراب الضمائر
+        </h2>
+
+        <div class="def-box">
+          <p>
+            الضمائر كلُّها <strong>مبنيَّة</strong>، أي لا تتغيَّر حركة آخرها
+            بتغيُّر موقعها الإعرابي. ولكنَّها تكون في محلٍّ من الإعراب يُحدَّد
+            بحسب موقعها في الجملة.
+          </p>
+        </div>
+
+        <!-- مخطط المحلات الإعرابية -->
+        <div class="diagram">
+          <div class="diagram-title">📊 المحلَّات الإعرابية للضمائر</div>
+          <div class="tree">
+            ┌──────────────────────────────────────────────────────┐ │ محلُّ
+            الضمير من الإعراب │
+            ├──────────────┬──────────────┬────────────────────────┤ │ رَفْع │
+            نَصْب │ جَرّ │
+            ├──────────────┼──────────────┼────────────────────────┤ │ • مبتدأ │
+            • مفعول به │ • مضاف إليه │ │ • خبر │ • اسم إنَّ │ • مجرور بحرف الجر
+            │ │ • فاعل │ • مفعول معه │ │ │ • نائب فاعل │ • خبر كان │ │ │ • اسم
+            كان │ • حال │ │
+            └──────────────┴──────────────┴────────────────────────┘
+          </div>
+        </div>
+
+        <!-- نموذج إعراب تفصيلي -->
+        <h3
+          style="
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--purple-dark);
+            margin: 22px 0 12px;
+          "
+        >
+          نماذج إعراب تفصيلية
+        </h3>
+
+        <!-- نموذج 1 -->
+        <div class="card" style="margin-bottom: 22px">
+          <div class="card-title">📝 إعراب: «أنا أحبُّ العلمَ»</div>
+          <table>
+            <thead>
+              <tr>
+                <th>الكلمة</th>
+                <th>الإعراب</th>
+                <th>السبب</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="irab-word">أنا</td>
+                <td class="irab-type">
+                  ضمير منفصل مبني على السكون في محلِّ رفع مبتدأ
+                </td>
+                <td class="irab-note">جاء في مستهلِّ الجملة فاستحقَّ الرفع</td>
+              </tr>
+              <tr>
+                <td class="irab-word">أحبُّ</td>
+                <td class="irab-type">
+                  فعل مضارع مرفوع بالضمة — فاعله ضمير مستتر «أنا»
+                </td>
+                <td class="irab-note">الجملة الفعلية خبر المبتدأ</td>
+              </tr>
+              <tr>
+                <td class="irab-word">العلمَ</td>
+                <td class="irab-type">مفعول به منصوب بالفتحة</td>
+                <td class="irab-note">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- نموذج 2 -->
+        <div class="card blue" style="margin-bottom: 22px">
+          <div class="card-title">📝 إعراب: «كتابُهُ مفيدٌ»</div>
+          <table class="th-blue">
+            <thead>
+              <tr>
+                <th>الكلمة</th>
+                <th>الإعراب</th>
+                <th>السبب</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="irab-word">كتابُ</td>
+                <td class="irab-type">مبتدأ مرفوع بالضمة، وهو مضاف</td>
+                <td class="irab-note">—</td>
+              </tr>
+              <tr>
+                <td class="irab-word">هُ</td>
+                <td class="irab-type">
+                  ضمير متصل مبني على الضم في محلِّ جرٍّ بالإضافة
+                </td>
+                <td class="irab-note">أضيف إليه الاسم «كتاب»</td>
+              </tr>
+              <tr>
+                <td class="irab-word">مفيدٌ</td>
+                <td class="irab-type">خبر مرفوع بالضمة</td>
+                <td class="irab-note">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- نموذج 3 -->
+        <div class="card green" style="margin-bottom: 22px">
+          <div class="card-title">📝 إعراب: «إيَّاكَ نعبدُ»</div>
+          <table>
+            <thead>
+              <tr>
+                <th>الكلمة</th>
+                <th>الإعراب</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="irab-word">إيَّاكَ</td>
+                <td class="irab-type">
+                  ضمير منفصل مبني على الفتح في محلِّ نصب مفعول به مقدَّم
+                </td>
+              </tr>
+              <tr>
+                <td class="irab-word">نعبدُ</td>
+                <td class="irab-type">
+                  فعل مضارع مرفوع بالضمة — فاعله «نحن» ضمير مستتر — ومفعوله
+                  «إيَّاك» المتقدِّم
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="quran-box" style="margin-top: 12px">
+            <div class="quran-text">
+              ﴿إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ﴾
+            </div>
+            <div class="quran-note">
+              الفاتحة: ٥ — التقديم هنا يفيد الحصر: نخصُّك وحدك بالعبادة
+              والاستعانة.
+            </div>
+          </div>
+        </div>
+
+        <!-- نموذج 4 قرآني -->
+        <div class="card gold" style="margin-bottom: 22px">
+          <div class="card-title">
+            📝 إعراب الضمائر في: ﴿إِنَّا أَنزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِ﴾
+          </div>
+          <table class="th-gold">
+            <thead>
+              <tr>
+                <th>الكلمة</th>
+                <th>الإعراب</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="irab-word">إنَّ</td>
+                <td>حرف توكيد ونصب مبني</td>
+              </tr>
+              <tr>
+                <td class="irab-word">نا (في إنَّا)</td>
+                <td class="irab-type">
+                  ضمير متصل مبني على السكون في محلِّ نصب اسم إنَّ
+                </td>
+              </tr>
+              <tr>
+                <td class="irab-word">أنزلنا</td>
+                <td>فعل ماضٍ مبني على السكون، «نا» في محلِّ رفع فاعل</td>
+              </tr>
+              <tr>
+                <td class="irab-word">هُ (في أنزلناه)</td>
+                <td class="irab-type">
+                  ضمير متصل مبني على الضم في محلِّ نصب مفعول به (يعود على
+                  القرآن)
+                </td>
+              </tr>
+              <tr>
+                <td class="irab-word">في</td>
+                <td>حرف جر مبني</td>
+              </tr>
+              <tr>
+                <td class="irab-word">ليلةِ</td>
+                <td>اسم مجرور بـ«في» وهو مضاف</td>
+              </tr>
+              <tr>
+                <td class="irab-word">القدرِ</td>
+                <td>مضاف إليه مجرور بالكسرة</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- قاعدة بناء الضمير -->
+        <h3
+          style="
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--purple-dark);
+            margin: 26px 0 12px;
+          "
+        >
+          قاعدة بناء الضمائر المنفصلة
+        </h3>
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>الضمير</th>
+              <th>يُبنى على</th>
+              <th>مثال</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word">أنا</td>
+              <td class="irab-sign">السكون</td>
+              <td>أنا كاتبٌ</td>
+            </tr>
+            <tr>
+              <td class="irab-word">نحن</td>
+              <td class="irab-sign">الضم</td>
+              <td>نحن المسلمون</td>
+            </tr>
+            <tr>
+              <td class="irab-word">أنتَ</td>
+              <td class="irab-sign">الفتح</td>
+              <td>أنتَ الطالبُ</td>
+            </tr>
+            <tr>
+              <td class="irab-word">أنتِ</td>
+              <td class="irab-sign">الكسر</td>
+              <td>أنتِ الطالبةُ</td>
+            </tr>
+            <tr>
+              <td class="irab-word">أنتما</td>
+              <td class="irab-sign">الفتح والميم والألف</td>
+              <td>أنتما حاضران</td>
+            </tr>
+            <tr>
+              <td class="irab-word">أنتم</td>
+              <td class="irab-sign">الفتح والميم</td>
+              <td>أنتم الفائزون</td>
+            </tr>
+            <tr>
+              <td class="irab-word">أنتنَّ</td>
+              <td class="irab-sign">الفتح والنون المشدَّدة</td>
+              <td>أنتنَّ صادقات</td>
+            </tr>
+            <tr>
+              <td class="irab-word">هو</td>
+              <td class="irab-sign">الفتح</td>
+              <td>هو النجاح</td>
+            </tr>
+            <tr>
+              <td class="irab-word">هي</td>
+              <td class="irab-sign">الفتح</td>
+              <td>هي الحقيقة</td>
+            </tr>
+            <tr>
+              <td class="irab-word">هما</td>
+              <td class="irab-sign">الفتح والميم والألف</td>
+              <td>هما أخوان</td>
+            </tr>
+            <tr>
+              <td class="irab-word">هم</td>
+              <td class="irab-sign">الفتح والميم</td>
+              <td>هم العلماء</td>
+            </tr>
+            <tr>
+              <td class="irab-word">هنَّ</td>
+              <td class="irab-sign">الفتح والنون المشدَّدة</td>
+              <td>هنَّ الطالبات</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note">
+          <strong>ملاحظة الضمائر المتصلة:</strong> لا يُقال «مبنيَّة على كذا» بل
+          يُقال «مبنيٌّ على ما انتهى إليه» لأنَّ الضمائر المتصلة حروف تلتصق
+          بالكلمة ولا إعراب ظاهر عليها بذاتها. يُقال: «الهاء ضمير متصل مبني على
+          الضم في محلِّ كذا».
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+     SECTION 6 — الملخص الشبكي
+══════════════════════════════════════════════════ -->
+      <section id="s6">
+        <h2 class="section-title">
+          <span class="section-num">٦</span>الملخص الشامل
+        </h2>
+
+        <div class="diagram" style="margin-bottom: 30px">
+          <div class="diagram-title">🗺 خريطة الضمائر — نظرة شاملة في ومضة</div>
+          <div class="tree">
+            ┌─────────────────────────────────────────────────────────┐ │
+            الضَّمِير │ │ اسم مبني يدلُّ على متكلِّم أو مخاطَب أو غائب │
+            ├─────────────────────┬───────────────────────────────────┤ │
+            مُنفَصِل │ مُتَّصِل │
+            ├──────────┬──────────┼────────────┬──────────────────────┤ │ رفع │
+            نصب/جر │بالفعل فقط │ بالفعل والاسم والحرف │ │ │ │(رفع فاعل) │ (نصب /
+            جر) │ │ أنا،نحن │ إيَّايَ │تاء الفاعل │ الهاء — الكاف — الياء │ │
+            أنتَ،هو │ إيَّاهُ │ نا الفاعل │ نا المفعولين │ │ هم، هنَّ│ إيَّاكَ │
+            واو الجماعة، نون النسوة، ألف الاثنين │
+            └──────────┴──────────┴────────────┴──────────────────────┘
+          </div>
+        </div>
+
+        <div class="sum-grid">
+          <div class="sum-card">
+            <div class="sum-icon">🔤</div>
+            <div class="sum-title">الضمير</div>
+            <div class="sum-text">
+              اسم مبني معرفة يدلُّ على متكلِّم أو مخاطَب أو غائب. لا يتغيَّر
+              آخره بتغيُّر إعرابه.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🔓</div>
+            <div class="sum-title">المنفصل</div>
+            <div class="sum-text">
+              يُنطق باستقلال. رفعٌ: (أنا، أنتَ، هو...) ونصبٌ وجرٌّ: (إيَّايَ،
+              إيَّاكَ، إيَّاهُ...).
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🔗</div>
+            <div class="sum-title">المتصل</div>
+            <div class="sum-text">
+              يتصل بالفعل أو الاسم أو الحرف. للرفع: تاء الفاعل، واو الجماعة...
+              وللنصب والجرِّ: الهاء، الكاف، الياء، نا.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">👁</div>
+            <div class="sum-title">ضمير الشأن</div>
+            <div class="sum-text">
+              هو / هي بلا مرجع سابق، يُفسِّره ما بعده. يُفيد التعظيم والتنبيه
+              على أهمية ما يلي.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">📐</div>
+            <div class="sum-title">الإعراب</div>
+            <div class="sum-text">
+              كلُّ ضمير مبني. ويُقدَّر له محلٌّ إعرابي: رفع أو نصب أو جرٌّ حسب
+              موقعه في الجملة.
+            </div>
+          </div>
+        </div>
+
+        <!-- جدول القواعد الذهبية -->
+        <h3
+          style="
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--blue-dark);
+            margin: 32px 0 12px;
+          "
+        >
+          القواعد الذهبية التي يجب حفظها
+        </h3>
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title">⭐ قاعدة ١</div>
+            <p>
+              الضمائر كلُّها <span class="highlight-word">مبنيَّة</span> دون
+              استثناء — في محلٍّ رفع أو نصب أو جرٍّ.
+            </p>
+          </div>
+          <div class="card blue">
+            <div class="card-title">⭐ قاعدة ٢</div>
+            <p>
+              ضمائر الرفع المنفصلة لا تقع في محلِّ نصب أو جرٍّ إلا في ضرورة
+              شعرية نادرة.
+            </p>
+          </div>
+          <div class="card green">
+            <div class="card-title">⭐ قاعدة ٣</div>
+            <p>
+              ضمائر «إيَّا» هي الصيغة الوحيدة للنصب والجرِّ المنفصل — لا يوجد
+              غيرها.
+            </p>
+          </div>
+          <div class="card gold">
+            <div class="card-title">⭐ قاعدة ٤</div>
+            <p>
+              تاء الفاعل ونا الفاعلين وواو الجماعة ونون النسوة وألف الاثنين وياء
+              المخاطبة — للفعل فقط.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-title">⭐ قاعدة ٥</div>
+            <p>
+              ضمير الشأن لا مرجع له قبله — مرجعه الجملة المفسِّرة التي تليه.
+            </p>
+          </div>
+          <div class="card blue">
+            <div class="card-title">⭐ قاعدة ٦</div>
+            <p>
+              الضمير المستتر وجوبًا لا يُذكر أبدًا، وجوازًا يمكن ذكره بوضع اسم
+              ظاهر مكانه.
+            </p>
+          </div>
+        </div>
+
+        <!-- مراجعة سريعة -->
+        <div class="diagram" style="margin-top: 30px">
+          <div class="diagram-title">✅ مراجعة سريعة — أسئلة للتثبُّت</div>
+          <div style="color: #d0e8f8; line-height: 2.2; padding: 0 10px">
+            <p>
+              ١. ما الفرق بين «هو رجلٌ كريم» و«هو الصدقُ ينجي»؟ (الثانية ضمير
+              شأن)
+            </p>
+            <p>
+              ٢. «كلَّمتُكَ» — كم ضميرًا فيها؟ (اثنان: التاء فاعل + الكاف مفعول)
+            </p>
+            <p>
+              ٣. لماذا قُدِّم «إيَّاكَ» في «إيَّاكَ نعبدُ»؟ (للحصر: العبادة لك
+              وحدك)
+            </p>
+            <p>٤. ما محلُّ «نا» في «ربَّنا»؟ (محلُّ جرٍّ بالإضافة)</p>
+            <p>
+              ٥. هل «هُم» في «هُم الفائزون» ضمير شأن؟ (لا — لأنَّ ضمير الشأن
+              للمفرد فقط)
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      style="
+        background: var(--dark);
+        color: #a0a8c0;
+        text-align: center;
+        padding: 24px 20px;
+        font-size: 0.88rem;
+        margin-top: 10px;
+      "
+    >
+      <p style="margin-bottom: 6px">أساسيات علم النحو — الضمائر</p>
+      <p style="opacity: 0.6">
+        للمراجعة والتعلُّم الذاتي — جميع الشواهد من القرآن الكريم
+      </p>
+    </footer>
+
+    <script>
+      // Active nav on scroll
+      const sections = document.querySelectorAll('section[id]')
+      const navLinks = document.querySelectorAll('nav a')
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navLinks.forEach((l) => l.classList.remove('active'))
+              const active = document.querySelector(
+                `nav a[href="#${entry.target.id}"]`,
+              )
+              if (active) {
+                active.classList.add('active')
+                active.scrollIntoView({ block: 'nearest', inline: 'center' })
+              }
+            }
+          })
+        },
+        { rootMargin: '-20% 0px -70% 0px' },
+      )
+
+      sections.forEach((s) => observer.observe(s))
+
+      // Smooth scroll
+      navLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault()
+          const target = document.querySelector(link.getAttribute('href'))
+          if (target) target.scrollIntoView({ behavior: 'smooth' })
+        })
+      })
+    </script>
+  </body>
+</html>

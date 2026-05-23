@@ -1,0 +1,1024 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>علم النحو — أسماء الإشارة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --purple: #b370a4;
+        --purple-light: #c98fbb;
+        --purple-dark: #8a5280;
+        --blue: #72add4;
+        --blue-light: #9dc5e0;
+        --blue-dark: #4e8ab5;
+        --bg: #f2f2f2;
+        --white: #ffffff;
+        --dark: #3e3e48;
+        --dark2: #3a3a52;
+        --text: #3a3350;
+        --text-light: #6a6080;
+        --gold: #c9a84c;
+        --gold-light: #f0d080;
+        --green: #4caf7a;
+        --green-light: #80d4a8;
+        --shadow: 0 4px 20px rgba(179, 112, 164, 0.12);
+        --shadow-hover: 0 8px 32px rgba(179, 112, 164, 0.22);
+        --radius: 14px;
+        --radius-sm: 8px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Scheherazade New', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        direction: rtl;
+        line-height: 1.9;
+        font-size: 16px;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--white);
+        border-bottom: 3px solid var(--purple);
+        box-shadow: 0 2px 16px rgba(179, 112, 164, 0.15);
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+      }
+      nav::-webkit-scrollbar {
+        display: none;
+      }
+      .nav-brand {
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--purple);
+        padding: 14px 10px;
+        border-left: 2px solid var(--bg);
+        margin-left: 8px;
+        flex-shrink: 0;
+      }
+      nav a {
+        display: inline-block;
+        padding: 10px 14px;
+        color: var(--text-light);
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 600;
+        border-radius: var(--radius-sm);
+        transition: all 0.2s;
+        flex-shrink: 0;
+      }
+      nav a:hover,
+      nav a.active {
+        background: var(--purple);
+        color: var(--white);
+      }
+
+      /* ── LAYOUT ── */
+      .hero {
+        background: linear-gradient(135deg, var(--purple) 0%, var(--blue) 100%);
+        color: var(--white);
+        text-align: center;
+        padding: 60px 20px 50px;
+      }
+      .hero h1 {
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+      .hero p {
+        font-size: 1.1rem;
+        opacity: 0.88;
+      }
+      .hero-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        padding: 4px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+      }
+
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 40px 20px 60px;
+      }
+
+      section {
+        margin-bottom: 60px;
+        scroll-margin-top: 80px;
+      }
+
+      .section-title {
+        font-size: 1.55rem;
+        font-weight: 800;
+        color: var(--purple-dark);
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-title::after {
+        content: '';
+        flex: 1;
+        height: 3px;
+        background: linear-gradient(to left, transparent, var(--purple));
+        border-radius: 2px;
+      }
+      .section-num {
+        background: var(--purple);
+        color: var(--white);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        font-weight: 800;
+        flex-shrink: 0;
+      }
+
+      /* ── DEF BOX ── */
+      .def-box {
+        background: var(--white);
+        border: 2px solid var(--gold);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin-bottom: 22px;
+        position: relative;
+        box-shadow: 0 2px 12px rgba(201, 168, 76, 0.12);
+      }
+      .def-box::before {
+        content: '📖 تعريف';
+        position: absolute;
+        top: -13px;
+        right: 20px;
+        background: var(--gold);
+        color: var(--white);
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 2px 12px;
+        border-radius: 20px;
+      }
+      .def-box p {
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      /* ── QURAN BOX ── */
+      .quran-box {
+        background: linear-gradient(135deg, #f7f7f7 0%, #fcfffd 100%);
+        border: 2px solid var(--green);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin: 18px 0;
+        position: relative;
+        box-shadow: 0 2px 12px rgba(76, 175, 122, 0.1);
+      }
+      .quran-box::before {
+        content: '🌿 قرآن كريم';
+        position: absolute;
+        top: -13px;
+        right: 20px;
+        background: var(--green);
+        color: var(--white);
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 2px 12px;
+        border-radius: 20px;
+      }
+      .quran-text {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #1a5c35;
+        line-height: 2.1;
+        margin-bottom: 8px;
+        text-align: center;
+      }
+      .quran-note {
+        font-size: 0.9rem;
+        color: #3a7a55;
+        font-weight: 500;
+      }
+
+      /* ── DIAGRAM ── */
+      .diagram {
+        background: var(--dark);
+        border-radius: var(--radius);
+        padding: 28px 24px;
+        margin: 22px 0;
+        color: #e0e0f0;
+        font-family: 'Scheherazade New', sans-serif;
+      }
+      .diagram-title {
+        color: var(--light);
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 18px;
+        text-align: center;
+      }
+
+      /* ── CARDS ── */
+      .card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 22px 24px;
+        margin-bottom: 16px;
+        box-shadow: var(--shadow);
+        border-top: 4px solid var(--purple);
+        transition: box-shadow 0.2s;
+      }
+      .card:hover {
+        box-shadow: var(--shadow-hover);
+      }
+      .card-title {
+        font-weight: 800;
+        font-size: 1.05rem;
+        color: var(--purple-dark);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .card.blue {
+        border-top-color: var(--blue);
+      }
+      .card.blue .card-title {
+        color: var(--blue-dark);
+      }
+      .card.green {
+        border-top-color: var(--green);
+      }
+      .card.green .card-title {
+        color: #2e7a50;
+      }
+      .card.gold {
+        border-top-color: var(--gold);
+      }
+      .card.gold .card-title {
+        color: #8a6020;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+        margin-bottom: 22px;
+      }
+
+      /* ── PILLS / TAGS ── */
+      .tag {
+        display: inline-block;
+        padding: 3px 12px;
+        border-radius: 20px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        margin: 3px;
+      }
+      .tag-ism {
+        background: #ede0f8;
+        color: #6a2e8a;
+      }
+      .tag-fil {
+        background: #dceefb;
+        color: #1a5c8a;
+      }
+      .tag-hrf {
+        background: #fdeedd;
+        color: #8a5010;
+      }
+      .tag-marifa {
+        background: #fdf0e0;
+        color: #8a6020;
+        border: 1px solid var(--gold);
+      }
+      .tag-nakira {
+        background: #e8f4ff;
+        color: #1a5080;
+        border: 1px solid var(--blue);
+      }
+      .tag-example {
+        background: #f0f0f0;
+        color: #444;
+      }
+      .tag-highlight {
+        background: var(--purple);
+        color: white;
+      }
+      .tag-green {
+        background: #e0f5e8;
+        color: #2a6a40;
+      }
+
+      /* ── TABLES ── */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        margin: 16px 0;
+        font-size: 0.95rem;
+      }
+      th {
+        background: var(--purple);
+        color: var(--white);
+        padding: 12px 16px;
+        font-weight: 700;
+        text-align: center;
+      }
+      td {
+        padding: 10px 16px;
+        text-align: center;
+        border-bottom: 1px solid #efe8f4;
+        color: var(--text);
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      tr:nth-child(even) td {
+        background: #faf5fc;
+      }
+      tr:hover td {
+        background: #f3ecf9;
+      }
+      .th-blue th {
+        background: var(--blue);
+      }
+      .th-gold th {
+        background: var(--gold);
+      }
+      .th-dark th {
+        background: var(--dark);
+      }
+
+      /* ── IRAB TABLE ── */
+      .irab-word {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: var(--purple-dark);
+      }
+      .irab-type {
+        color: var(--blue-dark);
+        font-weight: 600;
+      }
+      .irab-sign {
+        color: var(--gold);
+        font-weight: 700;
+      }
+      .irab-note {
+        color: var(--text-light);
+        font-size: 0.88rem;
+      }
+
+      /* ── SUM GRID ── */
+      .sum-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        margin-top: 30px;
+      }
+      .sum-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 20px;
+        text-align: center;
+        box-shadow: var(--shadow);
+        border-bottom: 4px solid var(--purple);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .sum-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
+      }
+      .sum-card:nth-child(2) {
+        border-bottom-color: var(--blue);
+      }
+      .sum-card:nth-child(3) {
+        border-bottom-color: var(--green);
+      }
+      .sum-card:nth-child(4) {
+        border-bottom-color: var(--gold);
+      }
+      .sum-card:nth-child(5) {
+        border-bottom-color: var(--purple-light);
+      }
+      .sum-icon {
+        font-size: 2rem;
+        margin-bottom: 8px;
+      }
+      .sum-title {
+        font-weight: 800;
+        font-size: 1rem;
+        color: var(--text);
+        margin-bottom: 6px;
+      }
+      .sum-text {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+
+      /* ── PRONOUN VISUAL GRID ── */
+      .pronoun-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 10px;
+        margin: 16px 0;
+      }
+      .pronoun-card {
+        background: var(--white);
+        border: 2px solid var(--purple);
+        border-radius: 10px;
+        padding: 12px 10px;
+        text-align: center;
+        transition: all 0.2s;
+      }
+      .pronoun-card:hover {
+        background: var(--purple);
+        color: var(--white);
+      }
+      .pronoun-card:hover .pc-label {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .pc-word {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: var(--purple-dark);
+      }
+      .pronoun-card:hover .pc-word {
+        color: var(--white);
+      }
+      .pc-label {
+        font-size: 0.75rem;
+        color: var(--text-light);
+        margin-top: 4px;
+      }
+
+      .pronoun-card.blue {
+        border-color: var(--blue);
+      }
+      .pronoun-card.blue .pc-word {
+        color: var(--blue-dark);
+      }
+      .pronoun-card.blue:hover {
+        background: var(--blue);
+      }
+
+      /* ── NOTE ── */
+      .note {
+        background: #fdf4ff;
+        border-right: 4px solid var(--purple);
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        padding: 14px 18px;
+        margin: 14px 0;
+        font-size: 0.93rem;
+        color: var(--text);
+      }
+      .note strong {
+        color: var(--purple-dark);
+      }
+
+      .highlight-word {
+        background: linear-gradient(
+          to top,
+          var(--purple-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .highlight-blue {
+        background: linear-gradient(
+          to top,
+          var(--blue-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+
+      /* ── FLEX ROW ── */
+      .flex-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 12px 0;
+        align-items: flex-start;
+      }
+
+      /* ── ATTACHED PRONOUN BOXES ── */
+      .attach-demo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        margin: 16px 0;
+        flex-wrap: wrap;
+      }
+      .attach-part {
+        padding: 10px 16px;
+        font-size: 1.1rem;
+        font-weight: 800;
+        border: 2px solid;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 70px;
+      }
+      .attach-part.pronoun {
+        background: var(--purple);
+        color: white;
+        border-color: var(--purple-dark);
+        border-radius: 8px 0 0 8px;
+      }
+      .attach-part.base {
+        background: var(--blue);
+        color: white;
+        border-color: var(--blue-dark);
+        border-radius: 0 8px 8px 0;
+      }
+      .attach-label {
+        font-size: 0.7rem;
+        font-weight: 500;
+        opacity: 0.85;
+        margin-top: 4px;
+      }
+
+      /* ── DIAGRAM ASCII ── */
+      .tree {
+        font-family: 'Scheherazade New', monospace;
+        font-size: 1rem;
+        line-height: 1.8;
+        color: #ffffff;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 600px) {
+        nav {
+          gap: 4px;
+          padding: 0 10px;
+        }
+        nav a {
+          padding: 10px 10px;
+          font-size: 0.82rem;
+        }
+        .hero {
+          padding: 40px 16px 36px;
+        }
+        main {
+          padding: 28px 14px 50px;
+        }
+        .def-box,
+        .quran-box {
+          padding: 18px 16px;
+        }
+        .def-box::before,
+        .quran-box::before {
+          right: 14px;
+        }
+        .quran-text {
+          font-size: 1.05rem;
+        }
+        table {
+          font-size: 0.85rem;
+        }
+        td,
+        th {
+          padding: 8px 10px;
+        }
+        .pronoun-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .sum-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .attach-demo {
+          flex-direction: column;
+        }
+        .attach-part.pronoun {
+          border-radius: 8px 8px 0 0;
+        }
+        .attach-part.base {
+          border-radius: 0 0 8px 8px;
+        }
+      }
+
+      /* ── SEPARATOR ── */
+      .sep {
+        height: 2px;
+        background: linear-gradient(
+          to left,
+          transparent,
+          var(--purple),
+          transparent
+        );
+        margin: 30px 0;
+        border-radius: 2px;
+      }
+
+      /* ── SCROLL REVEAL (simple) ── */
+      section {
+        animation: fadeUp 0.4s ease both;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <div class="nav-brand">أسماء الإشارة</div>
+      <a href="#s1">التعريف</a>
+      <a href="#s2">للقريب</a>
+      <a href="#s3">للبعيد</a>
+      <a href="#s4">للمكان</a>
+      <a href="#s5">الإعراب</a>
+      <a href="#s6">الملخص</a>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-badge">أساسيات علم النحو</div>
+      <h1>أسماء الإشارة</h1>
+      <p>تعريفها · أنواعها · إعرابها · شواهدها من القرآن الكريم</p>
+    </div>
+
+    <main>
+      <!-- ══════════════════════════════════════════════════
+     SECTION 1 — التعريف
+══════════════════════════════════════════════════ -->
+      <section id="s1">
+        <h2 class="section-title">
+          <span class="section-num">١</span>تعريف اسم الإشارة
+        </h2>
+
+        <div class="def-box">
+          <p>
+            <strong>اسم الإشارة</strong> هو اسمٌ مبنيٌّ (غالباً) يوضع ليدل على
+            شيء معين (مُشار إليه) بواسطة إشارة حسية أو معنوية. وهو من
+            <span class="tag tag-marifa">المعارف</span> لأنه يدل على شيء مُحدّد
+            وواضح.
+          </p>
+        </div>
+
+        <div class="note">
+          <strong>تكوين أسلوب الإشارة:</strong> يتكون دائماً من ركنين:
+          <strong>اسم الإشارة</strong> (مثل: هذا) +
+          <strong>المُشار إليه</strong> (مثل: الكتاب).
+        </div>
+
+        <!-- شجرة التصنيف -->
+        <div class="diagram">
+          <div class="diagram-title">🌳 تصنيف أسماء الإشارة</div>
+          <div class="tree">
+            أسماء الإشارة البعيد: هذا، هذه، ذاكَ، ذلك، تلك، هذان، هاتان، تيكَ
+            أولئك هؤلاء
+          </div>
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+     SECTION 2 — للقريب
+══════════════════════════════════════════════════ -->
+      <section id="s2">
+        <h2 class="section-title">
+          <span class="section-num">٢</span>أسماء الإشارة للقريب
+        </h2>
+
+        <div class="def-box">
+          <p>
+            تُستخدم للإشارة إلى الأشخاص أو الأشياء القريبة مكانياً أو زمنياً من
+            المتكلم.
+          </p>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>اسم الإشارة</th>
+              <th>الاستخدام</th>
+              <th>العدد</th>
+              <th>مثال</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word">هَـٰذَا</td>
+              <td><span class="tag tag-ism">مذكر</span></td>
+              <td>مفرد</td>
+              <td>هذا طالبٌ مجتهدٌ</td>
+            </tr>
+            <tr>
+              <td class="irab-word">هَـٰذِهِ</td>
+              <td><span class="tag tag-ism">مؤنث</span></td>
+              <td>مفرد</td>
+              <td>هذهِ لوحةٌ جميلةٌ</td>
+            </tr>
+            <tr>
+              <td class="irab-word">هَـٰذَانِ</td>
+              <td><span class="tag tag-fil">مذكر</span></td>
+              <td>مثنى</td>
+              <td>هذانِ عالمانِ كبيرانِ</td>
+            </tr>
+            <tr>
+              <td class="irab-word">هَاتَانِ</td>
+              <td><span class="tag tag-fil">مؤنث</span></td>
+              <td>مثنى</td>
+              <td>هاتانِ شجرتانِ مثمرتانِ</td>
+            </tr>
+            <tr>
+              <td class="irab-word">هَـٰؤُلَاءِ</td>
+              <td><span class="tag tag-green">عاقل (مذكر/مؤنث)</span></td>
+              <td>جمع</td>
+              <td>هؤلاءِ المهندسون/المهندسات</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- أمثلة قرآنية -->
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 24px 0 10px;
+          "
+        >
+          شواهد قرآنية
+        </h3>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿ذَٰلِكَ الْكِتَابُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِّلْمُتَّقِينَ﴾
+          </div>
+          <div class="quran-note">
+            البقرة: ٢ — <span class="highlight-word">ذَٰلِكَ</span>: إشارة هنا
+            للتعظيم رغم أنه للقريب في المعنى.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿وَهَـٰذَا كِتَابٌ أَنزَلْنَاهُ مُبَارَكٌ﴾
+          </div>
+          <div class="quran-note">
+            الأنعام: ٩٢ — <span class="highlight-word">هَـٰذَا</span>: اسم إشارة
+            مبني في محل رفع مبتدأ.
+          </div>
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+     SECTION 3 — للبعيد
+══════════════════════════════════════════════════ -->
+      <section id="s3">
+        <h2 class="section-title">
+          <span class="section-num">٣</span>أسماء الإشارة للبعيد
+        </h2>
+
+        <div class="def-box">
+          <p>
+            تتكون أسماء الإشارة للبعيد من إضافة
+            <span class="highlight-word">لام البعد</span> و
+            <span class="highlight-word">كاف الخطاب</span> إلى اسم الإشارة
+            الأصلي (ذا، تي، أولاء).
+          </p>
+        </div>
+
+        <div class="card-grid">
+          <div class="card blue">
+            <div class="card-title">🎯 ذَلِكَ</div>
+            <p>للمفرد المذكر البعيد.</p>
+            <div style="margin-top: 10px">
+              <span class="tag tag-fil">ذا (إشارة) + ل (بُعد) + ك (خطاب)</span>
+            </div>
+            <div class="quran-box" style="margin-top: 12px">
+              <div class="quran-text">
+                ﴿ذَٰلِكَ فَضْلُ اللَّهِ يُؤْتِيهِ مَن يَشَاءُ﴾
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">🎯 تِلْكَ</div>
+            <p>للمفردة المؤنثة البعيدة، ولجمع غير العاقل.</p>
+            <div style="margin-top: 10px">
+              <span class="tag tag-ism">تي (إشارة) + ل (بُعد) + ك (خطاب)</span>
+            </div>
+            <div class="quran-box" style="margin-top: 12px">
+              <div class="quran-text">
+                ﴿تِلْكَ الرُّسُلُ فَضَّلْنَا بَعْضَهُمْ عَلَىٰ بَعْضٍ﴾
+              </div>
+            </div>
+          </div>
+          <div class="card green">
+            <div class="card-title">🎯 أُولَٰئِكَ</div>
+            <p>للجمع العاقل بنوعيه (مذكر ومؤنث) البعيد.</p>
+            <div style="margin-top: 10px">
+              <span class="tag tag-green">أولاءِ (إشارة) + ك (خطاب)</span>
+            </div>
+            <div class="quran-box" style="margin-top: 12px">
+              <div class="quran-text">
+                ﴿أُولَٰئِكَ عَلَىٰ هُدًى مِّن رَّبِّهِمْ﴾
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+     SECTION 4 — إعرابها
+══════════════════════════════════════════════════ -->
+      <section id="s4">
+        <h2 class="section-title">
+          <span class="section-num">٤</span>إعراب أسماء الإشارة
+        </h2>
+
+        <div class="def-box">
+          <p>
+            جميع أسماء الإشارة <strong>مبنية</strong> على ما تُنطق به أواخرها،
+            ما عدا المثنى منها (هذان، هاتان) فهي <strong>مُعربة</strong> إعراب
+            المثنى (تُرفع بالألف وتُنصب وتُجر بالياء).
+          </p>
+        </div>
+
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>الكلمة</th>
+              <th>الموقع الإعرابي</th>
+              <th>السبب / الإعراب</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word">هذا أخي</td>
+              <td>في محل رفع مبتدأ</td>
+              <td>مبني على السكون في محل رفع</td>
+            </tr>
+            <tr>
+              <td class="irab-word">رأيتُ هؤلاءِ</td>
+              <td>في محل نصب مفعول به</td>
+              <td>مبني على الكسر في محل نصب</td>
+            </tr>
+            <tr>
+              <td class="irab-word">مررتُ بتلكَ</td>
+              <td>في محل جر بحرف الجر</td>
+              <td>مبني على الفتح في محل جر</td>
+            </tr>
+            <tr>
+              <td class="irab-word">جاءَ هذانِ</td>
+              <td>فاعل مرفوع</td>
+              <td>
+                <span class="highlight-blue"
+                  >مرفوع بالألف لأنه ملحق بالمثنى (معرب وليس مبنياً)</span
+                >
+              </td>
+            </tr>
+            <tr>
+              <td class="irab-word">شاهدتُ هاتينِ</td>
+              <td>مفعول به منصوب</td>
+              <td>
+                <span class="highlight-blue"
+                  >منصوب بالياء لأنه ملحق بالمثنى</span
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+     SECTION 5 — الملخص
+══════════════════════════════════════════════════ -->
+      <section id="s6">
+        <h2 class="section-title">
+          <span class="section-num">٥</span>الملخص الشامل
+        </h2>
+
+        <div class="sum-grid">
+          <div class="sum-card">
+            <div class="sum-icon">📌</div>
+            <div class="sum-title">المعنى</div>
+            <div class="sum-text">
+              تدل على مُشار إليه محدد إما للقريب أو البعيد.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">📍</div>
+            <div class="sum-title">للقريب</div>
+            <div class="sum-text">هذا، هذه، هذان، هاتان، هؤلاء.</div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🔭</div>
+            <div class="sum-title">للبعيد</div>
+            <div class="sum-text">ذلك، تلك، أولئك (اتصال كاف الخطاب).</div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">⚖️</div>
+            <div class="sum-title">البناء والإعراب</div>
+            <div class="sum-text">
+              كلها مبنية في محل (رفع/نصب/جر) عدا (هذان/هاتان) تُعرب إعراب
+              المثنى.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      style="
+        background: var(--dark);
+        color: #a0a8c0;
+        text-align: center;
+        padding: 24px 20px;
+        font-size: 0.88rem;
+        margin-top: 10px;
+      "
+    >
+      <p style="margin-bottom: 6px">أساسيات علم النحو — أسماء الإشارة</p>
+      <p style="opacity: 0.6">
+        للمراجعة والتعلُّم الذاتي — جميع الشواهد من القرآن الكريم
+      </p>
+    </footer>
+
+    <script>
+      // Active nav on scroll
+      const sections = document.querySelectorAll('section[id]')
+      const navLinks = document.querySelectorAll('nav a')
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navLinks.forEach((l) => l.classList.remove('active'))
+              const active = document.querySelector(
+                `nav a[href="#${entry.target.id}"]`,
+              )
+              if (active) {
+                active.classList.add('active')
+                active.scrollIntoView({ block: 'nearest', inline: 'center' })
+              }
+            }
+          })
+        },
+        { rootMargin: '-20% 0px -70% 0px' },
+      )
+
+      sections.forEach((s) => observer.observe(s))
+
+      // Smooth scroll
+      navLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault()
+          const target = document.querySelector(link.getAttribute('href'))
+          if (target) target.scrollIntoView({ behavior: 'smooth' })
+        })
+      })
+    </script>
+  </body>
+</html>

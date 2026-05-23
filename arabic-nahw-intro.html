@@ -1,0 +1,1483 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مدخل إلى علم النحو</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f7f4ef;
+        --surface: #ffffff;
+        --surface2: #f0ece4;
+        --border: #e2d9cc;
+        --accent: #6b7c5c;
+        --accent2: #a0845c;
+        --accent3: #5c7280;
+        --text: #2c2a26;
+        --text-soft: #6b6458;
+        --text-mute: #9c9080;
+        --gold: #c9a84c;
+        --green: #6b7c5c;
+        --blue: #5c7280;
+        --rust: #a0845c;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Baloo 2', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.9;
+        font-size: 17px;
+      }
+
+      /* ── HEADER ── */
+      header {
+        background: var(--text);
+        color: #f7f4ef;
+        padding: 64px 40px 48px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      header::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse 60% 80% at 20% 50%,
+            rgba(107, 124, 92, 0.25) 0%,
+            transparent 70%
+          ),
+          radial-gradient(
+            ellipse 50% 70% at 80% 30%,
+            rgba(160, 132, 92, 0.2) 0%,
+            transparent 70%
+          );
+        pointer-events: none;
+      }
+      header .ornament {
+        font-size: 28px;
+        letter-spacing: 18px;
+        color: var(--gold);
+        opacity: 0.7;
+        margin-bottom: 16px;
+        display: block;
+      }
+      header h1 {
+        font-size: clamp(32px, 6vw, 54px);
+        font-weight: 800;
+        letter-spacing: -1px;
+        line-height: 1.25;
+        margin-bottom: 10px;
+      }
+      header p {
+        color: #b0aa9e;
+        font-size: 15px;
+        font-weight: 400;
+      }
+
+      /* ── NAV ── */
+      nav {
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        padding: 0 40px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        justify-content: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+      }
+      nav a {
+        display: inline-block;
+        padding: 14px 16px;
+        font-size: 13.5px;
+        font-weight: 600;
+        color: var(--text-soft);
+        text-decoration: none;
+        border-bottom: 3px solid transparent;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+        white-space: nowrap;
+      }
+      nav a:hover {
+        color: var(--accent2);
+        border-bottom-color: var(--accent2);
+      }
+
+      /* ── MAIN ── */
+      main {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 56px 28px 100px;
+      }
+
+      /* ── SECTION ── */
+      .section {
+        margin-bottom: 80px;
+        animation: fadeUp 0.5s ease both;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 32px;
+      }
+      .section-num {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: var(--text);
+        color: #f7f4ef;
+        font-size: 18px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .section-header h2 {
+        font-size: clamp(22px, 4vw, 30px);
+        font-weight: 800;
+        line-height: 1.2;
+      }
+
+      /* ── CARD ── */
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 28px 32px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      }
+      .card h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: var(--accent2);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .card h3 .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent2);
+        flex-shrink: 0;
+      }
+
+      /* ── DEFINITION BOX ── */
+      .def-box {
+        background: linear-gradient(135deg, #f0ece4 0%, #ebe5d8 100%);
+        border-right: 5px solid var(--gold);
+        border-radius: 12px;
+        padding: 22px 26px;
+        margin: 20px 0;
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--text);
+        line-height: 1.7;
+      }
+
+      /* ── QURAN BOX ── */
+      .quran-box {
+        background: linear-gradient(135deg, #eef2ec 0%, #e6ede3 100%);
+        border: 1px solid #c8d5c2;
+        border-right: 5px solid var(--green);
+        border-radius: 12px;
+        padding: 18px 22px;
+        margin: 14px 0;
+        font-size: 17px;
+      }
+      .quran-box .ayah {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--text);
+        display: block;
+        margin-bottom: 10px;
+        line-height: 1.8;
+      }
+      .quran-box .analysis {
+        font-size: 14px;
+        color: var(--text-soft);
+      }
+      .quran-label {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--green);
+        margin-bottom: 6px;
+        display: block;
+      }
+
+      /* ── TABLE ── */
+      .tbl-wrap {
+        overflow-x: auto;
+        margin: 16px 0;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 15px;
+      }
+      th {
+        background: var(--text);
+        color: #f7f4ef;
+        padding: 13px 18px;
+        text-align: right;
+        font-weight: 700;
+        font-size: 14px;
+      }
+      td {
+        padding: 12px 18px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      tr:nth-child(even) td {
+        background: var(--surface2);
+      }
+
+      /* ── CODE / DIAGRAM ── */
+      .diagram {
+        background: #2c2a26;
+        color: #e8e0d0;
+        border-radius: 12px;
+        padding: 22px 26px;
+        font-family: 'Baloo 2', monospace;
+        font-size: 14.5px;
+        line-height: 2;
+        margin: 16px 0;
+        overflow-x: auto;
+        direction: ltr;
+        text-align: left;
+      }
+      .diagram .hl {
+        color: var(--gold);
+        font-weight: 700;
+      }
+      .diagram .hl2 {
+        color: #8ec07c;
+      }
+      .diagram .hl3 {
+        color: #83a598;
+      }
+
+      /* ── EXAMPLE ROW ── */
+      .example {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 12px 0;
+        align-items: flex-start;
+      }
+      .ex-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 4px 14px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .tag-noun {
+        background: #eef2ec;
+        color: #4a6741;
+        border: 1px solid #c8d5c2;
+      }
+      .tag-verb {
+        background: #fdf3e7;
+        color: #7a5c30;
+        border: 1px solid #e8d0a8;
+      }
+      .tag-part {
+        background: #e8eff5;
+        color: #3a5c70;
+        border: 1px solid #b8cfd8;
+      }
+      .tag-def {
+        background: #f5eef8;
+        color: #6a3a7a;
+        border: 1px solid #d8b8e8;
+      }
+      .tag-indef {
+        background: #fef9e7;
+        color: #7a6a20;
+        border: 1px solid #e8dca0;
+      }
+
+      /* ── PILL LIST ── */
+      .pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 14px 0;
+      }
+      .pill {
+        padding: 7px 18px;
+        border-radius: 30px;
+        font-size: 14.5px;
+        font-weight: 600;
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        color: var(--text);
+      }
+
+      /* ── NUMBERED STEPS ── */
+      .steps {
+        list-style: none;
+      }
+      .steps li {
+        display: flex;
+        gap: 16px;
+        padding: 14px 0;
+        border-bottom: 1px dashed var(--border);
+      }
+      .steps li:last-child {
+        border-bottom: none;
+      }
+      .step-n {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--accent2);
+        color: white;
+        font-weight: 800;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      /* ── DIVIDER ── */
+      .divider {
+        border: none;
+        border-top: 1px dashed var(--border);
+        margin: 28px 0;
+      }
+
+      /* ── BADGE ── */
+      .badge {
+        display: inline-block;
+        padding: 2px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 700;
+        background: var(--gold);
+        color: white;
+        vertical-align: middle;
+        margin-right: 4px;
+      }
+
+      /* ── SUMMARY GRID ── */
+      .sum-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+        margin: 24px 0;
+      }
+      .sum-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-top: 4px solid var(--accent2);
+        border-radius: 14px;
+        padding: 20px;
+        text-align: center;
+      }
+      .sum-card:nth-child(2) {
+        border-top-color: var(--green);
+      }
+      .sum-card:nth-child(3) {
+        border-top-color: var(--blue);
+      }
+      .sum-card:nth-child(4) {
+        border-top-color: var(--rust);
+      }
+      .sum-card:nth-child(5) {
+        border-top-color: var(--gold);
+      }
+      .sum-card:nth-child(6) {
+        border-top-color: #9c7ab8;
+      }
+      .sum-card .sc-num {
+        font-size: 32px;
+        font-weight: 800;
+        color: var(--text-soft);
+        line-height: 1;
+        margin-bottom: 6px;
+      }
+      .sum-card .sc-title {
+        font-size: 15px;
+        font-weight: 700;
+      }
+      .sum-card .sc-sub {
+        font-size: 13px;
+        color: var(--text-mute);
+        margin-top: 4px;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        text-align: center;
+        padding: 40px 20px;
+        color: var(--text-mute);
+        font-size: 14px;
+        border-top: 1px solid var(--border);
+      }
+      footer span {
+        color: var(--gold);
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 600px) {
+        header {
+          padding: 48px 20px 36px;
+        }
+        nav a {
+          padding: 10px 10px;
+          font-size: 12.5px;
+        }
+        main {
+          padding: 36px 16px 80px;
+        }
+        .card {
+          padding: 20px 18px;
+        }
+        .diagram {
+          font-size: 13px;
+          padding: 16px 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <span class="ornament">❧ ❧ ❧</span>
+      <h1>المدخل إلى علم النحو</h1>
+      <p>شرح تفصيلي مع أمثلة عملية وأمثلة من القرآن الكريم</p>
+    </header>
+
+    <!-- NAV -->
+    <nav>
+      <a href="#kalam">تعريف الكلام</a>
+      <a href="#aqsam">أقسام الكلام</a>
+      <a href="#ism">الاسم</a>
+      <a href="#fil">الفعل</a>
+      <a href="#harf">الحرف</a>
+      <a href="#nakira">النكرة والمعرفة</a>
+    </nav>
+
+    <main>
+      <!-- ══════════════════════════════════════════ -->
+      <!-- ١. تعريف الكلام -->
+      <!-- ══════════════════════════════════════════ -->
+      <section class="section" id="kalam">
+        <div class="section-header">
+          <div class="section-num">١</div>
+          <h2>تعريف الكلام</h2>
+        </div>
+
+        <div class="def-box">الكلامُ هو اللفظُ المركَّبُ المفيدُ بالوضع</div>
+
+        <div class="card">
+          <h3><span class="dot"></span>شرح قيود التعريف</h3>
+          <ul class="steps">
+            <li>
+              <div class="step-n">١</div>
+              <div>
+                <strong>اللفظ:</strong> الصوت الخارج من الفم المشتمل على الحروف
+                الهجائية. يخرج بذلك: الإشارة والكتابة والنية القلبية.
+              </div>
+            </li>
+            <li>
+              <div class="step-n">٢</div>
+              <div>
+                <strong>المركَّب:</strong> مؤلَّف من كلمتين فأكثر. يخرج بذلك
+                الكلمة المفردة كـ"محمدٌ" وحدها.
+              </div>
+            </li>
+            <li>
+              <div class="step-n">٣</div>
+              <div>
+                <strong>المفيد:</strong> يفيد معنىً تاماً يحسن السكوت عليه. يخرج
+                بذلك "إن قامَ زيدٌ" — مركَّب لكن غير مفيد.
+              </div>
+            </li>
+            <li>
+              <div class="step-n">٤</div>
+              <div>
+                <strong>بالوضع:</strong> بلغة موضوعة ومتفق عليها. يخرج بذلك
+                الأصوات غير الموضوعة.
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><span class="dot"></span>الفرق بين الكلام والكلِم والكلمة</h3>
+          <div class="tbl-wrap">
+            <table>
+              <tr>
+                <th>المصطلح</th>
+                <th>المعنى</th>
+                <th>مثال</th>
+              </tr>
+              <tr>
+                <td>الكلمة</td>
+                <td>لفظ مفرد يدل على معنى</td>
+                <td>"محمدٌ"</td>
+              </tr>
+              <tr>
+                <td>الكلِم</td>
+                <td>ثلاث كلمات فأكثر ولو لم تفد</td>
+                <td>"إن قامَ زيدٌ"</td>
+              </tr>
+              <tr>
+                <td>الكلام</td>
+                <td>مركَّب مفيد تام</td>
+                <td>"محمدٌ رسولُ الله"</td>
+              </tr>
+            </table>
+          </div>
+          <p style="margin-top: 12px; color: var(--text-soft); font-size: 15px">
+            كل كلامٍ كلِمٌ، وليس كل كلِمٍ كلاماً.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3><span class="dot"></span>أمثلة عملية</h3>
+          <div class="tbl-wrap">
+            <table>
+              <tr>
+                <th>المثال</th>
+                <th>هل هو كلام؟</th>
+                <th>السبب</th>
+              </tr>
+              <tr>
+                <td>الجوُّ جميلٌ</td>
+                <td>✅ نعم</td>
+                <td>مركَّب مفيد</td>
+              </tr>
+              <tr>
+                <td>سافرَ أحمدُ</td>
+                <td>✅ نعم</td>
+                <td>مركَّب مفيد</td>
+              </tr>
+              <tr>
+                <td>أحمدُ فقط</td>
+                <td>❌ لا</td>
+                <td>مفرد غير مركَّب</td>
+              </tr>
+              <tr>
+                <td>في البيتِ</td>
+                <td>❌ لا</td>
+                <td>مركَّب لكنه غير مفيد</td>
+              </tr>
+              <tr>
+                <td>إذا جاءَ الشتاءُ</td>
+                <td>❌ لا</td>
+                <td>المستمع ينتظر جواب الشرط</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><span class="dot"></span>أمثلة من القرآن الكريم</h3>
+          <div class="quran-box">
+            <span class="quran-label">آية كريمة</span>
+            <span class="ayah">﴿قُلْ هُوَ اللَّهُ أَحَدٌ﴾</span>
+            <span class="analysis">كلام تام مفيد — يحسن السكوت عليه.</span>
+          </div>
+          <div class="quran-box">
+            <span class="quran-label">آية كريمة</span>
+            <span class="ayah"
+              >﴿إِنَّا أَنزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِ﴾</span
+            >
+            <span class="analysis">كلام تام مفيد.</span>
+          </div>
+          <div class="quran-box">
+            <span class="quran-label">مثال على غير المفيد</span>
+            <span class="ayah">﴿وَإِن تَعُودُوا﴾</span>
+            <span class="analysis"
+              >لو وقفنا هنا فقط — ليس كلاماً تاماً، المستمع ينتظر جواب
+              الشرط.</span
+            >
+          </div>
+        </div>
+
+        <div class="diagram">
+          <span class="hl">اللفظ</span>
+          └── مركَّب؟ ├── لا →
+          <span class="hl3">ليس كلاماً (كلمة مفردة)</span> └── نعم → مفيد؟ ├──
+          لا → <span class="hl3">ليس كلاماً (كلِم)</span> └── نعم →
+          <span class="hl2">كلامٌ ✅</span>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!-- ٢. أقسام الكلام -->
+      <!-- ══════════════════════════════════════════ -->
+      <section class="section" id="aqsam">
+        <div class="section-header">
+          <div class="section-num">٢</div>
+          <h2>أقسام الكلام الثلاثة</h2>
+        </div>
+
+        <div class="def-box">
+          الكلام العربي لا يخرج عن ثلاثة أقسام:
+          <strong>اسمٌ، أو فعلٌ، أو حرفٌ</strong>
+        </div>
+
+        <div class="sum-grid">
+          <div class="sum-card">
+            <div class="sc-num">١</div>
+            <div class="sc-title">الاسم</div>
+            <div class="sc-sub">معنى في نفسه — بلا زمن</div>
+          </div>
+          <div class="sum-card">
+            <div class="sc-num">٢</div>
+            <div class="sc-title">الفعل</div>
+            <div class="sc-sub">معنى في نفسه — مقترن بزمن</div>
+          </div>
+          <div class="sum-card">
+            <div class="sc-num">٣</div>
+            <div class="sc-title">الحرف</div>
+            <div class="sc-sub">معناه في غيره — لا يستقل</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><span class="dot"></span>نظرة مقارنة</h3>
+          <div class="tbl-wrap">
+            <table>
+              <tr>
+                <th>القسم</th>
+                <th>ما يدل عليه</th>
+                <th>مثال</th>
+              </tr>
+              <tr>
+                <td><span class="ex-tag tag-noun">اسم</span></td>
+                <td>معنى في نفسه، غير مقترن بزمن</td>
+                <td>محمد، كتاب، سماء</td>
+              </tr>
+              <tr>
+                <td><span class="ex-tag tag-verb">فعل</span></td>
+                <td>معنى في نفسه، مقترن بزمن</td>
+                <td>كَتَبَ، يَكْتُبُ، اكْتُبْ</td>
+              </tr>
+              <tr>
+                <td><span class="ex-tag tag-part">حرف</span></td>
+                <td>معنى في غيره، لا يستقل</td>
+                <td>في، من، على، الواو</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><span class="dot"></span>مثال تطبيقي — جلسَ الطالبُ في الفصلِ</h3>
+          <div class="pills">
+            <span class="pill"
+              ><span class="ex-tag tag-verb">فعل</span> جلسَ</span
+            >
+            <span class="pill"
+              ><span class="ex-tag tag-noun">اسم</span> الطالبُ</span
+            >
+            <span class="pill"
+              ><span class="ex-tag tag-part">حرف</span> في</span
+            >
+            <span class="pill"
+              ><span class="ex-tag tag-noun">اسم</span> الفصلِ</span
+            >
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><span class="dot"></span>أمثلة من القرآن الكريم</h3>
+          <div class="quran-box">
+            <span class="quran-label">آية كريمة</span>
+            <span class="ayah">﴿خَلَقَ اللَّهُ السَّمَاوَاتِ وَالْأَرْضَ﴾</span>
+            <div class="pills" style="margin-top: 10px">
+              <span class="pill"
+                ><span class="ex-tag tag-verb">فعل</span> خَلَقَ</span
+              >
+              <span class="pill"
+                ><span class="ex-tag tag-noun">اسم</span> اللَّهُ</span
+              >
+              <span class="pill"
+                ><span class="ex-tag tag-noun">اسم</span> السَّمَاوَاتِ</span
+              >
+              <span class="pill"
+                ><span class="ex-tag tag-part">حرف</span> وَ</span
+              >
+              <span class="pill"
+                ><span class="ex-tag tag-noun">اسم</span> الْأَرْضَ</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="diagram">
+          <span class="hl">كل كلمة في العربية</span>
+          │ ├── هل تدل على معنى في نفسها؟ │ │ │ ├── نعم → هل مقترنة بزمن؟ │ │
+          ├── نعم → <span class="hl2">فعل ✅</span> │ │ └── لا →
+          <span class="hl2">اسم ✅</span> │ │ │ └── لا (معناها في غيرها) →
+          <span class="hl2">حرف ✅</span>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!-- ٣. الاسم وعلاماته -->
+      <!-- ══════════════════════════════════════════ -->
+      <section class="section" id="ism">
+        <div class="section-header">
+          <div class="section-num">٣</div>
+          <h2>الاسم وعلاماته</h2>
+        </div>
+
+        <div class="def-box">
+          الاسم: كلمة تدل على معنىً في نفسها، ولا تقترن بزمن.
+        </div>
+
+        <div class="card">
+          <h3><span class="dot"></span>علامات الاسم الأربع</h3>
+          <ul class="steps">
+            <li>
+              <div class="step-n">١</div>
+              <div>
+                <strong>قبول التنوين</strong> — نون ساكنة تلحق آخر الاسم: كتابٌ
+                — كتاباً — كتابٍ
+                <p
+                  style="
+                    color: var(--text-mute);
+                    font-size: 14px;
+                    margin-top: 4px;
+                  "
+                >
+                  تنبيه: بعض الأسماء لا تُنوَّن كـ"أحمدُ" (ممنوع من الصرف) لكنها
+                  تقبل بقية العلامات.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="step-n">٢</div>
+              <div>
+                <strong>قبول "أل" التعريف</strong> — كتاب ← الكتابُ
+                &nbsp;|&nbsp; مسجد ← المسجدُ
+              </div>
+            </li>
+            <li>
+              <div class="step-n">٣</div>
+              <div>
+                <strong>قبول حروف الجر</strong> — ذهبتُ <u>إلى</u> المسجدِ
+                &nbsp;|&nbsp; جلستُ <u>في</u> البيتِ
+              </div>
+            </li>
+            <li>
+              <div class="step-n">٤</div>
+              <div>
+                <strong>الإسناد إليه</strong> — يصح الإخبار عنه: محمدٌ مسافرٌ.
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>
+            <span class="dot"></span>أمثلة عملية — فتحَ المعلمُ الكتابَ في
+            الفصلِ
+          </h3>
+          <div class="tbl-wrap">
+            <table>
+              <tr>
+                <th>الكلمة</th>
+                <th>دليل الاسمية</th>
+              </tr>
+              <tr>
+                <td>المعلمُ</td>
+                <td>قبل أل + يقبل التنوين: معلمٌ</td>
+              </tr>
+              <tr>
+                <td>الكتابَ</td>
+                <td>قبل أل + يقبل التنوين: كتابٌ</td>
+              </tr>
+              <tr>
+                <td>الفصلِ</td>
+                <td>قبل أل + دخل عليه حرف الجر "في"</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><span class="dot"></span>أمثلة من القرآن الكريم</h3>
+          <div class="quran-box">
+            <span class="quran-label">آية كريمة</span>
+            <span class="ayah">﴿الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ﴾</span>
+            <div class="tbl-wrap" style="margin-top: 10px">
+              <table>
+                <tr>
+                  <th>الكلمة</th>
+                  <th>دليل الاسمية</th>
+                </tr>
+                <tr>
+                  <td>الْحَمْدُ</td>
+                  <td>قبل أل</td>
+                </tr>
+                <tr>
+                  <td>اللَّهِ</td>
+                  <td>دخل عليه حرف الجر اللام</td>
+                </tr>
+                <tr>
+                  <td>رَبِّ</td>
+                  <td>يقبل التنوين: ربٌّ</td>
+                </tr>
+                <tr>
+                  <td>الْعَالَمِينَ</td>
+                  <td>قبل أل</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="quran-box">
+            <span class="quran-label">آية كريمة</span>
+            <span class="ayah">﴿وَاللَّهُ بِكُلِّ شَيْءٍ عَلِيمٌ﴾</span>
+            <div class="tbl-wrap" style="margin-top: 10px">
+              <table>
+                <tr>
+                  <th>الكلمة</th>
+                  <th>دليل الاسمية</th>
+                </tr>
+                <tr>
+                  <td>اللَّهُ</td>
+                  <td>قبل أل + مسند إليه</td>
+                </tr>
+                <tr>
+                  <td>كُلِّ</td>
+                  <td>دخل عليه حرف الجر الباء</td>
+                </tr>
+                <tr>
+                  <td>شَيْءٍ</td>
+                  <td>منوَّن</td>
+                </tr>
+                <tr>
+                  <td>عَلِيمٌ</td>
+                  <td>منوَّن</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="diagram">
+          <span class="hl">الكلمة المجهولة — هل هي اسم؟</span>
+          │ ├── تقبل التنوين؟ <span class="hl2">✅ → اسم</span> ├── تقبل أل
+          التعريف؟ <span class="hl2">✅ → اسم</span> ├── يدخل عليها حرف جر؟
+          <span class="hl2">✅ → اسم</span> └── يصح الإسناد إليها؟
+          <span class="hl2">✅ → اسم</span>
+
+          <span class="hl3">يكفي علامة واحدة للحكم بأنها اسم.</span>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!-- ٤. الفعل وأنواعه وعلاماته -->
+      <!-- ══════════════════════════════════════════ -->
+      <section class="section" id="fil">
+        <div class="section-header">
+          <div class="section-num">٤</div>
+          <h2>الفعل وأنواعه وعلاماته</h2>
+        </div>
+
+        <div class="def-box">
+          الفعل: كلمة تدل على معنىً في نفسها، وتقترن بزمن.
+        </div>
+
+        <div class="card">
+          <h3><span class="dot"></span>أقسام الفعل الثلاثة</h3>
+          <div class="tbl-wrap">
+            <table>
+              <tr>
+                <th>النوع</th>
+                <th>الزمن</th>
+                <th>العلامة</th>
+                <th>مثال</th>
+              </tr>
+              <tr>
+                <td><strong>الماضي</strong></td>
+                <td>انقضى</td>
+                <td>تاء التأنيث الساكنة</td>
+                <td>كَتَبَتْ</td>
+              </tr>
+              <tr>
+                <td><strong>المضارع</strong></td>
+                <td>حاضر أو مستقبل</td>
+                <td>أحرف أَنَيْتُ + السين / سوف</td>
+                <td>يَكْتُبُ / سَيَكْتُبُ</td>
+              </tr>
+              <tr>
+                <td><strong>الأمر</strong></td>
+                <td>مستقبل (طلب)</td>
+                <td>الدلالة على الطلب + ياء المخاطبة</td>
+                <td>اكْتُبِي</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><span class="dot"></span>علامات الفعل العامة</h3>
+          <ul class="steps">
+            <li>
+              <div class="step-n">١</div>
+              <div>
+                <strong>تاء الفاعل المتحركة:</strong> كَتَبْتُ — كَتَبْتَ —
+                كَتَبْتِ
+              </div>
+            </li>
+            <li>
+              <div class="step-n">٢</div>
+              <div>
+                <strong>تاء التأنيث الساكنة:</strong> كَتَبَتْ — ذَهَبَتْ
+              </div>
+            </li>
+            <li>
+              <div class="step-n">٣</div>
+              <div><strong>ياء المخاطبة:</strong> اكْتُبِي — اذْهَبِي</div>
+            </li>
+            <li>
+              <div class="step-n">٤</div>
+              <div><strong>نون التوكيد:</strong> يَكْتُبَنَّ — اكْتُبَنَّ</div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><span class="dot"></span>أمثلة عملية</h3>
+          <div
+            class="quran-box"
+            style="
+              background: linear-gradient(135deg, #fdf6ee, #f8eddc);
+              border-color: #e0c898;
+              border-right-color: var(--rust);
+            "
+          >
+            <span class="quran-label" style="color: var(--rust)"
+              >جملة عادية</span
+            >
+            <span class="ayah" style="font-size: 17px"
+              >ذاكرَ الطالبُ ثم يَنامُ مبكراً</span
+            >
+            <div class="pills" style="margin-top: 8px">
+              <span class="pill"
+                ><span class="ex-tag tag-verb">ماضٍ</span> ذاكرَ</span
+              >
+              <span class="pill"
+                ><span class="ex-tag tag-verb">مضارع</span> يَنامُ</span
+              >
+            </div>
+          </div>
+          <div
+            class="quran-box"
+            style="
+              background: linear-gradient(135deg, #fdf6ee, #f8eddc);
+              border-color: #e0c898;
+              border-right-color: var(--rust);
+            "
+          >
+            <span class="quran-label" style="color: var(--rust)"
+              >جملة عادية</span
+            >
+            <span class="ayah" style="font-size: 17px"
+              >قومِي يا فاطمةُ وافتحِي الباب</span
+            >
+            <div class="pills" style="margin-top: 8px">
+              <span class="pill"
+                ><span class="ex-tag tag-verb">أمر</span> قومِي</span
+              >
+              <span class="pill"
+                ><span class="ex-tag tag-verb">أمر</span> افتحِي</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><span class="dot"></span>أمثلة من القرآن الكريم</h3>
+          <div class="quran-box">
+            <span class="quran-label">ماضٍ</span>
+            <span class="ayah">﴿خَلَقَ اللَّهُ السَّمَاوَاتِ وَالْأَرْضَ﴾</span>
+            <span class="analysis">خَلَقَ: فعل ماضٍ — يقبل: خَلَقَتْ</span>
+          </div>
+          <div class="quran-box">
+            <span class="quran-label">مضارع</span>
+            <span class="ayah"
+              >﴿يُسَبِّحُ لِلَّهِ مَا فِي السَّمَاوَاتِ وَمَا فِي
+              الْأَرْضِ﴾</span
+            >
+            <span class="analysis"
+              >يُسَبِّحُ: فعل مضارع — بدأ بياء من أَنَيْتُ</span
+            >
+          </div>
+          <div class="quran-box">
+            <span class="quran-label">أمر</span>
+            <span class="ayah"
+              >﴿وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ﴾</span
+            >
+            <span class="analysis"
+              >أَقِيمُوا — آتُوا: فعلا أمر — يقبلان ياء المخاطبة: أَقِيمِي /
+              آتِي</span
+            >
+          </div>
+        </div>
+
+        <div class="diagram">
+          <span class="hl">الكلمة المجهولة — هل هي فعل؟</span>
+          │ ├── تقبل تاء التأنيث الساكنة؟ <span class="hl2">✅ → ماضٍ</span> │
+          كَتَبَتْ │ ├── تبدأ بحرف من أَنَيْتُ؟
+          <span class="hl2">✅ → مضارع</span> │ يَكْتُبُ │ └── تدل على طلب وتقبل
+          ياء المخاطبة? <span class="hl2">✅ → أمر</span>
+          اكْتُبِي
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!-- ٥. الحرف ومعناه -->
+      <!-- ══════════════════════════════════════════ -->
+      <section class="section" id="harf">
+        <div class="section-header">
+          <div class="section-num">٥</div>
+          <h2>الحرف ومعناه</h2>
+        </div>
+
+        <div class="def-box">
+          الحرف: كلمة لا تدل على معنىً في نفسها، بل معناها في غيرها.
+        </div>
+
+        <div class="card">
+          <h3><span class="dot"></span>علامة الحرف</h3>
+          <p>
+            ما لا يصلح معه دليل الاسم ولا دليل الفعل — أي لا يقبل: التنوين، أل،
+            حروف الجر، تاء التأنيث، أحرف المضارعة.
+          </p>
+          <div class="diagram" style="margin-top: 14px">
+            "من" ← لا تقبل التنوين ❌ لا تقبل أل ❌ لا تقبل تاء التأنيث ❌
+            <span class="hl2">إذن هي حرف ✅</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><span class="dot"></span>أقسام الحروف</h3>
+          <div class="tbl-wrap">
+            <table>
+              <tr>
+                <th colspan="3">حروف الجر</th>
+              </tr>
+              <tr>
+                <th>الحرف</th>
+                <th>معناه</th>
+                <th>مثال</th>
+              </tr>
+              <tr>
+                <td>في</td>
+                <td>الظرفية</td>
+                <td>جلستُ في المسجدِ</td>
+              </tr>
+              <tr>
+                <td>من</td>
+                <td>الابتداء</td>
+                <td>خرجتُ من البيتِ</td>
+              </tr>
+              <tr>
+                <td>إلى</td>
+                <td>الانتهاء</td>
+                <td>ذهبتُ إلى المدرسةِ</td>
+              </tr>
+              <tr>
+                <td>على</td>
+                <td>الاستعلاء</td>
+                <td>الكتابُ على الطاولةِ</td>
+              </tr>
+              <tr>
+                <td>عن</td>
+                <td>المجاوزة</td>
+                <td>ابتعدَ عن الشرِّ</td>
+              </tr>
+              <tr>
+                <td>الباء</td>
+                <td>الإلصاق</td>
+                <td>كتبتُ بالقلمِ</td>
+              </tr>
+              <tr>
+                <td>اللام</td>
+                <td>الملك</td>
+                <td>الكتابُ لمحمدٍ</td>
+              </tr>
+              <tr>
+                <td>الكاف</td>
+                <td>التشبيه</td>
+                <td>هو كالأسدِ</td>
+              </tr>
+            </table>
+          </div>
+          <hr class="divider" />
+          <div class="tbl-wrap">
+            <table>
+              <tr>
+                <th colspan="2">حروف العطف</th>
+              </tr>
+              <tr>
+                <th>الحرف</th>
+                <th>معناه</th>
+              </tr>
+              <tr>
+                <td>الواو</td>
+                <td>مطلق الجمع</td>
+              </tr>
+              <tr>
+                <td>الفاء</td>
+                <td>الترتيب والتعقيب</td>
+              </tr>
+              <tr>
+                <td>ثُمَّ</td>
+                <td>الترتيب مع التراخي</td>
+              </tr>
+              <tr>
+                <td>أو</td>
+                <td>التخيير أو الشك</td>
+              </tr>
+              <tr>
+                <td>بل</td>
+                <td>الإضراب</td>
+              </tr>
+            </table>
+          </div>
+          <hr class="divider" />
+          <div class="tbl-wrap">
+            <table>
+              <tr>
+                <th>النوع</th>
+                <th>الحروف</th>
+              </tr>
+              <tr>
+                <td>التوكيد</td>
+                <td>إنَّ، أنَّ، لام التوكيد</td>
+              </tr>
+              <tr>
+                <td>النفي</td>
+                <td>لا، لم، لن، ما</td>
+              </tr>
+              <tr>
+                <td>الاستفهام</td>
+                <td>الهمزة (أَ)، هل</td>
+              </tr>
+              <tr>
+                <td>أخرى مهمة</td>
+                <td>قد، السين، سوف، لو، إن</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><span class="dot"></span>أمثلة من القرآن الكريم</h3>
+          <div class="quran-box">
+            <span class="quran-label">آية كريمة</span>
+            <span class="ayah">﴿وَاللَّهُ بِكُلِّ شَيْءٍ عَلِيمٌ﴾</span>
+            <div class="pills" style="margin-top: 8px">
+              <span class="pill"
+                ><span class="ex-tag tag-part">حرف عطف</span> وَ</span
+              >
+              <span class="pill"
+                ><span class="ex-tag tag-part">حرف جر</span> بِ</span
+              >
+            </div>
+          </div>
+          <div class="quran-box">
+            <span class="quran-label">آية كريمة</span>
+            <span class="ayah"
+              >﴿إِنَّ اللَّهَ لَا يَظْلِمُ النَّاسَ شَيْئًا﴾</span
+            >
+            <div class="pills" style="margin-top: 8px">
+              <span class="pill"
+                ><span class="ex-tag tag-part">حرف توكيد</span> إِنَّ</span
+              >
+              <span class="pill"
+                ><span class="ex-tag tag-part">حرف نفي</span> لَا</span
+              >
+            </div>
+          </div>
+          <div class="quran-box">
+            <span class="quran-label">آية كريمة</span>
+            <span class="ayah"
+              >﴿لَن تَنَالُوا الْبِرَّ حَتَّىٰ تُنفِقُوا مِمَّا
+              تُحِبُّونَ﴾</span
+            >
+            <div class="pills" style="margin-top: 8px">
+              <span class="pill"
+                ><span class="ex-tag tag-part">نفي واستقبال</span> لَن</span
+              >
+              <span class="pill"
+                ><span class="ex-tag tag-part">حرف غاية</span> حَتَّى</span
+              >
+              <span class="pill"
+                ><span class="ex-tag tag-part">حرف جر</span> مِن</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!-- ٦. النكرة والمعرفة -->
+      <!-- ══════════════════════════════════════════ -->
+      <section class="section" id="nakira">
+        <div class="section-header">
+          <div class="section-num">٦</div>
+          <h2>النكرة والمعرفة وأنواع المعارف</h2>
+        </div>
+
+        <div class="def-box">
+          هذا الباب خاص بالأسماء فقط — الأفعال والحروف لا توصف بتعريف أو تنكير.
+        </div>
+
+        <div class="card">
+          <h3><span class="dot"></span>النكرة والمعرفة</h3>
+          <div class="tbl-wrap">
+            <table>
+              <tr>
+                <th></th>
+                <th>النكرة</th>
+                <th>المعرفة</th>
+              </tr>
+              <tr>
+                <td>التعيين</td>
+                <td>غير معين</td>
+                <td>معين</td>
+              </tr>
+              <tr>
+                <td>التنوين</td>
+                <td>تقبله</td>
+                <td>لا تقبله غالباً</td>
+              </tr>
+              <tr>
+                <td>مثال</td>
+                <td><span class="ex-tag tag-indef">رجلٌ</span></td>
+                <td><span class="ex-tag tag-def">الرجلُ</span></td>
+              </tr>
+              <tr>
+                <td>في القرآن</td>
+                <td>﴿وجاءَ رجلٌ﴾</td>
+                <td>﴿وقالَ الرجلُ﴾</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><span class="dot"></span>أنواع المعارف الستة</h3>
+
+          <div class="tbl-wrap" style="margin-bottom: 16px">
+            <table>
+              <tr>
+                <th>#</th>
+                <th>النوع</th>
+                <th>مثال</th>
+                <th>من القرآن</th>
+              </tr>
+              <tr>
+                <td><span class="badge">١</span></td>
+                <td><strong>الضمير</strong></td>
+                <td>أنا، أنتَ، هو، كتابُهُ</td>
+                <td>﴿إِيَّاكَ نَعْبُدُ﴾</td>
+              </tr>
+              <tr>
+                <td><span class="badge">٢</span></td>
+                <td><strong>العَلَم</strong></td>
+                <td>محمدٌ، مكةُ، النيلُ</td>
+                <td>﴿مُحَمَّدٌ رَّسُولُ اللَّهِ﴾</td>
+              </tr>
+              <tr>
+                <td><span class="badge">٣</span></td>
+                <td><strong>اسم الإشارة</strong></td>
+                <td>هذا، هذه، ذلك، أولئك</td>
+                <td>﴿ذَٰلِكَ الْكِتَابُ﴾</td>
+              </tr>
+              <tr>
+                <td><span class="badge">٤</span></td>
+                <td><strong>الاسم الموصول</strong></td>
+                <td>الذي، التي، الذين، ما، من</td>
+                <td>﴿إِنَّ الَّذِينَ آمَنُوا﴾</td>
+              </tr>
+              <tr>
+                <td><span class="badge">٥</span></td>
+                <td><strong>المعرَّف بأل</strong></td>
+                <td>الرجلُ، الكتابُ</td>
+                <td>﴿الْحَمْدُ لِلَّهِ﴾</td>
+              </tr>
+              <tr>
+                <td><span class="badge">٦</span></td>
+                <td><strong>المضاف لمعرفة</strong></td>
+                <td>كتابُ محمدٍ، بيتُكَ</td>
+                <td>﴿بِسْمِ اللَّهِ﴾</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><span class="dot"></span>أمثلة من القرآن الكريم</h3>
+          <div class="quran-box">
+            <span class="quran-label">آية كريمة — أنواع متعددة</span>
+            <span class="ayah">﴿الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ﴾</span>
+            <div class="tbl-wrap" style="margin-top: 10px">
+              <table>
+                <tr>
+                  <th>الكلمة</th>
+                  <th>نوع المعرفة</th>
+                </tr>
+                <tr>
+                  <td>الْحَمْدُ</td>
+                  <td>معرَّف بأل</td>
+                </tr>
+                <tr>
+                  <td>اللَّهِ</td>
+                  <td>علم — أعرف المعارف</td>
+                </tr>
+                <tr>
+                  <td>رَبِّ</td>
+                  <td>مضاف إلى معرفة</td>
+                </tr>
+                <tr>
+                  <td>الْعَالَمِينَ</td>
+                  <td>معرَّف بأل</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="quran-box">
+            <span class="quran-label">آية كريمة — أنواع متعددة</span>
+            <span class="ayah"
+              >﴿هُوَ اللَّهُ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ﴾</span
+            >
+            <div class="tbl-wrap" style="margin-top: 10px">
+              <table>
+                <tr>
+                  <th>الكلمة</th>
+                  <th>نوع المعرفة</th>
+                </tr>
+                <tr>
+                  <td>هُوَ (الأولى)</td>
+                  <td>ضمير غيبة</td>
+                </tr>
+                <tr>
+                  <td>اللَّهُ</td>
+                  <td>علم</td>
+                </tr>
+                <tr>
+                  <td>الَّذِي</td>
+                  <td>اسم موصول</td>
+                </tr>
+                <tr>
+                  <td>هُوَ (الثانية)</td>
+                  <td>ضمير غيبة</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="diagram">
+          <span class="hl">الاسم</span>
+          │ ├── <span class="hl3">نكرة: غير معين</span> ← رجلٌ، كتابٌ │ └──
+          <span class="hl2">معرفة: معين</span> ← ستة أنواع: │ ├── ١. ضمير → أنا
+          / أنتَ / هو ├── ٢. علم → محمدٌ / مكةُ ├── ٣. اسم إشارة → هذا / ذلك ├──
+          ٤. اسم موصول → الذي / التي ├── ٥. معرَّف بأل → الرجلُ └── ٦. مضاف
+          لمعرفة → كتابُ محمدٍ
+        </div>
+      </section>
+
+      <!-- SUMMARY -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-num" style="background: var(--gold)">✓</div>
+          <h2>ملخص المدخل إلى علم النحو</h2>
+        </div>
+        <div class="sum-grid">
+          <div class="sum-card">
+            <div class="sc-num">١</div>
+            <div class="sc-title">تعريف الكلام</div>
+            <div class="sc-sub">اللفظ المركَّب المفيد بالوضع</div>
+          </div>
+          <div class="sum-card">
+            <div class="sc-num">٢</div>
+            <div class="sc-title">أقسام الكلام</div>
+            <div class="sc-sub">اسم — فعل — حرف</div>
+          </div>
+          <div class="sum-card">
+            <div class="sc-num">٣</div>
+            <div class="sc-title">الاسم وعلاماته</div>
+            <div class="sc-sub">٤ علامات</div>
+          </div>
+          <div class="sum-card">
+            <div class="sc-num">٤</div>
+            <div class="sc-title">الفعل وأنواعه</div>
+            <div class="sc-sub">ماضٍ — مضارع — أمر</div>
+          </div>
+          <div class="sum-card">
+            <div class="sc-num">٥</div>
+            <div class="sc-title">الحرف ومعناه</div>
+            <div class="sc-sub">معناه في غيره</div>
+          </div>
+          <div class="sum-card">
+            <div class="sc-num">٦</div>
+            <div class="sc-title">النكرة والمعرفة</div>
+            <div class="sc-sub">٦ أنواع للمعارف</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>❧</span> المدخل إلى علم النحو — شرح تفصيلي مع أمثلة قرآنية
+      <span>❧</span>
+    </footer>
+  </body>
+</html>
