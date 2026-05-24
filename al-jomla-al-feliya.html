@@ -1,0 +1,1795 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>علم النحو — الجملة الفعلية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --purple: #b370a4;
+        --purple-light: #c98fbb;
+        --purple-dark: #8a5280;
+        --blue: #72add4;
+        --blue-light: #9dc5e0;
+        --blue-dark: #4e8ab5;
+        --bg: #f2f2f2;
+        --white: #ffffff;
+        --dark: #3e3e48;
+        --dark2: #3a3a52;
+        --text: #3a3350;
+        --text-light: #6a6080;
+        --gold: #c9a84c;
+        --gold-light: #f0d080;
+        --green: #4caf7a;
+        --green-light: #80d4a8;
+        --red: #d45050;
+        --red-light: #f5a0a0;
+        --shadow: 0 4px 20px rgba(179, 112, 164, 0.12);
+        --shadow-hover: 0 8px 32px rgba(179, 112, 164, 0.22);
+        --radius: 14px;
+        --radius-sm: 8px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Scheherazade New', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        direction: rtl;
+        line-height: 1.9;
+        font-size: 16px;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--white);
+        border-bottom: 3px solid var(--purple);
+        box-shadow: 0 2px 16px rgba(179, 112, 164, 0.15);
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+      }
+      nav::-webkit-scrollbar {
+        display: none;
+      }
+      .nav-brand {
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--purple);
+        padding: 14px 10px;
+        border-left: 2px solid var(--bg);
+        margin-left: 8px;
+        flex-shrink: 0;
+      }
+      nav a {
+        display: inline-block;
+        padding: 10px 14px;
+        color: var(--text-light);
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 600;
+        border-radius: var(--radius-sm);
+        transition: all 0.2s;
+        flex-shrink: 0;
+      }
+      nav a:hover,
+      nav a.active {
+        background: var(--purple);
+        color: var(--white);
+      }
+
+      /* ── HERO ── */
+      .hero {
+        background: linear-gradient(135deg, var(--purple) 0%, var(--blue) 100%);
+        color: var(--white);
+        text-align: center;
+        padding: 60px 20px 50px;
+      }
+      .hero h1 {
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+      .hero p {
+        font-size: 1.1rem;
+        opacity: 0.88;
+      }
+      .hero-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        padding: 4px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+      }
+
+      /* ── LAYOUT ── */
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 40px 20px 60px;
+      }
+      section {
+        margin-bottom: 60px;
+        scroll-margin-top: 80px;
+        animation: fadeUp 0.4s ease both;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ── SECTION TITLE ── */
+      .section-title {
+        font-size: 1.55rem;
+        font-weight: 800;
+        color: var(--purple-dark);
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-title::after {
+        content: '';
+        flex: 1;
+        height: 3px;
+        background: linear-gradient(to left, transparent, var(--purple));
+        border-radius: 2px;
+      }
+      .section-num {
+        background: var(--purple);
+        color: var(--white);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        font-weight: 800;
+        flex-shrink: 0;
+      }
+
+      .subsection-title {
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: var(--blue-dark);
+        margin: 30px 0 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .subsection-title::after {
+        content: '';
+        flex: 1;
+        height: 2px;
+        background: linear-gradient(to left, transparent, var(--blue));
+        border-radius: 2px;
+      }
+
+      /* ── DEF BOX ── */
+      .def-box {
+        background: var(--white);
+        border: 2px solid var(--gold);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin-bottom: 22px;
+        position: relative;
+        box-shadow: 0 2px 12px rgba(201, 168, 76, 0.12);
+      }
+      .def-box::before {
+        content: '📖 تعريف';
+        position: absolute;
+        top: -13px;
+        right: 20px;
+        background: var(--gold);
+        color: var(--white);
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 2px 12px;
+        border-radius: 20px;
+      }
+      .def-box p {
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      /* ── QURAN BOX ── */
+      .quran-box {
+        background: linear-gradient(135deg, #f7f7f7 0%, #fcfffd 100%);
+        border: 2px solid var(--green);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin: 18px 0;
+        position: relative;
+        box-shadow: 0 2px 12px rgba(76, 175, 122, 0.1);
+      }
+      .quran-box::before {
+        content: '🌿 قرآن كريم';
+        position: absolute;
+        top: -13px;
+        right: 20px;
+        background: var(--green);
+        color: var(--white);
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 2px 12px;
+        border-radius: 20px;
+      }
+      .quran-text {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #1a5c35;
+        line-height: 2.2;
+        margin-bottom: 8px;
+        text-align: center;
+      }
+      .quran-note {
+        font-size: 0.92rem;
+        color: #3a7a55;
+        font-weight: 500;
+      }
+
+      /* ── DIAGRAM (dark) ── */
+      .diagram {
+        background: var(--dark);
+        border-radius: var(--radius);
+        padding: 28px 24px;
+        margin: 22px 0;
+        color: #e0e0f0;
+        font-family: 'Scheherazade New', sans-serif;
+      }
+      .diagram-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 18px;
+        text-align: center;
+        color: #ffffff;
+      }
+
+      /* ── SENTENCE VISUAL ── */
+      .sent-vis {
+        display: flex;
+        align-items: stretch;
+        gap: 0;
+        margin: 20px 0;
+        flex-wrap: wrap;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+      .sent-part {
+        flex: 1;
+        min-width: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 12px;
+        text-align: center;
+      }
+      .sent-part.fi3l {
+        background: var(--purple);
+        color: white;
+      }
+      .sent-part.fa3il {
+        background: var(--blue);
+        color: white;
+      }
+      .sent-part.maf3ul {
+        background: var(--gold);
+        color: white;
+      }
+      .sent-part.naib {
+        background: var(--green);
+        color: white;
+      }
+      .sent-word {
+        font-size: 1.35rem;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+      }
+      .sent-label {
+        font-size: 0.75rem;
+        opacity: 0.85;
+        margin-top: 4px;
+        font-weight: 600;
+      }
+
+      /* ── CARDS ── */
+      .card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 22px 24px;
+        margin-bottom: 16px;
+        box-shadow: var(--shadow);
+        border-top: 4px solid var(--purple);
+        transition: box-shadow 0.2s;
+      }
+      .card:hover {
+        box-shadow: var(--shadow-hover);
+      }
+      .card-title {
+        font-weight: 800;
+        font-size: 1.05rem;
+        color: var(--purple-dark);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .card.blue {
+        border-top-color: var(--blue);
+      }
+      .card.blue .card-title {
+        color: var(--blue-dark);
+      }
+      .card.green {
+        border-top-color: var(--green);
+      }
+      .card.green .card-title {
+        color: #2e7a50;
+      }
+      .card.gold {
+        border-top-color: var(--gold);
+      }
+      .card.gold .card-title {
+        color: #8a6020;
+      }
+      .card.red {
+        border-top-color: var(--red);
+      }
+      .card.red .card-title {
+        color: #8a2020;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+        margin-bottom: 22px;
+      }
+      .card-grid-3 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 14px;
+        margin-bottom: 22px;
+      }
+
+      /* ── TAGS ── */
+      .tag {
+        display: inline-block;
+        padding: 3px 12px;
+        border-radius: 20px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        margin: 3px;
+      }
+      .tag-ism {
+        background: #ede0f8;
+        color: #6a2e8a;
+      }
+      .tag-fil {
+        background: #dceefb;
+        color: #1a5c8a;
+      }
+      .tag-hrf {
+        background: #fdeedd;
+        color: #8a5010;
+      }
+      .tag-green {
+        background: #e0f5e8;
+        color: #2a6a40;
+      }
+      .tag-gold {
+        background: #fdf0e0;
+        color: #8a6020;
+        border: 1px solid var(--gold);
+      }
+      .tag-red {
+        background: #fde0e0;
+        color: #8a2020;
+      }
+      .tag-dark {
+        background: var(--dark);
+        color: #e0e0f0;
+      }
+
+      /* ── TABLES ── */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        margin: 16px 0;
+        font-size: 0.95rem;
+      }
+      th {
+        background: var(--purple);
+        color: var(--white);
+        padding: 12px 16px;
+        font-weight: 700;
+        text-align: center;
+      }
+      td {
+        padding: 10px 16px;
+        text-align: center;
+        border-bottom: 1px solid #efe8f4;
+        color: var(--text);
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      tr:nth-child(even) td {
+        background: #faf5fc;
+      }
+      tr:hover td {
+        background: #f3ecf9;
+      }
+      .th-blue th {
+        background: var(--blue);
+      }
+      .th-gold th {
+        background: var(--gold);
+      }
+      .th-dark th {
+        background: var(--dark);
+      }
+      .th-green th {
+        background: var(--green);
+      }
+
+      .irab-word {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: var(--purple-dark);
+      }
+
+      /* ── NOTE ── */
+      .note {
+        background: #fdf4ff;
+        border-right: 4px solid var(--purple);
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        padding: 14px 18px;
+        margin: 14px 0;
+        font-size: 0.93rem;
+        color: var(--text);
+      }
+      .note.blue {
+        background: #f0f7ff;
+        border-right-color: var(--blue);
+      }
+      .note.gold {
+        background: #fffbf0;
+        border-right-color: var(--gold);
+      }
+      .note.green {
+        background: #f0fff5;
+        border-right-color: var(--green);
+      }
+      .note.red {
+        background: #fff0f0;
+        border-right-color: var(--red);
+      }
+      .note strong {
+        color: var(--purple-dark);
+      }
+      .note.blue strong {
+        color: var(--blue-dark);
+      }
+      .note.gold strong {
+        color: #8a6020;
+      }
+      .note.green strong {
+        color: #2e7a50;
+      }
+      .note.red strong {
+        color: #8a2020;
+      }
+
+      /* ── HIGHLIGHT WORDS ── */
+      .hw {
+        background: linear-gradient(
+          to top,
+          var(--purple-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .hw-b {
+        background: linear-gradient(
+          to top,
+          var(--blue-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .hw-g {
+        background: linear-gradient(
+          to top,
+          var(--green-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .hw-r {
+        background: linear-gradient(
+          to top,
+          var(--red-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+
+      /* ── SUM GRID ── */
+      .sum-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        margin-top: 30px;
+      }
+      .sum-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 20px;
+        text-align: center;
+        box-shadow: var(--shadow);
+        border-bottom: 4px solid var(--purple);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .sum-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
+      }
+      .sum-card:nth-child(2) {
+        border-bottom-color: var(--blue);
+      }
+      .sum-card:nth-child(3) {
+        border-bottom-color: var(--green);
+      }
+      .sum-card:nth-child(4) {
+        border-bottom-color: var(--gold);
+      }
+      .sum-card:nth-child(5) {
+        border-bottom-color: var(--red);
+      }
+      .sum-card:nth-child(6) {
+        border-bottom-color: var(--purple-light);
+      }
+      .sum-icon {
+        font-size: 2rem;
+        margin-bottom: 8px;
+      }
+      .sum-title {
+        font-weight: 800;
+        font-size: 1rem;
+        color: var(--text);
+        margin-bottom: 6px;
+      }
+      .sum-text {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+
+      /* ── RULE BOX ── */
+      .rule-box {
+        background: linear-gradient(
+          135deg,
+          var(--purple-dark) 0%,
+          var(--blue-dark) 100%
+        );
+        color: white;
+        border-radius: var(--radius);
+        padding: 20px 24px;
+        margin: 18px 0;
+        text-align: center;
+        font-size: 1.1rem;
+        font-weight: 700;
+        line-height: 1.8;
+        box-shadow: var(--shadow-hover);
+      }
+
+      /* ── COMPARE TABLE ── */
+      .compare-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin: 18px 0;
+      }
+      .compare-col {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 18px 20px;
+        box-shadow: var(--shadow);
+      }
+      .compare-col.right {
+        border-top: 4px solid var(--purple);
+      }
+      .compare-col.left {
+        border-top: 4px solid var(--blue);
+      }
+      .compare-head {
+        font-size: 1rem;
+        font-weight: 800;
+        margin-bottom: 12px;
+        text-align: center;
+      }
+      .compare-col.right .compare-head {
+        color: var(--purple-dark);
+      }
+      .compare-col.left .compare-head {
+        color: var(--blue-dark);
+      }
+
+      /* ── SEPARATOR ── */
+      .sep {
+        height: 2px;
+        background: linear-gradient(
+          to left,
+          transparent,
+          var(--purple),
+          transparent
+        );
+        margin: 30px 0;
+        border-radius: 2px;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 600px) {
+        nav {
+          gap: 4px;
+          padding: 0 10px;
+        }
+        nav a {
+          padding: 10px 10px;
+          font-size: 0.82rem;
+        }
+        .hero {
+          padding: 40px 16px 36px;
+        }
+        main {
+          padding: 28px 14px 50px;
+        }
+        .def-box,
+        .quran-box {
+          padding: 18px 16px;
+        }
+        .def-box::before,
+        .quran-box::before {
+          right: 14px;
+        }
+        .quran-text {
+          font-size: 1.05rem;
+        }
+        table {
+          font-size: 0.85rem;
+        }
+        td,
+        th {
+          padding: 8px 10px;
+        }
+        .sum-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .compare-wrap {
+          grid-template-columns: 1fr;
+        }
+        .sent-part {
+          min-width: 60px;
+          padding: 12px 8px;
+        }
+        .sent-word {
+          font-size: 1.1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ── NAV ── -->
+    <nav>
+      <div class="nav-brand">الجملة الفعلية</div>
+      <a href="#s1">التعريف</a>
+      <a href="#s2">الفاعل</a>
+      <a href="#s3">نائب الفاعل</a>
+      <a href="#s4">الترتيب</a>
+      <a href="#s5">التقديم والتأخير</a>
+      <a href="#s6">الملخص</a>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <div class="hero">
+      <div class="hero-badge">أساسيات علم النحو</div>
+      <h1>الجملة الفعلية</h1>
+      <p>
+        تعريفها · الفاعل · نائب الفاعل · الترتيب · التقديم والتأخير · شواهد من
+        القرآن الكريم
+      </p>
+    </div>
+
+    <main>
+      <!-- ══════════════════════════════════════════════════
+           SECTION 1 — التعريف
+      ══════════════════════════════════════════════════ -->
+      <section id="s1">
+        <h2 class="section-title">
+          <span class="section-num">١</span>تعريف الجملة الفعلية
+        </h2>
+
+        <div class="def-box">
+          <p>
+            الجملة الفعلية هي كلُّ جملة <strong>تبدأ بفعل</strong>، ويُفيد هذا
+            الفعل حدوثَ حدثٍ في زمن معين. وتتكون في أبسط صورها من ركنين أساسيين:
+            <span class="hw">الفعل</span> و<span class="hw-b">الفاعل</span>. وقد
+            يُضاف إليهما ركن ثالث هو <span class="hw-g">المفعول به</span>
+            في الجمل المتعدية.
+          </p>
+        </div>
+
+        <!-- تشكيل بصري للجملة الفعلية -->
+        <div class="sent-vis">
+          <div class="sent-part fi3l">
+            <div class="sent-word">قامَ</div>
+            <div class="sent-label">فعل ماضٍ</div>
+          </div>
+          <div class="sent-part fa3il">
+            <div class="sent-word">الطالبُ</div>
+            <div class="sent-label">فاعل مرفوع</div>
+          </div>
+        </div>
+
+        <div class="sent-vis">
+          <div class="sent-part fi3l">
+            <div class="sent-word">كتَبَ</div>
+            <div class="sent-label">فعل ماضٍ</div>
+          </div>
+          <div class="sent-part fa3il">
+            <div class="sent-word">المعلِّمُ</div>
+            <div class="sent-label">فاعل مرفوع</div>
+          </div>
+          <div class="sent-part maf3ul">
+            <div class="sent-word">الدرسَ</div>
+            <div class="sent-label">مفعول به منصوب</div>
+          </div>
+        </div>
+
+        <div class="diagram">
+          <div class="diagram-title">🌳 مكوّنات الجملة الفعلية</div>
+          <pre
+            style="
+              font-family: 'Scheherazade New', sans-serif;
+              font-size: 1.05rem;
+              line-height: 2.2;
+              color: #e0e0f0;
+              white-space: pre-wrap;
+            "
+          >
+                       الجملة الفعلية
+                            │
+           ┌────────────────┴─────────────────┐
+         فعل                               فاعل
+     (ماضٍ/مضارع/أمر)              (مرفوع دائماً)
+           │
+   ┌───────┴────────┐
+متعدٍّ           لازم
+   │
+مفعول به (منصوب)
+          </pre>
+        </div>
+
+        <div class="note">
+          <strong>الفرق بين الجملة الاسمية والفعلية:</strong>
+          الجملة الاسمية تبدأ باسم وتفيد الثبوت والاستمرار، أما الجملة الفعلية
+          فتبدأ بفعل وتفيد الحدوث والتجدد في زمن معين.
+        </div>
+
+        <h3 class="subsection-title">أنواع الجملة الفعلية من حيث الفعل</h3>
+
+        <div class="card-grid-3">
+          <div class="card">
+            <div class="card-title">⏳ الفعل الماضي</div>
+            <p>
+              يدل على حدث وقع وانقضى. مثل:
+              <span class="hw">نَصَرَ اللهُ المؤمنين</span>
+            </p>
+          </div>
+          <div class="card blue">
+            <div class="card-title">🔄 الفعل المضارع</div>
+            <p>
+              يدل على حدث يقع في الحال أو المستقبل. مثل:
+              <span class="hw-b">يُجاهدُ المؤمنُ في سبيل الله</span>
+            </p>
+          </div>
+          <div class="card gold">
+            <div class="card-title">📣 فعل الأمر</div>
+            <p>
+              يدل على طلب الفعل من المخاطَب. مثل:
+              <span class="hw">اقرأْ كتابَك</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿قَالَ رَبُّكَ لِلْمَلَائِكَةِ إِنِّي خَالِقٌ بَشَرًا مِّن طِينٍ﴾
+          </div>
+          <div class="quran-note">
+            ص: ٧١ — جملة فعلية. <span class="hw">قَالَ</span>: فعل ماضٍ.
+            <span class="hw-b">رَبُّكَ</span>: فاعل مرفوع بالضمة.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿يُسَبِّحُ لِلَّهِ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ﴾
+          </div>
+          <div class="quran-note">
+            الجمعة: ١ — <span class="hw">يُسَبِّحُ</span>: فعل مضارع مرفوع.
+            <span class="hw-b">مَا</span>: فاعل في محل رفع.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ﴾</div>
+          <div class="quran-note">
+            العلق: ١ — <span class="hw">اقْرَأْ</span>: فعل أمر مبني على السكون،
+            والفاعل ضمير مستتر (أنت).
+          </div>
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 2 — الفاعل وأحكامه
+      ══════════════════════════════════════════════════ -->
+      <section id="s2">
+        <h2 class="section-title">
+          <span class="section-num">٢</span>الفاعل وأحكامه
+        </h2>
+
+        <div class="def-box">
+          <p>
+            الفاعل هو الاسم أو الضمير الذي <strong>أسندنا إليه الفعل</strong>،
+            ودلَّ على من قام بالفعل أو اتصف به. وحكمه الرفع دائماً، ولا يجوز
+            نصبه ولا جره في الأصل.
+          </p>
+        </div>
+
+        <div class="rule-box">الفاعل مرفوع أبداً — لا ينصب ولا يُجر</div>
+
+        <!-- ── أنواع الفاعل ── -->
+        <h3 class="subsection-title">أولاً: أنواع الفاعل</h3>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title">① اسم صريح</div>
+            <p>
+              اسم ظاهر يأتي بعد الفعل مباشرةً أو مع فاصل.
+              <br />مثال: <span class="hw">جاءَ <strong>محمدٌ</strong></span>
+              &nbsp;|&nbsp;
+              <span class="hw">فازَ <strong>الطالبُ المجتهدُ</strong></span>
+            </p>
+            <div class="quran-box" style="margin-top: 12px">
+              <div class="quran-text">
+                ﴿وَقَالَ رَجُلٌ مُّؤْمِنٌ مِّنْ آلِ فِرْعَوْنَ﴾
+              </div>
+              <div class="quran-note">
+                غافر: ٢٨ — <span class="hw">رَجُلٌ</span>: فاعل مرفوع بالضمة.
+              </div>
+            </div>
+          </div>
+
+          <div class="card blue">
+            <div class="card-title">② ضمير بارز</div>
+            <p>
+              ضمير ظاهر في الكتابة متصل بالفعل أو منفصل.
+              <br />مثال:
+              <span class="hw-b"
+                >ذهبتُ — ذهبتَ — ذهبتِ — ذهبا — ذهبوا — ذهبنَ</span
+              >
+            </p>
+            <div class="note blue" style="margin-top: 12px">
+              <strong>ضمائر الرفع البارزة المتصلة:</strong>
+              تاء الفاعل (ذهبتُ)، نا الفاعلين (ذهبنا)، ألف الاثنين (ذهبا)، واو
+              الجماعة (ذهبوا)، ياء المخاطبة (تذهبين)، نون النسوة (يذهبن).
+            </div>
+          </div>
+
+          <div class="card green">
+            <div class="card-title">③ ضمير مستتر</div>
+            <p>
+              ضمير لا يظهر في الكتابة لكنه موجود تقديراً.
+              <br />مثال: <span class="hw-g">محمدٌ يكتبُ</span> — الفاعل ضمير
+              مستتر تقديره (هو). <br />مثال: <span class="hw-g">اكتُبْ</span> —
+              الفاعل ضمير مستتر تقديره (أنت).
+            </p>
+            <div class="note green" style="margin-top: 12px">
+              <strong>أنواع الإضمار:</strong>
+              جوازاً (يجوز ظهوره) في الغائب، ووجوباً (لا يظهر أبداً) في المتكلم
+              والمخاطَب.
+            </div>
+          </div>
+
+          <div class="card gold">
+            <div class="card-title">④ مصدر مؤوّل</div>
+            <p>
+              تركيب من (أن/ما + فعل) يقوم مقام الاسم ويكون فاعلاً.
+              <br />مثال:
+              <span class="hw">يسعدُني <strong>أن تنجحَ</strong></span> — (أن
+              تنجح) مصدر مؤول في محل رفع فاعل.
+            </p>
+            <div class="quran-box" style="margin-top: 12px">
+              <div class="quran-text">﴿وَأَن تَصُومُوا خَيْرٌ لَّكُمْ﴾</div>
+              <div class="quran-note">
+                البقرة: ١٨٤ — (أن تصوموا) مصدر مؤول في محل رفع مبتدأ.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── علامات رفع الفاعل ── -->
+        <h3 class="subsection-title">ثانياً: علامات رفع الفاعل</h3>
+
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>نوع الفاعل</th>
+              <th>علامة الرفع</th>
+              <th>مثال</th>
+              <th>الإعراب</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>مفرد (معرب)</td>
+              <td><span class="tag tag-ism">الضمة</span></td>
+              <td class="irab-word">جاءَ محمدٌ</td>
+              <td>محمدٌ: فاعل مرفوع وعلامة رفعه الضمة الظاهرة</td>
+            </tr>
+            <tr>
+              <td>جمع تكسير</td>
+              <td><span class="tag tag-ism">الضمة</span></td>
+              <td class="irab-word">فازَ الطلابُ</td>
+              <td>الطلابُ: فاعل مرفوع بالضمة</td>
+            </tr>
+            <tr>
+              <td>جمع مؤنث سالم</td>
+              <td><span class="tag tag-fil">الضمة</span></td>
+              <td class="irab-word">قامَ المعلماتُ</td>
+              <td>المعلماتُ: فاعل مرفوع بالضمة</td>
+            </tr>
+            <tr>
+              <td>مثنى</td>
+              <td><span class="tag tag-green">الألف</span></td>
+              <td class="irab-word">جاءَ الطالبانِ</td>
+              <td>الطالبانِ: فاعل مرفوع بالألف لأنه مثنى</td>
+            </tr>
+            <tr>
+              <td>جمع مذكر سالم</td>
+              <td><span class="tag tag-gold">الواو</span></td>
+              <td class="irab-word">نجحَ المعلمونَ</td>
+              <td>المعلمونَ: فاعل مرفوع بالواو لأنه جمع مذكر سالم</td>
+            </tr>
+            <tr>
+              <td>الأسماء الخمسة</td>
+              <td><span class="tag tag-red">الواو</span></td>
+              <td class="irab-word">جاءَ أبوكَ</td>
+              <td>أبوكَ: فاعل مرفوع بالواو لأنه من الأسماء الخمسة</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ── أحكام الفاعل ── -->
+        <h3 class="subsection-title">ثالثاً: أحكام الفاعل المهمة</h3>
+
+        <!-- حكم 1: التأنيث -->
+        <div class="card">
+          <div class="card-title">
+            📌 الحكم الأول: تأنيث الفعل مع الفاعل المؤنث
+          </div>
+          <p>
+            يجب تأنيث الفعل (بالتاء) إذا كان الفاعل مؤنثاً حقيقياً، ويجوز مع
+            المؤنث المجازي.
+          </p>
+          <table class="th-blue" style="margin-top: 14px">
+            <thead>
+              <tr>
+                <th>الحالة</th>
+                <th>الحكم</th>
+                <th>مثال</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>فاعل مؤنث حقيقي (إنسان أو حيوان)</td>
+                <td><span class="tag tag-ism">وجوب التأنيث</span></td>
+                <td class="irab-word">جاءَتْ فاطمةُ</td>
+              </tr>
+              <tr>
+                <td>فاعل مؤنث مجازي (اسم بلا روح)</td>
+                <td><span class="tag tag-fil">جواز التأنيث</span></td>
+                <td class="irab-word">طَلَعَتِ / طَلَعَ الشمسُ</td>
+              </tr>
+              <tr>
+                <td>فاعل مؤنث مفصول بـ(إلا)</td>
+                <td><span class="tag tag-fil">الأفصح ترك التأنيث</span></td>
+                <td class="irab-word">ما جاءَ إلا فاطمةُ</td>
+              </tr>
+              <tr>
+                <td>فاعل جمع تكسير</td>
+                <td><span class="tag tag-fil">جواز التأنيث</span></td>
+                <td class="irab-word">قالَتِ / قالَ الرجالُ</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="quran-box" style="margin-top: 12px">
+            <div class="quran-text">
+              ﴿إِذَا جَاءَكَ الْمُؤْمِنَاتُ يُبَايِعْنَكَ﴾
+            </div>
+            <div class="quran-note">
+              الممتحنة: ١٢ — جاء الفعل (جاءَ) بدون تاء التأنيث مع الفاعل المؤنث
+              الجمع (المؤمناتُ)، وهو جائز لأن الجمع فصل بينه وبين الفعل.
+            </div>
+          </div>
+          <div class="quran-box">
+            <div class="quran-text">﴿وَقَالَتِ امْرَأَتُ الْعَزِيزِ﴾</div>
+            <div class="quran-note">
+              يوسف: ٥١ — تأنيث الفعل وجوباً لأن الفاعل (امرأةُ) مؤنث حقيقي.
+            </div>
+          </div>
+        </div>
+
+        <!-- حكم 2: الإفراد -->
+        <div class="card blue">
+          <div class="card-title">
+            📌 الحكم الثاني: إفراد الفعل دائماً مع فاعله
+          </div>
+          <p>
+            لا يُثنَّى الفعل ولا يُجمع مع فاعله مهما كان الفاعل، فيبقى الفعل
+            دائماً مُفرداً. هذا هو الأصل في العربية وما يميّز الجملة الفعلية.
+          </p>
+          <div class="compare-wrap" style="margin-top: 14px">
+            <div class="compare-col right">
+              <div class="compare-head">✅ صواب</div>
+              <ul style="list-style: none; padding: 0">
+                <li style="margin-bottom: 8px">● جاءَ الطالبُ</li>
+                <li style="margin-bottom: 8px">● جاءَ الطالبانِ</li>
+                <li style="margin-bottom: 8px">● جاءَ الطلابُ</li>
+                <li>● جاءَتِ الطالباتُ</li>
+              </ul>
+            </div>
+            <div class="compare-col left">
+              <div class="compare-head">❌ خطأ</div>
+              <ul style="list-style: none; padding: 0; color: #c0392b">
+                <li style="margin-bottom: 8px">● جاءا الطالبانِ</li>
+                <li style="margin-bottom: 8px">● جاءوا الطلابُ</li>
+                <li>● جِئنَ الطالباتُ</li>
+              </ul>
+            </div>
+          </div>
+          <div class="note blue">
+            <strong>استثناء:</strong> إذا تقدّم الفاعل وصار المبتدأ، فيجوز
+            المطابقة: «الطلابُ جاؤوا» جملة اسمية، خبرها الجملة الفعلية.
+          </div>
+        </div>
+
+        <!-- حكم 3: لا يحذف الفاعل -->
+        <div class="card green">
+          <div class="card-title">📌 الحكم الثالث: الفاعل لا يُحذف</div>
+          <p>
+            الفاعل لا يُحذف في الأصل، لأن الجملة الفعلية تتطلب فاعلاً دائماً.
+            فإذا لم يُذكر صراحةً فهو مُقدَّر (ضمير مستتر).
+          </p>
+          <div class="note green">
+            <strong>تنبيه:</strong> عند بناء الفعل للمجهول يُحذف الفاعل ويُؤتى
+            بنائب عنه. وهذا موضوع القسم التالي.
+          </div>
+        </div>
+
+        <!-- شواهد قرآنية مجمّعة -->
+        <h3 class="subsection-title">شواهد قرآنية على الفاعل</h3>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿وَنَادَىٰ نُوحٌ رَّبَّهُ فَقَالَ رَبِّ إِنَّ ابْنِي مِنْ أَهْلِي﴾
+          </div>
+          <div class="quran-note">
+            هود: ٤٥ — <span class="hw">نُوحٌ</span>: فاعل مرفوع بالضمة الظاهرة.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿جَاءَ الْحَقُّ وَزَهَقَ الْبَاطِلُ﴾</div>
+          <div class="quran-note">
+            الإسراء: ٨١ — <span class="hw">الْحَقُّ</span>: فاعل مرفوع.
+            <span class="hw-b">الْبَاطِلُ</span>: فاعل مرفوع.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿فَسَجَدَ الْمَلَائِكَةُ كُلُّهُمْ أَجْمَعُونَ﴾
+          </div>
+          <div class="quran-note">
+            الحجر: ٣٠ — <span class="hw">الْمَلَائِكَةُ</span>: فاعل مرفوع
+            بالضمة. (أجمعون) توكيد مرفوع.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿يَخَافُونَ رَبَّهُم مِّن فَوْقِهِمْ﴾</div>
+          <div class="quran-note">
+            النحل: ٥٠ — الفاعل واو الجماعة (ضمير بارز) في محل رفع فاعل.
+          </div>
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 3 — نائب الفاعل
+      ══════════════════════════════════════════════════ -->
+      <section id="s3">
+        <h2 class="section-title">
+          <span class="section-num">٣</span>نائب الفاعل وأحكامه
+        </h2>
+
+        <div class="def-box">
+          <p>
+            نائب الفاعل هو الاسم الذي <strong>يحلُّ محلَّ الفاعل</strong> بعد
+            حذفه عند بناء الفعل للمجهول. وحكمه الرفع كالفاعل تماماً. ويكون في
+            الأصل المفعول به، لكن قد تنوب عنه أشياء أخرى.
+          </p>
+        </div>
+
+        <!-- تشكيل بصري للتحويل -->
+        <div class="diagram">
+          <div class="diagram-title">
+            🔄 كيف يُبنى الفعل للمجهول ويأتي نائب الفاعل
+          </div>
+          <pre
+            style="
+              font-family: 'Scheherazade New', sans-serif;
+              font-size: 1rem;
+              line-height: 2.2;
+              color: #e0e0f0;
+              white-space: pre-wrap;
+            "
+          >
+  الجملة المعلومة:  كَتَبَ الطالبُ الدرسَ
+                      ↓ (نحذف الفاعل)
+  الجملة المجهولة: كُتِبَ الدرسُ
+                              ↑
+                        نائب الفاعل
+                  (كان مفعولاً به، صار مرفوعاً)
+          </pre>
+        </div>
+
+        <!-- تغييرات الفعل عند البناء للمجهول -->
+        <h3 class="subsection-title">
+          أولاً: تغييرات الفعل عند البناء للمجهول
+        </h3>
+
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>نوع الفعل</th>
+              <th>المعلوم</th>
+              <th>المجهول</th>
+              <th>القاعدة</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ماضٍ ثلاثي</td>
+              <td class="irab-word">كَتَبَ</td>
+              <td class="irab-word" style="color: var(--blue-dark)">كُتِبَ</td>
+              <td>ضمُّ أوله وكسر ما قبل آخره</td>
+            </tr>
+            <tr>
+              <td>ماضٍ رباعي أو أكثر</td>
+              <td class="irab-word">أَكرَمَ</td>
+              <td class="irab-word" style="color: var(--blue-dark)">أُكرِمَ</td>
+              <td>ضمُّ أوله وكسر ما قبل آخره</td>
+            </tr>
+            <tr>
+              <td>مضارع ثلاثي</td>
+              <td class="irab-word">يَكتُبُ</td>
+              <td class="irab-word" style="color: var(--blue-dark)">يُكتَبُ</td>
+              <td>ضمُّ أوله وفتح ما قبل آخره</td>
+            </tr>
+            <tr>
+              <td>مضارع رباعي أو أكثر</td>
+              <td class="irab-word">يُكرِمُ</td>
+              <td class="irab-word" style="color: var(--blue-dark)">يُكرَمُ</td>
+              <td>ضمُّ أوله وفتح ما قبل آخره</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ما يكون نائب فاعل -->
+        <h3 class="subsection-title">ثانياً: ما يكون نائب فاعل</h3>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title">① المفعول به (الأصل)</div>
+            <p>هو الأصل في نيابة الفاعل، يُرفع بعد أن كان منصوباً.</p>
+            <div
+              style="
+                margin-top: 10px;
+                padding: 12px;
+                background: #faf5fc;
+                border-radius: 8px;
+              "
+            >
+              <div style="margin-bottom: 6px">
+                قبل:
+                <span class="hw">شَرِبَ <strong>الولدُ</strong> الحليبَ</span>
+              </div>
+              <div>
+                بعد: <span class="hw-b">شُرِبَ <strong>الحليبُ</strong></span>
+              </div>
+            </div>
+            <div class="quran-box" style="margin-top: 12px">
+              <div class="quran-text">﴿وَإِذَا الرُّسُلُ أُقِّتَتْ﴾</div>
+              <div class="quran-note">
+                المرسلات: ١١ — <span class="hw">الرُّسُلُ</span>: نائب فاعل
+                مرفوع.
+              </div>
+            </div>
+          </div>
+
+          <div class="card blue">
+            <div class="card-title">② الظرف والجار والمجرور</div>
+            <p>
+              ينوبان عن الفاعل إذا لم يكن هناك مفعول به.
+              <br /><span class="hw-b">سُهِرَ <strong>الليلُ</strong></span> —
+              الليلُ: ظرف في محل نائب فاعل. <br /><span class="hw-b"
+                >جُلِسَ <strong>أمامَ البيتِ</strong></span
+              >
+            </p>
+            <div class="note blue" style="margin-top: 10px">
+              <strong>شرط:</strong> أن يكون الظرف أو المجرور مختصاً (غير عام)،
+              لا نقول: «سُهِرَ وقتاً» لأن الوقت عام.
+            </div>
+          </div>
+
+          <div class="card green">
+            <div class="card-title">③ المصدر</div>
+            <p>
+              يكون نائب فاعل إذا لم يوجد مفعول به وكان مختصاً.
+              <br /><span class="hw-g">سُيِرَ <strong>سيرٌ طويلٌ</strong></span>
+              — سيرٌ: مصدر نائب فاعل مرفوع.
+            </p>
+          </div>
+        </div>
+
+        <!-- أحكام نائب الفاعل -->
+        <h3 class="subsection-title">ثالثاً: أحكام نائب الفاعل</h3>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title">الرفع دائماً</div>
+            <p>حكمه الرفع تماماً كالفاعل بعلاماته الأصلية والفرعية.</p>
+          </div>
+          <div class="card blue">
+            <div class="card-title">إفراد الفعل معه</div>
+            <p>
+              لا يُثنَّى الفعل ولا يُجمع مع نائب الفاعل كما هو الحال مع الفاعل.
+            </p>
+          </div>
+          <div class="card green">
+            <div class="card-title">تأنيث الفعل معه</div>
+            <p>تنطبق عليه نفس قواعد تأنيث الفعل التي تنطبق على الفاعل.</p>
+          </div>
+          <div class="card gold">
+            <div class="card-title">لا يُحذف</div>
+            <p>
+              لا يُحذف نائب الفاعل لأن الجملة المبنية للمجهول لا تكتمل بدونه.
+            </p>
+          </div>
+        </div>
+
+        <!-- شواهد قرآنية -->
+        <h3 class="subsection-title">شواهد قرآنية على نائب الفاعل</h3>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿خُلِقَ الْإِنسَانُ مِنْ عَجَلٍ﴾</div>
+          <div class="quran-note">
+            الأنبياء: ٣٧ — <span class="hw">خُلِقَ</span>: فعل ماضٍ مبني
+            للمجهول. <span class="hw-b">الْإِنسَانُ</span>: نائب فاعل مرفوع
+            بالضمة.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿وَإِذَا الصُّحُفُ نُشِرَتْ﴾</div>
+          <div class="quran-note">
+            التكوير: ١٠ — <span class="hw">نُشِرَتْ</span>: فعل مبني للمجهول.
+            <span class="hw-b">الصُّحُفُ</span>: نائب فاعل مرفوع.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿وَغِيضَ الْمَاءُ وَقُضِيَ الْأَمْرُ﴾</div>
+          <div class="quran-note">
+            هود: ٤٤ — <span class="hw">الْمَاءُ</span>: نائب فاعل.
+            <span class="hw-b">الْأَمْرُ</span>: نائب فاعل. كلاهما مرفوع بالضمة.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿وَجُمِعَ الشَّمْسُ وَالْقَمَرُ﴾</div>
+          <div class="quran-note">
+            القيامة: ٩ — جاء الفعل (جُمِعَ) بدون تاء التأنيث مع الفاعل المؤنث
+            (الشمسُ) لأنه مجازي التأنيث.
+          </div>
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 4 — ترتيب عناصر الجملة الفعلية
+      ══════════════════════════════════════════════════ -->
+      <section id="s4">
+        <h2 class="section-title">
+          <span class="section-num">٤</span>ترتيب عناصر الجملة الفعلية
+        </h2>
+
+        <div class="def-box">
+          <p>
+            الأصل في الجملة الفعلية أن يأتي <span class="hw">الفعل</span> أولاً،
+            ثم <span class="hw-b">الفاعل</span>، ثم
+            <span class="hw-g">المفعول به</span> إن وُجد. وقد تتغير هذه المواقع
+            لأغراض بلاغية أو نحوية.
+          </p>
+        </div>
+
+        <div class="rule-box">الترتيب الأصلي: الفعل ← الفاعل ← المفعول به</div>
+
+        <!-- مثال بصري -->
+        <div class="sent-vis">
+          <div class="sent-part fi3l">
+            <div class="sent-word">نَصَرَ</div>
+            <div class="sent-label">① فعل</div>
+          </div>
+          <div class="sent-part fa3il">
+            <div class="sent-word">اللهُ</div>
+            <div class="sent-label">② فاعل</div>
+          </div>
+          <div class="sent-part maf3ul">
+            <div class="sent-word">المؤمنينَ</div>
+            <div class="sent-label">③ مفعول به</div>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">ما يجب فيه تقديم الفعل على الفاعل</h3>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title">① إذا خيف اللبس</div>
+            <p>
+              إذا كان الفاعل والمفعول كلاهما مرفوعَي الصورة أو منصوبَيها ولا
+              قرينة، وجب الترتيب الأصلي لمنع الالتباس.
+              <br />مثال: <span class="hw">أكلَ موسى عيسى</span> — موسى: فاعل /
+              عيسى: مفعول (بالترتيب).
+            </p>
+          </div>
+          <div class="card blue">
+            <div class="card-title">
+              ② إذا اتصل الفاعل بضمير يعود على المفعول
+            </div>
+            <p>
+              مثال: <span class="hw-b">أكرمَ معلَّمَهُ الطالبُ</span>
+              — لو قُدِّم الطالبُ لعاد الضمير في (معلِّمَه) على متأخر لفظاً.
+            </p>
+          </div>
+          <div class="card green">
+            <div class="card-title">③ أسلوب الاختصاص (ضمير + اسم)</div>
+            <p>
+              في أسلوب الاختصاص يسبق الفعل دائماً.
+              <br />مثال:
+              <span class="hw-g">نحنُ المسلمينَ نعملُ بالإسلام</span>
+            </p>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">ترتيب المفعولين</h3>
+        <div class="card">
+          <div class="card-title">📋 الأصل: تقديم المفعول الأول على الثاني</div>
+          <p>
+            في الأفعال التي تنصب مفعولَين (أعطى، سأل، علَّم...)، الأصل تقديم
+            المفعول الأول.
+            <br />مثال:
+            <span class="hw">أعطيتُ <strong>الطالبَ</strong> الكتابَ</span> —
+            الطالبَ مفعول أول، الكتابَ مفعول ثانٍ.
+          </p>
+          <div class="note">
+            <strong>جواز التقديم:</strong> يجوز تقديم المفعول الثاني إذا لم يحصل
+            لبس: «أعطيتُ الكتابَ الطالبَ».
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿وَعَلَّمَ آدَمَ الْأَسْمَاءَ كُلَّهَا﴾</div>
+          <div class="quran-note">
+            البقرة: ٣١ — الترتيب: فعل (علَّمَ) ← فاعل مستتر (هو) ← مفعول أول
+            (آدَمَ) ← مفعول ثانٍ (الأسماءَ).
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿وَجَعَلَ الظُّلُمَاتِ وَالنُّورَ﴾</div>
+          <div class="quran-note">
+            الأنعام: ١ — فعل (جَعَلَ) ← فاعل مستتر (هو) ← مفعول أول
+            (الظُّلُمَاتِ) ← مفعول ثانٍ (النُّورَ).
+          </div>
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 5 — تقديم الفاعل وتأخيره
+      ══════════════════════════════════════════════════ -->
+      <section id="s5">
+        <h2 class="section-title">
+          <span class="section-num">٥</span>تقديم الفاعل وتأخيره
+        </h2>
+
+        <div class="def-box">
+          <p>
+            الأصل في الجملة الفعلية تأخُّر الفاعل عن فعله، لكن قد يتقدَّم الفاعل
+            على فعله لأغراض بلاغية أو نحوية، وعند ذلك
+            <strong>تتحوَّل الجملة إلى اسمية</strong>
+            في الصورة والحكم، أو تبقى فعلية بحسب التحليل.
+          </p>
+        </div>
+
+        <!-- ── متى يجوز التقديم ── -->
+        <h3 class="subsection-title">أولاً: متى يجوز تقديم الفاعل؟</h3>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title">🔷 للتخصيص والحصر</div>
+            <p>
+              يُقدَّم الفاعل إذا أُريد حصر الفعل عليه.
+              <br />مثال: <span class="hw">محمدٌ قامَ</span> — أي محمدٌ دون غيره
+              هو من قام. <br />(هنا الجملة اسمية: محمدٌ مبتدأ، وجملة قامَ في محل
+              رفع خبر).
+            </p>
+          </div>
+          <div class="card blue">
+            <div class="card-title">🔷 للاهتمام والتعظيم</div>
+            <p>
+              يُقدَّم ما يُراد الاهتمام به والتشريف.
+              <br />مثال: <span class="hw-b">اللهُ يُدافعُ عن الذين آمنوا</span>
+              — قُدِّم لفظ الجلالة إفادةً للتعظيم.
+            </p>
+            <div class="quran-box" style="margin-top: 12px">
+              <div class="quran-text">﴿اللَّهُ يَسْتَهْزِئُ بِهِمْ﴾</div>
+              <div class="quran-note">
+                البقرة: ١٥ — لفظ الجلالة مبتدأ، والجملة الفعلية خبر.
+              </div>
+            </div>
+          </div>
+          <div class="card green">
+            <div class="card-title">🔷 إذا أُريد التوكيد أو المقابلة</div>
+            <p>
+              عند المقابلة بين شيئين يُقدَّم الفاعل لإبراز التقابل.
+              <br />مثال:
+              <span class="hw-g">الصادقُ يُكافَأُ والكاذبُ يُعاقَبُ</span>.
+            </p>
+          </div>
+        </div>
+
+        <!-- ── متى يجب تأخير الفاعل ── -->
+        <h3 class="subsection-title">ثانياً: متى يجب بقاء الفاعل مؤخَّراً؟</h3>
+
+        <div class="card-grid">
+          <div class="card red">
+            <div class="card-title">🚫 إذا خيف اللبس بالمفعول</div>
+            <p>
+              إذا كان الفاعل والمفعول متساوِيَين في الصورة ولا قرينة تميّزهما،
+              وجب الترتيب الأصلي (فعل ← فاعل ← مفعول).
+              <br />مثال: <span class="hw-r">ضَرَبَ موسى عيسى</span> — لا يجوز
+              تقديم عيسى لأنه سيصير فاعلاً.
+            </p>
+          </div>
+          <div class="card red">
+            <div class="card-title">
+              🚫 إذا اتصل الفعل بضمير يعود على المفعول
+            </div>
+            <p>
+              مثال: <span class="hw-r">أكرمَ أستاذَهُ الطالبُ</span>
+              — لو قُدِّم الطالبُ لعاد الضمير (ه) على متأخر وهو غير جائز.
+            </p>
+          </div>
+          <div class="card red">
+            <div class="card-title">
+              🚫 إذا كان الفاعل محصوراً بـ(إلا) أو (إنما)
+            </div>
+            <p>
+              مثال: <span class="hw-r">ما نَجَحَ إلا المجتهدُ</span>
+              — لا يجوز تقديم المجتهد لأن الحصر يقتضي التأخير.
+            </p>
+          </div>
+        </div>
+
+        <!-- ── تقديم المفعول على الفاعل ── -->
+        <h3 class="subsection-title">ثالثاً: تقديم المفعول على الفاعل</h3>
+
+        <div class="card">
+          <div class="card-title">
+            📌 يجوز تقديم المفعول على الفاعل مع بقاء الجملة فعلية
+          </div>
+          <p>
+            إذا أُريد الاهتمام بالمفعول أو الحصر عليه، جاز تقديمه على الفاعل مع
+            بقاء الجملة فعلية.
+          </p>
+
+          <div class="compare-wrap" style="margin-top: 14px">
+            <div class="compare-col right">
+              <div class="compare-head">الترتيب الأصلي</div>
+              <p
+                style="text-align: center; font-size: 1.1rem; font-weight: 700"
+              >
+                رَزَقَ اللهُ العبادَ
+              </p>
+            </div>
+            <div class="compare-col left">
+              <div class="compare-head">المفعول مقدَّم</div>
+              <p
+                style="
+                  text-align: center;
+                  font-size: 1.1rem;
+                  font-weight: 700;
+                  color: var(--blue-dark);
+                "
+              >
+                العبادَ رَزَقَ اللهُ
+              </p>
+            </div>
+          </div>
+
+          <div class="quran-box" style="margin-top: 14px">
+            <div class="quran-text">
+              ﴿إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ﴾
+            </div>
+            <div class="quran-note">
+              الفاتحة: ٥ — <span class="hw">إِيَّاكَ</span>: مفعول به مقدَّم
+              للحصر، أي: نعبدُ إياك لا غيرك. وهذا من أبلغ أساليب القرآن.
+            </div>
+          </div>
+
+          <div class="quran-box">
+            <div class="quran-text">﴿وَرَبَّكَ فَكَبِّرْ﴾</div>
+            <div class="quran-note">
+              المدثر: ٣ — <span class="hw">رَبَّكَ</span>: مفعول به مقدَّم
+              للتخصيص والتعظيم.
+            </div>
+          </div>
+        </div>
+
+        <!-- ── خلاصة التقديم والتأخير ── -->
+        <h3 class="subsection-title">خلاصة: جدول التقديم والتأخير</h3>
+
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>الحالة</th>
+              <th>الجواز</th>
+              <th>السبب</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>تقديم الفاعل على فعله</td>
+              <td><span class="tag tag-green">جائز بشروط</span></td>
+              <td>تتحول الجملة إلى اسمية (مبتدأ وخبر)</td>
+            </tr>
+            <tr>
+              <td>تقديم المفعول على الفاعل</td>
+              <td><span class="tag tag-green">جائز</span></td>
+              <td>للاهتمام أو الحصر، والجملة تبقى فعلية</td>
+            </tr>
+            <tr>
+              <td>تقديم المفعول على الفعل والفاعل</td>
+              <td><span class="tag tag-green">جائز</span></td>
+              <td>للتخصيص والحصر، كـ(إياك نعبد)</td>
+            </tr>
+            <tr>
+              <td>تقديم الفاعل مع لبس بالمفعول</td>
+              <td><span class="tag tag-red">ممنوع</span></td>
+              <td>دفعاً للالتباس في المعنى</td>
+            </tr>
+            <tr>
+              <td>تقديم المحصور بـ(إلا)</td>
+              <td><span class="tag tag-red">ممنوع</span></td>
+              <td>لأن الحصر يقتضي التأخير</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- شواهد قرآنية إضافية -->
+        <h3 class="subsection-title">شواهد قرآنية على التقديم والتأخير</h3>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿وَإِيَّايَ فَارْهَبُونِ﴾</div>
+          <div class="quran-note">
+            البقرة: ٤٠ — <span class="hw">إِيَّايَ</span>: مفعول به مقدَّم
+            للحصر، أي: ارهبوني أنا وحدي لا غيري.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿وَاللَّهَ يَعْبُدُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ﴾
+          </div>
+          <div class="quran-note">
+            النحل: ٤٩ — <span class="hw">اللَّهَ</span>: مفعول به مقدَّم لإفادة
+            الحصر والتعظيم، أي: لا يعبدون غير الله.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿أَلَا لِلَّهِ الدِّينُ الْخَالِصُ﴾</div>
+          <div class="quran-note">
+            الزمر: ٣ — تقديم الجار والمجرور (للهِ) للحصر، أي الدين الخالص لله
+            وحده.
+          </div>
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 6 — الملخص
+      ══════════════════════════════════════════════════ -->
+      <section id="s6">
+        <h2 class="section-title">
+          <span class="section-num">٦</span>الملخص الشامل
+        </h2>
+
+        <div class="sum-grid">
+          <div class="sum-card">
+            <div class="sum-icon">🔤</div>
+            <div class="sum-title">الجملة الفعلية</div>
+            <div class="sum-text">
+              كل جملة تبدأ بفعل (ماضٍ أو مضارع أو أمر)، وتفيد حدوث حدث في زمن
+              معين.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🧑</div>
+            <div class="sum-title">الفاعل</div>
+            <div class="sum-text">
+              مرفوع دائماً. لا يُحذف. يأتي اسماً صريحاً أو ضميراً بارزاً أو
+              مستتراً أو مصدراً مؤولاً.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🔄</div>
+            <div class="sum-title">نائب الفاعل</div>
+            <div class="sum-text">
+              يأتي بعد حذف الفاعل عند البناء للمجهول. مرفوع كالفاعل. الأصل فيه
+              المفعول به.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">📐</div>
+            <div class="sum-title">الترتيب الأصلي</div>
+            <div class="sum-text">
+              فعل ← فاعل ← مفعول به. الفعل دائماً مُفرد مع فاعله مهما كان جمعاً
+              أو مثنىً.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🔀</div>
+            <div class="sum-title">التقديم والتأخير</div>
+            <div class="sum-text">
+              يجوز تقديم المفعول للحصر والاهتمام. يُمنع التقديم إذا أفضى إلى لبس
+              أو فساد المعنى.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🌿</div>
+            <div class="sum-title">في القرآن الكريم</div>
+            <div class="sum-text">
+              الجملة الفعلية حاضرة بكثافة، والتقديم والتأخير فيها يحمل دلالات
+              بلاغية عميقة.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      style="
+        background: var(--dark);
+        color: #a0a8c0;
+        text-align: center;
+        padding: 24px 20px;
+        font-size: 0.88rem;
+        margin-top: 10px;
+      "
+    >
+      <p style="margin-bottom: 6px">أساسيات علم النحو — الجملة الفعلية</p>
+      <p style="opacity: 0.6">
+        للمراجعة والتعلُّم الذاتي — جميع الشواهد من القرآن الكريم
+      </p>
+    </footer>
+
+    <script>
+      const sections = document.querySelectorAll('section[id]')
+      const navLinks = document.querySelectorAll('nav a')
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navLinks.forEach((l) => l.classList.remove('active'))
+              const active = document.querySelector(
+                `nav a[href="#${entry.target.id}"]`,
+              )
+              if (active) {
+                active.classList.add('active')
+                active.scrollIntoView({ block: 'nearest', inline: 'center' })
+              }
+            }
+          })
+        },
+        { rootMargin: '-20% 0px -70% 0px' },
+      )
+
+      sections.forEach((s) => observer.observe(s))
+
+      navLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault()
+          const target = document.querySelector(link.getAttribute('href'))
+          if (target) target.scrollIntoView({ behavior: 'smooth' })
+        })
+      })
+    </script>
+  </body>
+</html>
