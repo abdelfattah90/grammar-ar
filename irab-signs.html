@@ -1,0 +1,1517 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>علم النحو — علامات الإعراب</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --purple: #b370a4;
+        --purple-light: #c98fbb;
+        --purple-dark: #8a5280;
+        --blue: #72add4;
+        --blue-light: #9dc5e0;
+        --blue-dark: #4e8ab5;
+        --bg: #f2f2f2;
+        --white: #ffffff;
+        --dark: #3e3e48;
+        --dark2: #3a3a52;
+        --text: #3a3350;
+        --text-light: #6a6080;
+        --gold: #c9a84c;
+        --gold-light: #f0d080;
+        --green: #4caf7a;
+        --green-light: #80d4a8;
+        --red: #d9534f;
+        --red-light: #f5a6a4;
+        --shadow: 0 4px 20px rgba(179, 112, 164, 0.12);
+        --shadow-hover: 0 8px 32px rgba(179, 112, 164, 0.22);
+        --radius: 14px;
+        --radius-sm: 8px;
+      }
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        font-family: 'Scheherazade New', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        direction: rtl;
+        line-height: 1.9;
+        font-size: 16px;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--white);
+        border-bottom: 3px solid var(--purple);
+        box-shadow: 0 2px 16px rgba(179, 112, 164, 0.15);
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+      }
+      nav::-webkit-scrollbar { display: none; }
+      .nav-brand {
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--purple);
+        padding: 14px 10px;
+        border-left: 2px solid var(--bg);
+        margin-left: 8px;
+        flex-shrink: 0;
+      }
+      nav a {
+        display: inline-block;
+        padding: 10px 14px;
+        color: var(--text-light);
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 600;
+        border-radius: var(--radius-sm);
+        transition: all 0.2s;
+        flex-shrink: 0;
+      }
+      nav a:hover, nav a.active {
+        background: var(--purple);
+        color: var(--white);
+      }
+
+      /* ── LAYOUT ── */
+      .hero {
+        background: linear-gradient(135deg, var(--purple) 0%, var(--blue) 100%);
+        color: var(--white);
+        text-align: center;
+        padding: 60px 20px 50px;
+      }
+      .hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 800; margin-bottom: 10px; }
+      .hero p { font-size: 1.1rem; opacity: 0.88; }
+      .hero-badge {
+        display: inline-block;
+        background: rgba(255,255,255,0.2);
+        border: 1px solid rgba(255,255,255,0.4);
+        padding: 4px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+      }
+
+      main { max-width: 960px; margin: 0 auto; padding: 40px 20px 60px; }
+      section { margin-bottom: 60px; scroll-margin-top: 80px; }
+
+      .section-title {
+        font-size: 1.55rem;
+        font-weight: 800;
+        color: var(--purple-dark);
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-title::after {
+        content: '';
+        flex: 1;
+        height: 3px;
+        background: linear-gradient(to left, transparent, var(--purple));
+        border-radius: 2px;
+      }
+      .section-num {
+        background: var(--purple);
+        color: var(--white);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        font-weight: 800;
+        flex-shrink: 0;
+      }
+
+      /* ── DEF BOX ── */
+      .def-box {
+        background: var(--white);
+        border: 2px solid var(--gold);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin-bottom: 22px;
+        position: relative;
+        box-shadow: 0 2px 12px rgba(201,168,76,0.12);
+      }
+      .def-box::before {
+        content: '📖 تعريف';
+        position: absolute;
+        top: -13px; right: 20px;
+        background: var(--gold);
+        color: var(--white);
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 2px 12px;
+        border-radius: 20px;
+      }
+      .def-box p { color: var(--text); font-weight: 500; }
+
+      /* ── QURAN BOX ── */
+      .quran-box {
+        background: linear-gradient(135deg, #f7f7f7 0%, #fcfffd 100%);
+        border: 2px solid var(--green);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin: 18px 0;
+        position: relative;
+        box-shadow: 0 2px 12px rgba(76,175,122,0.1);
+      }
+      .quran-box::before {
+        content: '🌿 قرآن كريم';
+        position: absolute;
+        top: -13px; right: 20px;
+        background: var(--green);
+        color: var(--white);
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 2px 12px;
+        border-radius: 20px;
+      }
+      .quran-text {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #1a5c35;
+        line-height: 2.1;
+        margin-bottom: 8px;
+        text-align: center;
+      }
+      .quran-note { font-size: 0.9rem; color: #3a7a55; font-weight: 500; }
+
+      /* ── DIAGRAM ── */
+      .diagram {
+        background: var(--dark);
+        border-radius: var(--radius);
+        padding: 28px 24px;
+        margin: 22px 0;
+        color: #e0e0f0;
+        font-family: 'Scheherazade New', sans-serif;
+      }
+      .diagram-title {
+        color: var(--gold-light);
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 18px;
+        text-align: center;
+      }
+
+      /* ── CARDS ── */
+      .card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 22px 24px;
+        margin-bottom: 16px;
+        box-shadow: var(--shadow);
+        border-top: 4px solid var(--purple);
+        transition: box-shadow 0.2s;
+      }
+      .card:hover { box-shadow: var(--shadow-hover); }
+      .card-title {
+        font-weight: 800;
+        font-size: 1.05rem;
+        color: var(--purple-dark);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .card.blue { border-top-color: var(--blue); }
+      .card.blue .card-title { color: var(--blue-dark); }
+      .card.green { border-top-color: var(--green); }
+      .card.green .card-title { color: #2e7a50; }
+      .card.gold { border-top-color: var(--gold); }
+      .card.gold .card-title { color: #8a6020; }
+      .card.red { border-top-color: var(--red); }
+      .card.red .card-title { color: #a33; }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+        margin-bottom: 22px;
+      }
+      .card-grid-2 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 16px;
+        margin-bottom: 22px;
+      }
+
+      /* ── PILLS / TAGS ── */
+      .tag {
+        display: inline-block;
+        padding: 3px 12px;
+        border-radius: 20px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        margin: 3px;
+      }
+      .tag-ism { background: #ede0f8; color: #6a2e8a; }
+      .tag-fil { background: #dceefb; color: #1a5c8a; }
+      .tag-hrf { background: #fdeedd; color: #8a5010; }
+      .tag-marifa { background: #fdf0e0; color: #8a6020; border: 1px solid var(--gold); }
+      .tag-nakira { background: #e8f4ff; color: #1a5080; border: 1px solid var(--blue); }
+      .tag-green { background: #e0f5e8; color: #2a6a40; }
+      .tag-gold { background: #fdf3d8; color: #7a5010; border: 1px solid var(--gold); }
+      .tag-red { background: #fde8e8; color: #8a2020; }
+      .tag-dark { background: var(--dark); color: #e0e0f0; }
+
+      /* ── TABLES ── */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        margin: 16px 0;
+        font-size: 0.95rem;
+      }
+      th {
+        background: var(--purple);
+        color: var(--white);
+        padding: 12px 16px;
+        font-weight: 700;
+        text-align: center;
+      }
+      td {
+        padding: 10px 16px;
+        text-align: center;
+        border-bottom: 1px solid #efe8f4;
+        color: var(--text);
+      }
+      tr:last-child td { border-bottom: none; }
+      tr:nth-child(even) td { background: #faf5fc; }
+      tr:hover td { background: #f3ecf9; }
+      .th-blue th { background: var(--blue); }
+      .th-gold th { background: var(--gold); }
+      .th-dark th { background: var(--dark); }
+      .th-green th { background: var(--green); }
+
+      /* ── IRAB TABLE ── */
+      .irab-word { font-size: 1.15rem; font-weight: 800; color: var(--purple-dark); }
+      .irab-sign { color: var(--gold); font-weight: 700; }
+      .irab-note { color: var(--text-light); font-size: 0.88rem; }
+
+      /* ── SUM GRID ── */
+      .sum-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        margin-top: 30px;
+      }
+      .sum-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 20px;
+        text-align: center;
+        box-shadow: var(--shadow);
+        border-bottom: 4px solid var(--purple);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .sum-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+      .sum-card:nth-child(2) { border-bottom-color: var(--blue); }
+      .sum-card:nth-child(3) { border-bottom-color: var(--green); }
+      .sum-card:nth-child(4) { border-bottom-color: var(--gold); }
+      .sum-card:nth-child(5) { border-bottom-color: var(--red); }
+      .sum-card:nth-child(6) { border-bottom-color: var(--purple-light); }
+      .sum-icon { font-size: 2rem; margin-bottom: 8px; }
+      .sum-title { font-weight: 800; font-size: 1rem; color: var(--text); margin-bottom: 6px; }
+      .sum-text { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; }
+
+      /* ── NOTE ── */
+      .note {
+        background: #fdf4ff;
+        border-right: 4px solid var(--purple);
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        padding: 14px 18px;
+        margin: 14px 0;
+        font-size: 0.93rem;
+        color: var(--text);
+      }
+      .note strong { color: var(--purple-dark); }
+      .note.blue { background: #f0f7ff; border-right-color: var(--blue); }
+      .note.blue strong { color: var(--blue-dark); }
+      .note.green { background: #f0fff5; border-right-color: var(--green); }
+      .note.green strong { color: #2e7a50; }
+      .note.gold { background: #fffbf0; border-right-color: var(--gold); }
+      .note.gold strong { color: #8a6020; }
+      .note.red { background: #fff5f5; border-right-color: var(--red); }
+      .note.red strong { color: #a33; }
+
+      .highlight-word {
+        background: linear-gradient(to top, var(--purple-light) 10%, transparent 10%);
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .highlight-blue {
+        background: linear-gradient(to top, var(--blue-light) 10%, transparent 10%);
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .highlight-gold {
+        background: linear-gradient(to top, var(--gold-light) 10%, transparent 10%);
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .highlight-green {
+        background: linear-gradient(to top, var(--green-light) 10%, transparent 10%);
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+
+      /* ── SIGN VISUAL ── */
+      .sign-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 14px;
+        margin: 20px 0;
+      }
+      .sign-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 20px 16px;
+        text-align: center;
+        box-shadow: var(--shadow);
+        border: 2px solid transparent;
+        transition: all 0.2s;
+      }
+      .sign-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+      .sign-card.rafa { border-color: var(--purple); }
+      .sign-card.nasb { border-color: var(--blue); }
+      .sign-card.jarr { border-color: var(--green); }
+      .sign-card.jazm { border-color: var(--gold); }
+      .sign-state {
+        font-size: 0.8rem;
+        font-weight: 700;
+        padding: 3px 14px;
+        border-radius: 20px;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+      .rafa .sign-state { background: #ede0f8; color: var(--purple-dark); }
+      .nasb .sign-state { background: #dceefb; color: var(--blue-dark); }
+      .jarr .sign-state { background: #e0f5e8; color: #2e7a50; }
+      .jazm .sign-state { background: #fdf0e0; color: #8a6020; }
+      .sign-mark { font-size: 2rem; font-weight: 900; margin: 8px 0; }
+      .rafa .sign-mark { color: var(--purple); }
+      .nasb .sign-mark { color: var(--blue-dark); }
+      .jarr .sign-mark { color: var(--green); }
+      .jazm .sign-mark { color: var(--gold); }
+      .sign-name { font-size: 1rem; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+      .sign-example { font-size: 0.85rem; color: var(--text-light); }
+
+      /* ── IRAB TYPE BLOCK ── */
+      .irab-block {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 24px 26px;
+        margin-bottom: 20px;
+        box-shadow: var(--shadow);
+        border-right: 5px solid var(--purple);
+      }
+      .irab-block.nasb { border-right-color: var(--blue); }
+      .irab-block.jarr { border-right-color: var(--green); }
+      .irab-block.jazm { border-right-color: var(--gold); }
+      .irab-block-title {
+        font-size: 1.15rem;
+        font-weight: 800;
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .rafa-dot, .nasb-dot, .jarr-dot, .jazm-dot {
+        width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0;
+      }
+      .rafa-dot { background: var(--purple); }
+      .nasb-dot { background: var(--blue); }
+      .jarr-dot { background: var(--green); }
+      .jazm-dot { background: var(--gold); }
+
+      /* ── FLEX ROW ── */
+      .flex-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 12px 0;
+        align-items: flex-start;
+      }
+
+      /* ── SEPARATOR ── */
+      .sep {
+        height: 2px;
+        background: linear-gradient(to left, transparent, var(--purple), transparent);
+        margin: 30px 0;
+        border-radius: 2px;
+      }
+
+      /* ── SCROLL REVEAL ── */
+      section { animation: fadeUp 0.4s ease both; }
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(18px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 600px) {
+        nav { gap: 4px; padding: 0 10px; }
+        nav a { padding: 10px 10px; font-size: 0.82rem; }
+        .hero { padding: 40px 16px 36px; }
+        main { padding: 28px 14px 50px; }
+        .def-box, .quran-box { padding: 18px 16px; }
+        .def-box::before, .quran-box::before { right: 14px; }
+        .quran-text { font-size: 1.05rem; }
+        table { font-size: 0.85rem; }
+        td, th { padding: 8px 10px; }
+        .sum-grid { grid-template-columns: repeat(2, 1fr); }
+        .sign-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+
+      /* ── CHAPTER BADGE ── */
+      .chapter-badge {
+        display: inline-block;
+        background: linear-gradient(135deg, var(--purple), var(--blue));
+        color: white;
+        font-size: 0.85rem;
+        font-weight: 700;
+        padding: 5px 18px;
+        border-radius: 20px;
+        margin-bottom: 16px;
+      }
+
+      /* ── TREE ── */
+      .tree {
+        font-family: 'Scheherazade New', sans-serif;
+        font-size: 1rem;
+        line-height: 2.2;
+        color: #ffffff;
+        text-align: center;
+      }
+      .tree-row {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin: 8px 0;
+      }
+      .tree-node {
+        background: rgba(255,255,255,0.12);
+        border: 1px solid rgba(255,255,255,0.25);
+        border-radius: 8px;
+        padding: 6px 16px;
+        font-weight: 700;
+        font-size: 0.95rem;
+      }
+      .tree-node.gold { background: rgba(201,168,76,0.25); border-color: var(--gold); color: var(--gold-light); }
+      .tree-node.purple { background: rgba(179,112,164,0.3); border-color: var(--purple-light); color: #e8c5e0; }
+      .tree-node.blue { background: rgba(114,173,212,0.25); border-color: var(--blue-light); color: #b8d8f0; }
+      .tree-node.green { background: rgba(76,175,122,0.25); border-color: var(--green-light); color: #a8e8c8; }
+      .tree-connector { text-align: center; color: rgba(255,255,255,0.4); font-size: 1.2rem; margin: 2px 0; }
+      .tree-label { font-size: 0.75rem; opacity: 0.65; margin-top: 2px; }
+    </style>
+  </head>
+  <body>
+
+    <!-- ══ NAV ══ -->
+    <nav>
+      <div class="nav-brand">علامات الإعراب</div>
+      <a href="#s1">مقدمة</a>
+      <a href="#s2">الأصلية</a>
+      <a href="#s3">المثنى</a>
+      <a href="#s4">ج. مذكر</a>
+      <a href="#s5">ج. مؤنث</a>
+      <a href="#s6">الأسماء الخمسة</a>
+      <a href="#s7">الأفعال الخمسة</a>
+      <a href="#s8">ممنوع صرف</a>
+      <a href="#s9">الملخص</a>
+    </nav>
+
+    <!-- ══ HERO ══ -->
+    <div class="hero">
+      <div class="hero-badge">أساسيات علم النحو</div>
+      <h1>علامات الإعراب</h1>
+      <p>الأصلية والفرعية · تعريفات · أمثلة · شواهد قرآنية</p>
+    </div>
+
+    <main>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 1 — مقدمة
+      ══════════════════════════════════════════════════ -->
+      <section id="s1">
+        <h2 class="section-title"><span class="section-num">١</span>مقدمة في الإعراب وعلاماته</h2>
+
+        <div class="def-box">
+          <p>
+            <strong>الإعراب</strong> هو: تغيُّرُ أواخر الكلمات بسبب تغيُّر موقعها في الجملة وما يدخل عليها من عوامل.
+            وهو مختصٌّ بالاسم المعرب والفعل المضارع فقط.
+          </p>
+        </div>
+
+        <div class="note">
+          <strong>لماذا نتعلم العلامات؟</strong> علامات الإعراب هي المظهر الصوتي والكتابي لحالة الكلمة، فإذا عرفتَ العلامة عرفتَ الوظيفة النحوية للكلمة في الجملة.
+        </div>
+
+        <!-- مخطط الأقسام -->
+        <div class="diagram">
+          <div class="diagram-title">🗺️ خريطة علامات الإعراب</div>
+          <div class="tree">
+            <div class="tree-row">
+              <div class="tree-node gold">علامات الإعراب</div>
+            </div>
+            <div class="tree-connector">┬──────────────────────┬</div>
+            <div class="tree-row">
+              <div class="tree-node purple">الأصلية (الأصل)</div>
+              <div class="tree-node blue">الفرعية (النيابة)</div>
+            </div>
+            <div style="display:flex; gap:60px; justify-content:center; margin-top:6px; flex-wrap:wrap;">
+              <div>
+                <div class="tree-connector">│</div>
+                <div class="tree-row">
+                  <div class="tree-node purple" style="font-size:.82rem;">ضمة · فتحة · كسرة · سكون</div>
+                </div>
+              </div>
+              <div>
+                <div class="tree-connector">│</div>
+                <div class="tree-row">
+                  <div class="tree-node blue" style="font-size:.82rem;">حروف · حذف نون · حذف حرف علة</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- الحالات الإعرابية الأربع -->
+        <h3 style="font-weight:800; color:var(--purple-dark); margin: 24px 0 14px; font-size:1.1rem;">الحالات الإعرابية الأربع</h3>
+        <div class="sign-grid">
+          <div class="sign-card rafa">
+            <span class="sign-state">رفع</span>
+            <div class="sign-mark">◌ُ</div>
+            <div class="sign-name">الضمة</div>
+            <div class="sign-example">المبتدأ، الخبر، الفاعل...</div>
+          </div>
+          <div class="sign-card nasb">
+            <span class="sign-state">نصب</span>
+            <div class="sign-mark">◌َ</div>
+            <div class="sign-name">الفتحة</div>
+            <div class="sign-example">المفعول به، اسم إنّ...</div>
+          </div>
+          <div class="sign-card jarr">
+            <span class="sign-state">جر</span>
+            <div class="sign-mark">◌ِ</div>
+            <div class="sign-name">الكسرة</div>
+            <div class="sign-example">المجرور بحرف، المضاف إليه...</div>
+          </div>
+          <div class="sign-card jazm">
+            <span class="sign-state">جزم</span>
+            <div class="sign-mark">◌ْ</div>
+            <div class="sign-name">السكون</div>
+            <div class="sign-example">فعل مضارع مجزوم...</div>
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>تنبيه مهم:</strong> الجزم خاص بالأفعال فقط، ولا يدخل الجرُّ إلا على الأسماء. أما الرفع والنصب فيشتركان بين الأسماء والأفعال.
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 2 — العلامات الأصلية
+      ══════════════════════════════════════════════════ -->
+      <section id="s2">
+        <h2 class="section-title"><span class="section-num">٢</span>العلامات الأصلية</h2>
+
+        <div class="def-box">
+          <p>
+            العلامات الأصلية هي العلامات التي تُستعمل <strong>قياساً</strong> في معظم الأسماء والأفعال، وما عداها فهو <span class="highlight-word">فرعي نائب عنها</span>.
+          </p>
+        </div>
+
+        <!-- الرفع: الضمة -->
+        <div class="irab-block">
+          <div class="irab-block-title">
+            <span class="rafa-dot"></span>
+            <span style="color:var(--purple-dark);">الرفع — علامته الأصلية: الضمة</span>
+          </div>
+          <p style="margin-bottom:12px;">تظهر الضمة على آخر الاسم أو الفعل حين يكون في حالة الرفع.</p>
+          <div class="flex-row">
+            <span class="tag tag-ism">مبتدأ</span>
+            <span class="tag tag-ism">خبر</span>
+            <span class="tag tag-ism">فاعل</span>
+            <span class="tag tag-ism">نائب فاعل</span>
+            <span class="tag tag-ism">خبر كان</span>
+            <span class="tag tag-ism">اسم إنَّ</span>
+            <span class="tag tag-fil">فعل مضارع غير ناصب ولا جازم</span>
+          </div>
+          <table style="margin-top:14px;" class="th-dark">
+            <thead><tr><th>الكلمة</th><th>موقعها</th><th>العلامة</th></tr></thead>
+            <tbody>
+              <tr><td class="irab-word">الطالبُ</td><td>مبتدأ</td><td class="irab-sign">ضمة ظاهرة</td></tr>
+              <tr><td class="irab-word">مجتهدٌ</td><td>خبر</td><td class="irab-sign">ضمة ظاهرة (تنوين)</td></tr>
+              <tr><td class="irab-word">جاءَ محمدٌ</td><td>فاعل</td><td class="irab-sign">ضمة ظاهرة</td></tr>
+              <tr><td class="irab-word">يكتبُ</td><td>فعل مضارع مرفوع</td><td class="irab-sign">ضمة ظاهرة</td></tr>
+            </tbody>
+          </table>
+          <div class="quran-box">
+            <div class="quran-text">﴿اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ﴾</div>
+            <div class="quran-note">النور: ٣٥ — <span class="highlight-word">اللَّهُ</span>: مبتدأ مرفوع بالضمة. <span class="highlight-word">نُورُ</span>: خبر مرفوع بالضمة.</div>
+          </div>
+          <div class="quran-box">
+            <div class="quran-text">﴿يَعْلَمُ مَا فِي السَّمَاوَاتِ وَالْأَرْضِ﴾</div>
+            <div class="quran-note">العنكبوت: ٥٢ — <span class="highlight-word">يَعْلَمُ</span>: فعل مضارع مرفوع بالضمة لخلوه من الناصب والجازم.</div>
+          </div>
+        </div>
+
+        <!-- النصب: الفتحة -->
+        <div class="irab-block nasb">
+          <div class="irab-block-title">
+            <span class="nasb-dot"></span>
+            <span style="color:var(--blue-dark);">النصب — علامته الأصلية: الفتحة</span>
+          </div>
+          <p style="margin-bottom:12px;">تظهر الفتحة على آخر الاسم المنصوب أو الفعل المضارع الذي دخل عليه ناصب.</p>
+          <div class="flex-row">
+            <span class="tag tag-fil">مفعول به</span>
+            <span class="tag tag-fil">حال</span>
+            <span class="tag tag-fil">تمييز</span>
+            <span class="tag tag-fil">اسم كان</span>
+            <span class="tag tag-fil">خبر إنّ</span>
+            <span class="tag tag-fil">مفعول مطلق</span>
+            <span class="tag tag-fil">فعل مضارع بعد ناصب</span>
+          </div>
+          <table style="margin-top:14px;" class="th-blue">
+            <thead><tr><th>الكلمة</th><th>موقعها</th><th>العلامة</th></tr></thead>
+            <tbody>
+              <tr><td class="irab-word">قرأتُ الكتابَ</td><td>مفعول به</td><td class="irab-sign">فتحة ظاهرة</td></tr>
+              <tr><td class="irab-word">جاء خالدٌ راكبًا</td><td>حال</td><td class="irab-sign">فتحة (تنوين)</td></tr>
+              <tr><td class="irab-word">أنْ يقرأَ</td><td>فعل مضارع منصوب بـ(أن)</td><td class="irab-sign">فتحة ظاهرة</td></tr>
+            </tbody>
+          </table>
+          <div class="quran-box">
+            <div class="quran-text">﴿وَخَلَقَ اللَّهُ السَّمَاوَاتِ وَالْأَرْضَ بِالْحَقِّ﴾</div>
+            <div class="quran-note">العنكبوت: ٤٤ — <span class="highlight-word">السَّمَاوَاتِ</span> و<span class="highlight-word">الْأَرْضَ</span>: مفعولان به منصوبان، الأول بالكسرة نيابةً (جمع مؤنث سالم)، والثاني بالفتحة أصلاً.</div>
+          </div>
+          <div class="quran-box">
+            <div class="quran-text">﴿وَأُمِرْتُ أَنْ أَكُونَ مِنَ الْمُسْلِمِينَ﴾</div>
+            <div class="quran-note">يونس: ٧٢ — <span class="highlight-word">أَكُونَ</span>: فعل مضارع منصوب بـ(أن) وعلامة نصبه الفتحة الظاهرة.</div>
+          </div>
+        </div>
+
+        <!-- الجر: الكسرة -->
+        <div class="irab-block jarr">
+          <div class="irab-block-title">
+            <span class="jarr-dot"></span>
+            <span style="color:#2e7a50;">الجر — علامته الأصلية: الكسرة</span>
+          </div>
+          <p style="margin-bottom:12px;">تظهر الكسرة على آخر الاسم المجرور، ولا يدخل الجر على الأفعال.</p>
+          <div class="flex-row">
+            <span class="tag tag-green">مجرور بحرف جر</span>
+            <span class="tag tag-green">مضاف إليه</span>
+            <span class="tag tag-green">تابع للمجرور</span>
+          </div>
+          <table style="margin-top:14px;" class="th-green">
+            <thead><tr><th>الكلمة</th><th>موقعها</th><th>العلامة</th></tr></thead>
+            <tbody>
+              <tr><td class="irab-word">ذهبتُ إلى المدرسةِ</td><td>مجرور بـ(إلى)</td><td class="irab-sign">كسرة ظاهرة</td></tr>
+              <tr><td class="irab-word">كتابُ الطالبِ</td><td>مضاف إليه</td><td class="irab-sign">كسرة ظاهرة</td></tr>
+              <tr><td class="irab-word">مررتُ بعالمٍ فاضلٍ</td><td>مجرور بالباء + نعته</td><td class="irab-sign">كسرة (تنوين)</td></tr>
+            </tbody>
+          </table>
+          <div class="quran-box">
+            <div class="quran-text">﴿بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ﴾</div>
+            <div class="quran-note">الفاتحة: ١ — <span class="highlight-word">اللَّهِ</span> مجرور بالإضافة، <span class="highlight-word">الرَّحْمَٰنِ</span> و<span class="highlight-word">الرَّحِيمِ</span> نعتان مجروران، وجميعها بالكسرة الظاهرة.</div>
+          </div>
+          <div class="quran-box">
+            <div class="quran-text">﴿الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ﴾</div>
+            <div class="quran-note">الفاتحة: ٢ — <span class="highlight-word">لِلَّهِ</span>: مجرور باللام. <span class="highlight-word">رَبِّ</span>: نعت مجرور بالكسرة. <span class="highlight-word">الْعَالَمِينَ</span>: مضاف إليه مجرور بالياء (فرعية — جمع مذكر سالم).</div>
+          </div>
+        </div>
+
+        <!-- الجزم: السكون -->
+        <div class="irab-block jazm">
+          <div class="irab-block-title">
+            <span class="jazm-dot"></span>
+            <span style="color:#8a6020;">الجزم — علامته الأصلية: السكون</span>
+          </div>
+          <p style="margin-bottom:12px;">يختص الجزم بالفعل المضارع، ولا يدخل على الأسماء. يحدث بعد أدوات الجزم.</p>
+          <div class="flex-row">
+            <span class="tag tag-gold">لم</span>
+            <span class="tag tag-gold">لَمَّا</span>
+            <span class="tag tag-gold">لا الناهية</span>
+            <span class="tag tag-gold">لام الأمر</span>
+            <span class="tag tag-gold">إنْ الشرطية</span>
+            <span class="tag tag-gold">مَنْ - مَا - أيُّ (شرط)</span>
+          </div>
+          <table style="margin-top:14px;" class="th-gold">
+            <thead><tr><th>الكلمة</th><th>الأداة</th><th>العلامة</th></tr></thead>
+            <tbody>
+              <tr><td class="irab-word">لم يكتبْ</td><td>لم</td><td class="irab-sign">سكون ظاهر</td></tr>
+              <tr><td class="irab-word">لا تكذبْ</td><td>لا الناهية</td><td class="irab-sign">سكون ظاهر</td></tr>
+              <tr><td class="irab-word">لِيقرأْ</td><td>لام الأمر</td><td class="irab-sign">سكون ظاهر</td></tr>
+            </tbody>
+          </table>
+          <div class="quran-box">
+            <div class="quran-text">﴿لَمْ يَلِدْ وَلَمْ يُولَدْ﴾</div>
+            <div class="quran-note">الإخلاص: ٣ — <span class="highlight-word">يَلِدْ</span> و<span class="highlight-word">يُولَدْ</span>: فعلان مضارعان مجزومان بـ(لم) وعلامة جزمهما السكون الظاهر.</div>
+          </div>
+          <div class="quran-box">
+            <div class="quran-text">﴿وَلَا تَقْرَبُوا الزِّنَىٰ﴾</div>
+            <div class="quran-note">الإسراء: ٣٢ — <span class="highlight-word">تَقْرَبُوا</span>: فعل مضارع مجزوم بـ(لا الناهية) وعلامة جزمه حذف النون (فرعية — من الأفعال الخمسة).</div>
+          </div>
+        </div>
+
+        <div class="note gold">
+          <strong>ملخص العلامات الأصلية الأربع:</strong>
+          الضمة للرفع، والفتحة للنصب، والكسرة للجر، والسكون للجزم. وكل ما عدا هذه فهو علامة فرعية نائبة عنها في مواضع بعينها.
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 3 — المثنى
+      ══════════════════════════════════════════════════ -->
+      <section id="s3">
+        <h2 class="section-title"><span class="section-num">٣</span>العلامات الفرعية — المثنى</h2>
+
+        <div class="def-box">
+          <p>
+            <strong>المثنى</strong> هو: ما دلَّ على اثنين أو اثنتين بزيادة <span class="highlight-word">ألف ونون</span> في حالة الرفع، أو <span class="highlight-blue">ياء ونون</span> في حالتَي النصب والجر، على مفرده.
+          </p>
+        </div>
+
+        <div class="note">
+          <strong>الشرط:</strong> يجب أن يكون المفرد معرباً غير مقصور ولا ممنوع من الصرف (أو ممنوعاً قبل التثنية)، وأن يكون المعنيان متطابقَين.
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>الحالة</th>
+              <th>العلامة الفرعية</th>
+              <th>مثال</th>
+              <th>ما تنوب عنه</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag-ism">رفع</span></td>
+              <td class="irab-sign">الألف (ألف + نون مكسورة): ـانِ</td>
+              <td class="irab-word">جاءَ الطالبَانِ</td>
+              <td>الضمة</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-fil">نصب</span></td>
+              <td class="irab-sign">الياء (ياء + نون مكسورة): ـيْنِ</td>
+              <td class="irab-word">رأيتُ الطالبَيْنِ</td>
+              <td>الفتحة</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-green">جر</span></td>
+              <td class="irab-sign">الياء أيضاً: ـيْنِ</td>
+              <td class="irab-word">مررتُ بالطالبَيْنِ</td>
+              <td>الكسرة</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note blue">
+          <strong>نون المثنى:</strong> تُكسر دائماً، وهي عوض عن التنوين في المفرد. وتُحذف عند الإضافة: «طالبَا العلم» لا «طالبانِ العلم».
+        </div>
+
+        <h3 style="font-weight:800; color:var(--purple-dark); margin: 22px 0 12px; font-size:1.05rem;">أمثلة تطبيقية</h3>
+        <table class="th-dark">
+          <thead><tr><th>الجملة</th><th>المثنى</th><th>حالته</th><th>العلامة</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>الوالدانِ كريمانِ</td>
+              <td class="irab-word">الوالدانِ</td>
+              <td>مبتدأ مرفوع</td>
+              <td class="irab-sign">الألف نيابةً عن الضمة</td>
+            </tr>
+            <tr>
+              <td>أحبُّ الوالدَيْنِ</td>
+              <td class="irab-word">الوالدَيْنِ</td>
+              <td>مفعول به منصوب</td>
+              <td class="irab-sign">الياء نيابةً عن الفتحة</td>
+            </tr>
+            <tr>
+              <td>بِرُّ الوالدَيْنِ واجبٌ</td>
+              <td class="irab-word">الوالدَيْنِ</td>
+              <td>مضاف إليه مجرور</td>
+              <td class="irab-sign">الياء نيابةً عن الكسرة</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿وَوَصَّيْنَا الْإِنسَانَ بِوَالِدَيْهِ إِحْسَانًا﴾</div>
+          <div class="quran-note">الأحقاف: ١٥ — <span class="highlight-word">وَالِدَيْهِ</span>: مثنى مجرور بالباء وعلامة جره الياء نيابةً عن الكسرة، والهاء مضاف إليه.</div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿فَإِن كَانَ لَهُ إِخْوَةٌ فَلِأُمِّهِ السُّدُسُ﴾</div>
+          <div class="quran-note">النساء: ١١ — انظر كيف يُستخدم المثنى بالألف في الرفع وبالياء في النصب والجر.</div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿قَالَ رَجُلَانِ مِنَ الَّذِينَ يَخَافُونَ﴾</div>
+          <div class="quran-note">المائدة: ٢٣ — <span class="highlight-word">رَجُلَانِ</span>: فاعل مرفوع وعلامة رفعه الألف نيابةً عن الضمة.</div>
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 4 — جمع المذكر السالم
+      ══════════════════════════════════════════════════ -->
+      <section id="s4">
+        <h2 class="section-title"><span class="section-num">٤</span>جمع المذكر السالم</h2>
+
+        <div class="def-box">
+          <p>
+            <strong>جمع المذكر السالم</strong> هو: ما جُمع بزيادة <span class="highlight-word">واو ونون</span> في حالة الرفع، أو <span class="highlight-blue">ياء ونون</span> في حالتَي النصب والجر، على مفرده المذكر بشرط سلامته (أي دون تغيير في بنيته الأصلية).
+          </p>
+        </div>
+
+        <div class="note">
+          <strong>شروط صياغته:</strong> يكون من الأعلام المذكر العاقل، أو الصفات المذكر العاقل. مثل: محمد ← محمدون، مسلم ← مسلمون، مجتهد ← مجتهدون.
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>الحالة</th>
+              <th>العلامة الفرعية</th>
+              <th>مثال</th>
+              <th>ما تنوب عنه</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag-ism">رفع</span></td>
+              <td class="irab-sign">الواو (واو + نون مفتوحة): ـونَ</td>
+              <td class="irab-word">جاءَ المعلمونَ</td>
+              <td>الضمة</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-fil">نصب</span></td>
+              <td class="irab-sign">الياء (ياء + نون مفتوحة): ـينَ</td>
+              <td class="irab-word">رأيتُ المعلمينَ</td>
+              <td>الفتحة</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-green">جر</span></td>
+              <td class="irab-sign">الياء أيضاً: ـينَ</td>
+              <td class="irab-word">سلَّمتُ على المعلمينَ</td>
+              <td>الكسرة</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note blue">
+          <strong>نون جمع المذكر السالم:</strong> تُفتح دائماً (خلافاً لنون المثنى التي تُكسر)، وتُحذف أيضاً عند الإضافة: «معلمو المدرسة» لا «معلمون المدرسة».
+        </div>
+
+        <div class="note green">
+          <strong>فرق جوهري:</strong> المثنى يشترك في علامة النصب والجر (الياء المكسورة ـيْنِ)، وجمع المذكر السالم يشترك أيضاً (الياء المفتوحة ـينَ)، غير أن نون المثنى مكسورة ونون جمع المذكر مفتوحة.
+        </div>
+
+        <h3 style="font-weight:800; color:var(--purple-dark); margin: 22px 0 12px; font-size:1.05rem;">أمثلة تطبيقية</h3>
+        <table class="th-dark">
+          <thead><tr><th>الجملة</th><th>الكلمة</th><th>حالته</th><th>العلامة</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>المؤمنونَ يفلحون</td>
+              <td class="irab-word">المؤمنونَ</td>
+              <td>مبتدأ مرفوع</td>
+              <td class="irab-sign">الواو نيابةً عن الضمة</td>
+            </tr>
+            <tr>
+              <td>أكرمتُ المجتهدينَ</td>
+              <td class="irab-word">المجتهدينَ</td>
+              <td>مفعول به منصوب</td>
+              <td class="irab-sign">الياء نيابةً عن الفتحة</td>
+            </tr>
+            <tr>
+              <td>قرأتُ كتبَ العلماءِ المتخصصينَ</td>
+              <td class="irab-word">المتخصصينَ</td>
+              <td>نعت مجرور</td>
+              <td class="irab-sign">الياء نيابةً عن الكسرة</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿إِنَّ الْمُسْلِمِينَ وَالْمُسْلِمَاتِ وَالْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ﴾</div>
+          <div class="quran-note">الأحزاب: ٣٥ — <span class="highlight-word">الْمُسْلِمِينَ</span> و<span class="highlight-word">الْمُؤْمِنِينَ</span>: جمعا مذكر سالم منصوبان بالياء نيابةً عن الفتحة.</div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿قَدْ أَفْلَحَ الْمُؤْمِنُونَ﴾</div>
+          <div class="quran-note">المؤمنون: ١ — <span class="highlight-word">الْمُؤْمِنُونَ</span>: فاعل مرفوع وعلامة رفعه الواو نيابةً عن الضمة.</div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿رَبِّ الْعَالَمِينَ﴾</div>
+          <div class="quran-note">الفاتحة: ٢ — <span class="highlight-word">الْعَالَمِينَ</span>: مضاف إليه مجرور وعلامة جره الياء نيابةً عن الكسرة.</div>
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 5 — جمع المؤنث السالم
+      ══════════════════════════════════════════════════ -->
+      <section id="s5">
+        <h2 class="section-title"><span class="section-num">٥</span>جمع المؤنث السالم</h2>
+
+        <div class="def-box">
+          <p>
+            <strong>جمع المؤنث السالم</strong> هو: ما جُمع بزيادة <span class="highlight-word">ألف وتاء</span> على مفرده مع سلامة بنيته الأصلية. مثل: مسلمة ← مسلمات، طالبة ← طالبات.
+          </p>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>الحالة</th>
+              <th>العلامة الفرعية</th>
+              <th>مثال</th>
+              <th>ما تنوب عنه</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag-ism">رفع</span></td>
+              <td class="irab-sign">الضمة (كالمفرد تماماً)</td>
+              <td class="irab-word">جاءَ المعلماتُ</td>
+              <td>— (الضمة أصل)</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-fil">نصب</span></td>
+              <td class="irab-sign">الكسرة (نيابةً عن الفتحة)</td>
+              <td class="irab-word">رأيتُ المعلماتِ</td>
+              <td>الفتحة</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-green">جر</span></td>
+              <td class="irab-sign">الكسرة (كالمفرد)</td>
+              <td class="irab-word">مررتُ بالمعلماتِ</td>
+              <td>— (الكسرة أصل)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note red">
+          <strong>الخصوصية الكبرى لجمع المؤنث السالم:</strong> يُنصب بالكسرة لا بالفتحة — وهذا هو الحكم الفرعي الوحيد الغريب عن القاعدة. أما الرفع والجر فبعلاماتهما الأصلية (الضمة والكسرة).
+        </div>
+
+        <div class="card-grid">
+          <div class="card green">
+            <div class="card-title">📌 الرفع — الضمة</div>
+            <p>المسلماتُ فزنَ ← مرفوع بالضمة الظاهرة.</p>
+          </div>
+          <div class="card red">
+            <div class="card-title">⚡ النصب — الكسرة (فرعية)</div>
+            <p>رأيتُ المسلماتِ ← منصوب بالكسرة نيابةً عن الفتحة.</p>
+          </div>
+          <div class="card blue">
+            <div class="card-title">📌 الجر — الكسرة</div>
+            <p>سلَّمتُ على المسلماتِ ← مجرور بالكسرة الظاهرة.</p>
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿وَالْمُؤْمِنُونَ وَالْمُؤْمِنَاتُ بَعْضُهُمْ أَوْلِيَاءُ بَعْضٍ﴾</div>
+          <div class="quran-note">التوبة: ٧١ — <span class="highlight-word">الْمُؤْمِنَاتُ</span>: جمع مؤنث سالم، مرفوع بالضمة الظاهرة (معطوف على مرفوع).</div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿إِنَّ الْمُسْلِمِينَ وَالْمُسْلِمَاتِ وَالْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ﴾</div>
+          <div class="quran-note">الأحزاب: ٣٥ — <span class="highlight-word">الْمُسْلِمَاتِ</span> و<span class="highlight-word">الْمُؤْمِنَاتِ</span>: جمعا مؤنث سالم منصوبان بالكسرة نيابةً عن الفتحة (لأنهما في محل نصب اسم إنّ بالعطف).</div>
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 6 — الأسماء الخمسة
+      ══════════════════════════════════════════════════ -->
+      <section id="s6">
+        <h2 class="section-title"><span class="section-num">٦</span>الأسماء الخمسة</h2>
+
+        <div class="def-box">
+          <p>
+            الأسماء الخمسة هي: <span class="highlight-word">أبٌ، أخٌ، حمٌ، فمٌ، ذو</span> — وتُعرب بالحروف (واو، ألف، ياء) بدلاً من الحركات بشروط معينة.
+          </p>
+        </div>
+
+        <div class="note">
+          <strong>شروط إعرابها بالحروف:</strong> أن تكون مضافة إلى غير ياء المتكلم، وأن تكون مفردة (غير مثناة ولا مجموعة)، وألّا تكون مصغَّرة.
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>الحالة</th>
+              <th>العلامة الفرعية</th>
+              <th>مثال</th>
+              <th>ما تنوب عنه</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag-ism">رفع</span></td>
+              <td class="irab-sign">الواو</td>
+              <td class="irab-word">جاءَ أبوكَ</td>
+              <td>الضمة</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-fil">نصب</span></td>
+              <td class="irab-sign">الألف</td>
+              <td class="irab-word">رأيتُ أباكَ</td>
+              <td>الفتحة</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-green">جر</span></td>
+              <td class="irab-sign">الياء</td>
+              <td class="irab-word">مررتُ بأبيكَ</td>
+              <td>الكسرة</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title">👤 أَبٌ / أَخٌ / حَمٌ</div>
+            <p>ثلاثتها تُعرب إعراباً واحداً بالحروف عند الإضافة.</p>
+            <div style="margin-top:8px">
+              <span class="tag tag-ism">أبوكَ — أباكَ — أبيكَ</span>
+            </div>
+          </div>
+          <div class="card blue">
+            <div class="card-title">👄 فَمٌ</div>
+            <p>يُعرب بالحروف فقط عند حذف الميم وإضافته. إذا بقيت الميم أُعرب بالحركات: في الفَمِ.</p>
+            <div style="margin-top:8px">
+              <span class="tag tag-fil">فوكَ — فاكَ — فيكَ</span>
+            </div>
+          </div>
+          <div class="card gold">
+            <div class="card-title">🔖 ذو</div>
+            <p>لا تُستعمل إلا مضافة لاسم جنس، ولا تُضاف لضمير. معناها: صاحب.</p>
+            <div style="margin-top:8px">
+              <span class="tag tag-gold">ذو علمٍ — ذا علمٍ — ذي علمٍ</span>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="font-weight:800; color:var(--purple-dark); margin: 22px 0 12px; font-size:1.05rem;">أمثلة تطبيقية شاملة</h3>
+        <table class="th-dark">
+          <thead><tr><th>الجملة</th><th>الكلمة</th><th>حالتها</th><th>العلامة</th></tr></thead>
+          <tbody>
+            <tr><td>حضرَ أبوكَ</td><td class="irab-word">أبوكَ</td><td>فاعل مرفوع</td><td class="irab-sign">الواو نيابةً عن الضمة</td></tr>
+            <tr><td>قابلتُ أباكَ</td><td class="irab-word">أباكَ</td><td>مفعول به منصوب</td><td class="irab-sign">الألف نيابةً عن الفتحة</td></tr>
+            <tr><td>سلَّمتُ على أخيكَ</td><td class="irab-word">أخيكَ</td><td>مجرور</td><td class="irab-sign">الياء نيابةً عن الكسرة</td></tr>
+            <tr><td>هو ذو خُلُقٍ كريمٍ</td><td class="irab-word">ذو</td><td>خبر مرفوع</td><td class="irab-sign">الواو نيابةً عن الضمة</td></tr>
+          </tbody>
+        </table>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿وَأَبُونَا شَيْخٌ كَبِيرٌ﴾</div>
+          <div class="quran-note">القصص: ٢٣ — <span class="highlight-word">أَبُونَا</span>: مبتدأ مرفوع وعلامة رفعه الواو نيابةً عن الضمة لأنه من الأسماء الخمسة.</div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿وَهُوَ ذُو الْعَرْشِ الْمَجِيدُ﴾</div>
+          <div class="quran-note">البروج: ١٥ — <span class="highlight-word">ذُو</span>: خبر مرفوع وعلامة رفعه الواو نيابةً عن الضمة.</div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿تَبَّتْ يَدَا أَبِي لَهَبٍ وَتَبَّ﴾</div>
+          <div class="quran-note">المسد: ١ — <span class="highlight-word">أَبِي</span>: مضاف إليه مجرور وعلامة جره الياء نيابةً عن الكسرة.</div>
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 7 — الأفعال الخمسة
+      ══════════════════════════════════════════════════ -->
+      <section id="s7">
+        <h2 class="section-title"><span class="section-num">٧</span>الأفعال الخمسة</h2>
+
+        <div class="def-box">
+          <p>
+            <strong>الأفعال الخمسة</strong> هي كل فعل مضارع اتصلت به <span class="highlight-word">ألف الاثنين</span> أو <span class="highlight-blue">واو الجماعة</span> أو <span class="highlight-gold">ياء المخاطبة</span>.
+          </p>
+        </div>
+
+        <!-- جدول الأفعال الخمسة -->
+        <table>
+          <thead>
+            <tr>
+              <th>الفعل</th>
+              <th>الضمير المتصل</th>
+              <th>الصيغة</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word">يفعلانِ</td>
+              <td>ألف الاثنين (هما)</td>
+              <td>للغائبَين المذكرَين</td>
+            </tr>
+            <tr>
+              <td class="irab-word">تفعلانِ</td>
+              <td>ألف الاثنين (هما)</td>
+              <td>للغائبتَين المؤنثتَين / للمخاطبَين</td>
+            </tr>
+            <tr>
+              <td class="irab-word">يفعلونَ</td>
+              <td>واو الجماعة (هم)</td>
+              <td>للغائبين جمعاً</td>
+            </tr>
+            <tr>
+              <td class="irab-word">تفعلونَ</td>
+              <td>واو الجماعة (أنتم)</td>
+              <td>للمخاطبين جمعاً</td>
+            </tr>
+            <tr>
+              <td class="irab-word">تفعلينَ</td>
+              <td>ياء المخاطبة (أنتِ)</td>
+              <td>للمخاطبة المفردة</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note">
+          <strong>لماذا سُمِّيت خمسة؟</strong> لأنها خمس صيغ، وليس لأن كل فعل بعينه خمسة أفعال.
+        </div>
+
+        <!-- إعراب الأفعال الخمسة -->
+        <h3 style="font-weight:800; color:var(--purple-dark); margin: 22px 0 12px; font-size:1.05rem;">إعراب الأفعال الخمسة</h3>
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>الحالة</th>
+              <th>العلامة الفرعية</th>
+              <th>ما تنوب عنه</th>
+              <th>مثال</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag-ism">رفع</span></td>
+              <td class="irab-sign">ثبوت النون</td>
+              <td>الضمة</td>
+              <td class="irab-word">يكتبانِ — يكتبونَ — تكتبينَ</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-fil">نصب</span></td>
+              <td class="irab-sign">حذف النون</td>
+              <td>الفتحة</td>
+              <td class="irab-word">لن يكتبا — لن يكتبوا — لن تكتبي</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-gold">جزم</span></td>
+              <td class="irab-sign">حذف النون</td>
+              <td>السكون</td>
+              <td class="irab-word">لم يكتبا — لم يكتبوا — لم تكتبي</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note blue">
+          <strong>قاعدة سهلة:</strong> الأفعال الخمسة تُرفع بثبوت النون، وتُنصب وتُجزم بحذف النون. لا علامة حركية هنا على الإطلاق.
+        </div>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title">✅ مرفوع — ثبوت النون</div>
+            <p><span class="highlight-word">يذهبانِ</span> إلى المسجد — النون ثابتة لأن الفعل مرفوع.</p>
+          </div>
+          <div class="card blue">
+            <div class="card-title">⚡ منصوب — حذف النون</div>
+            <p>أريدُ أن <span class="highlight-blue">يذهبا</span> — النون محذوفة لدخول (أن) الناصبة.</p>
+          </div>
+          <div class="card gold">
+            <div class="card-title">⚡ مجزوم — حذف النون</div>
+            <p>لم <span class="highlight-gold">يذهبا</span> — النون محذوفة لدخول (لم) الجازمة.</p>
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿وَلَا تَقْرَبُوا الزِّنَىٰ ۖ إِنَّهُ كَانَ فَاحِشَةً﴾</div>
+          <div class="quran-note">الإسراء: ٣٢ — <span class="highlight-word">تَقْرَبُوا</span>: فعل مضارع من الأفعال الخمسة، مجزوم بـ(لا الناهية) وعلامة جزمه حذف النون نيابةً عن السكون.</div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿يُؤْمِنُونَ بِالْغَيْبِ وَيُقِيمُونَ الصَّلَاةَ﴾</div>
+          <div class="quran-note">البقرة: ٣ — <span class="highlight-word">يُؤْمِنُونَ</span> و<span class="highlight-word">يُقِيمُونَ</span>: فعلان مضارعان من الأفعال الخمسة، مرفوعان بثبوت النون نيابةً عن الضمة.</div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿أَن تَضِلَّ إِحْدَاهُمَا فَتُذَكِّرَ إِحْدَاهُمَا الْأُخْرَىٰ﴾</div>
+          <div class="quran-note">البقرة: ٢٨٢ — <span class="highlight-word">تُذَكِّرَ</span>: فعل مضارع منصوب بـ(أن) وعلامة نصبه الفتحة (وليس من الأفعال الخمسة).</div>
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 8 — الممنوع من الصرف
+      ══════════════════════════════════════════════════ -->
+      <section id="s8">
+        <h2 class="section-title"><span class="section-num">٨</span>الممنوع من الصرف — إشارة مختصرة</h2>
+
+        <div class="def-box">
+          <p>
+            <strong>الممنوع من الصرف</strong> هو: الاسم الذي لا يقبل التنوين، ويُجرَّ بالفتحة بدلاً من الكسرة.
+            سيأتي تفصيله في درس مستقل — وهنا نقتصر على الحكم الإعرابي.
+          </p>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>الحالة</th>
+              <th>علامة الممنوع من الصرف</th>
+              <th>مثال</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag-ism">رفع</span></td>
+              <td class="irab-sign">الضمة (كالمفرد — أصلية)</td>
+              <td class="irab-word">جاءَ إبراهيمُ</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-fil">نصب</span></td>
+              <td class="irab-sign">الفتحة (كالمفرد — أصلية)</td>
+              <td class="irab-word">رأيتُ إبراهيمَ</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-red">جر</span></td>
+              <td class="irab-sign">الفتحة نيابةً عن الكسرة (فرعية)</td>
+              <td class="irab-word">مررتُ بإبراهيمَ</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note red">
+          <strong>الحكم الفرعي الوحيد:</strong> يُجرُّ الممنوع من الصرف بالفتحة لا بالكسرة. ولا ينوَّن إلا إذا دخلت عليه (أل) أو أُضيف، فحينئذٍ يُجر بالكسرة.
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card red">
+            <div class="card-title">🚫 بدون (أل) أو إضافة</div>
+            <p>مررتُ بأحمدَ ← جر بالفتحة نيابةً عن الكسرة، ولا تنوين.</p>
+          </div>
+          <div class="card green">
+            <div class="card-title">✅ مع (أل) أو الإضافة</div>
+            <p>مررتُ بالأحمدِ / بأحمدِنا ← جر بالكسرة لزوال المانع.</p>
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿وَإِذِ ابْتَلَىٰ إِبْرَاهِيمَ رَبُّهُ بِكَلِمَاتٍ﴾</div>
+          <div class="quran-note">البقرة: ١٢٤ — <span class="highlight-word">إِبْرَاهِيمَ</span>: مفعول به منصوب وعلامة نصبه الفتحة (ممنوع من الصرف للعلمية والعجمة).</div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿وَمَا أُنزِلَ عَلَىٰ إِبْرَاهِيمَ وَإِسْمَاعِيلَ﴾</div>
+          <div class="quran-note">البقرة: ١٣٦ — <span class="highlight-word">إِبْرَاهِيمَ</span> و<span class="highlight-word">إِسْمَاعِيلَ</span>: مجروران بـ(على) وعلامة جرهما الفتحة نيابةً عن الكسرة لأنهما ممنوعان من الصرف.</div>
+        </div>
+
+        <div class="note gold">
+          <strong>تنبيه:</strong> أسباب المنع من الصرف كثيرة ومتنوعة (علمية + عجمة، علمية + تأنيث، وزن الفعل، الألف والنون الزائدتان... إلخ) وستُدرس تفصيلاً في درس مستقل.
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 9 — الملخص الشامل
+      ══════════════════════════════════════════════════ -->
+      <section id="s9">
+        <h2 class="section-title"><span class="section-num">٩</span>الملخص الشامل — جدول العلامات</h2>
+
+        <!-- الجدول الكبير الشامل -->
+        <table class="th-dark" style="font-size:0.92rem;">
+          <thead>
+            <tr>
+              <th>النوع</th>
+              <th style="background:#8a5280;">رفع</th>
+              <th style="background:#4e8ab5;">نصب</th>
+              <th style="background:#3a7a50;">جر</th>
+              <th style="background:#7a6020;">جزم</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>الاسم المفرد والجمع التكسير</strong></td>
+              <td class="irab-sign">ضمة</td>
+              <td class="irab-sign">فتحة</td>
+              <td class="irab-sign">كسرة</td>
+              <td style="color:var(--text-light); font-size:.82rem;">لا يُجزم</td>
+            </tr>
+            <tr>
+              <td><strong>المثنى</strong></td>
+              <td class="irab-sign">الألف (ـانِ)</td>
+              <td class="irab-sign">الياء (ـيْنِ)</td>
+              <td class="irab-sign">الياء (ـيْنِ)</td>
+              <td style="color:var(--text-light); font-size:.82rem;">لا يُجزم</td>
+            </tr>
+            <tr>
+              <td><strong>جمع المذكر السالم</strong></td>
+              <td class="irab-sign">الواو (ـونَ)</td>
+              <td class="irab-sign">الياء (ـينَ)</td>
+              <td class="irab-sign">الياء (ـينَ)</td>
+              <td style="color:var(--text-light); font-size:.82rem;">لا يُجزم</td>
+            </tr>
+            <tr>
+              <td><strong>جمع المؤنث السالم</strong></td>
+              <td class="irab-sign">ضمة</td>
+              <td class="irab-sign" style="color:var(--red);">كسرة (فرعية!)</td>
+              <td class="irab-sign">كسرة</td>
+              <td style="color:var(--text-light); font-size:.82rem;">لا يُجزم</td>
+            </tr>
+            <tr>
+              <td><strong>الأسماء الخمسة</strong></td>
+              <td class="irab-sign">الواو</td>
+              <td class="irab-sign">الألف</td>
+              <td class="irab-sign">الياء</td>
+              <td style="color:var(--text-light); font-size:.82rem;">لا تُجزم</td>
+            </tr>
+            <tr>
+              <td><strong>الممنوع من الصرف</strong></td>
+              <td class="irab-sign">ضمة</td>
+              <td class="irab-sign">فتحة</td>
+              <td class="irab-sign" style="color:var(--red);">فتحة (فرعية!)</td>
+              <td style="color:var(--text-light); font-size:.82rem;">لا يُجزم</td>
+            </tr>
+            <tr>
+              <td><strong>الفعل المضارع (المفرد)</strong></td>
+              <td class="irab-sign">ضمة</td>
+              <td class="irab-sign">فتحة</td>
+              <td style="color:var(--text-light); font-size:.82rem;">لا يُجر</td>
+              <td class="irab-sign">سكون</td>
+            </tr>
+            <tr>
+              <td><strong>الأفعال الخمسة</strong></td>
+              <td class="irab-sign">ثبوت النون</td>
+              <td class="irab-sign">حذف النون</td>
+              <td style="color:var(--text-light); font-size:.82rem;">لا تُجر</td>
+              <td class="irab-sign">حذف النون</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- بطاقات الملخص -->
+        <div class="sum-grid">
+          <div class="sum-card">
+            <div class="sum-icon">⚡</div>
+            <div class="sum-title">الأصلية</div>
+            <div class="sum-text">ضمة · فتحة · كسرة · سكون — هي الأصل في كل إعراب.</div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🔄</div>
+            <div class="sum-title">الفرعية بالحروف</div>
+            <div class="sum-text">المثنى والأسماء الخمسة وجمع المذكر السالم تُعرب بالحروف (و · ا · ي).</div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">⚠️</div>
+            <div class="sum-title">النصب بالكسرة</div>
+            <div class="sum-text">جمع المؤنث السالم وحده يُنصب بالكسرة نيابةً عن الفتحة.</div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🚫</div>
+            <div class="sum-title">الجر بالفتحة</div>
+            <div class="sum-text">الممنوع من الصرف وحده يُجر بالفتحة نيابةً عن الكسرة.</div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">📝</div>
+            <div class="sum-title">الأفعال الخمسة</div>
+            <div class="sum-text">ترفع بثبوت النون، وتُنصب وتُجزم بحذف النون.</div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🔒</div>
+            <div class="sum-title">ما لا يُجزم ولا يُجر</div>
+            <div class="sum-text">الجزم للأفعال فقط. والجر للأسماء فقط.</div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer
+      style="
+        background: var(--dark);
+        color: #a0a8c0;
+        text-align: center;
+        padding: 24px 20px;
+        font-size: 0.88rem;
+        margin-top: 10px;
+      "
+    >
+      <p style="margin-bottom: 6px">أساسيات علم النحو — علامات الإعراب</p>
+      <p style="opacity: 0.6">للمراجعة والتعلُّم الذاتي — جميع الشواهد من القرآن الكريم</p>
+    </footer>
+
+    <script>
+      // Active nav on scroll
+      const sections = document.querySelectorAll('section[id]')
+      const navLinks = document.querySelectorAll('nav a')
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navLinks.forEach((l) => l.classList.remove('active'))
+              const active = document.querySelector(`nav a[href="#${entry.target.id}"]`)
+              if (active) {
+                active.classList.add('active')
+                active.scrollIntoView({ block: 'nearest', inline: 'center' })
+              }
+            }
+          })
+        },
+        { rootMargin: '-20% 0px -70% 0px' }
+      )
+
+      sections.forEach((s) => observer.observe(s))
+
+      navLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault()
+          const target = document.querySelector(link.getAttribute('href'))
+          if (target) target.scrollIntoView({ behavior: 'smooth' })
+        })
+      })
+    </script>
+  </body>
+</html>
