@@ -1,0 +1,1410 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>علم النحو — النواسخ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --purple: #b370a4;
+        --purple-light: #c98fbb;
+        --purple-dark: #8a5280;
+        --blue: #72add4;
+        --blue-light: #9dc5e0;
+        --blue-dark: #4e8ab5;
+        --bg: #f2f2f2;
+        --white: #ffffff;
+        --dark: #3e3e48;
+        --dark2: #3a3a52;
+        --text: #3a3350;
+        --text-light: #6a6080;
+        --gold: #c9a84c;
+        --gold-light: #f0d080;
+        --green: #4caf7a;
+        --green-light: #80d4a8;
+        --red: #c94c4c;
+        --red-light: #e88080;
+        --shadow: 0 4px 20px rgba(179, 112, 164, 0.12);
+        --shadow-hover: 0 8px 32px rgba(179, 112, 164, 0.22);
+        --radius: 14px;
+        --radius-sm: 8px;
+      }
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        font-family: 'Scheherazade New', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        direction: rtl;
+        line-height: 1.9;
+        font-size: 16px;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: sticky; top: 0; z-index: 100;
+        background: var(--white);
+        border-bottom: 3px solid var(--purple);
+        box-shadow: 0 2px 16px rgba(179, 112, 164, 0.15);
+        padding: 0 20px;
+        display: flex; align-items: center; gap: 6px;
+        overflow-x: auto; white-space: nowrap; scrollbar-width: none;
+      }
+      nav::-webkit-scrollbar { display: none; }
+      .nav-brand {
+        font-size: 1rem; font-weight: 800; color: var(--purple);
+        padding: 14px 10px;
+        border-left: 2px solid var(--bg); margin-left: 8px; flex-shrink: 0;
+      }
+      nav a {
+        display: inline-block; padding: 10px 14px;
+        color: var(--text-light); text-decoration: none;
+        font-size: 0.88rem; font-weight: 600;
+        border-radius: var(--radius-sm); transition: all 0.2s; flex-shrink: 0;
+      }
+      nav a:hover, nav a.active { background: var(--purple); color: var(--white); }
+
+      /* ── HERO ── */
+      .hero {
+        background: linear-gradient(135deg, var(--purple) 0%, var(--blue) 100%);
+        color: var(--white); text-align: center; padding: 60px 20px 50px;
+      }
+      .hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 800; margin-bottom: 10px; }
+      .hero p { font-size: 1.1rem; opacity: 0.88; }
+      .hero-badge {
+        display: inline-block;
+        background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4);
+        padding: 4px 16px; border-radius: 20px; font-size: 0.85rem; margin-bottom: 16px;
+      }
+
+      main { max-width: 960px; margin: 0 auto; padding: 40px 20px 60px; }
+
+      section { margin-bottom: 60px; scroll-margin-top: 80px; }
+
+      /* ── CHAPTER HEADER ── */
+      .chapter-header {
+        background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
+        color: var(--white); border-radius: var(--radius);
+        padding: 28px 30px; margin-bottom: 40px;
+        display: flex; align-items: center; gap: 16px;
+      }
+      .chapter-icon { font-size: 2.4rem; }
+      .chapter-title { font-size: 1.6rem; font-weight: 800; }
+      .chapter-sub { font-size: 0.95rem; opacity: 0.75; margin-top: 4px; }
+
+      /* ── SECTION TITLE ── */
+      .section-title {
+        font-size: 1.55rem; font-weight: 800; color: var(--purple-dark);
+        margin-bottom: 24px; display: flex; align-items: center; gap: 10px;
+      }
+      .section-title::after {
+        content: ''; flex: 1; height: 3px;
+        background: linear-gradient(to left, transparent, var(--purple));
+        border-radius: 2px;
+      }
+      .section-num {
+        background: var(--purple); color: var(--white);
+        width: 36px; height: 36px; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 0.9rem; font-weight: 800; flex-shrink: 0;
+      }
+      .section-num.blue { background: var(--blue-dark); }
+      .section-num.gold { background: var(--gold); }
+      .section-num.green { background: var(--green); }
+
+      /* ── SUB TITLE ── */
+      .sub-title {
+        font-size: 1.15rem; font-weight: 800; color: var(--purple);
+        margin: 28px 0 14px; padding-right: 12px;
+        border-right: 4px solid var(--purple);
+      }
+      .sub-title.blue { color: var(--blue-dark); border-color: var(--blue); }
+      .sub-title.gold { color: #8a6020; border-color: var(--gold); }
+      .sub-title.green { color: #2e7a50; border-color: var(--green); }
+
+      /* ── DEF BOX ── */
+      .def-box {
+        background: var(--white); border: 2px solid var(--gold);
+        border-radius: var(--radius); padding: 22px 26px; margin-bottom: 22px;
+        position: relative; box-shadow: 0 2px 12px rgba(201,168,76,0.12);
+      }
+      .def-box::before {
+        content: '📖 تعريف'; position: absolute; top: -13px; right: 20px;
+        background: var(--gold); color: var(--white);
+        font-size: 0.78rem; font-weight: 700; padding: 2px 12px; border-radius: 20px;
+      }
+      .def-box p { color: var(--text); font-weight: 500; }
+
+      /* ── QURAN BOX ── */
+      .quran-box {
+        background: linear-gradient(135deg, #f7f7f7 0%, #fcfffd 100%);
+        border: 2px solid var(--green); border-radius: var(--radius);
+        padding: 22px 26px; margin: 18px 0; position: relative;
+        box-shadow: 0 2px 12px rgba(76,175,122,0.1);
+      }
+      .quran-box::before {
+        content: '🌿 قرآن كريم'; position: absolute; top: -13px; right: 20px;
+        background: var(--green); color: var(--white);
+        font-size: 0.78rem; font-weight: 700; padding: 2px 12px; border-radius: 20px;
+      }
+      .quran-text {
+        font-size: 1.2rem; font-weight: 700; color: #1a5c35;
+        line-height: 2.1; margin-bottom: 8px; text-align: center;
+      }
+      .quran-note { font-size: 0.9rem; color: #3a7a55; font-weight: 500; }
+
+      /* ── CARDS ── */
+      .card {
+        background: var(--white); border-radius: var(--radius);
+        padding: 22px 24px; margin-bottom: 16px;
+        box-shadow: var(--shadow); border-top: 4px solid var(--purple);
+        transition: box-shadow 0.2s;
+      }
+      .card:hover { box-shadow: var(--shadow-hover); }
+      .card-title {
+        font-weight: 800; font-size: 1.05rem; color: var(--purple-dark);
+        margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+      }
+      .card.blue { border-top-color: var(--blue); }
+      .card.blue .card-title { color: var(--blue-dark); }
+      .card.green { border-top-color: var(--green); }
+      .card.green .card-title { color: #2e7a50; }
+      .card.gold { border-top-color: var(--gold); }
+      .card.gold .card-title { color: #8a6020; }
+      .card.red { border-top-color: var(--red); }
+      .card.red .card-title { color: var(--red); }
+
+      .card-grid {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px; margin-bottom: 22px;
+      }
+      .card-grid-3 {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px; margin-bottom: 22px;
+      }
+
+      /* ── TAGS ── */
+      .tag {
+        display: inline-block; padding: 3px 12px; border-radius: 20px;
+        font-size: 0.82rem; font-weight: 700; margin: 3px;
+      }
+      .tag-ism { background: #ede0f8; color: #6a2e8a; }
+      .tag-fil { background: #dceefb; color: #1a5c8a; }
+      .tag-hrf { background: #fdeedd; color: #8a5010; }
+      .tag-gold { background: #fdf0e0; color: #8a6020; border: 1px solid var(--gold); }
+      .tag-green { background: #e0f5e8; color: #2a6a40; }
+      .tag-red { background: #fde8e8; color: #8a2020; }
+      .tag-blue { background: #e0f0fa; color: #1a5080; border: 1px solid var(--blue); }
+
+      /* ── TABLES ── */
+      table {
+        width: 100%; border-collapse: collapse;
+        background: var(--white); border-radius: var(--radius);
+        overflow: hidden; box-shadow: var(--shadow); margin: 16px 0; font-size: 0.95rem;
+      }
+      th {
+        background: var(--purple); color: var(--white);
+        padding: 12px 16px; font-weight: 700; text-align: center;
+      }
+      td {
+        padding: 10px 16px; text-align: center;
+        border-bottom: 1px solid #efe8f4; color: var(--text);
+      }
+      tr:last-child td { border-bottom: none; }
+      tr:nth-child(even) td { background: #faf5fc; }
+      tr:hover td { background: #f3ecf9; }
+      .th-blue th { background: var(--blue-dark); }
+      .th-gold th { background: var(--gold); }
+      .th-dark th { background: var(--dark); }
+      .th-green th { background: var(--green); }
+
+      .irab-word { font-size: 1.15rem; font-weight: 800; color: var(--purple-dark); }
+      .irab-word.blue { color: var(--blue-dark); }
+      .irab-word.gold { color: #7a5010; }
+
+      /* ── NOTE ── */
+      .note {
+        background: #fdf4ff; border-right: 4px solid var(--purple);
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        padding: 14px 18px; margin: 14px 0; font-size: 0.93rem; color: var(--text);
+      }
+      .note strong { color: var(--purple-dark); }
+      .note.blue { background: #f0f7ff; border-color: var(--blue); }
+      .note.blue strong { color: var(--blue-dark); }
+      .note.gold { background: #fdf8ee; border-color: var(--gold); }
+      .note.gold strong { color: #7a5010; }
+      .note.green { background: #f0faf5; border-color: var(--green); }
+      .note.green strong { color: #2e7a50; }
+      .note.red { background: #fff0f0; border-color: var(--red); }
+      .note.red strong { color: var(--red); }
+
+      .highlight-word {
+        background: linear-gradient(to top, var(--purple-light) 10%, transparent 10%);
+        padding: 0 3px; border-radius: 2px; font-weight: 700;
+      }
+      .highlight-blue {
+        background: linear-gradient(to top, var(--blue-light) 10%, transparent 10%);
+        padding: 0 3px; border-radius: 2px; font-weight: 700;
+      }
+      .highlight-gold {
+        background: linear-gradient(to top, var(--gold-light) 10%, transparent 10%);
+        padding: 0 3px; border-radius: 2px; font-weight: 700;
+      }
+      .highlight-green {
+        background: linear-gradient(to top, var(--green-light) 10%, transparent 10%);
+        padding: 0 3px; border-radius: 2px; font-weight: 700;
+      }
+
+      /* ── DIAGRAM ── */
+      .diagram {
+        background: var(--dark); border-radius: var(--radius);
+        padding: 28px 24px; margin: 22px 0; color: #e0e0f0;
+        font-family: 'Scheherazade New', sans-serif;
+      }
+      .diagram-title {
+        font-size: 1.1rem; font-weight: 700; margin-bottom: 18px; text-align: center;
+        color: #f0d080;
+      }
+
+      /* ── SUM GRID ── */
+      .sum-grid {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px; margin-top: 30px;
+      }
+      .sum-card {
+        background: var(--white); border-radius: var(--radius);
+        padding: 20px; text-align: center; box-shadow: var(--shadow);
+        border-bottom: 4px solid var(--purple);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .sum-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+      .sum-card:nth-child(2) { border-bottom-color: var(--blue); }
+      .sum-card:nth-child(3) { border-bottom-color: var(--green); }
+      .sum-card:nth-child(4) { border-bottom-color: var(--gold); }
+      .sum-card:nth-child(5) { border-bottom-color: var(--red); }
+      .sum-card:nth-child(6) { border-bottom-color: var(--purple-light); }
+      .sum-icon { font-size: 2rem; margin-bottom: 8px; }
+      .sum-title { font-weight: 800; font-size: 1rem; color: var(--text); margin-bottom: 6px; }
+      .sum-text { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; }
+
+      /* ── VERB VISUAL ── */
+      .verb-card {
+        background: var(--white); border: 2px solid var(--purple);
+        border-radius: 12px; padding: 16px 14px; text-align: center;
+        transition: all 0.2s;
+      }
+      .verb-card:hover { background: var(--purple); }
+      .verb-card:hover .vc-word { color: white; }
+      .verb-card:hover .vc-label { color: rgba(255,255,255,0.75); }
+      .vc-word { font-size: 1.3rem; font-weight: 800; color: var(--purple-dark); }
+      .vc-label { font-size: 0.78rem; color: var(--text-light); margin-top: 5px; line-height: 1.5; }
+
+      .verb-grid {
+        display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 10px; margin: 16px 0;
+      }
+      .verb-grid.blue .verb-card { border-color: var(--blue); }
+      .verb-grid.blue .vc-word { color: var(--blue-dark); }
+      .verb-grid.blue .verb-card:hover { background: var(--blue); }
+      .verb-grid.gold .verb-card { border-color: var(--gold); }
+      .verb-grid.gold .vc-word { color: #7a5010; }
+      .verb-grid.gold .verb-card:hover { background: var(--gold); }
+      .verb-grid.green .verb-card { border-color: var(--green); }
+      .verb-grid.green .vc-word { color: #2e7a50; }
+      .verb-grid.green .verb-card:hover { background: var(--green); }
+
+      /* ── SENTENCE DEMO ── */
+      .sent-demo {
+        background: var(--white); border-radius: var(--radius);
+        padding: 20px 24px; margin: 16px 0; box-shadow: var(--shadow);
+        overflow-x: auto;
+      }
+      .sent-demo .sent-row {
+        display: flex; flex-wrap: wrap; gap: 6px;
+        align-items: flex-start; margin-bottom: 12px;
+      }
+      .sent-demo .sent-row:last-child { margin-bottom: 0; }
+      .word-block {
+        display: inline-flex; flex-direction: column; align-items: center;
+        padding: 8px 14px; border-radius: 8px; font-weight: 700;
+      }
+      .word-block .w-text { font-size: 1.15rem; }
+      .word-block .w-role { font-size: 0.7rem; margin-top: 4px; font-weight: 600; }
+
+      .wb-nasikh { background: #ede0f8; color: #6a2e8a; }
+      .wb-ism { background: #dceefb; color: #1a5c8a; }
+      .wb-khabar { background: #fdeedd; color: #8a5010; }
+      .wb-maf1 { background: #e0f5e8; color: #2a6a40; }
+      .wb-maf2 { background: #fde8e8; color: #8a2020; }
+      .wb-other { background: #f0f0f0; color: #444; }
+
+      /* ── SEP ── */
+      .sep {
+        height: 2px;
+        background: linear-gradient(to left, transparent, var(--purple), transparent);
+        margin: 30px 0; border-radius: 2px;
+      }
+      .sep.blue { background: linear-gradient(to left, transparent, var(--blue), transparent); }
+      .sep.gold { background: linear-gradient(to left, transparent, var(--gold), transparent); }
+      .sep.green { background: linear-gradient(to left, transparent, var(--green), transparent); }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 600px) {
+        nav { gap: 4px; padding: 0 10px; }
+        nav a { padding: 10px 10px; font-size: 0.82rem; }
+        .hero { padding: 40px 16px 36px; }
+        main { padding: 28px 14px 50px; }
+        .def-box, .quran-box { padding: 18px 16px; }
+        .def-box::before, .quran-box::before { right: 14px; }
+        .quran-text { font-size: 1.05rem; }
+        table { font-size: 0.85rem; }
+        td, th { padding: 8px 10px; }
+        .sum-grid { grid-template-columns: repeat(2, 1fr); }
+        .chapter-header { flex-direction: column; text-align: center; }
+      }
+
+      /* ── ANIMATION ── */
+      section { animation: fadeUp 0.4s ease both; }
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(18px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- NAV -->
+    <nav>
+      <div class="nav-brand">النواسخ</div>
+      <a href="#s-intro">مقدمة</a>
+      <a href="#s-kana">كان وأخواتها</a>
+      <a href="#s-inna">إن وأخواتها</a>
+      <a href="#s-dhanna">ظن وأخواتها</a>
+      <a href="#s-kad">كاد وأخواتها</a>
+      <a href="#s-summary">الملخص</a>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-badge">أساسيات علم النحو</div>
+      <h1>النواسخ</h1>
+      <p>كان وأخواتها · إن وأخواتها · ظن وأخواتها · كاد وأخواتها</p>
+    </div>
+
+    <main>
+
+      <!-- ══════════════════════════════════════════════════
+           INTRO
+      ══════════════════════════════════════════════════ -->
+      <section id="s-intro">
+        <h2 class="section-title">
+          <span class="section-num">١</span>مقدمة في النواسخ
+        </h2>
+
+        <div class="def-box">
+          <p>
+            <strong>النواسخ</strong> جمع ناسخ، وهو كل فعل أو حرف يدخل على
+            <span class="highlight-word">الجملة الاسمية</span> فيُغيِّر حكمَها؛
+            إذ كانت الجملة الاسمية المبتدأ مرفوعاً والخبر مرفوعاً، فيأتي الناسخ
+            ليُبقي أحد طرفَيها على الرفع وينصب الآخر، أو ينصبهما معاً.
+          </p>
+        </div>
+
+        <div class="note">
+          <strong>أصل الجملة قبل النسخ:</strong>
+          محمدٌ مجتهدٌ — المبتدأ (محمد) مرفوع، والخبر (مجتهد) مرفوع.
+        </div>
+
+        <div class="diagram">
+          <div class="diagram-title">⚙️ أقسام النواسخ الأربعة</div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; color:#e0e0f0; line-height:2;">
+            <div style="background:rgba(179,112,164,0.18); border-radius:10px; padding:14px; text-align:center;">
+              <div style="color:#c98fbb; font-size:1.1rem; font-weight:800; margin-bottom:6px;">كان وأخواتها</div>
+              <div style="font-size:0.88rem; opacity:0.8;">أفعال ناسخة — ترفع الاسم وتنصب الخبر</div>
+            </div>
+            <div style="background:rgba(114,173,212,0.18); border-radius:10px; padding:14px; text-align:center;">
+              <div style="color:#9dc5e0; font-size:1.1rem; font-weight:800; margin-bottom:6px;">إن وأخواتها</div>
+              <div style="font-size:0.88rem; opacity:0.8;">حروف ناسخة — تنصب الاسم وترفع الخبر</div>
+            </div>
+            <div style="background:rgba(201,168,76,0.18); border-radius:10px; padding:14px; text-align:center;">
+              <div style="color:#f0d080; font-size:1.1rem; font-weight:800; margin-bottom:6px;">ظن وأخواتها</div>
+              <div style="font-size:0.88rem; opacity:0.8;">أفعال ناسخة — تنصب مفعولَيْن أصلهما مبتدأ وخبر</div>
+            </div>
+            <div style="background:rgba(76,175,122,0.18); border-radius:10px; padding:14px; text-align:center;">
+              <div style="color:#80d4a8; font-size:1.1rem; font-weight:800; margin-bottom:6px;">كاد وأخواتها</div>
+              <div style="font-size:0.88rem; opacity:0.8;">أفعال ناسخة — ترفع الاسم وتأتي خبرها جملةً فعلية</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="note gold">
+          <strong>القاعدة الجوهرية:</strong> اسمُ الناسخ هو المبتدأ الأصلي بعد تحوُّله، وخبرُ الناسخ هو الخبر الأصلي بعد تحوُّله.
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           CHAPTER 1 — كان وأخواتها
+      ══════════════════════════════════════════════════ -->
+      <section id="s-kana">
+
+        <div class="chapter-header">
+          <div class="chapter-icon">🔵</div>
+          <div>
+            <div class="chapter-title">كان وأخواتها</div>
+            <div class="chapter-sub">الأفعال الناسخة التي ترفع الاسم وتنصب الخبر</div>
+          </div>
+        </div>
+
+        <!-- 1-A: تعريف عملها -->
+        <h3 class="sub-title">أولاً — تعريف كان وعملها</h3>
+
+        <div class="def-box">
+          <p>
+            <strong>كان وأخواتها</strong> أفعال ناسخة تدخل على الجملة الاسمية
+            فترفع المبتدأ ويُسمَّى <span class="highlight-blue">اسمَها</span>،
+            وتنصب الخبر ويُسمَّى <span class="highlight-word">خبرَها</span>.
+            وأكثرها أفعال ماضية وإن استُعملت بصيغ المضارع والأمر.
+          </p>
+        </div>
+
+        <div class="sent-demo">
+          <div style="font-size:0.85rem; color:var(--text-light); margin-bottom:12px; font-weight:700;">مثال على التحول:</div>
+          <div class="sent-row">
+            <div class="word-block wb-ism"><span class="w-text">محمدٌ</span><span class="w-role">مبتدأ مرفوع</span></div>
+            <div class="word-block wb-khabar"><span class="w-text">مجتهدٌ</span><span class="w-role">خبر مرفوع</span></div>
+          </div>
+          <div style="text-align:center; color:var(--text-light); font-size:1.5rem; margin: 4px 0;">↓</div>
+          <div class="sent-row">
+            <div class="word-block wb-nasikh"><span class="w-text">كانَ</span><span class="w-role">فعل ناسخ</span></div>
+            <div class="word-block wb-ism"><span class="w-text">محمدٌ</span><span class="w-role">اسم كان (مرفوع)</span></div>
+            <div class="word-block wb-khabar"><span class="w-text">مجتهداً</span><span class="w-role">خبر كان (منصوب)</span></div>
+          </div>
+        </div>
+
+        <!-- 1-B: معاني أخواتها -->
+        <h3 class="sub-title">ثانياً — معاني كان وأخواتها</h3>
+
+        <div class="note blue">
+          <strong>أخوات كان</strong> هي: أصبحَ، أمسى، أضحى، ظلَّ، باتَ، صارَ، ليسَ، ما زالَ، ما انفكَّ، ما فتِئَ، ما بَرِحَ، ما دامَ، وغيرها.
+        </div>
+
+        <table class="th-blue">
+          <thead>
+            <tr>
+              <th>الفعل</th>
+              <th>المعنى / الدلالة</th>
+              <th>مثال</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word blue">كانَ</td>
+              <td>يفيد ثبوت الخبر في الزمن الماضي</td>
+              <td>كانَ الجوُّ باردًا</td>
+            </tr>
+            <tr>
+              <td class="irab-word blue">أصبحَ</td>
+              <td>الاتصاف بالخبر في الصباح، أو الدخول في الصباح</td>
+              <td>أصبحَ الطالبُ مجتهدًا</td>
+            </tr>
+            <tr>
+              <td class="irab-word blue">أمسى</td>
+              <td>الاتصاف بالخبر في المساء، أو الدخول في المساء</td>
+              <td>أمسى البستانُ خضرًا</td>
+            </tr>
+            <tr>
+              <td class="irab-word blue">أضحى</td>
+              <td>الاتصاف بالخبر في وقت الضحى (الضحوة)</td>
+              <td>أضحى الوليدُ عالِمًا</td>
+            </tr>
+            <tr>
+              <td class="irab-word blue">ظلَّ</td>
+              <td>الاتصاف بالخبر في النهار / الاستمرار خلال النهار</td>
+              <td>ظلَّ العاملُ تعبًا</td>
+            </tr>
+            <tr>
+              <td class="irab-word blue">باتَ</td>
+              <td>الاتصاف بالخبر في الليل</td>
+              <td>باتَ الحارسُ يقظًا</td>
+            </tr>
+            <tr>
+              <td class="irab-word blue">صارَ</td>
+              <td>التحوُّل من حال إلى حال (صار = أصبح)</td>
+              <td>صارَ الماءُ جليدًا</td>
+            </tr>
+            <tr>
+              <td class="irab-word blue">ليسَ</td>
+              <td>النفي الصرف (نفي الخبر عن الاسم)</td>
+              <td>ليسَ الظلمُ دائمًا</td>
+            </tr>
+            <tr>
+              <td class="irab-word blue">ما زالَ</td>
+              <td>الاستمرار والمداومة على الخبر</td>
+              <td>ما زالَ المعلمُ صبورًا</td>
+            </tr>
+            <tr>
+              <td class="irab-word blue">ما انفكَّ</td>
+              <td>الاستمرار كـ"ما زال"</td>
+              <td>ما انفكَّ المسافرُ مجدًّا</td>
+            </tr>
+            <tr>
+              <td class="irab-word blue">ما فتِئَ</td>
+              <td>الاستمرار كـ"ما زال"</td>
+              <td>ما فتِئَ يذكرُ ماضيَه</td>
+            </tr>
+            <tr>
+              <td class="irab-word blue">ما بَرِحَ</td>
+              <td>الاستمرار كـ"ما زال"</td>
+              <td>ما بَرِحَ القائدُ شجاعًا</td>
+            </tr>
+            <tr>
+              <td class="irab-word blue">ما دامَ</td>
+              <td>التقييد بزمن الدوام (طالَ ما داَم كذا)</td>
+              <td>أكرِمِ الضيفَ ما دامَ معك</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note gold">
+          <strong>ملاحظة:</strong> أفعال الاستمرار (ما زال، ما انفك، ما فتئ، ما برح) لا تعمل إلا مسبوقةً بـ<strong>نفي أو نهي</strong>؛ فلا يصح: "زالَ الجوُّ حارًّا" بالإثبات.
+        </div>
+
+        <!-- 1-C: الأفعال الناقصة والتامة -->
+        <h3 class="sub-title">ثالثاً — كان الناقصة وكان التامة</h3>
+
+        <div class="card-grid">
+          <div class="card blue">
+            <div class="card-title">🔸 كان الناقصة</div>
+            <p>هي الأشهر والأكثر استخداماً، تحتاج إلى <strong>اسم وخبر</strong> لتكتمل الجملة. سُمِّيت ناقصة لأنها لا تكتفي بفاعل وحده.</p>
+            <div class="note blue" style="margin-top:12px;">كانَ الحقُّ <span class="highlight-blue">واضحًا</span> — الخبر "واضحًا" لازم.</div>
+          </div>
+          <div class="card green">
+            <div class="card-title">🔹 كان التامة</div>
+            <p>تفيد معنى <strong>الوجود والحدوث</strong> وتكتفي بفاعل دون خبر. كـ"وُجِد" و"حدث".</p>
+            <div class="quran-box" style="margin-top:12px;">
+              <div class="quran-text">﴿وَإِن كَانَ ذُو عُسْرَةٍ فَنَظِرَةٌ﴾</div>
+              <div class="quran-note">البقرة: ٢٨٠ — كانَ هنا تامة بمعنى: وُجِد أو حدثَ.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1-D: أحكام الاسم والخبر -->
+        <h3 class="sub-title">رابعاً — أحكام اسم كان وخبرها</h3>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title">📌 اسم كان</div>
+            <ul style="padding-right:18px; line-height:2.2;">
+              <li>يكون <span class="tag tag-ism">مرفوعاً</span> دائماً.</li>
+              <li>علامة رفعه: الضمة، الواو (جمع مذكر سالم)، الألف (مثنى).</li>
+              <li>يجوز تقديمه على الخبر وتأخيره.</li>
+              <li>يجوز حذفه مع وجود دليل (نادر).</li>
+            </ul>
+          </div>
+          <div class="card blue">
+            <div class="card-title">📌 خبر كان</div>
+            <ul style="padding-right:18px; line-height:2.2;">
+              <li>يكون <span class="tag tag-fil">منصوباً</span> دائماً.</li>
+              <li>يأتي: مفرداً (اسماً) / جملةً فعلية أو اسمية / شبه جملة.</li>
+              <li>يجوز تقديمه على الاسم إذا لم يكن الاسم ضميراً.</li>
+              <li>يجوز حذفه إذا دلَّ عليه الدليل.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="sub-title" style="margin-top:28px;">أنواع خبر كان</h3>
+        <table>
+          <thead><tr><th>نوع الخبر</th><th>مثال</th><th>تفصيل الإعراب</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag-ism">مفرد (اسم)</span></td>
+              <td>كانَ العلمُ <strong>نورًا</strong></td>
+              <td>خبر كان منصوب بالفتحة</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-fil">جملة فعلية</span></td>
+              <td>كانَ الطفلُ <strong>يلعبُ</strong></td>
+              <td>جملة فعلية في محل نصب خبر كان</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-hrf">جملة اسمية</span></td>
+              <td>كانَ الرجلُ <strong>أخلاقُه حسنةٌ</strong></td>
+              <td>جملة اسمية في محل نصب خبر كان</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-blue">شبه جملة (جار ومجرور)</span></td>
+              <td>كانَ الكتابُ <strong>في الحقيبةِ</strong></td>
+              <td>شبه جملة في محل نصب خبر كان</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-blue">شبه جملة (ظرف)</span></td>
+              <td>كانَ اللقاءُ <strong>أمسِ</strong></td>
+              <td>ظرف في محل نصب خبر كان</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 1-E: شواهد قرآنية -->
+        <h3 class="sub-title">خامساً — شواهد من القرآن الكريم</h3>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿وَكَانَ اللَّهُ غَفُورًا رَّحِيمًا﴾</div>
+          <div class="quran-note">
+            الأحزاب: ٥ — <span class="highlight-green">كانَ</span>: فعل ناسخ ماضٍ.
+            <span class="highlight-blue">اللهُ</span>: اسم كان مرفوع.
+            <span class="highlight-word">غفورًا</span>: خبر كان منصوب بالفتحة.
+            <span class="highlight-word">رحيمًا</span>: خبر ثانٍ منصوب.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿وَكَانَ رَبُّكَ قَدِيرًا﴾</div>
+          <div class="quran-note">
+            الفرقان: ٥٤ — <span class="highlight-blue">ربُّكَ</span>: اسم كان مرفوع.
+            <span class="highlight-word">قديرًا</span>: خبر كان منصوب.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿إِنَّ هَـٰذَا كَانَ لَكُمْ جَزَاءً وَكَانَ سَعْيُكُم مَّشْكُورًا﴾</div>
+          <div class="quran-note">
+            الإنسان: ٢٢ — <span class="highlight-blue">سعيُكم</span>: اسم كان مرفوع.
+            <span class="highlight-word">مشكورًا</span>: خبر كان منصوب.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿وَظَلُّوا فِيهِ يَعْكُفُونَ﴾</div>
+          <div class="quran-note">
+            الأعراف: ١٣٨ — <span class="highlight-green">ظلُّوا</span>: فعل ناسخ (أخ كان). جملة <span class="highlight-word">يعكفون</span>: في محل نصب خبر ظلَّ.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿لَيْسَ الْبِرَّ أَن تُوَلُّوا وُجُوهَكُمْ قِبَلَ الْمَشْرِقِ وَالْمَغْرِبِ﴾</div>
+          <div class="quran-note">
+            البقرة: ١٧٧ — <span class="highlight-green">ليسَ</span>: فعل ناسخ للنفي.
+            <span class="highlight-word">البِرَّ</span>: خبر ليس مقدَّم منصوب.
+            <span class="highlight-blue">أن تولُّوا</span>: اسم ليس مؤخَّر في محل رفع.
+          </div>
+        </div>
+
+      </section>
+
+      <div class="sep blue"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           CHAPTER 2 — إن وأخواتها
+      ══════════════════════════════════════════════════ -->
+      <section id="s-inna">
+
+        <div class="chapter-header" style="background:linear-gradient(135deg,#4e8ab5 0%,#3a3a52 100%);">
+          <div class="chapter-icon">🟡</div>
+          <div>
+            <div class="chapter-title">إنَّ وأخواتها</div>
+            <div class="chapter-sub">الحروف الناسخة التي تنصب الاسم وترفع الخبر</div>
+          </div>
+        </div>
+
+        <!-- 2-A: تعريف -->
+        <h3 class="sub-title blue">أولاً — تعريف إن وعملها</h3>
+
+        <div class="def-box">
+          <p>
+            <strong>إنَّ وأخواتها</strong> حروفٌ ناسخة تدخل على الجملة الاسمية
+            فتنصب المبتدأ ويُسمَّى <span class="highlight-word">اسمَها</span>،
+            وترفع الخبر ويُسمَّى <span class="highlight-blue">خبرَها</span>.
+            وهي عكس كان في العمل.
+          </p>
+        </div>
+
+        <div class="sent-demo">
+          <div style="font-size:0.85rem; color:var(--text-light); margin-bottom:12px; font-weight:700;">مثال على التحول:</div>
+          <div class="sent-row">
+            <div class="word-block wb-ism"><span class="w-text">العلمُ</span><span class="w-role">مبتدأ مرفوع</span></div>
+            <div class="word-block wb-khabar"><span class="w-text">نافعٌ</span><span class="w-role">خبر مرفوع</span></div>
+          </div>
+          <div style="text-align:center; color:var(--text-light); font-size:1.5rem; margin:4px 0;">↓</div>
+          <div class="sent-row">
+            <div class="word-block wb-nasikh"><span class="w-text">إنَّ</span><span class="w-role">حرف ناسخ</span></div>
+            <div class="word-block wb-khabar"><span class="w-text">العلمَ</span><span class="w-role">اسم إن (منصوب)</span></div>
+            <div class="word-block wb-ism"><span class="w-text">نافعٌ</span><span class="w-role">خبر إن (مرفوع)</span></div>
+          </div>
+        </div>
+
+        <!-- 2-B: الحروف الستة ومعانيها -->
+        <h3 class="sub-title blue">ثانياً — الحروف الناسخة ومعانيها</h3>
+
+        <div class="card-grid">
+          <div class="card blue">
+            <div class="card-title">① إنَّ — للتوكيد</div>
+            <p>تُفيد <strong>توكيد</strong> مضمون الجملة وتثبيته في ذهن السامع. تدخل على الجملة الاسمية ابتداءً أو بعد حروف معيَّنة.</p>
+            <div class="quran-box" style="margin-top:12px;">
+              <div class="quran-text">﴿إِنَّ اللَّهَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ﴾</div>
+              <div class="quran-note">البقرة: ٢٠</div>
+            </div>
+          </div>
+          <div class="card blue">
+            <div class="card-title">② أنَّ — للتوكيد (في سياق المصدر)</div>
+            <p>مثل "إنَّ" في التوكيد، لكنها تقع في موضع يُؤوَّل بـ<strong>مصدر</strong>؛ غالباً بعد الأفعال والحروف التي تعمل في المصادر.</p>
+            <div class="note blue" style="margin-top:12px;">علمتُ أنَّ الحقَّ واضحٌ ← أنَّ وما بعدها في تأويل مصدر مفعول به.</div>
+          </div>
+          <div class="card gold">
+            <div class="card-title">③ كأنَّ — للتشبيه</div>
+            <p>تُفيد <strong>تشبيه</strong> اسمها بخبرها.</p>
+            <div class="quran-box" style="margin-top:12px;">
+              <div class="quran-text">﴿كَأَنَّهُمْ أَعْجَازُ نَخْلٍ مُّنقَعِرٍ﴾</div>
+              <div class="quran-note">القمر: ٢٠ — شبَّهَهم بأعجاز النخل.</div>
+            </div>
+          </div>
+          <div class="card gold">
+            <div class="card-title">④ لَكِنَّ — للاستدراك</div>
+            <p>تُفيد <strong>الاستدراك</strong>؛ أي رفع توهُّم ما قبلها وإثبات ما بعدها. لا بد أن يسبقها كلام.</p>
+            <div class="note gold" style="margin-top:12px;">ما أُكرمتُ أحداً لكنَّ أخاكَ محسنٌ إليَّ.</div>
+          </div>
+          <div class="card green">
+            <div class="card-title">⑤ لَيْتَ — للتمني</div>
+            <p>تُفيد <strong>التمني</strong>؛ طلب أمر محبوب يتعذَّر حصوله أو يُستبعد.</p>
+            <div class="quran-box" style="margin-top:12px;">
+              <div class="quran-text">﴿يَا لَيْتَنِي كُنتُ تُرَابًا﴾</div>
+              <div class="quran-note">النبأ: ٤٠ — تمنّي المشرك أن يكون تراباً.</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">⑥ لَعَلَّ — للترجي والإشفاق</div>
+            <p>تُفيد <strong>الترجي</strong> (لأمر محبوب ممكن) أو <strong>الإشفاق</strong> (لأمر مكروه ممكن).</p>
+            <div class="quran-box" style="margin-top:12px;">
+              <div class="quran-text">﴿لَعَلَّكُمْ تَتَّقُونَ﴾</div>
+              <div class="quran-note">البقرة: ١٨٣ — ترجٍّ بحصول التقوى.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2-C: الفرق بين إن وأن -->
+        <h3 class="sub-title blue">ثالثاً — الفرق بين إنَّ وأنَّ</h3>
+
+        <table class="th-blue">
+          <thead><tr><th>وجه المقارنة</th><th>إنَّ (مكسورة الهمزة)</th><th>أنَّ (مفتوحة الهمزة)</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>الموضع الأصلي</td>
+              <td>ابتداء الجملة أو بعد القول</td>
+              <td>بعد الأفعال التي تعمل في المصادر</td>
+            </tr>
+            <tr>
+              <td>التأويل</td>
+              <td>لا تُؤوَّل بمصدر</td>
+              <td>تُؤوَّل مع ما بعدها بمصدر</td>
+            </tr>
+            <tr>
+              <td>مثال</td>
+              <td>إنَّ اللهَ كريمٌ (جملة مستقلة)</td>
+              <td>أعلمُ أنَّ اللهَ كريمٌ (= أعلم كرَمَ الله)</td>
+            </tr>
+            <tr>
+              <td>شاهد قرآني</td>
+              <td>﴿إِنَّ اللَّهَ بِكُلِّ شَيْءٍ عَلِيمٌ﴾</td>
+              <td>﴿أَلَمْ يَعْلَمُوا أَنَّ اللَّهَ هُوَ يَقْبَلُ﴾</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 2-D: أحكام الاسم والخبر -->
+        <h3 class="sub-title blue">رابعاً — أحكام اسم إن وخبرها</h3>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title">📌 اسم إن</div>
+            <ul style="padding-right:18px; line-height:2.2;">
+              <li>يكون <span class="tag tag-fil">منصوباً</span> دائماً.</li>
+              <li>يتأخر دائماً عن الحرف الناسخ.</li>
+              <li>يجوز أن يكون ضميراً متصلاً (إنَّهُ، إنَّكَ، إنَّنا).</li>
+              <li>لا يُقدَّم على الحرف الناسخ.</li>
+            </ul>
+          </div>
+          <div class="card blue">
+            <div class="card-title">📌 خبر إن</div>
+            <ul style="padding-right:18px; line-height:2.2;">
+              <li>يكون <span class="tag tag-ism">مرفوعاً</span> دائماً.</li>
+              <li>يجوز تقديمه على الاسم: إنَّ في المنزلِ رجلًا.</li>
+              <li>يأتي مفرداً أو جملة أو شبه جملة.</li>
+              <li>يجوز حذفه إذا عُلِم من السياق.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="note gold">
+          <strong>تقديم الخبر على الاسم:</strong> يجوز إذا كان الخبر شبه جملة أو الاسم نكرة: "إنَّ في البيتِ طفلاً" — الخبر (في البيت) مقدَّم، والاسم (طفلاً) مؤخَّر.
+        </div>
+
+        <!-- 2-E: اقتران الخبر بـاللام -->
+        <h3 class="sub-title blue">خامساً — اللام المزحلقة</h3>
+
+        <div class="def-box">
+          <p>
+            إذا أُكِّدت إنَّ باللام، دخلت هذه اللام على خبرها لا على اسمها لأن اسمها منصوب.
+            وتُسمَّى هذه اللام <span class="highlight-blue">اللامَ المزحلقة</span>
+            لأنها "زُحلِقَت" (أُخِّرت) من أول الجملة إلى الخبر.
+          </p>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿إِنَّ رَبَّكَ لَبِالْمِرْصَادِ﴾</div>
+          <div class="quran-note">الفجر: ١٤ — اللام في <span class="highlight-word">لَبِالمرصاد</span> لام مزحلقة دخلت على الخبر.</div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿إِنَّ رَبَّكَ لَيَحْكُمُ بَيْنَهُمْ﴾</div>
+          <div class="quran-note">النحل: ١٢٤ — اللام دخلت على الخبر الفعلي (يحكم).</div>
+        </div>
+
+        <!-- 2-F: شواهد قرآنية إضافية -->
+        <h3 class="sub-title blue">سادساً — شواهد إضافية من القرآن</h3>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا﴾</div>
+          <div class="quran-note">النساء: ١٠٣ — <span class="highlight-word">الصلاةَ</span>: اسم إن منصوب. الجملة الفعلية <span class="highlight-blue">كانت...</span>: خبر إن مرفوع محلاً.</div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿كَأَنَّهُمْ خُشُبٌ مُّسَنَّدَةٌ﴾</div>
+          <div class="quran-note">المنافقون: ٤ — <span class="highlight-green">كأنَّ</span>: للتشبيه. <span class="highlight-word">هم</span>: اسمها. <span class="highlight-blue">خشبٌ مسندةٌ</span>: خبرها.</div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿لَعَلَّ السَّاعَةَ قَرِيبٌ﴾</div>
+          <div class="quran-note">الشورى: ١٧ — <span class="highlight-green">لعلَّ</span>: للترجي. <span class="highlight-word">الساعةَ</span>: اسمها منصوب. <span class="highlight-blue">قريبٌ</span>: خبرها مرفوع.</div>
+        </div>
+
+      </section>
+
+      <div class="sep gold"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           CHAPTER 3 — ظن وأخواتها
+      ══════════════════════════════════════════════════ -->
+      <section id="s-dhanna">
+
+        <div class="chapter-header" style="background:linear-gradient(135deg,#8a6020 0%,#3a3a52 100%);">
+          <div class="chapter-icon">🟠</div>
+          <div>
+            <div class="chapter-title">ظنَّ وأخواتها</div>
+            <div class="chapter-sub">الأفعال التي تنصب مفعولَيْن أصلهما مبتدأ وخبر</div>
+          </div>
+        </div>
+
+        <!-- 3-A: تعريف -->
+        <h3 class="sub-title gold">أولاً — تعريف ظن وعملها</h3>
+
+        <div class="def-box">
+          <p>
+            <strong>ظنَّ وأخواتها</strong> أفعال متعدية تنصب <span class="highlight-word">مفعولَيْن</span>
+            ليس أصلهما مبتدأً وخبراً وحسب، بل هي جملة اسمية كاملة في الأصل؛
+            فالمفعول الأول هو المبتدأ، والمفعول الثاني هو الخبر. وجميعها أفعال للقلوب أو التحويل.
+          </p>
+        </div>
+
+        <div class="sent-demo">
+          <div style="font-size:0.85rem; color:var(--text-light); margin-bottom:12px; font-weight:700;">مثال على العمل:</div>
+          <div class="sent-row">
+            <div class="word-block wb-nasikh"><span class="w-text">ظننتُ</span><span class="w-role">فعل + فاعل</span></div>
+            <div class="word-block wb-maf1"><span class="w-text">محمداً</span><span class="w-role">مفعول به أول (منصوب)</span></div>
+            <div class="word-block wb-maf2"><span class="w-text">مسافرًا</span><span class="w-role">مفعول به ثانٍ (منصوب)</span></div>
+          </div>
+        </div>
+
+        <!-- 3-B: أقسامها -->
+        <h3 class="sub-title gold">ثانياً — أقسام ظن وأخواتها</h3>
+
+        <div class="card-grid">
+          <div class="card gold">
+            <div class="card-title">① أفعال الظن والرجحان</div>
+            <p>تفيد معنى <strong>الظن أو الشك أو الرجحان</strong> في وقوع الخبر.</p>
+            <div class="verb-grid gold" style="margin-top:12px;">
+              <div class="verb-card"><div class="vc-word">ظنَّ</div><div class="vc-label">الظن والشك</div></div>
+              <div class="verb-card"><div class="vc-word">حسِبَ</div><div class="vc-label">ظنَّ وتخيَّل</div></div>
+              <div class="verb-card"><div class="vc-word">خالَ</div><div class="vc-label">ظنَّ وتوهَّم</div></div>
+              <div class="verb-card"><div class="vc-word">زعمَ</div><div class="vc-label">ادَّعى وظنَّ</div></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">② أفعال اليقين والعلم</div>
+            <p>تفيد معنى <strong>اليقين والعلم والتحقق</strong> من وقوع الخبر.</p>
+            <div class="verb-grid" style="margin-top:12px;">
+              <div class="verb-card"><div class="vc-word">عَلِمَ</div><div class="vc-label">اليقين التام</div></div>
+              <div class="verb-card"><div class="vc-word">رأى</div><div class="vc-label">رأى القلبية (أي: علم)</div></div>
+              <div class="verb-card"><div class="vc-word">وجدَ</div><div class="vc-label">ألفى وعَلِم</div></div>
+              <div class="verb-card"><div class="vc-word">درى</div><div class="vc-label">علم وأدرك</div></div>
+              <div class="verb-card"><div class="vc-word">تعلَّم</div><div class="vc-label">اعلم (للتنبيه)</div></div>
+            </div>
+          </div>
+          <div class="card blue">
+            <div class="card-title">③ أفعال التحويل والتصيير</div>
+            <p>تفيد معنى <strong>التحويل والتغيير</strong> من حال إلى حال. تُسمَّى أفعال "صيَّر".</p>
+            <div class="verb-grid blue" style="margin-top:12px;">
+              <div class="verb-card"><div class="vc-word">جعلَ</div><div class="vc-label">حوَّل وصيَّر</div></div>
+              <div class="verb-card"><div class="vc-word">صيَّرَ</div><div class="vc-label">حوَّل ونقل</div></div>
+              <div class="verb-card"><div class="vc-word">اتَّخذَ</div><div class="vc-label">جعلَ وحوَّل</div></div>
+              <div class="verb-card"><div class="vc-word">تَخِذَ</div><div class="vc-label">مثل اتخذ</div></div>
+              <div class="verb-card"><div class="vc-word">تركَ</div><div class="vc-label">جعلَ على حال</div></div>
+              <div class="verb-card"><div class="vc-word">ردَّ</div><div class="vc-label">جعل وأعاد</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3-C: جدول تفصيلي بالمعاني -->
+        <h3 class="sub-title gold">ثالثاً — المعاني التفصيلية مع الأمثلة</h3>
+
+        <table class="th-gold">
+          <thead>
+            <tr><th>الفعل</th><th>المعنى</th><th>مثال</th><th>شاهد قرآني</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word gold">ظنَّ</td>
+              <td>رجَح في ذهنه وقوع أمر دون يقين</td>
+              <td>ظننتُ الطالبَ ناجحًا</td>
+              <td>﴿وَظَنَّ دَاوُودُ أَنَّمَا فَتَنَّاهُ﴾</td>
+            </tr>
+            <tr>
+              <td class="irab-word gold">حسِبَ</td>
+              <td>ظنَّ وتخيَّل</td>
+              <td>حسِبتُ المريضَ مُقيمًا</td>
+              <td>﴿أَحَسِبَ النَّاسُ أَن يُتْرَكُوا﴾</td>
+            </tr>
+            <tr>
+              <td class="irab-word gold">خالَ</td>
+              <td>ظنَّ وتوهَّم</td>
+              <td>خِلتُ الليلَ طويلاً</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td class="irab-word gold">زعمَ</td>
+              <td>ادَّعى أو ظنَّ (وغالباً يُستخدم في الكذب)</td>
+              <td>زعمَ المنافقُ الإيمانَ حقيقياً</td>
+              <td>﴿زَعَمَ الَّذِينَ كَفَرُوا أَن لَّن يُبْعَثُوا﴾</td>
+            </tr>
+            <tr>
+              <td class="irab-word">عَلِمَ</td>
+              <td>أدرك وتيقَّن</td>
+              <td>عَلِمتُ الصدقَ نجاةً</td>
+              <td>﴿وَعَلِمَ اللَّهُ أَنَّكُمْ كُنتُمْ تَخْتَانُونَ﴾</td>
+            </tr>
+            <tr>
+              <td class="irab-word">رأى (القلبية)</td>
+              <td>علم وأدرك بالعقل لا بالبصر</td>
+              <td>رأيتُ العدلَ أساسًا للملك</td>
+              <td>﴿أَرَأَيْتَ مَنِ اتَّخَذَ إِلَهَهُ هَوَاهُ﴾</td>
+            </tr>
+            <tr>
+              <td class="irab-word blue">جعلَ (التصيير)</td>
+              <td>صيَّر وحوَّل من حال إلى حال</td>
+              <td>جعلَ اللهُ الماءَ طهوراً</td>
+              <td>﴿وَجَعَلْنَا مِنَ الْمَاءِ كُلَّ شَيْءٍ حَيٍّ﴾</td>
+            </tr>
+            <tr>
+              <td class="irab-word blue">اتَّخذَ</td>
+              <td>جعلَ وصيَّر</td>
+              <td>اتَّخذتُ المكتبةَ ملجأً</td>
+              <td>﴿وَاتَّخَذَ اللَّهُ إِبْرَاهِيمَ خَلِيلًا﴾</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 3-D: أحكام مفعوليها -->
+        <h3 class="sub-title gold">رابعاً — أحكام مفعولَيْ ظن وأخواتها</h3>
+
+        <div class="card-grid">
+          <div class="card gold">
+            <div class="card-title">📌 المفعول به الأول</div>
+            <ul style="padding-right:18px; line-height:2.2;">
+              <li>منصوب دائماً.</li>
+              <li>أصله المبتدأ في الجملة الاسمية.</li>
+              <li>يكون اسماً ظاهراً أو ضميراً.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-title">📌 المفعول به الثاني</div>
+            <ul style="padding-right:18px; line-height:2.2;">
+              <li>منصوب دائماً.</li>
+              <li>أصله خبر المبتدأ.</li>
+              <li>يأتي: مفرداً / جملةً / شبه جملة.</li>
+              <li>يجوز تقديمه: ظننتُ ناجحاً محمداً.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="note green">
+          <strong>الإلغاء والتعليق:</strong> يجوز <strong>إلغاء</strong> عمل أفعال القلوب (ظن وعلم ورأى) إذا توسَّطت بين المتعلِّقين أو تأخَّرت. ويجب <strong>التعليق</strong> عن العمل لفظاً (لا محلاً) إذا جاء بعدها لامُ الابتداء أو ما النافية أو إنَّ أو الاستفهام.
+        </div>
+
+        <div class="note red">
+          <strong>أفعال التصيير لا تُلغى ولا تُعلَّق</strong>؛ لأنها أفعال تحويل وليست من أفعال القلب.
+        </div>
+
+        <!-- 3-E: شواهد قرآنية -->
+        <h3 class="sub-title gold">خامساً — شواهد من القرآن الكريم</h3>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿وَظَنَّ دَاوُودُ أَنَّمَا فَتَنَّاهُ فَاسْتَغْفَرَ رَبَّهُ﴾</div>
+          <div class="quran-note">ص: ٢٤ — <span class="highlight-green">ظنَّ</span>: فعل ناسخ. <span class="highlight-blue">داودُ</span>: فاعل. <span class="highlight-word">أنَّما فتنَّاه</span>: في محل نصب مفعولَي ظنَّ (سدَّت مسدَّهما).</div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿وَاتَّخَذَ اللَّهُ إِبْرَاهِيمَ خَلِيلًا﴾</div>
+          <div class="quran-note">النساء: ١٢٥ — <span class="highlight-green">اتَّخذَ</span>: فعل تصيير ينصب مفعولَيْن. <span class="highlight-blue">اللهُ</span>: فاعل. <span class="highlight-word">إبراهيمَ</span>: مفعول أول. <span class="highlight-gold">خليلاً</span>: مفعول ثانٍ.</div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿وَجَعَلْنَا مِنَ الْمَاءِ كُلَّ شَيْءٍ حَيٍّ﴾</div>
+          <div class="quran-note">الأنبياء: ٣٠ — <span class="highlight-green">جعلنا</span>: فعل تصيير. <span class="highlight-word">كلَّ شيءٍ</span>: مفعول أول. <span class="highlight-gold">حيٍّ</span>: مفعول ثانٍ (مجرور لفظاً وهو صفة).</div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿إِنِّي أَرَاكَ وَقَوْمَكَ فِي ضَلَالٍ مُّبِينٍ﴾</div>
+          <div class="quran-note">الأنعام: ٧٤ — <span class="highlight-green">أرى</span>: هنا رأى القلبية (علم). الكاف: مفعول أول. <span class="highlight-word">في ضلال</span>: شبه جملة مفعول ثانٍ.</div>
+        </div>
+
+      </section>
+
+      <div class="sep green"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           CHAPTER 4 — كاد وأخواتها
+      ══════════════════════════════════════════════════ -->
+      <section id="s-kad">
+
+        <div class="chapter-header" style="background:linear-gradient(135deg,#2e7a50 0%,#3a3a52 100%);">
+          <div class="chapter-icon">🟢</div>
+          <div>
+            <div class="chapter-title">كادَ وأخواتها</div>
+            <div class="chapter-sub">أفعال المقاربة والرجاء والشروع — تعمل عمل كان وخبرها جملة فعلية</div>
+          </div>
+        </div>
+
+        <!-- 4-A: تعريف -->
+        <h3 class="sub-title green">أولاً — تعريف كاد وعملها</h3>
+
+        <div class="def-box">
+          <p>
+            <strong>كادَ وأخواتها</strong> أفعال ناسخة تعمل عمل كان (ترفع الاسم وتنصب الخبر)،
+            غير أن خبرها <span class="highlight-green">يجب أن يكون جملةً فعلية</span>
+            فعلها مضارع. وتنقسم إلى ثلاثة أقسام بحسب معناها.
+          </p>
+        </div>
+
+        <div class="sent-demo">
+          <div style="font-size:0.85rem; color:var(--text-light); margin-bottom:12px; font-weight:700;">مثال على العمل:</div>
+          <div class="sent-row">
+            <div class="word-block wb-nasikh"><span class="w-text">كادَ</span><span class="w-role">فعل ناسخ</span></div>
+            <div class="word-block wb-ism"><span class="w-text">الفجرُ</span><span class="w-role">اسم كاد (مرفوع)</span></div>
+            <div class="word-block wb-khabar"><span class="w-text">يَطلُعُ</span><span class="w-role">خبر كاد (جملة فعلية منصوبة)</span></div>
+          </div>
+        </div>
+
+        <!-- 4-B: الأقسام الثلاثة -->
+        <h3 class="sub-title green">ثانياً — أقسام كاد وأخواتها</h3>
+
+        <div class="card-grid-3">
+          <div class="card green">
+            <div class="card-title">① أفعال المقاربة</div>
+            <p>تفيد <strong>قُرب وقوع الخبر</strong> وقرب حصول الفعل. وخبرها يأتي بـ"أن" مكروهة.</p>
+            <div class="verb-grid green" style="margin-top:12px;">
+              <div class="verb-card"><div class="vc-word">كادَ</div><div class="vc-label">قرب الوقوع (الأشهر)</div></div>
+              <div class="verb-card"><div class="vc-word">كَرَبَ</div><div class="vc-label">اقترب ودنا</div></div>
+              <div class="verb-card"><div class="vc-word">أوشكَ</div><div class="vc-label">قارَب وكاد</div></div>
+            </div>
+            <div class="note green" style="margin-top:12px;">
+              <strong>الأهم:</strong> خبر أفعال المقاربة <strong>يأتي بدون "أن"</strong> أو بـ"أن" مرجوحة؛ خلافاً للرجاء.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">② أفعال الرجاء</div>
+            <p>تفيد <strong>رجاء حصول الخبر وتوقُّعه</strong>. وخبرها يأتي بـ"أن" راجحة (الأكثر).</p>
+            <div class="verb-grid" style="margin-top:12px;">
+              <div class="verb-card"><div class="vc-word">عسى</div><div class="vc-label">رجا وأمَّل</div></div>
+              <div class="verb-card"><div class="vc-word">حرى</div><div class="vc-label">جدير وحريٌّ</div></div>
+              <div class="verb-card"><div class="vc-word">اخلولقَ</div><div class="vc-label">صار جديراً</div></div>
+            </div>
+            <div class="note" style="margin-top:12px;">
+              <strong>عسى</strong> هي الأشهر والأكثر استخداماً في القرآن الكريم.
+            </div>
+          </div>
+          <div class="card blue">
+            <div class="card-title">③ أفعال الشروع</div>
+            <p>تفيد <strong>البدء والشروع في الفعل</strong>. وخبرها يأتي <strong>بدون "أن"</strong> وجوباً.</p>
+            <div class="verb-grid blue" style="margin-top:12px;">
+              <div class="verb-card"><div class="vc-word">أخذَ</div><div class="vc-label">شرعَ وبدأ</div></div>
+              <div class="verb-card"><div class="vc-word">شرعَ</div><div class="vc-label">بدأ وابتدأ</div></div>
+              <div class="verb-card"><div class="vc-word">جعلَ</div><div class="vc-label">شرع وبدأ (الشروعية)</div></div>
+              <div class="verb-card"><div class="vc-word">طفِقَ</div><div class="vc-label">أخذ وأقبل</div></div>
+              <div class="verb-card"><div class="vc-word">أنشأَ</div><div class="vc-label">ابتدأ وجعل</div></div>
+              <div class="verb-card"><div class="vc-word">هبَّ</div><div class="vc-label">نهض وأقبل</div></div>
+              <div class="verb-card"><div class="vc-word">قامَ</div><div class="vc-label">نهض وشرع</div></div>
+              <div class="verb-card"><div class="vc-word">بدأَ</div><div class="vc-label">ابتدأ وشرع</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4-C: "أن" في الخبر -->
+        <h3 class="sub-title green">ثالثاً — "أن" في خبر كاد وأخواتها</h3>
+
+        <table class="th-green">
+          <thead>
+            <tr><th>القسم</th><th>الأفعال</th><th>"أن" في الخبر</th><th>مثال</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>المقاربة</td>
+              <td>كاد، كرب، أوشك</td>
+              <td><span class="tag tag-red">يُكره مع "أن"</span> (بدونها أصح)</td>
+              <td>كادَ الفجرُ يَطلُعُ ✔ / كاد أن يطلع ✗ (مرجوح)</td>
+            </tr>
+            <tr>
+              <td>الرجاء</td>
+              <td>عسى، حرى، اخلولق</td>
+              <td><span class="tag tag-green">واجبة مع "أن"</span> (راجحة)</td>
+              <td>عسى اللهُ أن يرحمَنا ✔</td>
+            </tr>
+            <tr>
+              <td>الشروع</td>
+              <td>أخذ، شرع، جعل، طفق...</td>
+              <td><span class="tag tag-red">ممنوعة مع "أن"</span></td>
+              <td>أخذَ المطرُ يهطُلُ ✔ / أخذ أن يهطل ✗</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 4-D: أحكام عسى -->
+        <h3 class="sub-title green">رابعاً — أحكام عسى خاصةً</h3>
+
+        <div class="card-grid">
+          <div class="card green">
+            <div class="card-title">📌 عسى + اسم ظاهر</div>
+            <p>يكون الاسم مرفوعاً والخبر جملة فعلية بـ"أن" + مضارع.</p>
+            <div class="note green" style="margin-top:10px;">عسى الطالبُ أن ينجحَ.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">📌 عسى + ضمير متصل</div>
+            <p>يجوز أن يتصل بها ضمير فيُعرب في محل رفع اسمها.</p>
+            <div class="note" style="margin-top:10px;">عسانا أن نفوزَ — الناء: اسم عسى في محل رفع.</div>
+          </div>
+        </div>
+
+        <div class="note gold">
+          <strong>عسى من الله واجبة:</strong> إذا وردت عسى في القرآن الكريم بنسبة إلى الله، فهي تفيد اليقين والوعد لا مجرد الرجاء.
+        </div>
+
+        <!-- 4-E: شواهد قرآنية -->
+        <h3 class="sub-title green">خامساً — شواهد من القرآن الكريم</h3>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿يَكَادُ الْبَرْقُ يَخْطَفُ أَبْصَارَهُمْ﴾</div>
+          <div class="quran-note">البقرة: ٢٠ — <span class="highlight-green">يكادُ</span>: فعل ناسخ مضارع (المقاربة). <span class="highlight-blue">البرقُ</span>: اسمه مرفوع. <span class="highlight-word">يخطفُ</span>: جملة فعلية خبره — بدون "أن" وهو الأفصح في المقاربة.</div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿عَسَى اللَّهُ أَن يَأْتِيَ بِالْفَتْحِ﴾</div>
+          <div class="quran-note">المائدة: ٥٢ — <span class="highlight-green">عسى</span>: فعل ناسخ (الرجاء). <span class="highlight-blue">اللهُ</span>: اسمه مرفوع. <span class="highlight-word">أن يأتيَ</span>: خبره منصوب بأن.</div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿عَسَى رَبُّكُمْ أَن يَرْحَمَكُمْ﴾</div>
+          <div class="quran-note">الإسراء: ٨ — <span class="highlight-blue">ربُّكم</span>: اسم عسى مرفوع. <span class="highlight-word">أن يرحمَكم</span>: خبرها منصوب — وهو وعدٌ ربانيٌّ يفيد اليقين.</div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿وَطَفِقَا يَخْصِفَانِ عَلَيْهِمَا مِن وَرَقِ الْجَنَّةِ﴾</div>
+          <div class="quran-note">الأعراف: ٢٢ — <span class="highlight-green">طفِقا</span>: فعل ناسخ من أفعال الشروع. الألف: اسمه. <span class="highlight-word">يخصفان</span>: خبره — بدون "أن" وجوباً.</div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿كَادَ زَيْتُهَا يُضِيءُ وَلَوْ لَمْ تَمْسَسْهُ نَارٌ﴾</div>
+          <div class="quran-note">النور: ٣٥ — <span class="highlight-green">كادَ</span>: فعل مقاربة. <span class="highlight-blue">زيتُها</span>: اسمه مرفوع. <span class="highlight-word">يضيءُ</span>: خبره بدون "أن".</div>
+        </div>
+
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION SUMMARY
+      ══════════════════════════════════════════════════ -->
+      <section id="s-summary">
+        <h2 class="section-title">
+          <span class="section-num" style="background:var(--gold);">★</span>الملخص الشامل
+        </h2>
+
+        <!-- مقارنة عامة -->
+        <h3 class="sub-title">مقارنة بين النواسخ الأربعة</h3>
+
+        <table class="th-dark">
+          <thead>
+            <tr><th>الناسخ</th><th>النوع</th><th>عمله</th><th>اسمه</th><th>خبره</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word" style="color:var(--blue-dark);">كان وأخواتها</td>
+              <td><span class="tag tag-fil">أفعال</span></td>
+              <td>ترفع الاسم وتنصب الخبر</td>
+              <td><span class="tag tag-ism">مرفوع</span></td>
+              <td><span class="tag tag-fil">منصوب</span></td>
+            </tr>
+            <tr>
+              <td class="irab-word" style="color:#8a6020;">إن وأخواتها</td>
+              <td><span class="tag tag-hrf">حروف</span></td>
+              <td>تنصب الاسم وترفع الخبر</td>
+              <td><span class="tag tag-fil">منصوب</span></td>
+              <td><span class="tag tag-ism">مرفوع</span></td>
+            </tr>
+            <tr>
+              <td class="irab-word" style="color:#8a6020;">ظن وأخواتها</td>
+              <td><span class="tag tag-fil">أفعال</span></td>
+              <td>تنصب مفعولَيْن (أصلهما م+خ)</td>
+              <td><span class="tag tag-fil">مفعول أول (منصوب)</span></td>
+              <td><span class="tag tag-fil">مفعول ثانٍ (منصوب)</span></td>
+            </tr>
+            <tr>
+              <td class="irab-word" style="color:#2e7a50;">كاد وأخواتها</td>
+              <td><span class="tag tag-fil">أفعال</span></td>
+              <td>ترفع الاسم وخبرها جملة فعلية</td>
+              <td><span class="tag tag-ism">مرفوع</span></td>
+              <td><span class="tag tag-green">جملة فعلية (منصوبة)</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="sum-grid" style="margin-top:30px;">
+          <div class="sum-card">
+            <div class="sum-icon">🔵</div>
+            <div class="sum-title">كان وأخواتها</div>
+            <div class="sum-text">١٣ فعلاً. ترفع الاسم وتنصب الخبر. أشهرها: كان، صار، ليس، ما زال.</div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🟡</div>
+            <div class="sum-title">إن وأخواتها</div>
+            <div class="sum-text">٦ حروف. تنصب الاسم وترفع الخبر. إن-أن (توكيد)، كأن (تشبيه)، لكن (استدراك)، ليت (تمنٍّ)، لعل (ترجٍّ).</div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🟠</div>
+            <div class="sum-title">ظن وأخواتها</div>
+            <div class="sum-text">تنصب مفعولَيْن. أفعال الظن (ظن-حسب-خال) وأفعال اليقين (علم-رأى) وأفعال التصيير (جعل-صيَّر).</div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🟢</div>
+            <div class="sum-title">كاد وأخواتها</div>
+            <div class="sum-text">ثلاثة أقسام: المقاربة (كاد-أوشك)، الرجاء (عسى)، الشروع (أخذ-طفق-شرع). خبرها جملة فعلية مضارعة.</div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">⚡</div>
+            <div class="sum-title">قاعدة "أن" في كاد</div>
+            <div class="sum-text">المقاربة: بدونها. الرجاء: بها (واجبة). الشروع: بدونها (ممنوعة).</div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🌿</div>
+            <div class="sum-title">في القرآن الكريم</div>
+            <div class="sum-text">النواسخ من أكثر الأبواب النحوية حضوراً في القرآن؛ كان وكاد وعسى وإن وأن وكأن ولعل — كلها وردت في آيات كثيرة.</div>
+          </div>
+        </div>
+
+        <!-- جدول إعراب تطبيقي شامل -->
+        <h3 class="sub-title" style="margin-top:40px;">تطبيق إعرابي شامل</h3>
+
+        <table>
+          <thead><tr><th>الجملة</th><th>الناسخ</th><th>الاسم وإعرابه</th><th>الخبر وإعرابه</th></tr></thead>
+          <tbody>
+            <tr>
+              <td style="text-align:right; font-size:1rem; font-weight:600;">كانَ العلمُ نورًا</td>
+              <td><span class="tag tag-fil">كانَ</span></td>
+              <td>العلمُ — مرفوع بالضمة</td>
+              <td>نورًا — منصوب بالفتحة</td>
+            </tr>
+            <tr>
+              <td style="text-align:right; font-size:1rem; font-weight:600;">إنَّ الصبرَ جميلٌ</td>
+              <td><span class="tag tag-hrf">إنَّ</span></td>
+              <td>الصبرَ — منصوب بالفتحة</td>
+              <td>جميلٌ — مرفوع بالضمة</td>
+            </tr>
+            <tr>
+              <td style="text-align:right; font-size:1rem; font-weight:600;">ظننتُ الجوَّ باردًا</td>
+              <td><span class="tag tag-fil">ظنَّ</span></td>
+              <td>الجوَّ — مفعول أول منصوب</td>
+              <td>باردًا — مفعول ثانٍ منصوب</td>
+            </tr>
+            <tr>
+              <td style="text-align:right; font-size:1rem; font-weight:600;">عسى الفرجُ أن يقربَ</td>
+              <td><span class="tag tag-green">عسى</span></td>
+              <td>الفرجُ — مرفوع بالضمة</td>
+              <td>أن يقربَ — جملة منصوبة المحل</td>
+            </tr>
+            <tr>
+              <td style="text-align:right; font-size:1rem; font-weight:600;">كادَ القلبُ يطيرُ</td>
+              <td><span class="tag tag-green">كادَ</span></td>
+              <td>القلبُ — مرفوع بالضمة</td>
+              <td>يطيرُ — جملة فعلية منصوبة المحل</td>
+            </tr>
+            <tr>
+              <td style="text-align:right; font-size:1rem; font-weight:600;">ليتَ الشبابَ يعودُ</td>
+              <td><span class="tag tag-hrf">ليتَ</span></td>
+              <td>الشبابَ — منصوب بالفتحة</td>
+              <td>يعودُ — جملة فعلية مرفوعة المحل</td>
+            </tr>
+            <tr>
+              <td style="text-align:right; font-size:1rem; font-weight:600;">جعلَ اللهُ الأرضَ فراشًا</td>
+              <td><span class="tag tag-fil">جعلَ</span></td>
+              <td>الأرضَ — مفعول أول منصوب</td>
+              <td>فراشًا — مفعول ثانٍ منصوب</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </section>
+
+    </main>
+
+    <footer style="background:var(--dark); color:#a0a8c0; text-align:center; padding:24px 20px; font-size:0.88rem; margin-top:10px;">
+      <p style="margin-bottom:6px;">أساسيات علم النحو — النواسخ</p>
+      <p style="opacity:0.6;">للمراجعة والتعلُّم الذاتي — جميع الشواهد من القرآن الكريم</p>
+    </footer>
+
+    <script>
+      const sections = document.querySelectorAll('section[id]')
+      const navLinks = document.querySelectorAll('nav a')
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navLinks.forEach((l) => l.classList.remove('active'))
+              const active = document.querySelector(`nav a[href="#${entry.target.id}"]`)
+              if (active) {
+                active.classList.add('active')
+                active.scrollIntoView({ block: 'nearest', inline: 'center' })
+              }
+            }
+          })
+        },
+        { rootMargin: '-20% 0px -70% 0px' }
+      )
+
+      sections.forEach((s) => observer.observe(s))
+
+      navLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault()
+          const target = document.querySelector(link.getAttribute('href'))
+          if (target) target.scrollIntoView({ behavior: 'smooth' })
+        })
+      })
+    </script>
+  </body>
+</html>
