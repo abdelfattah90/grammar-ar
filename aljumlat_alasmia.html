@@ -420,10 +420,18 @@
         transform: translateY(-4px);
         box-shadow: var(--shadow-hover);
       }
-      .sum-card:nth-child(2) { border-bottom-color: var(--blue); }
-      .sum-card:nth-child(3) { border-bottom-color: var(--green); }
-      .sum-card:nth-child(4) { border-bottom-color: var(--gold); }
-      .sum-card:nth-child(5) { border-bottom-color: var(--purple-light); }
+      .sum-card:nth-child(2) {
+        border-bottom-color: var(--blue);
+      }
+      .sum-card:nth-child(3) {
+        border-bottom-color: var(--green);
+      }
+      .sum-card:nth-child(4) {
+        border-bottom-color: var(--gold);
+      }
+      .sum-card:nth-child(5) {
+        border-bottom-color: var(--purple-light);
+      }
       .sum-icon {
         font-size: 2rem;
         margin-bottom: 8px;
@@ -467,25 +475,41 @@
       }
 
       .highlight-word {
-        background: linear-gradient(to top, var(--purple-light) 10%, transparent 10%);
+        background: linear-gradient(
+          to top,
+          var(--purple-light) 10%,
+          transparent 10%
+        );
         padding: 0 3px;
         border-radius: 2px;
         font-weight: 700;
       }
       .highlight-blue {
-        background: linear-gradient(to top, var(--blue-light) 10%, transparent 10%);
+        background: linear-gradient(
+          to top,
+          var(--blue-light) 10%,
+          transparent 10%
+        );
         padding: 0 3px;
         border-radius: 2px;
         font-weight: 700;
       }
       .highlight-gold {
-        background: linear-gradient(to top, var(--gold-light) 10%, transparent 10%);
+        background: linear-gradient(
+          to top,
+          var(--gold-light) 10%,
+          transparent 10%
+        );
         padding: 0 3px;
         border-radius: 2px;
         font-weight: 700;
       }
       .highlight-green {
-        background: linear-gradient(to top, var(--green-light) 10%, transparent 10%);
+        background: linear-gradient(
+          to top,
+          var(--green-light) 10%,
+          transparent 10%
+        );
         padding: 0 3px;
         border-radius: 2px;
         font-weight: 700;
@@ -546,7 +570,12 @@
       /* ── SEPARATOR ── */
       .sep {
         height: 2px;
-        background: linear-gradient(to left, transparent, var(--purple), transparent);
+        background: linear-gradient(
+          to left,
+          transparent,
+          var(--purple),
+          transparent
+        );
         margin: 30px 0;
         border-radius: 2px;
       }
@@ -563,11 +592,13 @@
         align-items: center;
         gap: 14px;
         padding: 8px 0;
-        border-bottom: 1px solid rgba(255,255,255,0.08);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       }
-      .tree-row:last-child { border-bottom: none; }
+      .tree-row:last-child {
+        border-bottom: none;
+      }
       .tree-label {
-        background: rgba(255,255,255,0.12);
+        background: rgba(255, 255, 255, 0.12);
         color: var(--gold-light);
         font-size: 0.82rem;
         font-weight: 700;
@@ -627,7 +658,8 @@
         table {
           font-size: 0.85rem;
         }
-        td, th {
+        td,
+        th {
           padding: 8px 10px;
         }
         .sum-grid {
@@ -643,14 +675,20 @@
         animation: fadeUp 0.4s ease both;
       }
       @keyframes fadeUp {
-        from { opacity: 0; transform: translateY(18px); }
-        to   { opacity: 1; transform: translateY(0); }
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
     </style>
   </head>
   <body>
-
     <!-- NAV -->
+    <a style="text-decoration: none" href="./index.html">🏠</a>
     <nav>
       <div class="nav-brand">الجملة الاسمية</div>
       <a href="#s1">التعريف</a>
@@ -665,11 +703,12 @@
     <div class="hero">
       <div class="hero-badge">أساسيات علم النحو</div>
       <h1>الجملة الاسمية</h1>
-      <p>تعريفها · المبتدأ وأحكامه · الخبر وأنواعه · التقديم والتأخير · الحذف</p>
+      <p>
+        تعريفها · المبتدأ وأحكامه · الخبر وأنواعه · التقديم والتأخير · الحذف
+      </p>
     </div>
 
     <main>
-
       <!-- ══════════════════════════════════════════════════
            SECTION 1 — التعريف
       ══════════════════════════════════════════════════ -->
@@ -680,10 +719,11 @@
 
         <div class="def-box">
           <p>
-            الجملة الاسمية هي الجملة التي <strong>تبدأ باسم</strong>، وتتألف في أبسط صورها من ركنين أساسيين:
+            الجملة الاسمية هي الجملة التي <strong>تبدأ باسم</strong>، وتتألف في
+            أبسط صورها من ركنين أساسيين:
             <span class="highlight-word">المبتدأ</span>
-            و<span class="highlight-blue">الخبر</span>.
-            وسُمِّيت اسميةً لأن صدرها — أي أولها — اسمٌ.
+            و<span class="highlight-blue">الخبر</span>. وسُمِّيت اسميةً لأن
+            صدرها — أي أولها — اسمٌ.
           </p>
         </div>
 
@@ -703,8 +743,8 @@
 
         <div class="note">
           <strong>الفرق بين الجملتين:</strong>
-          الجملة الاسمية تبدأ باسم (العلمُ نورٌ)، والجملة الفعلية تبدأ بفعل (نجحَ الطالبُ).
-          وكلتاهما جملة مفيدة تامة المعنى.
+          الجملة الاسمية تبدأ باسم (العلمُ نورٌ)، والجملة الفعلية تبدأ بفعل
+          (نجحَ الطالبُ). وكلتاهما جملة مفيدة تامة المعنى.
         </div>
 
         <!-- مقارنة -->
@@ -736,14 +776,23 @@
         <div class="quran-box">
           <div class="quran-text">﴿وَاللَّهُ بِكُلِّ شَيْءٍ عَلِيمٌ﴾</div>
           <div class="quran-note">
-            البقرة: ٢٨٢ — جملة اسمية: <span class="highlight-word">اللَّهُ</span> مبتدأ، و<span class="highlight-blue">عَلِيمٌ</span> خبر، وشبه الجملة (بِكُلِّ شَيْءٍ) متعلق بالخبر.
+            البقرة: ٢٨٢ — جملة اسمية:
+            <span class="highlight-word">اللَّهُ</span> مبتدأ، و<span
+              class="highlight-blue"
+              >عَلِيمٌ</span
+            >
+            خبر، وشبه الجملة (بِكُلِّ شَيْءٍ) متعلق بالخبر.
           </div>
         </div>
 
         <div class="quran-box">
-          <div class="quran-text">﴿إِنَّ اللَّهَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ﴾</div>
+          <div class="quran-text">
+            ﴿إِنَّ اللَّهَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ﴾
+          </div>
           <div class="quran-note">
-            البقرة: ٢٠ — جملة اسمية دخلت عليها (إنَّ): اسمها <span class="highlight-word">اللَّهَ</span>، وخبرها <span class="highlight-blue">قَدِيرٌ</span>.
+            البقرة: ٢٠ — جملة اسمية دخلت عليها (إنَّ): اسمها
+            <span class="highlight-word">اللَّهَ</span>، وخبرها
+            <span class="highlight-blue">قَدِيرٌ</span>.
           </div>
         </div>
       </section>
@@ -761,13 +810,26 @@
         <!-- تعريف المبتدأ -->
         <div class="def-box">
           <p>
-            المبتدأ هو الاسم <strong>المرفوع</strong> الذي يقع في <strong>أول الجملة الاسمية</strong> ويُسند إليه خبرٌ. وهو المحكوم عليه بما في الخبر.
+            المبتدأ هو الاسم <strong>المرفوع</strong> الذي يقع في
+            <strong>أول الجملة الاسمية</strong> ويُسند إليه خبرٌ. وهو المحكوم
+            عليه بما في الخبر.
           </p>
         </div>
 
         <!-- إعراب المبتدأ -->
-        <h3 style="font-size:1.05rem;font-weight:700;color:var(--purple);margin:20px 0 10px;">أولاً: إعراب المبتدأ</h3>
-        <p style="margin-bottom:12px;">المبتدأ دائماً <strong>مرفوع</strong>، وعلامة رفعه:</p>
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 20px 0 10px;
+          "
+        >
+          أولاً: إعراب المبتدأ
+        </h3>
+        <p style="margin-bottom: 12px">
+          المبتدأ دائماً <strong>مرفوع</strong>، وعلامة رفعه:
+        </p>
 
         <table>
           <thead>
@@ -812,32 +874,58 @@
         </table>
 
         <!-- شروط المبتدأ -->
-        <h3 style="font-size:1.05rem;font-weight:700;color:var(--purple);margin:24px 0 10px;">ثانياً: شروط المبتدأ</h3>
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 24px 0 10px;
+          "
+        >
+          ثانياً: شروط المبتدأ
+        </h3>
 
         <div class="card-grid">
           <div class="card">
             <div class="card-title">📌 أن يكون اسماً</div>
             <p>يأتي المبتدأ اسماً صريحاً، أو مؤوَّلاً بالاسم (مصدر مؤول).</p>
-            <div class="note" style="margin-top:10px;">
-              <strong>مصدر مؤول:</strong> ﴿وَأَن تَصُومُوا خَيْرٌ لَّكُمْ﴾ — (أن تصوموا) في محل رفع مبتدأ.
+            <div class="note" style="margin-top: 10px">
+              <strong>مصدر مؤول:</strong> ﴿وَأَن تَصُومُوا خَيْرٌ لَّكُمْ﴾ — (أن
+              تصوموا) في محل رفع مبتدأ.
             </div>
           </div>
           <div class="card blue">
             <div class="card-title">📌 أن يكون مرفوعاً</div>
-            <p>المبتدأ لازم الرفع في كل حالاته، ولا يجوز نصبه ولا جره إلا بعامل.</p>
+            <p>
+              المبتدأ لازم الرفع في كل حالاته، ولا يجوز نصبه ولا جره إلا بعامل.
+            </p>
           </div>
           <div class="card green">
             <div class="card-title">📌 التجرد من العوامل اللفظية</div>
-            <p>المبتدأ مرفوع بالابتداء — وهو عامل معنوي — لا بعامل لفظي كالأفعال أو الحروف.</p>
+            <p>
+              المبتدأ مرفوع بالابتداء — وهو عامل معنوي — لا بعامل لفظي كالأفعال
+              أو الحروف.
+            </p>
           </div>
         </div>
 
         <!-- أنواع المبتدأ من حيث التعريف والتنكير -->
-        <h3 style="font-size:1.05rem;font-weight:700;color:var(--purple);margin:24px 0 10px;">ثالثاً: المبتدأ معرفةً أو نكرةً</h3>
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 24px 0 10px;
+          "
+        >
+          ثالثاً: المبتدأ معرفةً أو نكرةً
+        </h3>
 
-        <div class="def-box" style="--gold:#c9a84c;">
+        <div class="def-box" style="--gold: #c9a84c">
           <p>
-            الأصل في المبتدأ أن يكون <span class="tag tag-marifa">معرفة</span>. ويجوز أن يكون <span class="tag tag-nakira">نكرة</span> بشرط أن يفيد فائدة مقبولة (لا يكون مجهولاً تاماً).
+            الأصل في المبتدأ أن يكون <span class="tag tag-marifa">معرفة</span>.
+            ويجوز أن يكون <span class="tag tag-nakira">نكرة</span> بشرط أن يفيد
+            فائدة مقبولة (لا يكون مجهولاً تاماً).
           </p>
         </div>
 
@@ -889,12 +977,22 @@
         </table>
 
         <!-- أمثلة قرآنية للمبتدأ -->
-        <h3 style="font-size:1.05rem;font-weight:700;color:var(--purple);margin:24px 0 10px;">شواهد قرآنية</h3>
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 24px 0 10px;
+          "
+        >
+          شواهد قرآنية
+        </h3>
 
         <div class="quran-box">
           <div class="quran-text">﴿مُّحَمَّدٌ رَّسُولُ اللَّهِ﴾</div>
           <div class="quran-note">
-            الفتح: ٢٩ — <span class="highlight-word">مُحَمَّدٌ</span>: مبتدأ مرفوع بالضمة، وهو علم (معرفة).
+            الفتح: ٢٩ — <span class="highlight-word">مُحَمَّدٌ</span>: مبتدأ
+            مرفوع بالضمة، وهو علم (معرفة).
             <span class="highlight-blue">رَّسُولُ اللَّهِ</span>: خبر مرفوع.
           </div>
         </div>
@@ -902,14 +1000,20 @@
         <div class="quran-box">
           <div class="quran-text">﴿وَأَن تَصُومُوا خَيْرٌ لَّكُمْ﴾</div>
           <div class="quran-note">
-            البقرة: ١٨٤ — (أن تصوموا): مصدر مؤول في محل رفع <span class="highlight-word">مبتدأ</span>. وهذا مثال على المبتدأ غير الصريح.
+            البقرة: ١٨٤ — (أن تصوموا): مصدر مؤول في محل رفع
+            <span class="highlight-word">مبتدأ</span>. وهذا مثال على المبتدأ غير
+            الصريح.
           </div>
         </div>
 
         <div class="quran-box">
-          <div class="quran-text">﴿وَلَعَبْدٌ مُّؤْمِنٌ خَيْرٌ مِّن مُّشْرِكٍ﴾</div>
+          <div class="quran-text">
+            ﴿وَلَعَبْدٌ مُّؤْمِنٌ خَيْرٌ مِّن مُّشْرِكٍ﴾
+          </div>
           <div class="quran-note">
-            البقرة: ٢٢١ — <span class="highlight-word">عَبْدٌ</span>: مبتدأ نكرة، وُصف بـ(مؤمن) فأفاد فائدة. <span class="highlight-blue">خَيْرٌ</span>: خبر.
+            البقرة: ٢٢١ — <span class="highlight-word">عَبْدٌ</span>: مبتدأ
+            نكرة، وُصف بـ(مؤمن) فأفاد فائدة.
+            <span class="highlight-blue">خَيْرٌ</span>: خبر.
           </div>
         </div>
       </section>
@@ -926,26 +1030,38 @@
 
         <div class="def-box">
           <p>
-            الخبر هو الجزء <strong>المرفوع</strong> الذي تتم به الفائدة مع المبتدأ. وهو المحكوم به على المبتدأ. ويجب أن يطابق المبتدأ في <strong>التذكير والتأنيث، والإفراد والتثنية والجمع</strong>.
+            الخبر هو الجزء <strong>المرفوع</strong> الذي تتم به الفائدة مع
+            المبتدأ. وهو المحكوم به على المبتدأ. ويجب أن يطابق المبتدأ في
+            <strong>التذكير والتأنيث، والإفراد والتثنية والجمع</strong>.
           </p>
         </div>
 
         <!-- أنواع الخبر -->
-        <h3 style="font-size:1.15rem;font-weight:800;color:var(--purple-dark);margin:24px 0 16px;">أنواع الخبر</h3>
+        <h3
+          style="
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--purple-dark);
+            margin: 24px 0 16px;
+          "
+        >
+          أنواع الخبر
+        </h3>
 
         <!-- النوع الأول: مفرد -->
         <div class="card">
           <div class="card-title">١ — الخبر المفرد</div>
           <p>
-            يُقصد بالمفرد هنا ما ليس جملةً ولا شبهَ جملة، سواء أكان كلمةً واحدةً أم مثنىً أم جمعاً. وهو أبسط أنواع الخبر وأكثرها شيوعاً.
+            يُقصد بالمفرد هنا ما ليس جملةً ولا شبهَ جملة، سواء أكان كلمةً واحدةً
+            أم مثنىً أم جمعاً. وهو أبسط أنواع الخبر وأكثرها شيوعاً.
           </p>
-          <div class="flex-row" style="margin-top:12px;">
+          <div class="flex-row" style="margin-top: 12px">
             <span class="type-badge">🔹 كلمة واحدة</span>
             <span class="type-badge">🔹 مثنى</span>
             <span class="type-badge">🔹 جمع</span>
           </div>
 
-          <table class="th-blue" style="margin-top:14px;">
+          <table class="th-blue" style="margin-top: 14px">
             <thead>
               <tr>
                 <th>المبتدأ</th>
@@ -974,22 +1090,28 @@
 
           <div class="quran-box">
             <div class="quran-text">﴿وَاللَّهُ غَفُورٌ رَّحِيمٌ﴾</div>
-            <div class="quran-note">البقرة: ٢١٨ — <span class="highlight-word">اللَّهُ</span>: مبتدأ. <span class="highlight-blue">غَفُورٌ رَّحِيمٌ</span>: خبران مفردان.</div>
+            <div class="quran-note">
+              البقرة: ٢١٨ — <span class="highlight-word">اللَّهُ</span>: مبتدأ.
+              <span class="highlight-blue">غَفُورٌ رَّحِيمٌ</span>: خبران
+              مفردان.
+            </div>
           </div>
         </div>
 
         <!-- النوع الثاني: جملة -->
-        <div class="card blue" style="margin-top:16px;">
+        <div class="card blue" style="margin-top: 16px">
           <div class="card-title">٢ — الخبر الجملة</div>
           <p>
-            يأتي الخبر جملةً اسميةً أو فعليةً. ويُشترط أن تحتوي هذه الجملة على <strong>ضمير رابط</strong> يعود على المبتدأ ويربط الجملةَ به.
+            يأتي الخبر جملةً اسميةً أو فعليةً. ويُشترط أن تحتوي هذه الجملة على
+            <strong>ضمير رابط</strong> يعود على المبتدأ ويربط الجملةَ به.
           </p>
 
-          <div class="note blue" style="margin-top:12px;">
-            <strong>الرابط:</strong> ضمير يعود على المبتدأ، كقولنا (هو، ها، هم...) أو يكون محذوفاً لفهمه من السياق.
+          <div class="note blue" style="margin-top: 12px">
+            <strong>الرابط:</strong> ضمير يعود على المبتدأ، كقولنا (هو، ها،
+            هم...) أو يكون محذوفاً لفهمه من السياق.
           </div>
 
-          <table class="th-blue" style="margin-top:14px;">
+          <table class="th-blue" style="margin-top: 14px">
             <thead>
               <tr>
                 <th>نوع الجملة</th>
@@ -1019,32 +1141,51 @@
           <div class="quran-box">
             <div class="quran-text">﴿وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ﴾</div>
             <div class="quran-note">
-              البقرة: ٥ — <span class="highlight-word">أُولَٰئِكَ</span>: مبتدأ. جملة (هُمُ الْمُفْلِحُونَ): خبر جملة اسمية، و(هُمُ) ضمير فصل يؤكد الربط.
+              البقرة: ٥ — <span class="highlight-word">أُولَٰئِكَ</span>: مبتدأ.
+              جملة (هُمُ الْمُفْلِحُونَ): خبر جملة اسمية، و(هُمُ) ضمير فصل يؤكد
+              الربط.
             </div>
           </div>
 
           <div class="quran-box">
-            <div class="quran-text">﴿إِنَّ الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ كَانَتْ لَهُمْ جَنَّاتُ الْفِرْدَوْسِ نُزُلًا﴾</div>
-            <div class="quran-note">الكهف: ١٠٧ — (كَانَتْ لَهُمْ جَنَّاتُ الْفِرْدَوْسِ نُزُلًا) جملة فعلية في محل رفع خبر (إنَّ).</div>
+            <div class="quran-text">
+              ﴿إِنَّ الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ كَانَتْ لَهُمْ
+              جَنَّاتُ الْفِرْدَوْسِ نُزُلًا﴾
+            </div>
+            <div class="quran-note">
+              الكهف: ١٠٧ — (كَانَتْ لَهُمْ جَنَّاتُ الْفِرْدَوْسِ نُزُلًا) جملة
+              فعلية في محل رفع خبر (إنَّ).
+            </div>
           </div>
         </div>
 
         <!-- النوع الثالث: شبه جملة -->
-        <div class="card green" style="margin-top:16px;">
+        <div class="card green" style="margin-top: 16px">
           <div class="card-title">٣ — الخبر شبه الجملة</div>
           <p>
-            يأتي الخبر شبهَ جملة، وهو إما <strong>ظرف</strong> (مكان أو زمان) أو <strong>جار ومجرور</strong>. وفي كلتا الحالتين يكون في محل رفع خبر، ومتعلقاً بخبر محذوف تقديره (كائن) أو (موجود).
+            يأتي الخبر شبهَ جملة، وهو إما <strong>ظرف</strong> (مكان أو زمان) أو
+            <strong>جار ومجرور</strong>. وفي كلتا الحالتين يكون في محل رفع خبر،
+            ومتعلقاً بخبر محذوف تقديره (كائن) أو (موجود).
           </p>
 
-          <div class="card-grid" style="margin-top:14px;">
-            <div class="card gold" style="margin-bottom:0;">
+          <div class="card-grid" style="margin-top: 14px">
+            <div class="card gold" style="margin-bottom: 0">
               <div class="card-title">📍 ظرف المكان / الزمان</div>
-              <p style="margin-bottom:8px;">الأمانُ <span class="highlight-blue">هنا</span> وفيرٌ — (هنا) ظرف مكان في محل رفع خبر.</p>
-              <p>الاجتماعُ <span class="highlight-blue">اليومَ</span> — (اليوم) ظرف زمان في محل رفع خبر.</p>
+              <p style="margin-bottom: 8px">
+                الأمانُ <span class="highlight-blue">هنا</span> وفيرٌ — (هنا)
+                ظرف مكان في محل رفع خبر.
+              </p>
+              <p>
+                الاجتماعُ <span class="highlight-blue">اليومَ</span> — (اليوم)
+                ظرف زمان في محل رفع خبر.
+              </p>
             </div>
-            <div class="card" style="margin-bottom:0;">
+            <div class="card" style="margin-bottom: 0">
               <div class="card-title">📍 جار ومجرور</div>
-              <p style="margin-bottom:8px;">الكتابُ <span class="highlight-blue">على المكتبِ</span> — (على المكتب) جار ومجرور في محل رفع خبر.</p>
+              <p style="margin-bottom: 8px">
+                الكتابُ <span class="highlight-blue">على المكتبِ</span> — (على
+                المكتب) جار ومجرور في محل رفع خبر.
+              </p>
               <p>الخيرُ <span class="highlight-blue">في الصدقِ</span>.</p>
             </div>
           </div>
@@ -1052,23 +1193,39 @@
           <div class="quran-box">
             <div class="quran-text">﴿وَالسَّمَاءُ فَوْقَكُمْ﴾</div>
             <div class="quran-note">
-              البقرة: ٢٢ — <span class="highlight-word">السَّمَاءُ</span>: مبتدأ مرفوع. <span class="highlight-blue">فَوْقَكُمْ</span>: ظرف مكان في محل رفع خبر.
+              البقرة: ٢٢ — <span class="highlight-word">السَّمَاءُ</span>: مبتدأ
+              مرفوع. <span class="highlight-blue">فَوْقَكُمْ</span>: ظرف مكان في
+              محل رفع خبر.
             </div>
           </div>
 
           <div class="quran-box">
-            <div class="quran-text">﴿وَلِلَّهِ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ﴾</div>
+            <div class="quran-text">
+              ﴿وَلِلَّهِ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ﴾
+            </div>
             <div class="quran-note">
-              آل عمران: ١٠٩ — (لِلَّهِ): جار ومجرور في محل رفع خبر مقدَّم. (مَا فِي السَّمَاوَاتِ): مبتدأ مؤخَّر.
+              آل عمران: ١٠٩ — (لِلَّهِ): جار ومجرور في محل رفع خبر مقدَّم. (مَا
+              فِي السَّمَاوَاتِ): مبتدأ مؤخَّر.
             </div>
           </div>
         </div>
 
         <!-- مطابقة الخبر للمبتدأ -->
-        <h3 style="font-size:1.05rem;font-weight:700;color:var(--purple);margin:28px 0 12px;">مطابقة الخبر للمبتدأ</h3>
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 28px 0 12px;
+          "
+        >
+          مطابقة الخبر للمبتدأ
+        </h3>
 
         <div class="note">
-          <strong>قاعدة:</strong> يجب أن يطابق الخبرُ المفردُ المبتدأَ في التذكير والتأنيث، والإفراد والتثنية والجمع. أما إذا كان الخبر جملةً أو شبه جملة فلا تجب المطابقة.
+          <strong>قاعدة:</strong> يجب أن يطابق الخبرُ المفردُ المبتدأَ في
+          التذكير والتأنيث، والإفراد والتثنية والجمع. أما إذا كان الخبر جملةً أو
+          شبه جملة فلا تجب المطابقة.
         </div>
 
         <table>
@@ -1121,18 +1278,31 @@
 
         <div class="def-box">
           <p>
-            الأصل في الجملة الاسمية أن يتقدم المبتدأ ويتأخر الخبر. لكن قد يُقدَّم الخبر على المبتدأ، إما <strong>جوازاً</strong> أو <strong>وجوباً</strong>، كما يجوز تأخير المبتدأ عن الخبر في مواضع معينة.
+            الأصل في الجملة الاسمية أن يتقدم المبتدأ ويتأخر الخبر. لكن قد
+            يُقدَّم الخبر على المبتدأ، إما <strong>جوازاً</strong> أو
+            <strong>وجوباً</strong>، كما يجوز تأخير المبتدأ عن الخبر في مواضع
+            معينة.
           </p>
         </div>
 
         <!-- حالات تقديم الخبر -->
-        <h3 style="font-size:1.1rem;font-weight:800;color:var(--blue-dark);margin:20px 0 14px;">أولاً: تقديم الخبر جوازاً</h3>
+        <h3
+          style="
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--blue-dark);
+            margin: 20px 0 14px;
+          "
+        >
+          أولاً: تقديم الخبر جوازاً
+        </h3>
 
         <div class="note blue">
-          يجوز تقديم الخبر على المبتدأ متى كان التقديم والتأخير <strong>لا يُحدث لبساً</strong> في المعنى، ولا يوجب النحو تقديمه.
+          يجوز تقديم الخبر على المبتدأ متى كان التقديم والتأخير
+          <strong>لا يُحدث لبساً</strong> في المعنى، ولا يوجب النحو تقديمه.
         </div>
 
-        <div class="card blue" style="margin-top:14px;">
+        <div class="card blue" style="margin-top: 14px">
           <div class="card-title">📝 أمثلة على التقديم الجائز</div>
           <table class="th-blue">
             <thead>
@@ -1155,46 +1325,84 @@
         </div>
 
         <!-- مواضع وجوب تقديم الخبر -->
-        <h3 style="font-size:1.1rem;font-weight:800;color:var(--purple-dark);margin:26px 0 14px;">ثانياً: تقديم الخبر وجوباً</h3>
+        <h3
+          style="
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--purple-dark);
+            margin: 26px 0 14px;
+          "
+        >
+          ثانياً: تقديم الخبر وجوباً
+        </h3>
 
-        <p style="margin-bottom:14px;">هناك مواضع يجب فيها تقديم الخبر على المبتدأ، ومنها:</p>
+        <p style="margin-bottom: 14px">
+          هناك مواضع يجب فيها تقديم الخبر على المبتدأ، ومنها:
+        </p>
 
         <div class="card">
-          <div class="card-title">🔴 الموضع الأول: إذا كان المبتدأ نكرة والخبر شبه جملة</div>
-          <p>إذا تأخر الخبر (شبه الجملة) عن المبتدأ النكرة لم يفد الكلام، فوجب التقديم لتحقيق الفائدة والمسوِّغ.</p>
-          <div class="note" style="margin-top:10px;">
-            <strong>الصواب:</strong> في المسجدِ رجلٌ (الخبر مقدَّم، المبتدأ نكرة مؤخَّر) ✓
-            <br/>
+          <div class="card-title">
+            🔴 الموضع الأول: إذا كان المبتدأ نكرة والخبر شبه جملة
+          </div>
+          <p>
+            إذا تأخر الخبر (شبه الجملة) عن المبتدأ النكرة لم يفد الكلام، فوجب
+            التقديم لتحقيق الفائدة والمسوِّغ.
+          </p>
+          <div class="note" style="margin-top: 10px">
+            <strong>الصواب:</strong> في المسجدِ رجلٌ (الخبر مقدَّم، المبتدأ نكرة
+            مؤخَّر) ✓
+            <br />
             <strong>غير مستساغ:</strong> رجلٌ في المسجدِ — مجهول، لا يفيد ✗
           </div>
           <div class="quran-box">
             <div class="quran-text">﴿وَلَدَيْنَا مَزِيدٌ﴾</div>
-            <div class="quran-note">ق: ٣٥ — (لَدَيْنَا) ظرف خبر مقدَّم وجوباً. (مَزِيدٌ) مبتدأ نكرة مؤخَّر.</div>
+            <div class="quran-note">
+              ق: ٣٥ — (لَدَيْنَا) ظرف خبر مقدَّم وجوباً. (مَزِيدٌ) مبتدأ نكرة
+              مؤخَّر.
+            </div>
           </div>
         </div>
 
-        <div class="card blue" style="margin-top:14px;">
-          <div class="card-title">🔴 الموضع الثاني: إذا كان المبتدأ له صدر الكلام</div>
+        <div class="card blue" style="margin-top: 14px">
+          <div class="card-title">
+            🔴 الموضع الثاني: إذا كان المبتدأ له صدر الكلام
+          </div>
           <p>
-            إذا كان المبتدأ اسم استفهام (من، ما، أيٌّ...) أو اسماً موصولاً يُلزَم صدر الجملة، وجب تأخير الخبر.
+            إذا كان المبتدأ اسم استفهام (من، ما، أيٌّ...) أو اسماً موصولاً
+            يُلزَم صدر الجملة، وجب تأخير الخبر.
           </p>
-          <div class="note blue" style="margin-top:10px;">
-            <strong>مثال:</strong> مَن في الدارِ؟ — (مَن) مبتدأ واجب الصدر. (في الدار) خبر مقدَّم وجوباً على ما بعده.
+          <div class="note blue" style="margin-top: 10px">
+            <strong>مثال:</strong> مَن في الدارِ؟ — (مَن) مبتدأ واجب الصدر. (في
+            الدار) خبر مقدَّم وجوباً على ما بعده.
           </div>
         </div>
 
-        <div class="card green" style="margin-top:14px;">
-          <div class="card-title">🔴 الموضع الثالث: إذا اشتمل الخبر على ضمير يعود على المبتدأ</div>
+        <div class="card green" style="margin-top: 14px">
+          <div class="card-title">
+            🔴 الموضع الثالث: إذا اشتمل الخبر على ضمير يعود على المبتدأ
+          </div>
           <p>
-            إذا كان في الخبر ضمير يعود على المبتدأ وكان الخبر شبه جملة متقدماً، فلا لبس. لكن إذا اشتمل كلٌّ من المبتدأ والخبر على ضمير يعود على الآخر وجب التقديم.
+            إذا كان في الخبر ضمير يعود على المبتدأ وكان الخبر شبه جملة متقدماً،
+            فلا لبس. لكن إذا اشتمل كلٌّ من المبتدأ والخبر على ضمير يعود على
+            الآخر وجب التقديم.
           </p>
-          <div class="note green" style="margin-top:10px;">
-            <strong>مثال:</strong> في دارِهِ صاحبُها — لو قلنا (صاحبُها في دارِهِ) عاد الضمير على مجهول، ففي هذه الحال يجب تقديم الخبر.
+          <div class="note green" style="margin-top: 10px">
+            <strong>مثال:</strong> في دارِهِ صاحبُها — لو قلنا (صاحبُها في
+            دارِهِ) عاد الضمير على مجهول، ففي هذه الحال يجب تقديم الخبر.
           </div>
         </div>
 
         <!-- جدول ملخص -->
-        <h3 style="font-size:1.05rem;font-weight:700;color:var(--purple);margin:26px 0 10px;">ملخص مواضع التقديم</h3>
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 26px 0 10px;
+          "
+        >
+          ملخص مواضع التقديم
+        </h3>
 
         <table class="th-dark">
           <thead>
@@ -1229,16 +1437,22 @@
         </table>
 
         <div class="quran-box">
-          <div class="quran-text">﴿وَلِلَّهِ مُلْكُ السَّمَاوَاتِ وَالْأَرْضِ﴾</div>
+          <div class="quran-text">
+            ﴿وَلِلَّهِ مُلْكُ السَّمَاوَاتِ وَالْأَرْضِ﴾
+          </div>
           <div class="quran-note">
-            آل عمران: ١٨٩ — (لِلَّهِ): جار ومجرور خبر مقدَّم وجوباً لإفادة الاختصاص والحصر. (مُلْكُ السَّمَاوَاتِ): مبتدأ مؤخَّر.
+            آل عمران: ١٨٩ — (لِلَّهِ): جار ومجرور خبر مقدَّم وجوباً لإفادة
+            الاختصاص والحصر. (مُلْكُ السَّمَاوَاتِ): مبتدأ مؤخَّر.
           </div>
         </div>
 
         <div class="quran-box">
-          <div class="quran-text">﴿أَيْنَ شُرَكَاؤُكُمُ الَّذِينَ كُنتُمْ تَزْعُمُونَ﴾</div>
+          <div class="quran-text">
+            ﴿أَيْنَ شُرَكَاؤُكُمُ الَّذِينَ كُنتُمْ تَزْعُمُونَ﴾
+          </div>
           <div class="quran-note">
-            الأنعام: ٢٢ — (أَيْنَ): اسم استفهام في محل رفع خبر مقدَّم وجوباً. (شُرَكَاؤُكُمُ): مبتدأ مؤخَّر.
+            الأنعام: ٢٢ — (أَيْنَ): اسم استفهام في محل رفع خبر مقدَّم وجوباً.
+            (شُرَكَاؤُكُمُ): مبتدأ مؤخَّر.
           </div>
         </div>
       </section>
@@ -1255,98 +1469,163 @@
 
         <div class="def-box">
           <p>
-            يجوز في العربية حذف المبتدأ أو الخبر إذا دلَّ عليه <strong>دليل في السياق</strong>. وقد يكون الحذف <strong>جائزاً</strong> أو <strong>واجباً</strong> بحسب موضعه.
+            يجوز في العربية حذف المبتدأ أو الخبر إذا دلَّ عليه
+            <strong>دليل في السياق</strong>. وقد يكون الحذف
+            <strong>جائزاً</strong> أو <strong>واجباً</strong> بحسب موضعه.
           </p>
         </div>
 
         <!-- حذف الخبر -->
-        <h3 style="font-size:1.1rem;font-weight:800;color:var(--blue-dark);margin:20px 0 14px;">أولاً: حذف الخبر</h3>
+        <h3
+          style="
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--blue-dark);
+            margin: 20px 0 14px;
+          "
+        >
+          أولاً: حذف الخبر
+        </h3>
 
         <div class="card blue">
           <div class="card-title">حذف الخبر جوازاً</div>
           <p>
-            يجوز حذف الخبر إذا دلَّ عليه دليل، كأن يكون المقام أو السياق مفصحاً عنه.
+            يجوز حذف الخبر إذا دلَّ عليه دليل، كأن يكون المقام أو السياق مفصحاً
+            عنه.
           </p>
-          <div class="note blue" style="margin-top:10px;">
-            <strong>مثال:</strong> سُئل: مَن الفائزُ؟ فقال: عليٌّ. أي: <em>عليٌّ [هو الفائزُ]</em>. الخبر محذوف لدلالة السؤال عليه.
+          <div class="note blue" style="margin-top: 10px">
+            <strong>مثال:</strong> سُئل: مَن الفائزُ؟ فقال: عليٌّ. أي:
+            <em>عليٌّ [هو الفائزُ]</em>. الخبر محذوف لدلالة السؤال عليه.
           </div>
           <div class="quran-box">
             <div class="quran-text">﴿قَالُوا سَلَامًا قَالَ سَلَامٌ﴾</div>
-            <div class="quran-note">هود: ٦٩ — التقدير: <em>سَلَامٌ [عليكم]</em>. الخبر شبه الجملة (عليكم) محذوف لفهمه من السياق.</div>
+            <div class="quran-note">
+              هود: ٦٩ — التقدير: <em>سَلَامٌ [عليكم]</em>. الخبر شبه الجملة
+              (عليكم) محذوف لفهمه من السياق.
+            </div>
           </div>
         </div>
 
-        <div class="card" style="margin-top:16px;">
+        <div class="card" style="margin-top: 16px">
           <div class="card-title">حذف الخبر وجوباً</div>
-          <p style="margin-bottom:12px;">يجب حذف الخبر في مواضع معينة، أبرزها:</p>
+          <p style="margin-bottom: 12px">
+            يجب حذف الخبر في مواضع معينة، أبرزها:
+          </p>
 
           <div class="diagram">
             <div class="diagram-title">مواضع وجوب حذف الخبر</div>
             <div class="tree-row">
               <span class="tree-label">١ — القسَم</span>
-              <span class="tree-text">إذا كان المبتدأ بعد (لَعَمْرُكَ): لَعَمْرُكَ [قسَمي] — الخبر (قسَمي) محذوف وجوباً.</span>
+              <span class="tree-text"
+                >إذا كان المبتدأ بعد (لَعَمْرُكَ): لَعَمْرُكَ [قسَمي] — الخبر
+                (قسَمي) محذوف وجوباً.</span
+              >
             </div>
             <div class="tree-row">
               <span class="tree-label">٢ — العطف بـ(واو المعية)</span>
-              <span class="tree-text">كلُّ طالبٍ وكتابُهُ — التقدير: [مقترنانِ]. الخبر محذوف وجوباً.</span>
+              <span class="tree-text"
+                >كلُّ طالبٍ وكتابُهُ — التقدير: [مقترنانِ]. الخبر محذوف
+                وجوباً.</span
+              >
             </div>
             <div class="tree-row">
               <span class="tree-label">٣ — المبتدأ يدل على مدح أو ذم</span>
-              <span class="tree-text">مثال: صديقٌ وفيٌّ! — الخبر محذوف وجوباً لأن المقام مقام إطراء.</span>
+              <span class="tree-text"
+                >مثال: صديقٌ وفيٌّ! — الخبر محذوف وجوباً لأن المقام مقام
+                إطراء.</span
+              >
             </div>
           </div>
 
           <div class="quran-box">
-            <div class="quran-text">﴿لَعَمْرُكَ إِنَّهُمْ لَفِي سَكْرَتِهِمْ يَعْمَهُونَ﴾</div>
-            <div class="quran-note">الحجر: ٧٢ — (لَعَمْرُكَ) مبتدأ، وخبره محذوف وجوباً تقديره (قسَمي).</div>
+            <div class="quran-text">
+              ﴿لَعَمْرُكَ إِنَّهُمْ لَفِي سَكْرَتِهِمْ يَعْمَهُونَ﴾
+            </div>
+            <div class="quran-note">
+              الحجر: ٧٢ — (لَعَمْرُكَ) مبتدأ، وخبره محذوف وجوباً تقديره (قسَمي).
+            </div>
           </div>
         </div>
 
         <!-- حذف المبتدأ -->
-        <h3 style="font-size:1.1rem;font-weight:800;color:var(--purple-dark);margin:26px 0 14px;">ثانياً: حذف المبتدأ</h3>
+        <h3
+          style="
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--purple-dark);
+            margin: 26px 0 14px;
+          "
+        >
+          ثانياً: حذف المبتدأ
+        </h3>
 
         <div class="card">
           <div class="card-title">حذف المبتدأ جوازاً</div>
-          <p>
-            يجوز حذف المبتدأ إذا دلَّ عليه دليل لفظي أو حالي.
-          </p>
-          <div class="note" style="margin-top:10px;">
-            <strong>مثال:</strong> سُئل: ما حالُك؟ فقال: بخيرٍ. أي: <em>[حالي] بخيرٍ</em>. المبتدأ محذوف.
+          <p>يجوز حذف المبتدأ إذا دلَّ عليه دليل لفظي أو حالي.</p>
+          <div class="note" style="margin-top: 10px">
+            <strong>مثال:</strong> سُئل: ما حالُك؟ فقال: بخيرٍ. أي:
+            <em>[حالي] بخيرٍ</em>. المبتدأ محذوف.
           </div>
           <div class="quran-box">
             <div class="quran-text">﴿انتَهُوا خَيْرًا لَّكُمْ﴾</div>
-            <div class="quran-note">النساء: ١٧١ — التقدير: <em>[الانتهاءُ] خيرٌ لكم</em>. المبتدأ محذوف.</div>
+            <div class="quran-note">
+              النساء: ١٧١ — التقدير: <em>[الانتهاءُ] خيرٌ لكم</em>. المبتدأ
+              محذوف.
+            </div>
           </div>
         </div>
 
-        <div class="card blue" style="margin-top:16px;">
+        <div class="card blue" style="margin-top: 16px">
           <div class="card-title">حذف المبتدأ وجوباً</div>
-          <p style="margin-bottom:12px;">يجب حذف المبتدأ في عدة مواضع، أبرزها:</p>
+          <p style="margin-bottom: 12px">
+            يجب حذف المبتدأ في عدة مواضع، أبرزها:
+          </p>
 
           <div class="diagram">
             <div class="diagram-title">مواضع وجوب حذف المبتدأ</div>
             <div class="tree-row">
               <span class="tree-label">١ — الخبر نعت مقطوع</span>
-              <span class="tree-text">مررتُ برجلٍ كريمٍ، بل [هو] كريمٌ جواد — المبتدأ (هو) محذوف وجوباً.</span>
+              <span class="tree-text"
+                >مررتُ برجلٍ كريمٍ، بل [هو] كريمٌ جواد — المبتدأ (هو) محذوف
+                وجوباً.</span
+              >
             </div>
             <div class="tree-row">
               <span class="tree-label">٢ — الخبر مخصوص بنعم وبئس</span>
-              <span class="tree-text">نِعْمَ الرجلُ زيدٌ — (زيدٌ) خبر لمبتدأ محذوف تقديره (هو).</span>
+              <span class="tree-text"
+                >نِعْمَ الرجلُ زيدٌ — (زيدٌ) خبر لمبتدأ محذوف تقديره (هو).</span
+              >
             </div>
             <div class="tree-row">
-              <span class="tree-label">٣ — الخبر في جواب الاستفهام بـ(كيف)</span>
-              <span class="tree-text">سُئل: كيف أنتَ؟ فقال: بخيرٍ — أي: [أنا] بخيرٍ.</span>
+              <span class="tree-label"
+                >٣ — الخبر في جواب الاستفهام بـ(كيف)</span
+              >
+              <span class="tree-text"
+                >سُئل: كيف أنتَ؟ فقال: بخيرٍ — أي: [أنا] بخيرٍ.</span
+              >
             </div>
           </div>
 
           <div class="quran-box">
             <div class="quran-text">﴿فَنِعِمَّا هِيَ﴾</div>
-            <div class="quran-note">البقرة: ٢٧١ — (نِعِمَّا هِيَ) فعل مدح واسمه، والمخصوص بالمدح (صدقاتُكم) مبتدأ محذوف وجوباً خبره جملة المدح المتقدمة.</div>
+            <div class="quran-note">
+              البقرة: ٢٧١ — (نِعِمَّا هِيَ) فعل مدح واسمه، والمخصوص بالمدح
+              (صدقاتُكم) مبتدأ محذوف وجوباً خبره جملة المدح المتقدمة.
+            </div>
           </div>
         </div>
 
         <!-- ملخص الحذف -->
-        <h3 style="font-size:1.05rem;font-weight:700;color:var(--purple);margin:26px 0 10px;">ملخص أحكام الحذف</h3>
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 26px 0 10px;
+          "
+        >
+          ملخص أحكام الحذف
+        </h3>
 
         <table class="th-dark">
           <thead>
@@ -1400,48 +1679,71 @@
           <div class="sum-card">
             <div class="sum-icon">📘</div>
             <div class="sum-title">الجملة الاسمية</div>
-            <div class="sum-text">تبدأ باسم، ركناها المبتدأ والخبر، وكلاهما مرفوع.</div>
+            <div class="sum-text">
+              تبدأ باسم، ركناها المبتدأ والخبر، وكلاهما مرفوع.
+            </div>
           </div>
           <div class="sum-card">
             <div class="sum-icon">📌</div>
             <div class="sum-title">المبتدأ</div>
-            <div class="sum-text">الأصل فيه أن يكون معرفة، ويُعرب مرفوعاً بالابتداء. يجوز أن يكون نكرة بمسوِّغ.</div>
+            <div class="sum-text">
+              الأصل فيه أن يكون معرفة، ويُعرب مرفوعاً بالابتداء. يجوز أن يكون
+              نكرة بمسوِّغ.
+            </div>
           </div>
           <div class="sum-card">
             <div class="sum-icon">📝</div>
             <div class="sum-title">الخبر وأنواعه</div>
-            <div class="sum-text">مفرد · جملة (اسمية أو فعلية بضمير رابط) · شبه جملة (ظرف أو جار ومجرور).</div>
+            <div class="sum-text">
+              مفرد · جملة (اسمية أو فعلية بضمير رابط) · شبه جملة (ظرف أو جار
+              ومجرور).
+            </div>
           </div>
           <div class="sum-card">
             <div class="sum-icon">🔀</div>
             <div class="sum-title">التقديم والتأخير</div>
-            <div class="sum-text">يجوز تقديم الخبر جوازاً، ويجب وجوباً إذا كان المبتدأ نكرة أو له صدر الكلام.</div>
+            <div class="sum-text">
+              يجوز تقديم الخبر جوازاً، ويجب وجوباً إذا كان المبتدأ نكرة أو له
+              صدر الكلام.
+            </div>
           </div>
           <div class="sum-card">
             <div class="sum-icon">✂️</div>
             <div class="sum-title">الحذف</div>
-            <div class="sum-text">يحذف المبتدأ أو الخبر جوازاً (بدليل) أو وجوباً في مواضع محددة.</div>
+            <div class="sum-text">
+              يحذف المبتدأ أو الخبر جوازاً (بدليل) أو وجوباً في مواضع محددة.
+            </div>
           </div>
         </div>
 
         <!-- الخريطة الذهنية -->
-        <div class="diagram" style="margin-top:30px;">
+        <div class="diagram" style="margin-top: 30px">
           <div class="diagram-title">🗺️ خريطة الجملة الاسمية</div>
           <div class="tree-row">
             <span class="tree-label">المبتدأ</span>
-            <span class="tree-text">مرفوع دائماً · معرفة (الأصل) أو نكرة بمسوِّغ · يأتي صريحاً أو مصدراً مؤولاً</span>
+            <span class="tree-text"
+              >مرفوع دائماً · معرفة (الأصل) أو نكرة بمسوِّغ · يأتي صريحاً أو
+              مصدراً مؤولاً</span
+            >
           </div>
           <div class="tree-row">
             <span class="tree-label">الخبر المفرد</span>
-            <span class="tree-text">كلمة واحدة (أو مثنى أو جمع) · يطابق المبتدأ تذكيراً وتأنيثاً وعدداً</span>
+            <span class="tree-text"
+              >كلمة واحدة (أو مثنى أو جمع) · يطابق المبتدأ تذكيراً وتأنيثاً
+              وعدداً</span
+            >
           </div>
           <div class="tree-row">
             <span class="tree-label">الخبر الجملة</span>
-            <span class="tree-text">اسمية أو فعلية · لا بد من ضمير رابط يعود على المبتدأ</span>
+            <span class="tree-text"
+              >اسمية أو فعلية · لا بد من ضمير رابط يعود على المبتدأ</span
+            >
           </div>
           <div class="tree-row">
             <span class="tree-label">الخبر شبه الجملة</span>
-            <span class="tree-text">ظرف أو جار ومجرور · متعلق بمحذوف تقديره (كائن / موجود)</span>
+            <span class="tree-text"
+              >ظرف أو جار ومجرور · متعلق بمحذوف تقديره (كائن / موجود)</span
+            >
           </div>
           <div class="tree-row">
             <span class="tree-label">التقديم الجائز</span>
@@ -1449,24 +1751,40 @@
           </div>
           <div class="tree-row">
             <span class="tree-label">التقديم الواجب</span>
-            <span class="tree-text">المبتدأ نكرة + الخبر شبه جملة · أو المبتدأ له صدر الكلام</span>
+            <span class="tree-text"
+              >المبتدأ نكرة + الخبر شبه جملة · أو المبتدأ له صدر الكلام</span
+            >
           </div>
           <div class="tree-row">
             <span class="tree-label">الحذف الجائز</span>
-            <span class="tree-text">يُحذف المبتدأ أو الخبر لوجود دليل سياقي أو لفظي</span>
+            <span class="tree-text"
+              >يُحذف المبتدأ أو الخبر لوجود دليل سياقي أو لفظي</span
+            >
           </div>
           <div class="tree-row">
             <span class="tree-label">الحذف الواجب</span>
-            <span class="tree-text">الخبر بعد (لَعَمْرُ) · المبتدأ مع المخصوص بنعم وبئس</span>
+            <span class="tree-text"
+              >الخبر بعد (لَعَمْرُ) · المبتدأ مع المخصوص بنعم وبئس</span
+            >
           </div>
         </div>
       </section>
-
     </main>
 
-    <footer style="background:var(--dark);color:#a0a8c0;text-align:center;padding:24px 20px;font-size:0.88rem;margin-top:10px;">
-      <p style="margin-bottom:6px;">أساسيات علم النحو — الجملة الاسمية</p>
-      <p style="opacity:0.6;">للمراجعة والتعلُّم الذاتي — جميع الشواهد من القرآن الكريم</p>
+    <footer
+      style="
+        background: var(--dark);
+        color: #a0a8c0;
+        text-align: center;
+        padding: 24px 20px;
+        font-size: 0.88rem;
+        margin-top: 10px;
+      "
+    >
+      <p style="margin-bottom: 6px">أساسيات علم النحو — الجملة الاسمية</p>
+      <p style="opacity: 0.6">
+        للمراجعة والتعلُّم الذاتي — جميع الشواهد من القرآن الكريم
+      </p>
     </footer>
 
     <script>
@@ -1479,7 +1797,9 @@
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               navLinks.forEach((l) => l.classList.remove('active'))
-              const active = document.querySelector(`nav a[href="#${entry.target.id}"]`)
+              const active = document.querySelector(
+                `nav a[href="#${entry.target.id}"]`,
+              )
               if (active) {
                 active.classList.add('active')
                 active.scrollIntoView({ block: 'nearest', inline: 'center' })
@@ -1487,7 +1807,7 @@
             }
           })
         },
-        { rootMargin: '-20% 0px -70% 0px' }
+        { rootMargin: '-20% 0px -70% 0px' },
       )
 
       sections.forEach((s) => observer.observe(s))

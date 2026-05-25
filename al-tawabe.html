@@ -1,0 +1,2038 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>علم النحو — التوابع</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --purple: #b370a4;
+        --purple-light: #c98fbb;
+        --purple-dark: #8a5280;
+        --blue: #72add4;
+        --blue-light: #9dc5e0;
+        --blue-dark: #4e8ab5;
+        --bg: #f2f2f2;
+        --white: #ffffff;
+        --dark: #3e3e48;
+        --dark2: #3a3a52;
+        --text: #3a3350;
+        --text-light: #6a6080;
+        --gold: #c9a84c;
+        --gold-light: #f0d080;
+        --green: #4caf7a;
+        --green-light: #80d4a8;
+        --shadow: 0 4px 20px rgba(179, 112, 164, 0.12);
+        --shadow-hover: 0 8px 32px rgba(179, 112, 164, 0.22);
+        --radius: 14px;
+        --radius-sm: 8px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Scheherazade New', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        direction: rtl;
+        line-height: 1.9;
+        font-size: 16px;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--white);
+        border-bottom: 3px solid var(--purple);
+        box-shadow: 0 2px 16px rgba(179, 112, 164, 0.15);
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+      }
+      nav::-webkit-scrollbar {
+        display: none;
+      }
+      .nav-brand {
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--purple);
+        padding: 14px 10px;
+        border-left: 2px solid var(--bg);
+        margin-left: 8px;
+        flex-shrink: 0;
+      }
+      nav a {
+        display: inline-block;
+        padding: 10px 14px;
+        color: var(--text-light);
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 600;
+        border-radius: var(--radius-sm);
+        transition: all 0.2s;
+        flex-shrink: 0;
+      }
+      nav a:hover,
+      nav a.active {
+        background: var(--purple);
+        color: var(--white);
+      }
+
+      /* ── LAYOUT ── */
+      .hero {
+        background: linear-gradient(135deg, var(--purple) 0%, var(--blue) 100%);
+        color: var(--white);
+        text-align: center;
+        padding: 60px 20px 50px;
+      }
+      .hero h1 {
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+      .hero p {
+        font-size: 1.1rem;
+        opacity: 0.88;
+      }
+      .hero-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        padding: 4px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+      }
+
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 40px 20px 60px;
+      }
+
+      section {
+        margin-bottom: 60px;
+        scroll-margin-top: 80px;
+      }
+
+      .section-title {
+        font-size: 1.55rem;
+        font-weight: 800;
+        color: var(--purple-dark);
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-title::after {
+        content: '';
+        flex: 1;
+        height: 3px;
+        background: linear-gradient(to left, transparent, var(--purple));
+        border-radius: 2px;
+      }
+      .section-num {
+        background: var(--purple);
+        color: var(--white);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        font-weight: 800;
+        flex-shrink: 0;
+      }
+
+      /* ── SUB SECTION TITLE ── */
+      .sub-title {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: var(--blue-dark);
+        margin: 28px 0 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .sub-title::before {
+        content: '';
+        width: 6px;
+        height: 22px;
+        background: var(--blue);
+        border-radius: 3px;
+        display: inline-block;
+      }
+
+      /* ── DEF BOX ── */
+      .def-box {
+        background: var(--white);
+        border: 2px solid var(--gold);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin-bottom: 22px;
+        position: relative;
+        box-shadow: 0 2px 12px rgba(201, 168, 76, 0.12);
+      }
+      .def-box::before {
+        content: '📖 تعريف';
+        position: absolute;
+        top: -13px;
+        right: 20px;
+        background: var(--gold);
+        color: var(--white);
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 2px 12px;
+        border-radius: 20px;
+      }
+      .def-box p {
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      /* ── QURAN BOX ── */
+      .quran-box {
+        background: linear-gradient(135deg, #f7f7f7 0%, #fcfffd 100%);
+        border: 2px solid var(--green);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin: 18px 0;
+        position: relative;
+        box-shadow: 0 2px 12px rgba(76, 175, 122, 0.1);
+      }
+      .quran-box::before {
+        content: '🌿 قرآن كريم';
+        position: absolute;
+        top: -13px;
+        right: 20px;
+        background: var(--green);
+        color: var(--white);
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 2px 12px;
+        border-radius: 20px;
+      }
+      .quran-text {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #1a5c35;
+        line-height: 2.1;
+        margin-bottom: 8px;
+        text-align: center;
+      }
+      .quran-note {
+        font-size: 0.9rem;
+        color: #3a7a55;
+        font-weight: 500;
+      }
+
+      /* ── DIAGRAM ── */
+      .diagram {
+        background: var(--dark);
+        border-radius: var(--radius);
+        padding: 28px 24px;
+        margin: 22px 0;
+        color: #e0e0f0;
+        font-family: 'Scheherazade New', sans-serif;
+      }
+      .diagram-title {
+        color: #ffffff;
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 18px;
+        text-align: center;
+      }
+
+      /* ── CARDS ── */
+      .card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 22px 24px;
+        margin-bottom: 16px;
+        box-shadow: var(--shadow);
+        border-top: 4px solid var(--purple);
+        transition: box-shadow 0.2s;
+      }
+      .card:hover {
+        box-shadow: var(--shadow-hover);
+      }
+      .card-title {
+        font-weight: 800;
+        font-size: 1.05rem;
+        color: var(--purple-dark);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .card.blue {
+        border-top-color: var(--blue);
+      }
+      .card.blue .card-title {
+        color: var(--blue-dark);
+      }
+      .card.green {
+        border-top-color: var(--green);
+      }
+      .card.green .card-title {
+        color: #2e7a50;
+      }
+      .card.gold {
+        border-top-color: var(--gold);
+      }
+      .card.gold .card-title {
+        color: #8a6020;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+        margin-bottom: 22px;
+      }
+
+      /* ── PILLS / TAGS ── */
+      .tag {
+        display: inline-block;
+        padding: 3px 12px;
+        border-radius: 20px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        margin: 3px;
+      }
+      .tag-ism {
+        background: #ede0f8;
+        color: #6a2e8a;
+      }
+      .tag-fil {
+        background: #dceefb;
+        color: #1a5c8a;
+      }
+      .tag-hrf {
+        background: #fdeedd;
+        color: #8a5010;
+      }
+      .tag-marifa {
+        background: #fdf0e0;
+        color: #8a6020;
+        border: 1px solid var(--gold);
+      }
+      .tag-nakira {
+        background: #e8f4ff;
+        color: #1a5080;
+        border: 1px solid var(--blue);
+      }
+      .tag-example {
+        background: #f0f0f0;
+        color: #444;
+      }
+      .tag-highlight {
+        background: var(--purple);
+        color: white;
+      }
+      .tag-green {
+        background: #e0f5e8;
+        color: #2a6a40;
+      }
+
+      /* ── TABLES ── */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        margin: 16px 0;
+        font-size: 0.95rem;
+      }
+      th {
+        background: var(--purple);
+        color: var(--white);
+        padding: 12px 16px;
+        font-weight: 700;
+        text-align: center;
+      }
+      td {
+        padding: 10px 16px;
+        text-align: center;
+        border-bottom: 1px solid #efe8f4;
+        color: var(--text);
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      tr:nth-child(even) td {
+        background: #faf5fc;
+      }
+      tr:hover td {
+        background: #f3ecf9;
+      }
+      .th-blue th {
+        background: var(--blue);
+      }
+      .th-gold th {
+        background: var(--gold);
+      }
+      .th-dark th {
+        background: var(--dark);
+      }
+      .th-green th {
+        background: var(--green);
+      }
+
+      /* ── IRAB TABLE ── */
+      .irab-word {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: var(--purple-dark);
+      }
+      .irab-type {
+        color: var(--blue-dark);
+        font-weight: 600;
+      }
+      .irab-sign {
+        color: var(--gold);
+        font-weight: 700;
+      }
+      .irab-note {
+        color: var(--text-light);
+        font-size: 0.88rem;
+      }
+
+      /* ── SUM GRID ── */
+      .sum-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        margin-top: 30px;
+      }
+      .sum-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 20px;
+        text-align: center;
+        box-shadow: var(--shadow);
+        border-bottom: 4px solid var(--purple);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .sum-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
+      }
+      .sum-card:nth-child(2) {
+        border-bottom-color: var(--blue);
+      }
+      .sum-card:nth-child(3) {
+        border-bottom-color: var(--green);
+      }
+      .sum-card:nth-child(4) {
+        border-bottom-color: var(--gold);
+      }
+      .sum-card:nth-child(5) {
+        border-bottom-color: var(--purple-light);
+      }
+      .sum-icon {
+        font-size: 2rem;
+        margin-bottom: 8px;
+      }
+      .sum-title {
+        font-weight: 800;
+        font-size: 1rem;
+        color: var(--text);
+        margin-bottom: 6px;
+      }
+      .sum-text {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+
+      /* ── NOTE ── */
+      .note {
+        background: #fdf4ff;
+        border-right: 4px solid var(--purple);
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        padding: 14px 18px;
+        margin: 14px 0;
+        font-size: 0.93rem;
+        color: var(--text);
+      }
+      .note strong {
+        color: var(--purple-dark);
+      }
+      .note.blue {
+        background: #f0f7ff;
+        border-right-color: var(--blue);
+      }
+      .note.blue strong {
+        color: var(--blue-dark);
+      }
+      .note.gold {
+        background: #fffbf0;
+        border-right-color: var(--gold);
+      }
+      .note.gold strong {
+        color: #8a6020;
+      }
+      .note.green {
+        background: #f0fff6;
+        border-right-color: var(--green);
+      }
+      .note.green strong {
+        color: #2e7a50;
+      }
+
+      .highlight-word {
+        background: linear-gradient(
+          to top,
+          var(--purple-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .highlight-blue {
+        background: linear-gradient(
+          to top,
+          var(--blue-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .highlight-gold {
+        background: linear-gradient(
+          to top,
+          var(--gold-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .highlight-green {
+        background: linear-gradient(
+          to top,
+          var(--green-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+
+      /* ── FLEX ROW ── */
+      .flex-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 12px 0;
+        align-items: flex-start;
+      }
+
+      /* ── TREE ── */
+      .tree {
+        font-family: 'Scheherazade New', sans-serif;
+        font-size: 1rem;
+        line-height: 2;
+        color: #e0e0f0;
+      }
+      .tree-line {
+        margin: 4px 0;
+        padding-right: 10px;
+      }
+      .tree-branch {
+        color: var(--gold-light);
+        font-weight: 700;
+      }
+      .tree-leaf {
+        color: #a8e6c8;
+      }
+
+      /* ── EXAMPLE BOX ── */
+      .example-box {
+        background: var(--white);
+        border: 1px solid #e0d4f0;
+        border-right: 5px solid var(--purple);
+        border-radius: var(--radius-sm);
+        padding: 16px 20px;
+        margin: 10px 0;
+        box-shadow: 0 2px 8px rgba(179, 112, 164, 0.07);
+      }
+      .example-box .ex-sentence {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 6px;
+      }
+      .example-box .ex-analysis {
+        font-size: 0.9rem;
+        color: var(--text-light);
+        line-height: 1.7;
+      }
+      .example-box.blue {
+        border-right-color: var(--blue);
+      }
+      .example-box.green {
+        border-right-color: var(--green);
+      }
+      .example-box.gold {
+        border-right-color: var(--gold);
+      }
+
+      /* ── CONDITION BOX ── */
+      .conditions-list {
+        list-style: none;
+        padding: 0;
+        margin: 12px 0;
+      }
+      .conditions-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 10px 14px;
+        background: var(--white);
+        border-radius: var(--radius-sm);
+        margin-bottom: 8px;
+        box-shadow: 0 1px 6px rgba(179, 112, 164, 0.08);
+        border-right: 3px solid var(--purple);
+      }
+      .conditions-list li.blue {
+        border-right-color: var(--blue);
+      }
+      .conditions-list li.green {
+        border-right-color: var(--green);
+      }
+      .conditions-list li.gold {
+        border-right-color: var(--gold);
+      }
+      .cond-num {
+        background: var(--purple);
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 800;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 3px;
+      }
+      .cond-num.blue {
+        background: var(--blue);
+      }
+      .cond-num.green {
+        background: var(--green);
+      }
+      .cond-num.gold {
+        background: var(--gold);
+      }
+
+      /* ── HARF GRID ── */
+      .harf-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 12px;
+        margin: 16px 0;
+      }
+      .harf-card {
+        background: var(--white);
+        border: 2px solid var(--purple);
+        border-radius: var(--radius);
+        padding: 14px 12px;
+        text-align: center;
+        transition: all 0.2s;
+        box-shadow: var(--shadow);
+      }
+      .harf-card:hover {
+        background: var(--purple);
+        color: var(--white);
+      }
+      .harf-card:hover .harf-label {
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .harf-word {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: var(--purple-dark);
+      }
+      .harf-card:hover .harf-word {
+        color: white;
+      }
+      .harf-label {
+        font-size: 0.78rem;
+        color: var(--text-light);
+        margin-top: 5px;
+        line-height: 1.4;
+      }
+      .harf-card.blue {
+        border-color: var(--blue);
+      }
+      .harf-card.blue .harf-word {
+        color: var(--blue-dark);
+      }
+      .harf-card.blue:hover {
+        background: var(--blue);
+      }
+      .harf-card.green {
+        border-color: var(--green);
+      }
+      .harf-card.green .harf-word {
+        color: #2e7a50;
+      }
+      .harf-card.green:hover {
+        background: var(--green);
+      }
+      .harf-card.gold {
+        border-color: var(--gold);
+      }
+      .harf-card.gold .harf-word {
+        color: #8a6020;
+      }
+      .harf-card.gold:hover {
+        background: var(--gold);
+      }
+
+      /* ── SEPARATOR ── */
+      .sep {
+        height: 2px;
+        background: linear-gradient(
+          to left,
+          transparent,
+          var(--purple),
+          transparent
+        );
+        margin: 30px 0;
+        border-radius: 2px;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 600px) {
+        nav {
+          gap: 4px;
+          padding: 0 10px;
+        }
+        nav a {
+          padding: 10px 10px;
+          font-size: 0.82rem;
+        }
+        .hero {
+          padding: 40px 16px 36px;
+        }
+        main {
+          padding: 28px 14px 50px;
+        }
+        .def-box,
+        .quran-box {
+          padding: 18px 16px;
+        }
+        .def-box::before,
+        .quran-box::before {
+          right: 14px;
+        }
+        .quran-text {
+          font-size: 1.05rem;
+        }
+        table {
+          font-size: 0.85rem;
+        }
+        td,
+        th {
+          padding: 8px 10px;
+        }
+        .sum-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .harf-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* ── SCROLL REVEAL ── */
+      section {
+        animation: fadeUp 0.4s ease both;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ── CHAPTER BADGE ── */
+      .chapter-intro {
+        background: linear-gradient(
+          135deg,
+          rgba(179, 112, 164, 0.08) 0%,
+          rgba(114, 173, 212, 0.08) 100%
+        );
+        border: 1px solid rgba(179, 112, 164, 0.25);
+        border-radius: var(--radius);
+        padding: 20px 24px;
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 1rem;
+        color: var(--text);
+      }
+      .chapter-intro strong {
+        color: var(--purple-dark);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <a style="text-decoration: none" href="./index.html">🏠</a>
+    <nav>
+      <div class="nav-brand">التوابع</div>
+      <a href="#s0">مقدمة</a>
+      <a href="#s1">النعت</a>
+      <a href="#s2">العطف</a>
+      <a href="#s3">التوكيد</a>
+      <a href="#s4">البدل</a>
+      <a href="#s5">الملخص</a>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-badge">أساسيات علم النحو</div>
+      <h1>التوابع</h1>
+      <p>
+        النعت · العطف · التوكيد · البدل · تعريفاتها وأنواعها وشواهدها من القرآن
+        الكريم
+      </p>
+    </div>
+
+    <main>
+      <!-- ══════════════════════════════════════════════════
+           SECTION 0 — مقدمة في التوابع
+      ══════════════════════════════════════════════════ -->
+      <section id="s0">
+        <h2 class="section-title">
+          <span class="section-num">١</span>مقدمة في التوابع
+        </h2>
+
+        <div class="def-box">
+          <p>
+            <strong>التابع</strong> هو كل كلمةٍ تتبع ما قبلها في إعرابه (رفعاً
+            أو نصباً أو جراً أو جزماً)، ويُسمى ما قبله
+            <span class="highlight-word">المتبوع</span>. التابع لا يأخذ إعرابه
+            بنفسه بل يتبع غيره.
+          </p>
+        </div>
+
+        <div class="chapter-intro">
+          التوابع أربعة: <strong>النعت</strong> — <strong>العطف</strong> —
+          <strong>التوكيد</strong> — <strong>البدل</strong>
+        </div>
+
+        <div class="diagram">
+          <div class="diagram-title">🌳 أنواع التوابع الأربعة</div>
+          <div class="tree">
+            <div class="tree-line">التوابع</div>
+            <div class="tree-line" style="padding-right: 30px">
+              ├── <span class="tree-branch">النعت</span> →
+              <span class="tree-leaf">يصف المتبوع أو يُبيِّن نسبةً إليه</span>
+            </div>
+            <div class="tree-line" style="padding-right: 30px">
+              ├── <span class="tree-branch">العطف</span> →
+              <span class="tree-leaf">يُشرِك التابعَ مع المتبوع بحرف عطف</span>
+            </div>
+            <div class="tree-line" style="padding-right: 30px">
+              ├── <span class="tree-branch">التوكيد</span> →
+              <span class="tree-leaf">يُقرِّر المتبوع ويُزيل اللبس عنه</span>
+            </div>
+            <div class="tree-line" style="padding-right: 30px">
+              └── <span class="tree-branch">البدل</span> →
+              <span class="tree-leaf"
+                >يحلّ محلّ المتبوع في الفائدة الأساسية</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>قاعدة ذهبية:</strong> التابع يتبع متبوعه في
+          <strong>أربعة أشياء</strong>: الإعراب (رفع/نصب/جر) والتعريف والتنكير
+          والجنس والعدد — وهذه الأربعة الأخيرة خاصة بالنعت، أما التوكيد والبدل
+          فيتبعان في الإعراب فقط، والعطف يتبع في الإعراب.
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 1 — النعت
+      ══════════════════════════════════════════════════ -->
+      <section id="s1">
+        <h2 class="section-title">
+          <span class="section-num">٢</span>النعت (الصفة)
+        </h2>
+
+        <div class="def-box">
+          <p>
+            <strong>النعت</strong> (ويُسمى الصفة) هو التابع الذي يُبيِّن صفةً في
+            متبوعه أو يُبيِّن شيئاً مما يتعلق به. يتبع منعوتَه في:
+            <span class="highlight-word">الإعراب</span> و<span
+              class="highlight-word"
+              >التعريف/التنكير</span
+            >
+            و<span class="highlight-word">الجنس</span> و<span
+              class="highlight-word"
+              >العدد</span
+            >.
+          </p>
+        </div>
+
+        <!-- شروط المطابقة -->
+        <div class="sub-title">شروط مطابقة النعت لمنعوته</div>
+        <ul class="conditions-list">
+          <li>
+            <div class="cond-num">١</div>
+            <div>
+              <strong>الإعراب:</strong> يُرفع النعت إذا رُفع المنعوت، ويُنصب إذا
+              نُصب، ويُجر إذا جُرّ. مثل:
+              <span class="highlight-word">جاء رجلٌ كريمٌ</span> /
+              <span class="highlight-word">رأيتُ رجلاً كريماً</span> /
+              <span class="highlight-word">مررتُ برجلٍ كريمٍ</span>
+            </div>
+          </li>
+          <li class="blue">
+            <div class="cond-num blue">٢</div>
+            <div>
+              <strong>التعريف والتنكير:</strong> إذا كان المنعوت معرفةً فالنعت
+              معرفة، وإذا كان نكرةً فالنعت نكرة. مثل:
+              <span class="highlight-blue">الطالبُ المجتهدُ</span> /
+              <span class="highlight-blue">طالبٌ مجتهدٌ</span>
+            </div>
+          </li>
+          <li class="green">
+            <div class="cond-num green">٣</div>
+            <div>
+              <strong>الجنس:</strong> مذكر مع المذكر، ومؤنث مع المؤنث. مثل:
+              <span class="highlight-green">رجلٌ كريمٌ</span> /
+              <span class="highlight-green">امرأةٌ كريمةٌ</span>
+            </div>
+          </li>
+          <li class="gold">
+            <div class="cond-num gold">٤</div>
+            <div>
+              <strong>العدد:</strong> مفرد مع المفرد، ومثنى مع المثنى، وجمع مع
+              الجمع. مثل:
+              <span class="highlight-gold"
+                >طالبٌ مجتهدٌ / طالبانِ مجتهدانِ / طلابٌ مجتهدونَ</span
+              >
+            </div>
+          </li>
+        </ul>
+
+        <!-- نوعا النعت -->
+        <div class="sub-title">أنواع النعت: حقيقي وسببي</div>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title">📌 النعت الحقيقي</div>
+            <p>
+              هو ما يصف المنعوتَ نفسَه مباشرةً، ويطابقه في الأوجه الأربعة
+              (الإعراب والتعريف والجنس والعدد).
+            </p>
+            <div style="margin-top: 12px">
+              <div class="example-box">
+                <div class="ex-sentence">
+                  جاءَ الطالبُ <span class="highlight-word">المجتهدُ</span>
+                </div>
+                <div class="ex-analysis">
+                  المجتهدُ: نعت حقيقي يصف الطالبَ مباشرةً ← طابَقه في التعريف
+                  والجنس والعدد والإعراب
+                </div>
+              </div>
+              <div class="example-box">
+                <div class="ex-sentence">
+                  رأيتُ فتياتٍ <span class="highlight-word">مؤدَّباتٍ</span>
+                </div>
+                <div class="ex-analysis">
+                  مؤدباتٍ: نعت حقيقي جمع مؤنث سالم، تبع جمع المنعوت في النصب
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card blue">
+            <div class="card-title">📌 النعت السببي</div>
+            <p>
+              هو ما يصف اسماً له صلة بالمنعوت (لا المنعوت نفسه)، ويطابق المنعوتَ
+              في الإعراب والتعريف فقط، ويطابق الاسم الذي بعده في الجنس والعدد.
+            </p>
+            <div style="margin-top: 12px">
+              <div class="example-box blue">
+                <div class="ex-sentence">
+                  جاءَ رجلٌ <span class="highlight-blue">حسنٌ خُلُقُهُ</span>
+                </div>
+                <div class="ex-analysis">
+                  "حسنٌ" نعت سببي لـ"رجل" لكنه وصفٌ لـ"خُلُقِهِ" ← طابَق "رجلاً"
+                  في التنكير والإعراب، وطابَق "خلقَه" في الإفراد والتذكير
+                </div>
+              </div>
+              <div class="example-box blue">
+                <div class="ex-sentence">
+                  مررتُ بامرأةٍ <span class="highlight-blue">كريمٍ أبوها</span>
+                </div>
+                <div class="ex-analysis">
+                  "كريمٍ" جاء مفرداً مذكراً لأنه يصف "أباها" المفرد المذكر، وجاء
+                  مجروراً لأن منعوته (امرأةٍ) مجرور
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- نعت المفرد والجملة وشبه الجملة -->
+        <div class="sub-title">النعت من حيث لفظه: مفرد وجملة وشبه جملة</div>
+
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>النوع</th>
+              <th>تعريفه</th>
+              <th>شرطه</th>
+              <th>مثال</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word">نعت مفرد</td>
+              <td>اسم ليس جملة ولا شبه جملة</td>
+              <td>يطابق منعوته في الأوجه الأربعة</td>
+              <td>رجلٌ <span class="highlight-word">كريمٌ</span></td>
+            </tr>
+            <tr>
+              <td class="irab-word">نعت جملة</td>
+              <td>جملة اسمية أو فعلية</td>
+              <td>
+                يجب أن يكون المنعوت نكرةً، والجملة خبرية، وتشتمل على ضمير يعود
+                على المنعوت
+              </td>
+              <td>
+                جاءَ رجلٌ <span class="highlight-blue">يحملُ كتاباً</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="irab-word">نعت شبه جملة</td>
+              <td>ظرف أو جار ومجرور</td>
+              <td>يجب أن يكون المنعوت نكرةً</td>
+              <td>
+                رأيتُ طيراً <span class="highlight-gold">فوقَ الشجرةِ</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note">
+          <strong>تنبيه مهم:</strong> الجملة بعد المعرفة <strong>حال</strong>،
+          وبعد النكرة <strong>نعت</strong>. مثال: «جاء الرجلُ يحملُ كتاباً» —
+          الجملة هنا حال، لأن "الرجلُ" معرفة.
+        </div>
+
+        <!-- شواهد قرآنية — النعت -->
+        <div class="sub-title">شواهد قرآنية على النعت</div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ۝ الرَّحْمَـٰنِ الرَّحِيمِ﴾
+          </div>
+          <div class="quran-note">
+            الفاتحة: ٢-٣ —
+            <span class="highlight-green">رَبِّ الْعَالَمِينَ</span>: نعت
+            لـ"اللهِ" مجرور.
+            <span class="highlight-green">الرَّحْمَـٰنِ الرَّحِيمِ</span>: نعتان
+            متتاليان مجروران تبعاً لـ"اللهِ".
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿وَهَـٰذَا كِتَابٌ أَنزَلْنَاهُ مُبَارَكٌ﴾
+          </div>
+          <div class="quran-note">
+            الأنعام: ٩٢ — <span class="highlight-green">مُبَارَكٌ</span>: نعت
+            لـ"كِتَابٌ" نكرة، مرفوع مثله. وجملة
+            <span class="highlight-green">أَنزَلْنَاهُ</span>: نعت جملة فعلية
+            للنكرة "كتابٌ".
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿إِنَّا أَرْسَلْنَاكَ شَاهِدًا وَمُبَشِّرًا وَنَذِيرًا﴾
+          </div>
+          <div class="quran-note">
+            الأحزاب: ٤٥ —
+            <span class="highlight-green">شَاهِدًا ومُبَشِّرًا ونَذِيرًا</span>:
+            ثلاثة أنعات (أو أحوال) منصوبة، كل منها يصف المخاطب.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿إِنَّ اللَّهَ كَانَ سَمِيعًا بَصِيرًا﴾</div>
+          <div class="quran-note">
+            النساء: ٥٨ — <span class="highlight-green">سَمِيعًا بَصِيرًا</span>:
+            نعتان لـ"اللهَ" منصوبان، يبيّنان صفتَين له سبحانه.
+          </div>
+        </div>
+
+        <!-- جدول إعرابي للنعت -->
+        <div class="sub-title">أمثلة إعرابية</div>
+        <table class="th-blue">
+          <thead>
+            <tr>
+              <th>الجملة</th>
+              <th>النعت</th>
+              <th>موضعه الإعرابي</th>
+              <th>نوع النعت</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>جاءَ الرجلُ <span class="highlight-word">الكريمُ</span></td>
+              <td class="irab-word">الكريمُ</td>
+              <td>نعت مرفوع بالضمة</td>
+              <td><span class="tag tag-ism">حقيقي مفرد</span></td>
+            </tr>
+            <tr>
+              <td>
+                رأيتُ معلماً <span class="highlight-word">يشرحُ الدرسَ</span>
+              </td>
+              <td class="irab-word">يشرحُ الدرسَ</td>
+              <td>جملة فعلية في محل نصب نعت</td>
+              <td><span class="tag tag-fil">جملة</span></td>
+            </tr>
+            <tr>
+              <td>
+                مررتُ ببيتٍ <span class="highlight-word">أمامَ المسجدِ</span>
+              </td>
+              <td class="irab-word">أمامَ المسجدِ</td>
+              <td>شبه جملة ظرفية في محل جر نعت</td>
+              <td><span class="tag tag-hrf">شبه جملة</span></td>
+            </tr>
+            <tr>
+              <td>
+                رأيتُ طالباً <span class="highlight-word">حسنٍ خُلُقُهُ</span>
+              </td>
+              <td class="irab-word">حسنٍ خُلُقُهُ</td>
+              <td>نعت منصوب (مفرد مذكر)</td>
+              <td><span class="tag tag-marifa">سببي</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 2 — العطف
+      ══════════════════════════════════════════════════ -->
+      <section id="s2">
+        <h2 class="section-title">
+          <span class="section-num">٣</span>العطف وحروفه
+        </h2>
+
+        <div class="def-box">
+          <p>
+            <strong>العطف</strong> هو تابعٌ يتوسط بينه وبين متبوعه (المعطوف
+            عليه) <span class="highlight-word">حرفُ عطف</span>، فيُشركه في
+            إعرابه وحكمه. وينقسم إلى: <strong>عطف نسق</strong> (وهو المشهور)
+            و<strong>عطف بيان</strong>.
+          </p>
+        </div>
+
+        <!-- عطف النسق -->
+        <div class="sub-title">أولاً: عطف النسق وحروفه</div>
+        <p style="margin-bottom: 16px; color: var(--text-light)">
+          حروف العطف تسعة، لكل منها معنى خاص:
+        </p>
+
+        <div class="harf-grid">
+          <div class="harf-card">
+            <div class="harf-word">الواوُ</div>
+            <div class="harf-label">مطلق الجمع (لا ترتيب)</div>
+          </div>
+          <div class="harf-card blue">
+            <div class="harf-word">الفاءُ</div>
+            <div class="harf-label">الترتيب والتعقيب (فوراً)</div>
+          </div>
+          <div class="harf-card green">
+            <div class="harf-word">ثُمَّ</div>
+            <div class="harf-label">الترتيب مع التراخي (بعد مهلة)</div>
+          </div>
+          <div class="harf-card gold">
+            <div class="harf-word">أَوْ</div>
+            <div class="harf-label">التخيير أو الشك أو الإباحة</div>
+          </div>
+          <div class="harf-card">
+            <div class="harf-word">أَمْ</div>
+            <div class="harf-label">الاستفهام المتصل والمنقطع</div>
+          </div>
+          <div class="harf-card blue">
+            <div class="harf-word">بَلْ</div>
+            <div class="harf-label">الإضراب (إلغاء الأول وإثبات الثاني)</div>
+          </div>
+          <div class="harf-card green">
+            <div class="harf-word">لَكِنْ</div>
+            <div class="harf-label">الاستدراك (بعد نفي أو نهي)</div>
+          </div>
+          <div class="harf-card gold">
+            <div class="harf-word">لَا</div>
+            <div class="harf-label">النفي (إثبات الأول ونفي الثاني)</div>
+          </div>
+          <div class="harf-card">
+            <div class="harf-word">حَتَّى</div>
+            <div class="harf-label">الغاية والتدريج (جزء من الأول)</div>
+          </div>
+        </div>
+
+        <!-- شرح تفصيلي لكل حرف مع أمثلة -->
+        <div class="sub-title">شرح مفصَّل لحروف العطف</div>
+
+        <div class="card">
+          <div class="card-title">🔗 الواو — مطلق الجمع</div>
+          <p>
+            تُشرك المعطوف مع المعطوف عليه في الحكم دون إفادة ترتيب أو تعقيب.
+          </p>
+          <div class="example-box" style="margin-top: 10px">
+            <div class="ex-sentence">
+              جاءَ عليٌّ <span class="highlight-word">وخالدٌ</span>
+            </div>
+            <div class="ex-analysis">
+              خالدٌ: معطوف مرفوع بالضمة — لا يُفيد أيُّهما جاء أولاً
+            </div>
+          </div>
+        </div>
+
+        <div class="card blue">
+          <div class="card-title">🔗 الفاء — الترتيب والتعقيب</div>
+          <p>تُفيد أن المعطوف جاء بعد المعطوف عليه مباشرةً دون فاصل زمني.</p>
+          <div class="example-box blue" style="margin-top: 10px">
+            <div class="ex-sentence">
+              دخلَ المعلمُ <span class="highlight-blue">فالطلابُ</span>
+            </div>
+            <div class="ex-analysis">دخل المعلم أولاً ثم تبعه الطلاب فوراً</div>
+          </div>
+        </div>
+
+        <div class="card green">
+          <div class="card-title">🔗 ثُمَّ — الترتيب مع التراخي</div>
+          <p>تُفيد الترتيب مع وجود فترة زمنية بين المعطوف والمعطوف عليه.</p>
+          <div class="example-box green" style="margin-top: 10px">
+            <div class="ex-sentence">
+              ذاكَرَ أحمدُ <span class="highlight-green">ثُمَّ نامَ</span>
+            </div>
+            <div class="ex-analysis">بين المذاكرة والنوم فاصل زمني</div>
+          </div>
+        </div>
+
+        <div class="card gold">
+          <div class="card-title">🔗 أَوْ — التخيير أو الشك أو الإباحة</div>
+          <div class="example-box gold" style="margin-top: 10px">
+            <div class="ex-sentence">
+              خذ الكتابَ <span class="highlight-gold">أوِ القلمَ</span>
+            </div>
+            <div class="ex-analysis">تخيير: أحدهما لا كلاهما</div>
+          </div>
+          <div class="example-box gold">
+            <div class="ex-sentence">
+              جاءَ زيدٌ <span class="highlight-gold">أو عمرٌو</span>
+            </div>
+            <div class="ex-analysis">شك: المتكلم غير متأكد من الجائي</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">🔗 بَلْ — الإضراب</div>
+          <p>
+            تُلغي الكلام عن الأول وتُثبته للثاني. تأتي بعد الإيجاب أو النفي.
+          </p>
+          <div class="example-box" style="margin-top: 10px">
+            <div class="ex-sentence">
+              ما جاءَ زيدٌ <span class="highlight-word">بل عمرٌو</span>
+            </div>
+            <div class="ex-analysis">
+              النفي انتقل من زيد إلى عمرو — فزيد جاء، وعمرو لم يأتِ
+            </div>
+          </div>
+        </div>
+
+        <div class="card blue">
+          <div class="card-title">🔗 حَتَّى — الغاية والتدريج</div>
+          <p>
+            تُفيد أن المعطوف غاية في معناه (أعلى أو أدنى)، ويكون المعطوف جزءاً
+            من المعطوف عليه.
+          </p>
+          <div class="example-box blue" style="margin-top: 10px">
+            <div class="ex-sentence">
+              مَاتَ الناسُ <span class="highlight-blue">حتى الأنبياءُ</span>
+            </div>
+            <div class="ex-analysis">
+              الأنبياء جزء من "الناس"، وهم أعلى درجةً وهو مفاجئ
+            </div>
+          </div>
+        </div>
+
+        <!-- عطف البيان -->
+        <div class="sub-title">ثانياً: عطف البيان</div>
+
+        <div class="def-box">
+          <p>
+            <strong>عطف البيان</strong> هو تابع جامد يُشبه النعت في إيضاح متبوعه
+            وتخصيصه، لكنه لا يشترط فيه الاشتقاق. يتبع متبوعه في الإعراب دائماً،
+            وغالباً يكون أوضح من متبوعه.
+          </p>
+        </div>
+
+        <div class="example-box">
+          <div class="ex-sentence">
+            أقسمُ باللهِ <span class="highlight-word">الرحمنِ</span>
+          </div>
+          <div class="ex-analysis">
+            "الرحمنِ": عطف بيان على لفظ الجلالة "اللهِ"، مجرور مثله، يزيده
+            إيضاحاً
+          </div>
+        </div>
+        <div class="example-box">
+          <div class="ex-sentence">
+            يا أيُّها <span class="highlight-word">الرجلُ</span>
+          </div>
+          <div class="ex-analysis">
+            "الرجلُ": عطف بيان على "أيُّ" مرفوع مثله
+          </div>
+        </div>
+
+        <!-- شواهد قرآنية — العطف -->
+        <div class="sub-title">شواهد قرآنية على العطف</div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ وَإِيتَاءِ ذِي
+            الْقُرْبَىٰ وَيَنْهَىٰ عَنِ الْفَحْشَاءِ وَالْمُنكَرِ وَالْبَغْيِ﴾
+          </div>
+          <div class="quran-note">
+            النحل: ٩٠ —
+            <span class="highlight-green"
+              >الإِحْسَانِ / إِيتَاءِ ذِي الْقُرْبَىٰ / الفحشاءِ / المنكرِ /
+              البغيِ</span
+            >: معطوفات بالواو، تتبع ما قبلها في الجر.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿وَلَقَدْ خَلَقْنَاكُم ثُمَّ صَوَّرْنَاكُمْ ثُمَّ قُلْنَا
+            لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ﴾
+          </div>
+          <div class="quran-note">
+            الأعراف: ١١ —
+            <span class="highlight-green"
+              >ثُمَّ صَوَّرْنَاكُمْ / ثُمَّ قُلْنَا</span
+            >: عطف بـ"ثُمَّ" يُفيد الترتيب والتراخي بين مراحل الخلق.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ﴾
+          </div>
+          <div class="quran-note">
+            الإخلاص: ١-٢ — <span class="highlight-green">الصَّمَدُ</span>: عطف
+            بيان على لفظ الجلالة "اللَّهُ" في السطر الثاني، مرفوع مثله، يوضح
+            صفته سبحانه.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿فَأَزَلَّهُمَا الشَّيْطَانُ عَنْهَا فَأَخْرَجَهُمَا مِمَّا كَانَا
+            فِيهِ﴾
+          </div>
+          <div class="quran-note">
+            البقرة: ٣٦ — <span class="highlight-green">فَأَخْرَجَهُمَا</span>:
+            معطوف بالفاء على "فَأَزَلَّهُمَا" مفيداً الترتيب والتعقيب: الإزلال
+            جاء أولاً فالإخراج فوراً.
+          </div>
+        </div>
+
+        <!-- جدول ملخص حروف العطف -->
+        <div class="sub-title">جدول ملخص حروف العطف</div>
+        <table class="th-blue">
+          <thead>
+            <tr>
+              <th>الحرف</th>
+              <th>المعنى</th>
+              <th>ملاحظة</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word">الواو</td>
+              <td>مطلق الجمع بلا ترتيب</td>
+              <td>الأكثر استخداماً</td>
+            </tr>
+            <tr>
+              <td class="irab-word">الفاء</td>
+              <td>ترتيب وتعقيب (بدون مهلة)</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td class="irab-word">ثُمَّ</td>
+              <td>ترتيب مع تراخٍ (بمهلة)</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td class="irab-word">أَوْ</td>
+              <td>تخيير / شك / إباحة</td>
+              <td>حسب السياق</td>
+            </tr>
+            <tr>
+              <td class="irab-word">أَمْ</td>
+              <td>استفهام متصل أو منقطع</td>
+              <td>بعد همزة الاستفهام غالباً</td>
+            </tr>
+            <tr>
+              <td class="irab-word">بَلْ</td>
+              <td>إضراب: إلغاء الأول وإثبات للثاني</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td class="irab-word">لَكِنْ</td>
+              <td>استدراك بعد نفي أو نهي</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td class="irab-word">لَا</td>
+              <td>نفي الثاني وإثبات الأول</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td class="irab-word">حَتَّى</td>
+              <td>غاية وتدريج، المعطوف جزء من الأول</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 3 — التوكيد
+      ══════════════════════════════════════════════════ -->
+      <section id="s3">
+        <h2 class="section-title"><span class="section-num">٤</span>التوكيد</h2>
+
+        <div class="def-box">
+          <p>
+            <strong>التوكيد</strong> هو تابعٌ يُقرِّر المتبوع ويُثبته ويُزيل عنه
+            الشك أو اللبس أو احتمال التجوز. يتبع متبوعه في إعرابه رفعاً ونصباً
+            وجراً. وينقسم إلى: <strong>توكيد لفظي</strong> و<strong
+              >توكيد معنوي</strong
+            >.
+          </p>
+        </div>
+
+        <!-- التوكيد اللفظي -->
+        <div class="sub-title">أولاً: التوكيد اللفظي</div>
+
+        <div class="card">
+          <div class="card-title">📢 التوكيد اللفظي</div>
+          <p>
+            هو إعادة اللفظ نفسه أو مرادفه (اسماً كان أو فعلاً أو حرفاً أو جملة)،
+            للتقوية والتأكيد.
+          </p>
+          <div class="example-box" style="margin-top: 12px">
+            <div class="ex-sentence">
+              جاءَ زيدٌ <span class="highlight-word">زيدٌ</span>
+            </div>
+            <div class="ex-analysis">
+              إعادة الاسم نفسه — توكيد لفظي مرفوع بالضمة
+            </div>
+          </div>
+          <div class="example-box">
+            <div class="ex-sentence">
+              نَعَمْ <span class="highlight-word">نَعَمْ</span> أنا حاضرٌ
+            </div>
+            <div class="ex-analysis">إعادة الحرف نفسه — توكيد لفظي</div>
+          </div>
+          <div class="example-box">
+            <div class="ex-sentence">
+              فَمَهِّلِ الْكَافِرِينَ
+              <span class="highlight-word">أَمْهِلْهُمْ</span>
+            </div>
+            <div class="ex-analysis">
+              توكيد الفعل بمرادفه — من قوله تعالى في الطارق: ١٧
+            </div>
+          </div>
+        </div>
+
+        <!-- التوكيد المعنوي -->
+        <div class="sub-title">ثانياً: التوكيد المعنوي وألفاظه</div>
+
+        <div class="def-box">
+          <p>
+            <strong>التوكيد المعنوي</strong> هو توكيد بألفاظ مخصوصة تُرفع فيها
+            احتمالات التجوز. ألفاظه: <span class="highlight-word">نَفْس</span> —
+            <span class="highlight-word">عَيْن</span> —
+            <span class="highlight-word">كِلَا / كِلْتَا</span> —
+            <span class="highlight-word">كُلّ</span> —
+            <span class="highlight-word">جَمِيع</span> —
+            <span class="highlight-word">عَامَّة</span>.
+          </p>
+        </div>
+
+        <div class="note gold">
+          <strong>قاعدة:</strong> ألفاظ التوكيد المعنوي تُضاف دائماً إلى ضمير
+          يعود على المؤكَّد. مثل: جاء الطالبُ <strong>نفسُهُ</strong> — رأيتُ
+          المديرَ <strong>عينَهُ</strong>.
+        </div>
+
+        <table class="th-gold">
+          <thead>
+            <tr>
+              <th>لفظ التوكيد</th>
+              <th>الاستخدام</th>
+              <th>مثال</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word">نَفْس / أَنْفُس</td>
+              <td>للمفرد والمثنى والجمع، مذكراً ومؤنثاً</td>
+              <td>
+                جاءَ الأستاذُ <span class="highlight-gold">نفسُهُ</span> — جاءَ
+                المعلمانِ <span class="highlight-gold">أنفسُهُمَا</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="irab-word">عَيْن / أَعْيُن</td>
+              <td>للمفرد والمثنى والجمع، مثل "نفس" تماماً</td>
+              <td>
+                رأيتُ المديرَ <span class="highlight-gold">عينَهُ</span> — قرأتُ
+                الكتبَ <span class="highlight-gold">أعيُنَها</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="irab-word">كِلَا / كِلْتَا</td>
+              <td>كلا للمثنى المذكر، كلتا للمثنى المؤنث</td>
+              <td>
+                جاءَ الطالبانِ <span class="highlight-gold">كِلَاهُمَا</span> —
+                جاءَت البنتانِ <span class="highlight-gold">كِلْتَاهُمَا</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="irab-word">كُلّ / جَمِيع / عَامَّة</td>
+              <td>لتوكيد الجمع والشمول</td>
+              <td>
+                حضرَ الطلابُ <span class="highlight-gold">كُلُّهُمْ</span> —
+                جاءَ القومُ <span class="highlight-gold">جميعُهُمْ</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note blue">
+          <strong>الفرق بين "نفس" و"عين":</strong> كلاهما يُفيد رفع احتمال
+          المجاز والتجوز. «جاء زيدٌ نفسُهُ» أي: لم يُرسل نائباً. «رأيتُه عينَه»
+          أي: لم أرَ صورته بل ذاته. في الاستخدام القرآني والفصيح يتبادلان.
+        </div>
+
+        <!-- شواهد قرآنية — التوكيد -->
+        <div class="sub-title">شواهد قرآنية على التوكيد</div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿فَسَجَدَ الْمَلَائِكَةُ كُلُّهُمْ أَجْمَعُونَ﴾
+          </div>
+          <div class="quran-note">
+            الحجر: ٣٠ — <span class="highlight-green">كُلُّهُمْ</span>: توكيد
+            معنوي أول مرفوع. <span class="highlight-green">أَجْمَعُونَ</span>:
+            توكيد معنوي ثانٍ مرفوع — اجتمع توكيدان للتقوية والمبالغة في الشمول.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿وَكَلَّمَ اللَّهُ مُوسَىٰ تَكْلِيمًا﴾</div>
+          <div class="quran-note">
+            النساء: ١٦٤ — <span class="highlight-green">تَكْلِيمًا</span>: مصدر
+            مؤكِّد للفعل "كَلَّمَ"، وهو توكيد لفظي بالمصدر يُفيد أن الكلام كان
+            حقيقياً لا مجازاً.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿فَإِذَا نُفِخَ فِي الصُّورِ نَفْخَةٌ وَاحِدَةٌ﴾
+          </div>
+          <div class="quran-note">
+            الحاقة: ١٣ — <span class="highlight-green">نَفْخَةٌ</span>: مصدر
+            مؤكِّد. <span class="highlight-green">وَاحِدَةٌ</span>: نعت يُقيِّد
+            النفخة بأنها مرة واحدة — تعاون التوكيد والنعت.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿إِنَّ إِلَيْنَا إِيَابَهُمْ ۝ ثُمَّ إِنَّ عَلَيْنَا حِسَابَهُمْ﴾
+          </div>
+          <div class="quran-note">
+            الغاشية: ٢٥-٢٦ — تكرار "إِنَّ" في الجملتين: توكيد لفظي بإعادة الحرف
+            لتقرير الحقيقتين معاً.
+          </div>
+        </div>
+
+        <!-- جدول إعرابي -->
+        <div class="sub-title">أمثلة إعرابية على التوكيد</div>
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>الجملة</th>
+              <th>التوكيد</th>
+              <th>نوعه</th>
+              <th>إعرابه</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                جاءَ الطلابُ <span class="highlight-word">كُلُّهُمْ</span>
+              </td>
+              <td class="irab-word">كُلُّهُمْ</td>
+              <td><span class="tag tag-ism">معنوي</span></td>
+              <td>توكيد مرفوع بالضمة، مضاف إلى ضمير</td>
+            </tr>
+            <tr>
+              <td>رأيتُ المديرَ <span class="highlight-word">نفسَهُ</span></td>
+              <td class="irab-word">نفسَهُ</td>
+              <td><span class="tag tag-ism">معنوي</span></td>
+              <td>توكيد منصوب بالفتحة، مضاف إلى ضمير</td>
+            </tr>
+            <tr>
+              <td>
+                مررتُ بالأستاذِ <span class="highlight-word">عينِهِ</span>
+              </td>
+              <td class="irab-word">عينِهِ</td>
+              <td><span class="tag tag-ism">معنوي</span></td>
+              <td>توكيد مجرور بالكسرة، مضاف إلى ضمير</td>
+            </tr>
+            <tr>
+              <td>قرأتُ قرأتُ الكتابَ</td>
+              <td class="irab-word">قرأتُ (الثانية)</td>
+              <td><span class="tag tag-fil">لفظي</span></td>
+              <td>فعل وفاعل توكيد لفظي بالإعادة</td>
+            </tr>
+            <tr>
+              <td>
+                جاءَ الولدانِ <span class="highlight-word">كِلَاهُمَا</span>
+              </td>
+              <td class="irab-word">كِلَاهُمَا</td>
+              <td><span class="tag tag-ism">معنوي</span></td>
+              <td>توكيد مرفوع بالألف (ملحق بالمثنى)</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 4 — البدل
+      ══════════════════════════════════════════════════ -->
+      <section id="s4">
+        <h2 class="section-title"><span class="section-num">٥</span>البدل</h2>
+
+        <div class="def-box">
+          <p>
+            <strong>البدل</strong> هو التابع المقصودُ بالحكم بالدرجة الأولى،
+            بينما يكون المتبوع (المُبدَل منه) كالتوطئة له والتمهيد. يتبع
+            مُبدَلَهُ في الإعراب رفعاً ونصباً وجراً، ولا يحتاج إلى وسيط (حرف أو
+            ضمير).
+          </p>
+        </div>
+
+        <div class="note blue">
+          <strong>الفرق الجوهري بين البدل والنعت:</strong> النعتُ يصفُ المتبوع،
+          والبدلُ يُحلُّ محلَّه. ففي «رأيتُ أخاكَ <strong>محمداً</strong>» —
+          "محمداً" هو المقصود بالرؤية، و"أخاك" مجرد توطئة. لو حذفتَ المبدَل منه
+          صحَّ الكلام: «رأيتُ محمداً».
+        </div>
+
+        <!-- أنواع البدل الأربعة -->
+        <div class="sub-title">أنواع البدل الأربعة</div>
+
+        <div class="card">
+          <div class="card-title">📍 البدل المطابق (بدل الكل من الكل)</div>
+          <p>
+            هو أن يكون البدل والمبدَل منه دالَّين على شيء واحد. هو أكثر أنواع
+            البدل شيوعاً.
+          </p>
+          <div class="example-box" style="margin-top: 12px">
+            <div class="ex-sentence">
+              جاءَ أخوكَ <span class="highlight-word">محمدٌ</span>
+            </div>
+            <div class="ex-analysis">
+              "محمدٌ": بدل مطابق من "أخوك" — كلاهما يدل على نفس الشخص — مرفوع
+              مثله
+            </div>
+          </div>
+          <div class="example-box">
+            <div class="ex-sentence">
+              رأيتُ الإمامَ <span class="highlight-word">خطيبَ المسجدِ</span>
+            </div>
+            <div class="ex-analysis">
+              "خطيبَ المسجدِ": بدل مطابق منصوب من "الإمامَ"
+            </div>
+          </div>
+        </div>
+
+        <div class="card blue">
+          <div class="card-title">📍 بدل البعض من الكل</div>
+          <p>
+            هو أن يكون البدل جزءاً من المبدَل منه. ويجب أن يشتمل البدل على ضمير
+            يعود على المبدَل منه يُسمى "ضمير الرابط".
+          </p>
+          <div class="example-box blue" style="margin-top: 12px">
+            <div class="ex-sentence">
+              أكلتُ الرغيفَ <span class="highlight-blue">ثُلُثَهُ</span>
+            </div>
+            <div class="ex-analysis">
+              "ثُلُثَهُ": بدل بعض من كل، منصوب، والهاء ضمير الرابط يعود على
+              "الرغيف"
+            </div>
+          </div>
+          <div class="example-box blue">
+            <div class="ex-sentence">
+              قرأتُ الكتابَ <span class="highlight-blue">نصفَهُ</span>
+            </div>
+            <div class="ex-analysis">
+              "نصفَهُ": بدل بعض، وضمير الرابط "ه" يعود على "الكتاب"
+            </div>
+          </div>
+        </div>
+
+        <div class="card green">
+          <div class="card-title">📍 بدل الاشتمال</div>
+          <p>
+            هو أن يكون البدل شيئاً مُشتَمِلاً عليه المبدَل منه (صفة أو معنى
+            ملازم له)، لا جزءاً منه. ويشترط فيه أيضاً ضمير الرابط.
+          </p>
+          <div class="example-box green" style="margin-top: 12px">
+            <div class="ex-sentence">
+              أعجبَني الطالبُ <span class="highlight-green">علمُهُ</span>
+            </div>
+            <div class="ex-analysis">
+              "علمُهُ": بدل اشتمال مرفوع — العلم ليس جزءاً من الطالب لكنه صفة
+              مشتملة فيه — والهاء ضمير الرابط
+            </div>
+          </div>
+          <div class="example-box green">
+            <div class="ex-sentence">
+              سُرِقَ الحاجُّ <span class="highlight-green">ثيابُهُ</span>
+            </div>
+            <div class="ex-analysis">
+              "ثيابُهُ": بدل اشتمال مرفوع — الثياب مما يشتمل عليه الحاج
+            </div>
+          </div>
+        </div>
+
+        <div class="card gold">
+          <div class="card-title">📍 البدل المباين (بدل الغلط)</div>
+          <p>
+            هو أن يكون البدل مغايراً للمبدَل منه، وذلك في حالات:
+            <strong>الغلط</strong> (تصحيح خطأ)، أو <strong>النسيان</strong>، أو
+            <strong>الإضراب</strong> (العدول بعد تروٍّ).
+          </p>
+          <div class="example-box gold" style="margin-top: 12px">
+            <div class="ex-sentence">
+              رأيتُ رجلاً <span class="highlight-gold">امرأةً</span>
+            </div>
+            <div class="ex-analysis">
+              بدل غلط: قلتُ "رجلاً" خطأً فأصلحتُه بـ"امرأةً"
+            </div>
+          </div>
+          <div class="example-box gold">
+            <div class="ex-sentence">
+              أكلتُ الخبزَ <span class="highlight-gold">اللحمَ</span>
+            </div>
+            <div class="ex-analysis">
+              بدل إضراب: عدلتُ عن الخبز إلى اللحم بعد تفكير
+            </div>
+          </div>
+        </div>
+
+        <!-- شواهد قرآنية — البدل -->
+        <div class="sub-title">شواهد قرآنية على البدل</div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ۝ صِرَاطَ الَّذِينَ أَنْعَمْتَ
+            عَلَيْهِمْ﴾
+          </div>
+          <div class="quran-note">
+            الفاتحة: ٦-٧ —
+            <span class="highlight-green">صِرَاطَ الَّذِينَ</span>: بدل مطابق من
+            <span class="highlight-green">الصِّرَاطَ الْمُسْتَقِيمَ</span>،
+            منصوب مثله، هو المقصود الحقيقي.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿وَلِلَّهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ إِلَيْهِ
+            سَبِيلًا﴾
+          </div>
+          <div class="quran-note">
+            آل عمران: ٩٧ — <span class="highlight-green">مَنِ اسْتَطَاعَ</span>:
+            بدل بعض من كل من "النَّاسِ"، مجرور في محل جر، إذ ليس كل الناس
+            مستطيعاً.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿قَالَ لَهُ مُوسَىٰ هَلْ أَتَّبِعُكَ عَلَىٰ أَن تُعَلِّمَنِ مِمَّا
+            عُلِّمْتَ رُشْدًا﴾
+          </div>
+          <div class="quran-note">
+            الكهف: ٦٦ — <span class="highlight-green">رُشْدًا</span>: بدل اشتمال
+            منصوب من الضمير في "تُعَلِّمَنِ"، لأن الرشدَ مما يشتمل عليه التعليم.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿وَإِذْ أَخَذْنَا مِنَ النَّبِيِّينَ مِيثَاقَهُمْ وَمِنكَ وَمِن
+            نُّوحٍ وَإِبْرَاهِيمَ وَمُوسَىٰ وَعِيسَى ابْنِ مَرْيَمَ﴾
+          </div>
+          <div class="quran-note">
+            الأحزاب: ٧ —
+            <span class="highlight-green">وَمِنكَ وَمِن نُّوحٍ</span>: بدل بعض
+            من كل من "النَّبِيِّينَ" — ذُكر بعضهم تشريفاً لهم.
+          </div>
+        </div>
+
+        <!-- جدول مقارن لأنواع البدل -->
+        <div class="sub-title">جدول مقارن لأنواع البدل</div>
+        <table class="th-green">
+          <thead>
+            <tr>
+              <th>النوع</th>
+              <th>العلاقة بين البدل والمبدَل منه</th>
+              <th>ضمير الرابط</th>
+              <th>مثال</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word">المطابق</td>
+              <td>دلالة على نفس الشيء</td>
+              <td>لا يلزم</td>
+              <td>جاءَ أخوكَ <span class="highlight-green">محمدٌ</span></td>
+            </tr>
+            <tr>
+              <td class="irab-word">بعض من كل</td>
+              <td>البدل جزء من المبدَل منه</td>
+              <td>واجب</td>
+              <td>
+                أكلتُ الرغيفَ <span class="highlight-green">ثُلُثَهُ</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="irab-word">الاشتمال</td>
+              <td>البدل صفة أو معنى ملازم</td>
+              <td>واجب</td>
+              <td>أُعجبتُ بزيدٍ <span class="highlight-green">علمِهِ</span></td>
+            </tr>
+            <tr>
+              <td class="irab-word">المباين</td>
+              <td>مغاير (غلط أو نسيان أو إضراب)</td>
+              <td>لا يلزم</td>
+              <td>رأيتُ رجلاً <span class="highlight-green">امرأةً</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note">
+          <strong>اختبار سهل لمعرفة البدل:</strong> احذف المبدَل منه واستبدله
+          بالبدل — إن صح الكلام وأدى المعنى فهو بدل. مثال: «أعجبَني الطالبُ
+          علمُهُ» ← «أعجبَني علمُ الطالبِ» ✓
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 5 — الملخص الشامل
+      ══════════════════════════════════════════════════ -->
+      <section id="s5">
+        <h2 class="section-title">
+          <span class="section-num">٦</span>الملخص الشامل للتوابع
+        </h2>
+
+        <!-- جدول مقارن شامل -->
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>التابع</th>
+              <th>تعريفه</th>
+              <th>ما يتبع فيه</th>
+              <th>أنواعه</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word" style="color: var(--purple-dark)">النعت</td>
+              <td>يصف المتبوع أو ما له صلة به</td>
+              <td>الإعراب + التعريف + الجنس + العدد</td>
+              <td>حقيقي / سببي / مفرد / جملة / شبه جملة</td>
+            </tr>
+            <tr>
+              <td class="irab-word" style="color: var(--blue-dark)">العطف</td>
+              <td>يُشرَك مع المتبوع بحرف</td>
+              <td>الإعراب فقط</td>
+              <td>عطف نسق (٩ حروف) / عطف بيان</td>
+            </tr>
+            <tr>
+              <td class="irab-word" style="color: #8a6020">التوكيد</td>
+              <td>يُقرِّر المتبوع ويرفع اللبس</td>
+              <td>الإعراب فقط</td>
+              <td>لفظي / معنوي (نفس، عين، كل، كلا...)</td>
+            </tr>
+            <tr>
+              <td class="irab-word" style="color: #2e7a50">البدل</td>
+              <td>يحلُّ محلَّ المتبوع في الفائدة</td>
+              <td>الإعراب فقط</td>
+              <td>مطابق / بعض من كل / اشتمال / مباين</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="sum-grid">
+          <div class="sum-card">
+            <div class="sum-icon">🏷️</div>
+            <div class="sum-title">النعت</div>
+            <div class="sum-text">
+              يتبع في ٤ أشياء: إعراب، تعريف، جنس، عدد. حقيقي يصف المتبوع، سببي
+              يصف ما يتعلق به.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🔗</div>
+            <div class="sum-title">العطف</div>
+            <div class="sum-text">
+              ٩ حروف لكل منها معنى. الواو للجمع، الفاء للتعقيب، ثم للتراخي، أو
+              للتخيير، بل للإضراب...
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">📢</div>
+            <div class="sum-title">التوكيد</div>
+            <div class="sum-text">
+              لفظي بالإعادة أو المرادف. معنوي بألفاظ مخصوصة:
+              نفس/عين/كل/كلا/جميع، كلها تُضاف لضمير.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🔄</div>
+            <div class="sum-title">البدل</div>
+            <div class="sum-text">
+              المقصود الحقيقي بالحكم. أنواعه: مطابق (=المتبوع)، بعض، اشتمال،
+              مباين. بعضه يلزمه ضمير رابط.
+            </div>
+          </div>
+        </div>
+
+        <!-- قاعدة الفرق بين التوابع -->
+        <div class="note" style="margin-top: 28px">
+          <strong>كيف تُميِّز بين التوابع؟</strong><br />
+          — إذا كان التابع <strong>يصف</strong> متبوعه ← نعت.<br />
+          — إذا كان بينه وبين متبوعه <strong>حرف عطف</strong> ← عطف.<br />
+          — إذا كان يُعيد المتبوع أو يُقرِّره بألفاظ (نفس/عين/كل...) ← توكيد.<br />
+          — إذا كان هو <strong>المقصود الحقيقي</strong> بالحكم دون حرف وصل ←
+          بدل.
+        </div>
+      </section>
+    </main>
+
+    <footer
+      style="
+        background: var(--dark);
+        color: #a0a8c0;
+        text-align: center;
+        padding: 24px 20px;
+        font-size: 0.88rem;
+        margin-top: 10px;
+      "
+    >
+      <p style="margin-bottom: 6px">أساسيات علم النحو — التوابع</p>
+      <p style="opacity: 0.6">
+        النعت · العطف · التوكيد · البدل — جميع الشواهد من القرآن الكريم
+      </p>
+    </footer>
+
+    <script>
+      const sections = document.querySelectorAll('section[id]')
+      const navLinks = document.querySelectorAll('nav a')
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navLinks.forEach((l) => l.classList.remove('active'))
+              const active = document.querySelector(
+                `nav a[href="#${entry.target.id}"]`,
+              )
+              if (active) {
+                active.classList.add('active')
+                active.scrollIntoView({ block: 'nearest', inline: 'center' })
+              }
+            }
+          })
+        },
+        { rootMargin: '-20% 0px -70% 0px' },
+      )
+
+      sections.forEach((s) => observer.observe(s))
+
+      navLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault()
+          const target = document.querySelector(link.getAttribute('href'))
+          if (target) target.scrollIntoView({ behavior: 'smooth' })
+        })
+      })
+    </script>
+  </body>
+</html>

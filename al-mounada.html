@@ -1,0 +1,1707 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>علم النحو — المنادى</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --purple: #b370a4;
+        --purple-light: #c98fbb;
+        --purple-dark: #8a5280;
+        --blue: #72add4;
+        --blue-light: #9dc5e0;
+        --blue-dark: #4e8ab5;
+        --bg: #f2f2f2;
+        --white: #ffffff;
+        --dark: #3e3e48;
+        --dark2: #3a3a52;
+        --text: #3a3350;
+        --text-light: #6a6080;
+        --gold: #c9a84c;
+        --gold-light: #f0d080;
+        --green: #4caf7a;
+        --green-light: #80d4a8;
+        --shadow: 0 4px 20px rgba(179, 112, 164, 0.12);
+        --shadow-hover: 0 8px 32px rgba(179, 112, 164, 0.22);
+        --radius: 14px;
+        --radius-sm: 8px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Scheherazade New', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        direction: rtl;
+        line-height: 1.9;
+        font-size: 16px;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--white);
+        border-bottom: 3px solid var(--purple);
+        box-shadow: 0 2px 16px rgba(179, 112, 164, 0.15);
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+      }
+      nav::-webkit-scrollbar {
+        display: none;
+      }
+      .nav-brand {
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--purple);
+        padding: 14px 10px;
+        border-left: 2px solid var(--bg);
+        margin-left: 8px;
+        flex-shrink: 0;
+      }
+      nav a {
+        display: inline-block;
+        padding: 10px 14px;
+        color: var(--text-light);
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 600;
+        border-radius: var(--radius-sm);
+        transition: all 0.2s;
+        flex-shrink: 0;
+      }
+      nav a:hover,
+      nav a.active {
+        background: var(--purple);
+        color: var(--white);
+      }
+
+      /* ── LAYOUT ── */
+      .hero {
+        background: linear-gradient(135deg, var(--purple) 0%, var(--blue) 100%);
+        color: var(--white);
+        text-align: center;
+        padding: 60px 20px 50px;
+      }
+      .hero h1 {
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+      .hero p {
+        font-size: 1.1rem;
+        opacity: 0.88;
+      }
+      .hero-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        padding: 4px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+      }
+
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 40px 20px 60px;
+      }
+
+      section {
+        margin-bottom: 60px;
+        scroll-margin-top: 80px;
+      }
+
+      .section-title {
+        font-size: 1.55rem;
+        font-weight: 800;
+        color: var(--purple-dark);
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-title::after {
+        content: '';
+        flex: 1;
+        height: 3px;
+        background: linear-gradient(to left, transparent, var(--purple));
+        border-radius: 2px;
+      }
+      .section-num {
+        background: var(--purple);
+        color: var(--white);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        font-weight: 800;
+        flex-shrink: 0;
+      }
+
+      /* ── DEF BOX ── */
+      .def-box {
+        background: var(--white);
+        border: 2px solid var(--gold);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin-bottom: 22px;
+        position: relative;
+        box-shadow: 0 2px 12px rgba(201, 168, 76, 0.12);
+      }
+      .def-box::before {
+        content: '📖 تعريف';
+        position: absolute;
+        top: -13px;
+        right: 20px;
+        background: var(--gold);
+        color: var(--white);
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 2px 12px;
+        border-radius: 20px;
+      }
+      .def-box p {
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      /* ── QURAN BOX ── */
+      .quran-box {
+        background: linear-gradient(135deg, #f7f7f7 0%, #fcfffd 100%);
+        border: 2px solid var(--green);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin: 18px 0;
+        position: relative;
+        box-shadow: 0 2px 12px rgba(76, 175, 122, 0.1);
+      }
+      .quran-box::before {
+        content: '🌿 قرآن كريم';
+        position: absolute;
+        top: -13px;
+        right: 20px;
+        background: var(--green);
+        color: var(--white);
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 2px 12px;
+        border-radius: 20px;
+      }
+      .quran-text {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #1a5c35;
+        line-height: 2.1;
+        margin-bottom: 8px;
+        text-align: center;
+      }
+      .quran-note {
+        font-size: 0.9rem;
+        color: #3a7a55;
+        font-weight: 500;
+      }
+
+      /* ── DIAGRAM ── */
+      .diagram {
+        background: var(--dark);
+        border-radius: var(--radius);
+        padding: 28px 24px;
+        margin: 22px 0;
+        color: #e0e0f0;
+        font-family: 'Scheherazade New', sans-serif;
+      }
+      .diagram-title {
+        color: #fff;
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 18px;
+        text-align: center;
+      }
+
+      /* ── CARDS ── */
+      .card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 22px 24px;
+        margin-bottom: 16px;
+        box-shadow: var(--shadow);
+        border-top: 4px solid var(--purple);
+        transition: box-shadow 0.2s;
+      }
+      .card:hover {
+        box-shadow: var(--shadow-hover);
+      }
+      .card-title {
+        font-weight: 800;
+        font-size: 1.05rem;
+        color: var(--purple-dark);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .card.blue {
+        border-top-color: var(--blue);
+      }
+      .card.blue .card-title {
+        color: var(--blue-dark);
+      }
+      .card.green {
+        border-top-color: var(--green);
+      }
+      .card.green .card-title {
+        color: #2e7a50;
+      }
+      .card.gold {
+        border-top-color: var(--gold);
+      }
+      .card.gold .card-title {
+        color: #8a6020;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+        margin-bottom: 22px;
+      }
+
+      /* ── PILLS / TAGS ── */
+      .tag {
+        display: inline-block;
+        padding: 3px 12px;
+        border-radius: 20px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        margin: 3px;
+      }
+      .tag-ism {
+        background: #ede0f8;
+        color: #6a2e8a;
+      }
+      .tag-fil {
+        background: #dceefb;
+        color: #1a5c8a;
+      }
+      .tag-hrf {
+        background: #fdeedd;
+        color: #8a5010;
+      }
+      .tag-marifa {
+        background: #fdf0e0;
+        color: #8a6020;
+        border: 1px solid var(--gold);
+      }
+      .tag-nakira {
+        background: #e8f4ff;
+        color: #1a5080;
+        border: 1px solid var(--blue);
+      }
+      .tag-example {
+        background: #f0f0f0;
+        color: #444;
+      }
+      .tag-highlight {
+        background: var(--purple);
+        color: white;
+      }
+      .tag-green {
+        background: #e0f5e8;
+        color: #2a6a40;
+      }
+      .tag-red {
+        background: #fde8e8;
+        color: #8a2020;
+        border: 1px solid #e07070;
+      }
+
+      /* ── TABLES ── */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        margin: 16px 0;
+        font-size: 0.95rem;
+      }
+      th {
+        background: var(--purple);
+        color: var(--white);
+        padding: 12px 16px;
+        font-weight: 700;
+        text-align: center;
+      }
+      td {
+        padding: 10px 16px;
+        text-align: center;
+        border-bottom: 1px solid #efe8f4;
+        color: var(--text);
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      tr:nth-child(even) td {
+        background: #faf5fc;
+      }
+      tr:hover td {
+        background: #f3ecf9;
+      }
+      .th-blue th {
+        background: var(--blue);
+      }
+      .th-gold th {
+        background: var(--gold);
+      }
+      .th-dark th {
+        background: var(--dark);
+      }
+      .th-green th {
+        background: var(--green);
+      }
+
+      /* ── IRAB TABLE ── */
+      .irab-word {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: var(--purple-dark);
+      }
+      .irab-type {
+        color: var(--blue-dark);
+        font-weight: 600;
+      }
+      .irab-sign {
+        color: var(--gold);
+        font-weight: 700;
+      }
+      .irab-note {
+        color: var(--text-light);
+        font-size: 0.88rem;
+      }
+
+      /* ── SUM GRID ── */
+      .sum-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        margin-top: 30px;
+      }
+      .sum-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 20px;
+        text-align: center;
+        box-shadow: var(--shadow);
+        border-bottom: 4px solid var(--purple);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .sum-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
+      }
+      .sum-card:nth-child(2) {
+        border-bottom-color: var(--blue);
+      }
+      .sum-card:nth-child(3) {
+        border-bottom-color: var(--green);
+      }
+      .sum-card:nth-child(4) {
+        border-bottom-color: var(--gold);
+      }
+      .sum-card:nth-child(5) {
+        border-bottom-color: var(--purple-light);
+      }
+      .sum-card:nth-child(6) {
+        border-bottom-color: #e07070;
+      }
+      .sum-icon {
+        font-size: 2rem;
+        margin-bottom: 8px;
+      }
+      .sum-title {
+        font-weight: 800;
+        font-size: 1rem;
+        color: var(--text);
+        margin-bottom: 6px;
+      }
+      .sum-text {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+
+      /* ── NOTE ── */
+      .note {
+        background: #fdf4ff;
+        border-right: 4px solid var(--purple);
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        padding: 14px 18px;
+        margin: 14px 0;
+        font-size: 0.93rem;
+        color: var(--text);
+      }
+      .note strong {
+        color: var(--purple-dark);
+      }
+      .note.blue {
+        background: #f0f7fd;
+        border-right-color: var(--blue);
+      }
+      .note.blue strong {
+        color: var(--blue-dark);
+      }
+      .note.gold {
+        background: #fffbf0;
+        border-right-color: var(--gold);
+      }
+      .note.gold strong {
+        color: #8a6020;
+      }
+      .note.green {
+        background: #f0faf5;
+        border-right-color: var(--green);
+      }
+      .note.green strong {
+        color: #2e7a50;
+      }
+      .note.red {
+        background: #fff5f5;
+        border-right-color: #e07070;
+      }
+      .note.red strong {
+        color: #8a2020;
+      }
+
+      .highlight-word {
+        background: linear-gradient(
+          to top,
+          var(--purple-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .highlight-blue {
+        background: linear-gradient(
+          to top,
+          var(--blue-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .highlight-gold {
+        background: linear-gradient(
+          to top,
+          var(--gold-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .highlight-green {
+        background: linear-gradient(
+          to top,
+          var(--green-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+
+      /* ── TREE / DIAGRAM ── */
+      .tree {
+        font-family: 'Scheherazade New', monospace;
+        font-size: 1rem;
+        line-height: 1.8;
+        color: #ffffff;
+        text-align: right;
+      }
+      .tree-node-main {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: #f0d080;
+        text-align: center;
+        margin-bottom: 12px;
+      }
+      .tree-row {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-top: 14px;
+      }
+      .tree-branch {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        padding: 12px 20px;
+        text-align: center;
+        min-width: 140px;
+      }
+      .tree-branch-title {
+        font-weight: 800;
+        color: #9dc5e0;
+        font-size: 1rem;
+        margin-bottom: 6px;
+      }
+      .tree-branch p {
+        font-size: 0.85rem;
+        color: #c8c0e0;
+        line-height: 1.6;
+      }
+
+      /* ── ADAAH BOX ── */
+      .adaah-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: 10px;
+        margin: 16px 0;
+      }
+      .adaah-card {
+        background: var(--white);
+        border: 2px solid var(--purple);
+        border-radius: 10px;
+        padding: 14px 10px;
+        text-align: center;
+        transition: all 0.2s;
+        cursor: default;
+      }
+      .adaah-card:hover {
+        background: var(--purple);
+        color: var(--white);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-hover);
+      }
+      .adaah-word {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: var(--purple-dark);
+        display: block;
+      }
+      .adaah-card:hover .adaah-word {
+        color: var(--white);
+      }
+      .adaah-label {
+        font-size: 0.72rem;
+        color: var(--text-light);
+        margin-top: 5px;
+        display: block;
+      }
+      .adaah-card:hover .adaah-label {
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .adaah-card.main-adaah {
+        border-color: var(--gold);
+        border-width: 3px;
+      }
+      .adaah-card.main-adaah .adaah-word {
+        color: #8a6020;
+      }
+      .adaah-card.main-adaah:hover {
+        background: var(--gold);
+      }
+
+      /* ── EXAMPLE ROW ── */
+      .ex-row {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: var(--radius-sm);
+        background: #faf5fc;
+        margin: 8px 0;
+        border-right: 3px solid var(--purple);
+        font-size: 1rem;
+        flex-wrap: wrap;
+      }
+      .ex-row .ex-num {
+        font-size: 0.8rem;
+        color: var(--text-light);
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+      .ex-row .ex-text {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+      .ex-row .ex-note {
+        font-size: 0.82rem;
+        color: var(--text-light);
+        flex: 1;
+        text-align: left;
+      }
+      .ex-row.blue {
+        background: #f0f7fd;
+        border-right-color: var(--blue);
+      }
+      .ex-row.green {
+        background: #f0faf5;
+        border-right-color: var(--green);
+      }
+      .ex-row.gold {
+        background: #fffbf0;
+        border-right-color: var(--gold);
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 600px) {
+        nav {
+          gap: 4px;
+          padding: 0 10px;
+        }
+        nav a {
+          padding: 10px 10px;
+          font-size: 0.82rem;
+        }
+        .hero {
+          padding: 40px 16px 36px;
+        }
+        main {
+          padding: 28px 14px 50px;
+        }
+        .def-box,
+        .quran-box {
+          padding: 18px 16px;
+        }
+        .def-box::before,
+        .quran-box::before {
+          right: 14px;
+        }
+        .quran-text {
+          font-size: 1.05rem;
+        }
+        table {
+          font-size: 0.85rem;
+        }
+        td,
+        th {
+          padding: 8px 10px;
+        }
+        .sum-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .adaah-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .tree-row {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+
+      /* ── SEPARATOR ── */
+      .sep {
+        height: 2px;
+        background: linear-gradient(
+          to left,
+          transparent,
+          var(--purple),
+          transparent
+        );
+        margin: 30px 0;
+        border-radius: 2px;
+      }
+
+      /* ── SCROLL REVEAL ── */
+      section {
+        animation: fadeUp 0.4s ease both;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      h3.sub-title {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--purple);
+        margin: 24px 0 10px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      h3.sub-title.blue {
+        color: var(--blue-dark);
+      }
+      h3.sub-title.green {
+        color: #2e7a50;
+      }
+      h3.sub-title.gold {
+        color: #8a6020;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <a style="text-decoration: none" href="./index.html">🏠</a>
+    <nav>
+      <div class="nav-brand">المنادى</div>
+      <a href="#s1">المدخل</a>
+      <a href="#s2">أدوات النداء</a>
+      <a href="#s3">أنواع المنادى</a>
+      <a href="#s4">المفرد العلم</a>
+      <a href="#s5">المضاف وشبهه</a>
+      <a href="#s6">النكرة</a>
+      <a href="#s7">الملخص</a>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-badge">أساسيات علم النحو</div>
+      <h1>المنادى</h1>
+      <p>أدوات النداء · أنواعه · إعرابه · شواهد من القرآن الكريم</p>
+    </div>
+
+    <main>
+      <!-- ══════════════════════════════════════════════════
+           SECTION 1 — المدخل
+      ══════════════════════════════════════════════════ -->
+      <section id="s1">
+        <h2 class="section-title">
+          <span class="section-num">١</span>مدخل إلى أسلوب النداء
+        </h2>
+
+        <div class="def-box">
+          <p>
+            <strong>المنادى</strong> هو الاسم الذي يُطلب إقباله وتنبيهه بحرف من
+            حروف النداء. والجملة التي يقع فيها تُسمى
+            <span class="highlight-word">جملة النداء</span>، وهي جملة إنشائية لا
+            خبرية.
+          </p>
+        </div>
+
+        <div class="note">
+          <strong>أركان أسلوب النداء ثلاثة:</strong>
+          حرف النداء (مثل: يا) + المنادى (الاسم المنادى) + جواب النداء
+          (اختياري).
+          <br />مثال: <strong>يا محمدُ</strong> أقبِلْ — فـ(يا) حرف نداء،
+          و(محمدُ) منادى، و(أقبِل) جواب النداء.
+        </div>
+
+        <!-- شجرة التصنيف العامة -->
+        <div class="diagram">
+          <div class="diagram-title">🌳 تصنيف المنادى</div>
+          <div class="tree">
+            <div class="tree-node-main">المنادى</div>
+            <div class="tree-row">
+              <div class="tree-branch">
+                <div class="tree-branch-title">المفرد العلم</div>
+                <p>مبني على الضم في محل نصب</p>
+              </div>
+              <div class="tree-branch">
+                <div class="tree-branch-title">النكرة المقصودة</div>
+                <p>مبنية على الضم في محل نصب</p>
+              </div>
+              <div class="tree-branch">
+                <div class="tree-branch-title">النكرة غير المقصودة</div>
+                <p>منصوبة بالفتحة</p>
+              </div>
+              <div class="tree-branch">
+                <div class="tree-branch-title">المضاف</div>
+                <p>منصوب بالفتحة</p>
+              </div>
+              <div class="tree-branch">
+                <div class="tree-branch-title">شبه المضاف</div>
+                <p>منصوب بالفتحة</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿يَا آدَمُ اسْكُنْ أَنتَ وَزَوْجُكَ الْجَنَّةَ﴾
+          </div>
+          <div class="quran-note">
+            البقرة: ٣٥ — <span class="highlight-word">يَا</span>: حرف نداء،
+            و<span class="highlight-word">آدَمُ</span>: منادى مبني على الضم في
+            محل نصب.
+          </div>
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 2 — أدوات النداء
+      ══════════════════════════════════════════════════ -->
+      <section id="s2">
+        <h2 class="section-title">
+          <span class="section-num">٢</span>أدوات النداء
+        </h2>
+
+        <div class="def-box">
+          <p>
+            حروف النداء هي الأدوات التي تدخل على الاسم لتحوّله إلى منادى، وهي
+            <strong>ثمانية حروف</strong> تختلف في المسافة (قريب/بعيد) وفي كثرة
+            الاستخدام. الأشهر والأكثر استخداماً هو
+            <span class="highlight-word">يا</span>.
+          </p>
+        </div>
+
+        <div class="adaah-grid">
+          <div class="adaah-card main-adaah">
+            <span class="adaah-word">يَا</span>
+            <span class="adaah-label">للقريب والبعيد · الأشهر</span>
+          </div>
+          <div class="adaah-card">
+            <span class="adaah-word">أَيَا</span>
+            <span class="adaah-label">للبعيد</span>
+          </div>
+          <div class="adaah-card">
+            <span class="adaah-word">هَيَا</span>
+            <span class="adaah-label">للبعيد</span>
+          </div>
+          <div class="adaah-card">
+            <span class="adaah-word">أَيْ</span>
+            <span class="adaah-label">للقريب</span>
+          </div>
+          <div class="adaah-card">
+            <span class="adaah-word">وَا</span>
+            <span class="adaah-label">للندبة والتفجُّع</span>
+          </div>
+          <div class="adaah-card">
+            <span class="adaah-word">أَ</span>
+            <span class="adaah-label">للقريب · همزة</span>
+          </div>
+        </div>
+
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>الأداة</th>
+              <th>تُستخدم لـ</th>
+              <th>مثال</th>
+              <th>ملاحظة</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word">يَا</td>
+              <td>القريب والبعيد (عام)</td>
+              <td>يا عليُّ، يا ربِّ</td>
+              <td>
+                <span class="tag tag-highlight"
+                  >الأكثر شيوعاً في القرآن والشعر</span
+                >
+              </td>
+            </tr>
+            <tr>
+              <td class="irab-word">أَ / أَيْ</td>
+              <td>القريب</td>
+              <td>أزيدُ، أَيْ بنيَّ</td>
+              <td>قليلة الاستخدام</td>
+            </tr>
+            <tr>
+              <td class="irab-word">أَيَا / هَيَا</td>
+              <td>البعيد</td>
+              <td>أيا صاحبَ الدار</td>
+              <td>كثيرة في الشعر الفصيح</td>
+            </tr>
+            <tr>
+              <td class="irab-word">وَا</td>
+              <td>الندبة والتوجُّع</td>
+              <td>وا محمداه، وا قلباه</td>
+              <td><span class="tag tag-red">للتعبير عن الحزن والفقد</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note">
+          <strong>قاعدة:</strong> حروف النداء لا محل لها من الإعراب، وهي حروف
+          مبنية لا تؤثر في المنادى من حيث حركتها، بل يتأثر المنادى بموقعه في
+          الجملة.
+        </div>
+
+        <h3 class="sub-title">🌿 شواهد قرآنية على أدوات النداء</h3>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿يَا أَيُّهَا النَّاسُ اعْبُدُوا رَبَّكُمُ﴾
+          </div>
+          <div class="quran-note">
+            البقرة: ٢١ — <span class="highlight-word">يَا</span>: حرف نداء
+            للقريب والبعيد.
+          </div>
+        </div>
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ﴾
+          </div>
+          <div class="quran-note">
+            البقرة: ١٨٣ — النداء بـ(يا أيها) نمط قرآني شائع لنداء الجماعة.
+          </div>
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 3 — أنواع المنادى
+      ══════════════════════════════════════════════════ -->
+      <section id="s3">
+        <h2 class="section-title">
+          <span class="section-num">٣</span>أنواع المنادى وإعرابه
+        </h2>
+
+        <div class="def-box">
+          <p>
+            ينقسم المنادى إلى <strong>خمسة أنواع</strong>، يختلف كل نوع في طريقة
+            بنائه أو إعرابه. والمنادى في جميع الأحوال في
+            <span class="highlight-word">محل نصب</span>، لأنه مفعول به لفعل
+            النداء المحذوف تقديره (أُنادي أو أَدعو).
+          </p>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>النوع</th>
+              <th>الحكم الإعرابي</th>
+              <th>علامة الإعراب</th>
+              <th>مثال</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag-ism">المفرد العلم</span></td>
+              <td>مبني على الضم</td>
+              <td class="irab-sign">الضمة</td>
+              <td class="irab-word">يا محمدُ</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-highlight">النكرة المقصودة</span></td>
+              <td>مبنية على الضم</td>
+              <td class="irab-sign">الضمة</td>
+              <td class="irab-word">يا رجلُ</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-nakira">النكرة غير المقصودة</span></td>
+              <td>منصوبة</td>
+              <td class="irab-sign">الفتحة</td>
+              <td class="irab-word">يا رجلاً</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-fil">المضاف</span></td>
+              <td>منصوب</td>
+              <td class="irab-sign">الفتحة</td>
+              <td class="irab-word">يا عبدَ الله</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-green">شبه المضاف</span></td>
+              <td>منصوب</td>
+              <td class="irab-sign">الفتحة</td>
+              <td class="irab-word">يا طالعاً جبلاً</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note gold">
+          <strong>قاعدة ذهبية:</strong> نوعان فقط يُبنيان على الضم وهما (المفرد
+          العلم) و(النكرة المقصودة)، والأنواع الثلاثة الأخرى تُنصب بالفتحة لأنها
+          ليست أعلاماً مفردة محددة عند النداء.
+        </div>
+
+        <h3 class="sub-title">🔍 الفرق بين البناء والنصب في المنادى</h3>
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title">🔒 المبني على الضم (ظاهرياً مرفوع)</div>
+            <p>
+              المفرد العلم والنكرة المقصودة مبنيان على الضم، لكنهما في
+              <span class="highlight-word">محل نصب</span>. الضمة هنا ليست علامة
+              رفع بل هي حركة البناء.
+            </p>
+            <div class="note" style="margin-top: 10px">
+              <strong>يا عليُّ</strong> → عليُّ: منادى مبني على الضم في محل نصب.
+            </div>
+          </div>
+          <div class="card blue">
+            <div class="card-title">📐 المنصوب بالفتحة</div>
+            <p>
+              المضاف وشبهه والنكرة غير المقصودة تُنصب صريحاً بالفتحة الظاهرة،
+              وإعرابها:
+              <span class="highlight-blue"
+                >منادى منصوب وعلامة نصبه الفتحة الظاهرة</span
+              >.
+            </p>
+            <div class="note blue" style="margin-top: 10px">
+              <strong>يا عبدَ الله</strong> → عبدَ: منادى منصوب وعلامة نصبه
+              الفتحة الظاهرة.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 4 — المنادى المفرد العلم
+      ══════════════════════════════════════════════════ -->
+      <section id="s4">
+        <h2 class="section-title">
+          <span class="section-num">٤</span>المنادى المفرد العلم
+        </h2>
+
+        <div class="def-box">
+          <p>
+            هو كل اسمٍ علَم (اسم شخص أو مكان أو ما يُعامَل معاملة العلم) يقع
+            منادى <strong>مفرداً</strong>، أي ليس مضافاً ولا شبيهاً بالمضاف.
+            حكمه: <span class="highlight-word">مبني على الضم في محل نصب</span>.
+          </p>
+        </div>
+
+        <div class="note">
+          <strong>المقصود بـ"المفرد":</strong> أنه ليس مضافاً ولا مثنى ولا جمعاً
+          مذكراً سالماً في الإعراب، وإن كان علماً. فـ"خالد" و"فاطمة" و"مكة" كلها
+          أعلام مفردة.
+        </div>
+
+        <h3 class="sub-title">📌 الحالات التفصيلية للمفرد العلم</h3>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title">① العلم المفرد العادي</div>
+            <p>يُبنى على الضم.</p>
+            <div class="ex-row" style="margin-top: 10px">
+              <span class="ex-num">١</span>
+              <span class="ex-text"
+                >يا <span class="highlight-word">خالدُ</span> أقبِلْ</span
+              >
+            </div>
+            <div class="ex-row">
+              <span class="ex-num">٢</span>
+              <span class="ex-text"
+                >يا <span class="highlight-word">فاطمةُ</span> اجلِسي</span
+              >
+            </div>
+          </div>
+          <div class="card blue">
+            <div class="card-title">
+              ② العلم المنتهي بياء المتكلم (ربِّي، أبي)
+            </div>
+            <p>
+              يُحذف حرف النداء وجوباً مع لفظ الجلالة وكثيراً مع (رب، أب، أم،
+              ابن).
+            </p>
+            <div class="ex-row blue" style="margin-top: 10px">
+              <span class="ex-num">١</span>
+              <span class="ex-text"
+                >يا <span class="highlight-blue">ربِّ</span> اغفر لي</span
+              >
+              <span class="ex-note">← الياء محذوفة أو ساكنة</span>
+            </div>
+          </div>
+          <div class="card gold">
+            <div class="card-title">
+              ③ المنادى المعرَّف بـ(أيُّها / أيَّتها)
+            </div>
+            <p>
+              إذا أُريد نداء المعرَّف بـ(ال) استُعمل (أيُّها) للمذكر و(أيَّتها)
+              للمؤنث، لأن حروف النداء لا تدخل على المعرَّف بـ(ال) مباشرةً.
+            </p>
+            <div class="ex-row gold" style="margin-top: 10px">
+              <span class="ex-num">١</span>
+              <span class="ex-text"
+                >يا <span class="highlight-gold">أيُّهَا</span> الناسُ</span
+              >
+            </div>
+            <div class="ex-row gold">
+              <span class="ex-num">٢</span>
+              <span class="ex-text"
+                >يا <span class="highlight-gold">أيَّتُهَا</span> النفسُ
+                المطمئنةُ</span
+              >
+            </div>
+          </div>
+          <div class="card green">
+            <div class="card-title">④ العلم المثنى وجمع المذكر السالم</div>
+            <p>يُعرب إعراب المثنى وجمع المذكر السالم لأنه لا يقبل البناء.</p>
+            <div class="ex-row green" style="margin-top: 10px">
+              <span class="ex-num">١</span>
+              <span class="ex-text"
+                >يا <span class="highlight-green">محمدانِ</span> (مثنى)</span
+              >
+              <span class="ex-note">← بالألف رفعاً</span>
+            </div>
+            <div class="ex-row green">
+              <span class="ex-num">٢</span>
+              <span class="ex-text"
+                >يا <span class="highlight-green">محمدونَ</span> (جمع)</span
+              >
+              <span class="ex-note">← بالواو رفعاً</span>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="sub-title">🌿 شواهد قرآنية</h3>
+        <div class="quran-box">
+          <div class="quran-text">﴿يَا آدَمُ أَنبِئْهُم بِأَسْمَائِهِمْ﴾</div>
+          <div class="quran-note">
+            البقرة: ٣٣ — <span class="highlight-word">آدَمُ</span>: منادى مبني
+            على الضم في محل نصب، وهو علم مفرد.
+          </div>
+        </div>
+        <div class="quran-box">
+          <div class="quran-text">﴿يَا إِبْرَاهِيمُ أَعْرِضْ عَنْ هَـٰذَا﴾</div>
+          <div class="quran-note">
+            هود: ٧٦ — <span class="highlight-word">إِبْرَاهِيمُ</span>: منادى
+            علم مبني على الضم في محل نصب.
+          </div>
+        </div>
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿يَا أَيُّهَا النَّبِيُّ إِنَّا أَرْسَلْنَاكَ شَاهِدًا﴾
+          </div>
+          <div class="quran-note">
+            الأحزاب: ٤٥ — <span class="highlight-word">أَيُّهَا</span>: منادى
+            مبني على الضم في محل نصب، و<span class="highlight-word"
+              >النَّبِيُّ</span
+            >: نعت (عطف بيان) مرفوع.
+          </div>
+        </div>
+
+        <h3 class="sub-title">📝 إعراب تفصيلي</h3>
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>الجملة</th>
+              <th>إعراب المنادى</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word">يا محمدُ</td>
+              <td>منادى مبني على الضم في محل نصب</td>
+            </tr>
+            <tr>
+              <td class="irab-word">يا فاطمةُ</td>
+              <td>منادى مبني على الضم في محل نصب</td>
+            </tr>
+            <tr>
+              <td class="irab-word">يا أيُّها الناسُ</td>
+              <td>أيُّ: منادى مبني على الضم في محل نصب / الناسُ: نعت مرفوع</td>
+            </tr>
+            <tr>
+              <td class="irab-word">يا أيَّتها المرأةُ</td>
+              <td>
+                أيَّتُ: منادى مبني على الضم في محل نصب / المرأةُ: نعت مرفوع
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 5 — المضاف وشبه المضاف
+      ══════════════════════════════════════════════════ -->
+      <section id="s5">
+        <h2 class="section-title">
+          <span class="section-num">٥</span>المنادى المضاف وشبه المضاف
+        </h2>
+
+        <!-- المضاف -->
+        <h3 class="sub-title">أولاً: المنادى المضاف</h3>
+
+        <div class="def-box">
+          <p>
+            هو المنادى المتصل بمضاف إليه بعده. حكمه:
+            <span class="highlight-word">منصوب وعلامة نصبه الفتحة الظاهرة</span
+            >، لأنه لم يصر معيَّناً محدداً بذاته بل تعيَّن بإضافته.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title">المضاف إلى اسم ظاهر</div>
+            <div class="ex-row" style="margin-top: 8px">
+              <span class="ex-num">١</span>
+              <span class="ex-text"
+                >يا <span class="highlight-word">عبدَ</span> الله</span
+              >
+              <span class="ex-note">عبدَ: منصوب بالفتحة</span>
+            </div>
+            <div class="ex-row">
+              <span class="ex-num">٢</span>
+              <span class="ex-text"
+                >يا <span class="highlight-word">طالبَ</span> العلم</span
+              >
+              <span class="ex-note">طالبَ: منصوب بالفتحة</span>
+            </div>
+            <div class="ex-row">
+              <span class="ex-num">٣</span>
+              <span class="ex-text"
+                >يا <span class="highlight-word">أهلَ</span> الكتاب</span
+              >
+              <span class="ex-note">أهلَ: منصوب بالفتحة</span>
+            </div>
+          </div>
+          <div class="card blue">
+            <div class="card-title">المضاف إلى ياء المتكلم</div>
+            <p>إذا أُضيف المنادى إلى ياء المتكلم، جاز فيها وجوه:</p>
+            <div class="ex-row blue" style="margin-top: 8px">
+              <span class="ex-num">١</span>
+              <span class="ex-text"
+                >يا <span class="highlight-blue">ربِّي</span> — أو — يا
+                <span class="highlight-blue">ربِّ</span></span
+              >
+              <span class="ex-note">إثبات الياء أو حذفها</span>
+            </div>
+            <div class="ex-row blue">
+              <span class="ex-num">٢</span>
+              <span class="ex-text"
+                >يا <span class="highlight-blue">أبي</span> — أو — يا
+                <span class="highlight-blue">أبَتِ</span></span
+              >
+              <span class="ex-note">الياء أو تاء التأنيث عوضاً</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿يَا أَهْلَ الْكِتَابِ قَدْ جَاءَكُمْ رَسُولُنَا﴾
+          </div>
+          <div class="quran-note">
+            المائدة: ١٥ — <span class="highlight-word">أَهْلَ</span>: منادى
+            منصوب وعلامة نصبه الفتحة الظاهرة، وهو مضاف.
+          </div>
+        </div>
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿يَا عِبَادِيَ الَّذِينَ آمَنُوا إِنَّ أَرْضِي وَاسِعَةٌ﴾
+          </div>
+          <div class="quran-note">
+            العنكبوت: ٥٦ — <span class="highlight-word">عِبَادِيَ</span>: منادى
+            منصوب مضاف إلى ياء المتكلم.
+          </div>
+        </div>
+        <div class="quran-box">
+          <div class="quran-text">﴿رَبِّ اغْفِرْ لِي وَلِوَالِدَيَّ﴾</div>
+          <div class="quran-note">
+            نوح: ٢٨ — <span class="highlight-word">رَبِّ</span>: منادى منصوب
+            مضاف إلى ياء المتكلم المحذوفة (أصله: يا ربِّي).
+          </div>
+        </div>
+
+        <div class="sep" style="margin: 22px 0"></div>
+
+        <!-- شبه المضاف -->
+        <h3 class="sub-title blue">ثانياً: المنادى شبه المضاف</h3>
+
+        <div class="def-box">
+          <p>
+            هو المنادى الذي اتصل به شيء من تمام معناه بعده (ليس مضافاً إليه، بل
+            مفعول به أو نعت). ويُسمى شبيهاً بالمضاف لأن ما بعده مكمِّل لمعناه.
+            حكمه:
+            <span class="highlight-word">منصوب وعلامة نصبه الفتحة الظاهرة</span
+            >.
+          </p>
+        </div>
+
+        <div class="note blue">
+          <strong>الفرق بين المضاف وشبه المضاف:</strong> في المضاف يكون ما بعده
+          مضافاً إليه (مجروراً)، أما في شبه المضاف فما بعده مفعول به (منصوب) أو
+          يتعلق بحرف جر.
+        </div>
+
+        <div class="card-grid">
+          <div class="card blue">
+            <div class="card-title">🔹 المتصل بمفعوله</div>
+            <div class="ex-row blue" style="margin-top: 8px">
+              <span class="ex-num">١</span>
+              <span class="ex-text"
+                >يا <span class="highlight-blue">طالعاً</span> جبلاً</span
+              >
+              <span class="ex-note">جبلاً: مفعول به منصوب</span>
+            </div>
+            <div class="ex-row blue">
+              <span class="ex-num">٢</span>
+              <span class="ex-text"
+                >يا <span class="highlight-blue">رافعاً</span> راية الحق</span
+              >
+              <span class="ex-note">راية: مفعول به</span>
+            </div>
+          </div>
+          <div class="card green">
+            <div class="card-title">🔹 المتصل بمجروره بحرف</div>
+            <div class="ex-row green" style="margin-top: 8px">
+              <span class="ex-num">١</span>
+              <span class="ex-text"
+                >يا <span class="highlight-green">حسناً</span> خُلُقُه</span
+              >
+              <span class="ex-note">خُلُقُه: فاعل مرفوع</span>
+            </div>
+            <div class="ex-row green">
+              <span class="ex-num">٢</span>
+              <span class="ex-text"
+                >يا <span class="highlight-green">كريماً</span> أبوه</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <h3 class="sub-title">📝 إعراب مقارن: المضاف وشبه المضاف</h3>
+        <table class="th-blue">
+          <thead>
+            <tr>
+              <th>الجملة</th>
+              <th>النوع</th>
+              <th>إعراب المنادى</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word">يا عبدَ الله</td>
+              <td><span class="tag tag-ism">مضاف</span></td>
+              <td>منادى منصوب بالفتحة، وهو مضاف، والله: مضاف إليه مجرور</td>
+            </tr>
+            <tr>
+              <td class="irab-word">يا أهلَ المدينة</td>
+              <td><span class="tag tag-ism">مضاف</span></td>
+              <td>منادى منصوب بالفتحة، مضاف، المدينة: مضاف إليه مجرور</td>
+            </tr>
+            <tr>
+              <td class="irab-word">يا طالعاً جبلاً</td>
+              <td><span class="tag tag-fil">شبه مضاف</span></td>
+              <td>منادى منصوب بالفتحة، شبيه بالمضاف، جبلاً: مفعول به منصوب</td>
+            </tr>
+            <tr>
+              <td class="irab-word">يا كريماً أبوه</td>
+              <td><span class="tag tag-fil">شبه مضاف</span></td>
+              <td>منادى منصوب بالفتحة، شبيه بالمضاف، أبوه: فاعل مرفوع</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 6 — النكرة المقصودة وغير المقصودة
+      ══════════════════════════════════════════════════ -->
+      <section id="s6">
+        <h2 class="section-title">
+          <span class="section-num">٦</span>النكرة المقصودة وغير المقصودة
+        </h2>
+
+        <div class="def-box">
+          <p>
+            المنادى النكرة نوعان: إما أن يكون المتكلم يقصد شخصاً بعينه بالنداء
+            (<span class="highlight-word">مقصودة</span>)، أو ينادي من غير قصد
+            شخص محدد كالنداء في حالة الحزن أو الدهشة (<span
+              class="highlight-word"
+              >غير مقصودة</span
+            >).
+          </p>
+        </div>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title">النكرة المقصودة</div>
+            <p>
+              ينادي المتكلم شخصاً أو شيئاً معيَّناً أمامه وإن لم يعرف اسمه، مثل
+              أن يقول لشخص يراه: <strong>يا رجلُ!</strong> — فهو يقصده بعينه.
+            </p>
+            <div class="note" style="margin-top: 12px">
+              <strong>حكمها:</strong> مبنية على الضم في محل نصب، مثل المفرد
+              العلم.
+            </div>
+            <div class="ex-row" style="margin-top: 8px">
+              <span class="ex-num">١</span>
+              <span class="ex-text"
+                >يا <span class="highlight-word">رجلُ</span> أقبِلْ</span
+              >
+              <span class="ex-note">— يخاطب رجلاً بعينه</span>
+            </div>
+            <div class="ex-row">
+              <span class="ex-num">٢</span>
+              <span class="ex-text"
+                >يا <span class="highlight-word">طالبُ</span> انتبِه</span
+              >
+              <span class="ex-note">— يخاطب طالباً محدداً</span>
+            </div>
+          </div>
+          <div class="card blue">
+            <div class="card-title">النكرة غير المقصودة</div>
+            <p>
+              ينادي المتكلم دون أن يقصد شخصاً بعينه، كمن يبكي ويقول:
+              <strong>يا رجلاً يُساعدني!</strong> — فلا يخاطب أحداً محدداً.
+            </p>
+            <div class="note blue" style="margin-top: 12px">
+              <strong>حكمها:</strong> منصوبة بالفتحة الظاهرة.
+            </div>
+            <div class="ex-row blue" style="margin-top: 8px">
+              <span class="ex-num">١</span>
+              <span class="ex-text"
+                >يا <span class="highlight-blue">رجلاً</span> يُعينني</span
+              >
+              <span class="ex-note">— لا يقصد أحداً بعينه</span>
+            </div>
+            <div class="ex-row blue">
+              <span class="ex-num">٢</span>
+              <span class="ex-text"
+                >يا <span class="highlight-blue">غائباً</span> عنِّي</span
+              >
+              <span class="ex-note">— نداء الحزن</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="note gold">
+          <strong>طريقة التمييز بينهما:</strong> إذا كان المنادى يخاطب شخصاً أو
+          شيئاً بعينه موجوداً أو مقصوداً — فهو مقصود → يُبنى على الضم. وإذا كان
+          النداء في فراغ أو حزن أو دهشة دون توجيه لشيء محدد — فهو غير مقصود →
+          يُنصب بالفتحة.
+        </div>
+
+        <h3 class="sub-title">📝 إعراب تفصيلي مقارن</h3>
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>الجملة</th>
+              <th>النوع</th>
+              <th>الإعراب</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word">يا رجلُ</td>
+              <td><span class="tag tag-ism">مقصودة</span></td>
+              <td>منادى مبني على الضم في محل نصب</td>
+            </tr>
+            <tr>
+              <td class="irab-word">يا رجلاً يُغيثني</td>
+              <td><span class="tag tag-nakira">غير مقصودة</span></td>
+              <td>منادى منصوب وعلامة نصبه الفتحة الظاهرة</td>
+            </tr>
+            <tr>
+              <td class="irab-word">يا طالبُ اجتهِد</td>
+              <td><span class="tag tag-ism">مقصودة</span></td>
+              <td>منادى مبني على الضم في محل نصب</td>
+            </tr>
+            <tr>
+              <td class="irab-word">يا صاحباً وفياً</td>
+              <td><span class="tag tag-nakira">غير مقصودة</span></td>
+              <td>منادى منصوب وعلامة نصبه الفتحة الظاهرة</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="sub-title">🌿 شواهد قرآنية</h3>
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿يَا أَيُّهَا الَّذِينَ كَفَرُوا لَا تَعْتَذِرُوا الْيَوْمَ﴾
+          </div>
+          <div class="quran-note">
+            التحريم: ٧ — نداء موجَّه لمجموعة معينة مقصودة، فـ(أيُّها) مبنية على
+            الضم.
+          </div>
+        </div>
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿يَا أَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ ارْجِعِي إِلَىٰ رَبِّكِ﴾
+          </div>
+          <div class="quran-note">
+            الفجر: ٢٧ — <span class="highlight-word">أَيَّتُهَا</span>: منادى
+            مبني على الضم في محل نصب، و<span class="highlight-word"
+              >النَّفْسُ</span
+            >: نعت مرفوع.
+          </div>
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 7 — الملخص الشامل
+      ══════════════════════════════════════════════════ -->
+      <section id="s7">
+        <h2 class="section-title">
+          <span class="section-num">٧</span>الملخص الشامل
+        </h2>
+
+        <div class="sum-grid">
+          <div class="sum-card">
+            <div class="sum-icon">📢</div>
+            <div class="sum-title">أداة النداء الأشهر</div>
+            <div class="sum-text">
+              <strong>يا</strong> — تصلح للقريب والبعيد وهي الأكثر في القرآن
+              الكريم والفصيح.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🔒</div>
+            <div class="sum-title">مبني على الضم</div>
+            <div class="sum-text">
+              المفرد العلم والنكرة المقصودة — في محل نصب.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">📐</div>
+            <div class="sum-title">منصوب بالفتحة</div>
+            <div class="sum-text">
+              المضاف + شبه المضاف + النكرة غير المقصودة.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">➕</div>
+            <div class="sum-title">المضاف</div>
+            <div class="sum-text">
+              ما بعده مضاف إليه مجرور. مثل: يا عبدَ الله.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🔗</div>
+            <div class="sum-title">شبه المضاف</div>
+            <div class="sum-text">
+              ما بعده مفعول به أو جار ومجرور. مثل: يا طالعاً جبلاً.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🎯</div>
+            <div class="sum-title">المقصودة vs غير المقصودة</div>
+            <div class="sum-text">
+              المقصودة: تخاطب معيَّناً → ضم. غير المقصودة: نداء مبهم → فتح.
+            </div>
+          </div>
+        </div>
+
+        <!-- جدول الملخص النهائي -->
+        <h3 class="sub-title" style="margin-top: 32px">
+          📊 جدول مرجعي شامل للمنادى
+        </h3>
+        <table>
+          <thead>
+            <tr>
+              <th>النوع</th>
+              <th>تعريفه</th>
+              <th>حكمه الإعرابي</th>
+              <th>مثال</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag-ism">المفرد العلم</span></td>
+              <td>علم مفرد (ليس مضافاً)</td>
+              <td class="irab-sign">مبني على الضم في محل نصب</td>
+              <td class="irab-word">يا محمدُ</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-highlight">النكرة المقصودة</span></td>
+              <td>نكرة يُقصد بها شخص بعينه</td>
+              <td class="irab-sign">مبني على الضم في محل نصب</td>
+              <td class="irab-word">يا رجلُ</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-nakira">النكرة غير المقصودة</span></td>
+              <td>نداء مبهم دون قصد معيَّن</td>
+              <td class="irab-sign">منصوب بالفتحة</td>
+              <td class="irab-word">يا رجلاً</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-fil">المضاف</span></td>
+              <td>يتبعه مضاف إليه</td>
+              <td class="irab-sign">منصوب بالفتحة</td>
+              <td class="irab-word">يا عبدَ الله</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-green">شبه المضاف</span></td>
+              <td>يتبعه ما يكمل معناه</td>
+              <td class="irab-sign">منصوب بالفتحة</td>
+              <td class="irab-word">يا طالعاً جبلاً</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer
+      style="
+        background: var(--dark);
+        color: #a0a8c0;
+        text-align: center;
+        padding: 24px 20px;
+        font-size: 0.88rem;
+        margin-top: 10px;
+      "
+    >
+      <p style="margin-bottom: 6px">أساسيات علم النحو — المنادى</p>
+      <p style="opacity: 0.6">
+        للمراجعة والتعلُّم الذاتي — جميع الشواهد من القرآن الكريم
+      </p>
+    </footer>
+
+    <script>
+      const sections = document.querySelectorAll('section[id]')
+      const navLinks = document.querySelectorAll('nav a')
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navLinks.forEach((l) => l.classList.remove('active'))
+              const active = document.querySelector(
+                `nav a[href="#${entry.target.id}"]`,
+              )
+              if (active) {
+                active.classList.add('active')
+                active.scrollIntoView({ block: 'nearest', inline: 'center' })
+              }
+            }
+          })
+        },
+        { rootMargin: '-20% 0px -70% 0px' },
+      )
+
+      sections.forEach((s) => observer.observe(s))
+
+      navLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault()
+          const target = document.querySelector(link.getAttribute('href'))
+          if (target) target.scrollIntoView({ behavior: 'smooth' })
+        })
+      })
+    </script>
+  </body>
+</html>

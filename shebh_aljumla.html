@@ -34,7 +34,11 @@
         --radius-sm: 8px;
       }
 
-      * { margin: 0; padding: 0; box-sizing: border-box; }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
       body {
         font-family: 'Scheherazade New', sans-serif;
@@ -61,7 +65,9 @@
         white-space: nowrap;
         scrollbar-width: none;
       }
-      nav::-webkit-scrollbar { display: none; }
+      nav::-webkit-scrollbar {
+        display: none;
+      }
       .nav-brand {
         font-size: 1rem;
         font-weight: 800;
@@ -82,7 +88,8 @@
         transition: all 0.2s;
         flex-shrink: 0;
       }
-      nav a:hover, nav a.active {
+      nav a:hover,
+      nav a.active {
         background: var(--purple);
         color: var(--white);
       }
@@ -99,11 +106,14 @@
         font-weight: 800;
         margin-bottom: 10px;
       }
-      .hero p { font-size: 1.1rem; opacity: 0.88; }
+      .hero p {
+        font-size: 1.1rem;
+        opacity: 0.88;
+      }
       .hero-badge {
         display: inline-block;
-        background: rgba(255,255,255,0.2);
-        border: 1px solid rgba(255,255,255,0.4);
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.4);
         padding: 4px 16px;
         border-radius: 20px;
         font-size: 0.85rem;
@@ -159,7 +169,7 @@
         padding: 22px 26px;
         margin-bottom: 22px;
         position: relative;
-        box-shadow: 0 2px 12px rgba(201,168,76,0.12);
+        box-shadow: 0 2px 12px rgba(201, 168, 76, 0.12);
       }
       .def-box::before {
         content: '📖 تعريف';
@@ -173,7 +183,10 @@
         padding: 2px 12px;
         border-radius: 20px;
       }
-      .def-box p { color: var(--text); font-weight: 500; }
+      .def-box p {
+        color: var(--text);
+        font-weight: 500;
+      }
 
       /* ── QURAN BOX ── */
       .quran-box {
@@ -183,7 +196,7 @@
         padding: 22px 26px;
         margin: 18px 0;
         position: relative;
-        box-shadow: 0 2px 12px rgba(76,175,122,0.1);
+        box-shadow: 0 2px 12px rgba(76, 175, 122, 0.1);
       }
       .quran-box::before {
         content: '🌿 قرآن كريم';
@@ -244,7 +257,9 @@
         border-top: 4px solid var(--purple);
         transition: box-shadow 0.2s;
       }
-      .card:hover { box-shadow: var(--shadow-hover); }
+      .card:hover {
+        box-shadow: var(--shadow-hover);
+      }
       .card-title {
         font-weight: 800;
         font-size: 1.05rem;
@@ -254,12 +269,24 @@
         align-items: center;
         gap: 8px;
       }
-      .card.blue { border-top-color: var(--blue); }
-      .card.blue .card-title { color: var(--blue-dark); }
-      .card.green { border-top-color: var(--green); }
-      .card.green .card-title { color: #2e7a50; }
-      .card.gold { border-top-color: var(--gold); }
-      .card.gold .card-title { color: #8a6020; }
+      .card.blue {
+        border-top-color: var(--blue);
+      }
+      .card.blue .card-title {
+        color: var(--blue-dark);
+      }
+      .card.green {
+        border-top-color: var(--green);
+      }
+      .card.green .card-title {
+        color: #2e7a50;
+      }
+      .card.gold {
+        border-top-color: var(--gold);
+      }
+      .card.gold .card-title {
+        color: #8a6020;
+      }
 
       .card-grid {
         display: grid;
@@ -277,12 +304,31 @@
         font-weight: 700;
         margin: 3px;
       }
-      .tag-ism  { background: #ede0f8; color: #6a2e8a; }
-      .tag-fil  { background: #dceefb; color: #1a5c8a; }
-      .tag-hrf  { background: #fdeedd; color: #8a5010; }
-      .tag-gold { background: #fdf0e0; color: #8a6020; border: 1px solid var(--gold); }
-      .tag-green{ background: #e0f5e8; color: #2a6a40; }
-      .tag-purple{ background: #f0e0ff; color: #6a2e8a; }
+      .tag-ism {
+        background: #ede0f8;
+        color: #6a2e8a;
+      }
+      .tag-fil {
+        background: #dceefb;
+        color: #1a5c8a;
+      }
+      .tag-hrf {
+        background: #fdeedd;
+        color: #8a5010;
+      }
+      .tag-gold {
+        background: #fdf0e0;
+        color: #8a6020;
+        border: 1px solid var(--gold);
+      }
+      .tag-green {
+        background: #e0f5e8;
+        color: #2a6a40;
+      }
+      .tag-purple {
+        background: #f0e0ff;
+        color: #6a2e8a;
+      }
 
       /* ── TABLES ── */
       table {
@@ -308,13 +354,27 @@
         border-bottom: 1px solid #efe8f4;
         color: var(--text);
       }
-      tr:last-child td { border-bottom: none; }
-      tr:nth-child(even) td { background: #faf5fc; }
-      tr:hover td { background: #f3ecf9; }
-      .th-blue th  { background: var(--blue); }
-      .th-gold th  { background: var(--gold); }
-      .th-dark th  { background: var(--dark); }
-      .th-green th { background: var(--green); }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      tr:nth-child(even) td {
+        background: #faf5fc;
+      }
+      tr:hover td {
+        background: #f3ecf9;
+      }
+      .th-blue th {
+        background: var(--blue);
+      }
+      .th-gold th {
+        background: var(--gold);
+      }
+      .th-dark th {
+        background: var(--dark);
+      }
+      .th-green th {
+        background: var(--green);
+      }
 
       .irab-word {
         font-size: 1.15rem;
@@ -336,16 +396,41 @@
         text-align: center;
         box-shadow: var(--shadow);
         border-bottom: 4px solid var(--purple);
-        transition: transform 0.2s, box-shadow 0.2s;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
       }
-      .sum-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
-      .sum-card:nth-child(2) { border-bottom-color: var(--blue); }
-      .sum-card:nth-child(3) { border-bottom-color: var(--green); }
-      .sum-card:nth-child(4) { border-bottom-color: var(--gold); }
-      .sum-card:nth-child(5) { border-bottom-color: var(--purple-light); }
-      .sum-icon { font-size: 2rem; margin-bottom: 8px; }
-      .sum-title { font-weight: 800; font-size: 1rem; color: var(--text); margin-bottom: 6px; }
-      .sum-text  { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; }
+      .sum-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
+      }
+      .sum-card:nth-child(2) {
+        border-bottom-color: var(--blue);
+      }
+      .sum-card:nth-child(3) {
+        border-bottom-color: var(--green);
+      }
+      .sum-card:nth-child(4) {
+        border-bottom-color: var(--gold);
+      }
+      .sum-card:nth-child(5) {
+        border-bottom-color: var(--purple-light);
+      }
+      .sum-icon {
+        font-size: 2rem;
+        margin-bottom: 8px;
+      }
+      .sum-title {
+        font-weight: 800;
+        font-size: 1rem;
+        color: var(--text);
+        margin-bottom: 6px;
+      }
+      .sum-text {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        line-height: 1.6;
+      }
 
       /* ── NOTE ── */
       .note {
@@ -357,7 +442,9 @@
         font-size: 0.93rem;
         color: var(--text);
       }
-      .note strong { color: var(--purple-dark); }
+      .note strong {
+        color: var(--purple-dark);
+      }
       .note.blue {
         background: #f0f8ff;
         border-right-color: var(--blue);
@@ -372,25 +459,41 @@
       }
 
       .highlight-word {
-        background: linear-gradient(to top, var(--purple-light) 10%, transparent 10%);
+        background: linear-gradient(
+          to top,
+          var(--purple-light) 10%,
+          transparent 10%
+        );
         padding: 0 3px;
         border-radius: 2px;
         font-weight: 700;
       }
       .highlight-blue {
-        background: linear-gradient(to top, var(--blue-light) 10%, transparent 10%);
+        background: linear-gradient(
+          to top,
+          var(--blue-light) 10%,
+          transparent 10%
+        );
         padding: 0 3px;
         border-radius: 2px;
         font-weight: 700;
       }
       .highlight-gold {
-        background: linear-gradient(to top, var(--gold-light) 10%, transparent 10%);
+        background: linear-gradient(
+          to top,
+          var(--gold-light) 10%,
+          transparent 10%
+        );
         padding: 0 3px;
         border-radius: 2px;
         font-weight: 700;
       }
       .highlight-green {
-        background: linear-gradient(to top, var(--green-light) 10%, transparent 10%);
+        background: linear-gradient(
+          to top,
+          var(--green-light) 10%,
+          transparent 10%
+        );
         padding: 0 3px;
         border-radius: 2px;
         font-weight: 700;
@@ -403,7 +506,7 @@
         border-radius: var(--radius);
         padding: 18px 22px;
         margin: 12px 0;
-        box-shadow: 0 2px 8px rgba(179,112,164,0.08);
+        box-shadow: 0 2px 8px rgba(179, 112, 164, 0.08);
       }
       .example-label {
         font-size: 0.78rem;
@@ -443,11 +546,25 @@
         text-align: center;
         border-top: 3px solid var(--purple);
       }
-      .analysis-part.blue { border-top-color: var(--blue); }
-      .analysis-part.gold { border-top-color: var(--gold); }
-      .analysis-part.green { border-top-color: var(--green); }
-      .analysis-word { font-size: 1.15rem; font-weight: 800; color: var(--text); }
-      .analysis-desc { font-size: 0.78rem; color: var(--text-light); margin-top: 4px; }
+      .analysis-part.blue {
+        border-top-color: var(--blue);
+      }
+      .analysis-part.gold {
+        border-top-color: var(--gold);
+      }
+      .analysis-part.green {
+        border-top-color: var(--green);
+      }
+      .analysis-word {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: var(--text);
+      }
+      .analysis-desc {
+        font-size: 0.78rem;
+        color: var(--text-light);
+        margin-top: 4px;
+      }
 
       /* ── FLEX ROW ── */
       .flex-row {
@@ -461,37 +578,77 @@
       /* ── SEPARATOR ── */
       .sep {
         height: 2px;
-        background: linear-gradient(to left, transparent, var(--purple), transparent);
+        background: linear-gradient(
+          to left,
+          transparent,
+          var(--purple),
+          transparent
+        );
         margin: 30px 0;
         border-radius: 2px;
       }
 
       /* ── SCROLL REVEAL ── */
-      section { animation: fadeUp 0.4s ease both; }
+      section {
+        animation: fadeUp 0.4s ease both;
+      }
       @keyframes fadeUp {
-        from { opacity: 0; transform: translateY(18px); }
-        to   { opacity: 1; transform: translateY(0); }
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
       /* ── RESPONSIVE ── */
       @media (max-width: 600px) {
-        nav { gap: 4px; padding: 0 10px; }
-        nav a { padding: 10px 10px; font-size: 0.82rem; }
-        .hero { padding: 40px 16px 36px; }
-        main { padding: 28px 14px 50px; }
-        .def-box, .quran-box { padding: 18px 16px; }
-        .def-box::before, .quran-box::before { right: 14px; }
-        .quran-text { font-size: 1.05rem; }
-        table { font-size: 0.85rem; }
-        td, th { padding: 8px 10px; }
-        .sum-grid { grid-template-columns: repeat(2, 1fr); }
-        .analysis-row { flex-direction: column; }
+        nav {
+          gap: 4px;
+          padding: 0 10px;
+        }
+        nav a {
+          padding: 10px 10px;
+          font-size: 0.82rem;
+        }
+        .hero {
+          padding: 40px 16px 36px;
+        }
+        main {
+          padding: 28px 14px 50px;
+        }
+        .def-box,
+        .quran-box {
+          padding: 18px 16px;
+        }
+        .def-box::before,
+        .quran-box::before {
+          right: 14px;
+        }
+        .quran-text {
+          font-size: 1.05rem;
+        }
+        table {
+          font-size: 0.85rem;
+        }
+        td,
+        th {
+          padding: 8px 10px;
+        }
+        .sum-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .analysis-row {
+          flex-direction: column;
+        }
       }
     </style>
   </head>
   <body>
-
     <!-- NAV -->
+    <a style="text-decoration: none" href="./index.html">🏠</a>
     <nav>
       <div class="nav-brand">شبه الجملة</div>
       <a href="#s1">المدخل</a>
@@ -511,7 +668,6 @@
     </div>
 
     <main>
-
       <!-- ══════════════════════════════════════════════════
            SECTION 1 — المدخل
       ══════════════════════════════════════════════════ -->
@@ -522,8 +678,9 @@
 
         <div class="def-box">
           <p>
-            <strong>شبه الجملة</strong> هو تعبيرٌ يتكون من كلمتين أو أكثر، يؤدي وظيفة نحوية داخل الجملة،
-            لكنه ليس جملةً حقيقية (لا يحتوي على فعل مستقل + فاعل). وهو نوعان:
+            <strong>شبه الجملة</strong> هو تعبيرٌ يتكون من كلمتين أو أكثر، يؤدي
+            وظيفة نحوية داخل الجملة، لكنه ليس جملةً حقيقية (لا يحتوي على فعل
+            مستقل + فاعل). وهو نوعان:
           </p>
         </div>
 
@@ -531,32 +688,58 @@
           <div class="card">
             <div class="card-title">📌 الجار والمجرور</div>
             <p>حرف جر + اسم مجرور بعده.</p>
-            <p style="margin-top:10px"><span class="tag tag-ism">في المسجدِ</span> <span class="tag tag-fil">على الطاولةِ</span> <span class="tag tag-hrf">من البيتِ</span></p>
+            <p style="margin-top: 10px">
+              <span class="tag tag-ism">في المسجدِ</span>
+              <span class="tag tag-fil">على الطاولةِ</span>
+              <span class="tag tag-hrf">من البيتِ</span>
+            </p>
           </div>
           <div class="card blue">
             <div class="card-title">📌 الظرف (المفعول فيه)</div>
             <p>اسم يدل على زمان أو مكان وقوع الحدث، منصوب وملتزم النصب.</p>
-            <p style="margin-top:10px"><span class="tag tag-fil">يومَ الجمعةِ</span> <span class="tag tag-ism">أمامَ البيتِ</span></p>
+            <p style="margin-top: 10px">
+              <span class="tag tag-fil">يومَ الجمعةِ</span>
+              <span class="tag tag-ism">أمامَ البيتِ</span>
+            </p>
           </div>
         </div>
 
         <div class="diagram">
           <div class="diagram-title">🌳 تصنيف شبه الجملة</div>
-          <div class="tree" style="text-align:center; line-height:2.4;">
-            <div style="color:#c98fbb; font-size:1.15rem; font-weight:800;">شبه الجملة</div>
-            <div style="color:#aaa; font-size:1.5rem;">↙&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↘</div>
-            <div style="display:flex; justify-content:center; gap:80px; margin-top:4px;">
+          <div class="tree" style="text-align: center; line-height: 2.4">
+            <div style="color: #c98fbb; font-size: 1.15rem; font-weight: 800">
+              شبه الجملة
+            </div>
+            <div style="color: #aaa; font-size: 1.5rem">
+              ↙&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↘
+            </div>
+            <div
+              style="
+                display: flex;
+                justify-content: center;
+                gap: 80px;
+                margin-top: 4px;
+              "
+            >
               <div>
-                <div style="color:#9dc5e0; font-weight:800; font-size:1rem;">الجار والمجرور</div>
-                <div style="color:#ccc; font-size:0.88rem;">حرف جر + مجرور</div>
-                <div style="color:#80d4a8; margin-top:6px;">في البيتِ</div>
-                <div style="color:#80d4a8;">على الجبلِ</div>
+                <div style="color: #9dc5e0; font-weight: 800; font-size: 1rem">
+                  الجار والمجرور
+                </div>
+                <div style="color: #ccc; font-size: 0.88rem">
+                  حرف جر + مجرور
+                </div>
+                <div style="color: #80d4a8; margin-top: 6px">في البيتِ</div>
+                <div style="color: #80d4a8">على الجبلِ</div>
               </div>
               <div>
-                <div style="color:#c98fbb; font-weight:800; font-size:1rem;">الظرف</div>
-                <div style="color:#ccc; font-size:0.88rem;">اسم زمان / مكان منصوب</div>
-                <div style="color:#f0d080; margin-top:6px;">يومَ الخميسِ</div>
-                <div style="color:#f0d080;">خلفَ المسجدِ</div>
+                <div style="color: #c98fbb; font-weight: 800; font-size: 1rem">
+                  الظرف
+                </div>
+                <div style="color: #ccc; font-size: 0.88rem">
+                  اسم زمان / مكان منصوب
+                </div>
+                <div style="color: #f0d080; margin-top: 6px">يومَ الخميسِ</div>
+                <div style="color: #f0d080">خلفَ المسجدِ</div>
               </div>
             </div>
           </div>
@@ -564,7 +747,9 @@
 
         <div class="note">
           <strong>لماذا سُمِّي "شبه جملة"؟</strong>
-          لأنه يؤدي وظيفة الجملة في كثير من المواقع (خبر، صفة، حال) لكنه ليس جملةً تامة، فهو يفتقر إلى السند الحقيقي (المسند والمسند إليه المستقلّين).
+          لأنه يؤدي وظيفة الجملة في كثير من المواقع (خبر، صفة، حال) لكنه ليس
+          جملةً تامة، فهو يفتقر إلى السند الحقيقي (المسند والمسند إليه
+          المستقلّين).
         </div>
       </section>
 
@@ -580,13 +765,24 @@
 
         <div class="def-box">
           <p>
-            <strong>الجار</strong>: حرف جر مبني لا محل له من الإعراب.<br/>
-            <strong>المجرور</strong>: الاسم الواقع بعد حرف الجر، ويُعرَب مجروراً بهذا الحرف.<br/>
-            والمجموع (الحرف + الاسم) يُسمى <strong>الجار والمجرور</strong>، وهو في محل إعرابي (رفع أو نصب أو جر) بحسب موضعه من الجملة.
+            <strong>الجار</strong>: حرف جر مبني لا محل له من الإعراب.<br />
+            <strong>المجرور</strong>: الاسم الواقع بعد حرف الجر، ويُعرَب مجروراً
+            بهذا الحرف.<br />
+            والمجموع (الحرف + الاسم) يُسمى <strong>الجار والمجرور</strong>، وهو
+            في محل إعرابي (رفع أو نصب أو جر) بحسب موضعه من الجملة.
           </p>
         </div>
 
-        <h3 style="font-size:1.05rem; font-weight:700; color:var(--purple); margin: 20px 0 12px;">أشهر حروف الجر</h3>
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 20px 0 12px;
+          "
+        >
+          أشهر حروف الجر
+        </h3>
 
         <table>
           <thead>
@@ -640,60 +836,100 @@
           </tbody>
         </table>
 
-        <h3 style="font-size:1.05rem; font-weight:700; color:var(--purple); margin: 24px 0 12px;">الإعراب التفصيلي</h3>
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 24px 0 12px;
+          "
+        >
+          الإعراب التفصيلي
+        </h3>
 
         <div class="example-box">
           <div class="example-label">✏️ مثال تطبيقي</div>
-          <div class="example-text">جلسَ الطالبُ <span class="highlight-word">في المكتبةِ</span></div>
+          <div class="example-text">
+            جلسَ الطالبُ <span class="highlight-word">في المكتبةِ</span>
+          </div>
         </div>
 
         <div class="analysis-row">
           <div class="analysis-part">
             <div class="analysis-word">في</div>
-            <div class="analysis-desc">حرف جر مبني على السكون، لا محل له من الإعراب</div>
+            <div class="analysis-desc">
+              حرف جر مبني على السكون، لا محل له من الإعراب
+            </div>
           </div>
           <div class="analysis-part blue">
             <div class="analysis-word">المكتبةِ</div>
-            <div class="analysis-desc">اسم مجرور بـ(في) وعلامة جره الكسرة الظاهرة</div>
+            <div class="analysis-desc">
+              اسم مجرور بـ(في) وعلامة جره الكسرة الظاهرة
+            </div>
           </div>
           <div class="analysis-part gold">
             <div class="analysis-word">في المكتبةِ</div>
-            <div class="analysis-desc">جار ومجرور في محل نصب — متعلق بالفعل (جلسَ)</div>
+            <div class="analysis-desc">
+              جار ومجرور في محل نصب — متعلق بالفعل (جلسَ)
+            </div>
           </div>
         </div>
 
-        <h3 style="font-size:1.05rem; font-weight:700; color:var(--purple); margin: 24px 0 12px;">شواهد قرآنية</h3>
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 24px 0 12px;
+          "
+        >
+          شواهد قرآنية
+        </h3>
 
         <div class="quran-box">
           <div class="quran-text">﴿الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ﴾</div>
           <div class="quran-note">
-            الفاتحة: ٢ — <span class="highlight-word">لِلَّهِ</span>: جار ومجرور، اللام حرف جر، لفظ الجلالة مجرور بالكسرة.
-            الجار والمجرور في محل رفع خبر (الحمدُ مبتدأ).
+            الفاتحة: ٢ — <span class="highlight-word">لِلَّهِ</span>: جار
+            ومجرور، اللام حرف جر، لفظ الجلالة مجرور بالكسرة. الجار والمجرور في
+            محل رفع خبر (الحمدُ مبتدأ).
           </div>
         </div>
 
         <div class="quran-box">
-          <div class="quran-text">﴿وَمَا مِن دَابَّةٍ فِي الْأَرْضِ إِلَّا عَلَى اللَّهِ رِزْقُهَا﴾</div>
+          <div class="quran-text">
+            ﴿وَمَا مِن دَابَّةٍ فِي الْأَرْضِ إِلَّا عَلَى اللَّهِ رِزْقُهَا﴾
+          </div>
           <div class="quran-note">
-            هود: ٦ — <span class="highlight-word">فِي الْأَرْضِ</span>: جار ومجرور في محل جر صفة لـ(دابّة) — <span class="highlight-blue">عَلَى اللَّهِ</span>: جار ومجرور في محل رفع خبر مقدم.
+            هود: ٦ — <span class="highlight-word">فِي الْأَرْضِ</span>: جار
+            ومجرور في محل جر صفة لـ(دابّة) —
+            <span class="highlight-blue">عَلَى اللَّهِ</span>: جار ومجرور في محل
+            رفع خبر مقدم.
           </div>
         </div>
 
         <div class="quran-box">
-          <div class="quran-text">﴿وَإِنَّهُ فِي أُمِّ الْكِتَابِ لَدَيْنَا لَعَلِيٌّ حَكِيمٌ﴾</div>
+          <div class="quran-text">
+            ﴿وَإِنَّهُ فِي أُمِّ الْكِتَابِ لَدَيْنَا لَعَلِيٌّ حَكِيمٌ﴾
+          </div>
           <div class="quran-note">
-            الزخرف: ٤ — <span class="highlight-word">فِي أُمِّ الْكِتَابِ</span>: جار ومجرور في محل رفع خبر (إنّ).
+            الزخرف: ٤ —
+            <span class="highlight-word">فِي أُمِّ الْكِتَابِ</span>: جار ومجرور
+            في محل رفع خبر (إنّ).
           </div>
         </div>
 
         <div class="note">
-          <strong>تنبيه مهم:</strong> قد يكون المجرور ضميراً متصلاً، مثل: (فيهِ، عليهِ، لهُ، بهِ)، وحينئذٍ يُعرَب: جار ومجرور، والهاء ضمير متصل في محل جر.
+          <strong>تنبيه مهم:</strong> قد يكون المجرور ضميراً متصلاً، مثل: (فيهِ،
+          عليهِ، لهُ، بهِ)، وحينئذٍ يُعرَب: جار ومجرور، والهاء ضمير متصل في محل
+          جر.
         </div>
 
         <div class="example-box">
           <div class="example-label">✏️ أمثلة على الضمير المجرور</div>
           <div class="example-text">
-            توكلتُ <span class="highlight-word">عليهِ</span> — الكتابُ <span class="highlight-blue">لهُ</span> — مررتُ <span class="highlight-gold">بهِم</span>
+            توكلتُ <span class="highlight-word">عليهِ</span> — الكتابُ
+            <span class="highlight-blue">لهُ</span> — مررتُ
+            <span class="highlight-gold">بهِم</span>
           </div>
         </div>
       </section>
@@ -710,17 +946,21 @@
 
         <div class="def-box">
           <p>
-            <strong>الظرف</strong> (المفعول فيه) هو اسمٌ منصوبٌ يدل على زمان وقوع الحدث أو مكانه،
-            وهو في تقدير دائم: <span class="highlight-word">في + الاسم</span>.
-            فقولنا "جلستُ أمامَ البيتِ" تقديره: "جلستُ <em>في</em> أمامِ البيتِ".
+            <strong>الظرف</strong> (المفعول فيه) هو اسمٌ منصوبٌ يدل على زمان
+            وقوع الحدث أو مكانه، وهو في تقدير دائم:
+            <span class="highlight-word">في + الاسم</span>. فقولنا "جلستُ أمامَ
+            البيتِ" تقديره: "جلستُ <em>في</em> أمامِ البيتِ".
           </p>
         </div>
 
         <div class="card-grid">
           <div class="card">
             <div class="card-title">⏱ ظرف الزمان</div>
-            <p>يدل على <strong>وقت</strong> وقوع الحدث. يُعرب: ظرف زمان منصوب وعلامة نصبه الفتحة، متعلق بالفعل.</p>
-            <div style="margin-top:14px;">
+            <p>
+              يدل على <strong>وقت</strong> وقوع الحدث. يُعرب: ظرف زمان منصوب
+              وعلامة نصبه الفتحة، متعلق بالفعل.
+            </p>
+            <div style="margin-top: 14px">
               <span class="tag tag-ism">يومَ</span>
               <span class="tag tag-ism">ليلةَ</span>
               <span class="tag tag-ism">صباحَ</span>
@@ -733,8 +973,11 @@
           </div>
           <div class="card blue">
             <div class="card-title">📍 ظرف المكان</div>
-            <p>يدل على <strong>موضع</strong> وقوع الحدث. يُعرب: ظرف مكان منصوب وعلامة نصبه الفتحة، متعلق بالفعل.</p>
-            <div style="margin-top:14px;">
+            <p>
+              يدل على <strong>موضع</strong> وقوع الحدث. يُعرب: ظرف مكان منصوب
+              وعلامة نصبه الفتحة، متعلق بالفعل.
+            </p>
+            <div style="margin-top: 14px">
               <span class="tag tag-fil">أمامَ</span>
               <span class="tag tag-fil">خلفَ</span>
               <span class="tag tag-fil">فوقَ</span>
@@ -747,16 +990,29 @@
           </div>
         </div>
 
-        <h3 style="font-size:1.05rem; font-weight:700; color:var(--purple); margin: 20px 0 12px;">الإعراب التفصيلي</h3>
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 20px 0 12px;
+          "
+        >
+          الإعراب التفصيلي
+        </h3>
 
         <div class="example-box">
           <div class="example-label">✏️ ظرف زمان</div>
-          <div class="example-text">سافرَ أخي <span class="highlight-word">يومَ الجمعةِ</span></div>
+          <div class="example-text">
+            سافرَ أخي <span class="highlight-word">يومَ الجمعةِ</span>
+          </div>
         </div>
         <div class="analysis-row">
           <div class="analysis-part">
             <div class="analysis-word">يومَ</div>
-            <div class="analysis-desc">ظرف زمان منصوب وعلامة نصبه الفتحة الظاهرة</div>
+            <div class="analysis-desc">
+              ظرف زمان منصوب وعلامة نصبه الفتحة الظاهرة
+            </div>
           </div>
           <div class="analysis-part blue">
             <div class="analysis-word">الجمعةِ</div>
@@ -768,14 +1024,18 @@
           </div>
         </div>
 
-        <div class="example-box" style="margin-top:18px;">
+        <div class="example-box" style="margin-top: 18px">
           <div class="example-label">✏️ ظرف مكان</div>
-          <div class="example-text">وقفَ المعلمُ <span class="highlight-blue">أمامَ الفصلِ</span></div>
+          <div class="example-text">
+            وقفَ المعلمُ <span class="highlight-blue">أمامَ الفصلِ</span>
+          </div>
         </div>
         <div class="analysis-row">
           <div class="analysis-part">
             <div class="analysis-word">أمامَ</div>
-            <div class="analysis-desc">ظرف مكان منصوب وعلامة نصبه الفتحة الظاهرة</div>
+            <div class="analysis-desc">
+              ظرف مكان منصوب وعلامة نصبه الفتحة الظاهرة
+            </div>
           </div>
           <div class="analysis-part blue">
             <div class="analysis-word">الفصلِ</div>
@@ -787,33 +1047,57 @@
           </div>
         </div>
 
-        <h3 style="font-size:1.05rem; font-weight:700; color:var(--purple); margin: 24px 0 12px;">شواهد قرآنية</h3>
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 24px 0 12px;
+          "
+        >
+          شواهد قرآنية
+        </h3>
 
         <div class="quran-box">
           <div class="quran-text">﴿وَالنَّجْمِ إِذَا هَوَىٰ﴾</div>
           <div class="quran-note">
-            النجم: ١ — <span class="highlight-word">إِذَا</span>: ظرف زمان مبني على السكون في محل نصب، متعلق بالفعل (أقسم المحذوف).
+            النجم: ١ — <span class="highlight-word">إِذَا</span>: ظرف زمان مبني
+            على السكون في محل نصب، متعلق بالفعل (أقسم المحذوف).
           </div>
         </div>
 
         <div class="quran-box">
-          <div class="quran-text">﴿وَلَقَدْ كَرَّمْنَا بَنِي آدَمَ وَحَمَلْنَاهُمْ فِي الْبَرِّ وَالْبَحْرِ﴾</div>
+          <div class="quran-text">
+            ﴿وَلَقَدْ كَرَّمْنَا بَنِي آدَمَ وَحَمَلْنَاهُمْ فِي الْبَرِّ
+            وَالْبَحْرِ﴾
+          </div>
           <div class="quran-note">
-            الإسراء: ٧٠ — <span class="highlight-word">فِي الْبَرِّ وَالْبَحْرِ</span>: جار ومجرور يقوم مقام ظرف المكان، متعلق بالفعل (حملنا).
+            الإسراء: ٧٠ —
+            <span class="highlight-word">فِي الْبَرِّ وَالْبَحْرِ</span>: جار
+            ومجرور يقوم مقام ظرف المكان، متعلق بالفعل (حملنا).
           </div>
         </div>
 
         <div class="quran-box">
-          <div class="quran-text">﴿فَسُبْحَانَ اللَّهِ حِينَ تُمْسُونَ وَحِينَ تُصْبِحُونَ﴾</div>
+          <div class="quran-text">
+            ﴿فَسُبْحَانَ اللَّهِ حِينَ تُمْسُونَ وَحِينَ تُصْبِحُونَ﴾
+          </div>
           <div class="quran-note">
-            الروم: ١٧ — <span class="highlight-word">حِينَ تُمْسُونَ</span> و<span class="highlight-blue">حِينَ تُصْبِحُونَ</span>: ظرفا زمان منصوبان، متعلقان بالتسبيح.
+            الروم: ١٧ —
+            <span class="highlight-word">حِينَ تُمْسُونَ</span> و<span
+              class="highlight-blue"
+              >حِينَ تُصْبِحُونَ</span
+            >: ظرفا زمان منصوبان، متعلقان بالتسبيح.
           </div>
         </div>
 
         <div class="note blue">
-          <strong>فرق مهم — الظرف المتصرف وغير المتصرف:</strong><br/>
-          <strong>المتصرف:</strong> يقبل وظائف إعرابية أخرى غير الظرفية، مثل (يوم، ليل، وقت). تقول: "يومٌ مشمسٌ" — مبتدأ، وتقول: "سافرتُ يومَ الجمعة" — ظرف.<br/>
-          <strong>غير المتصرف (الملازم للظرفية):</strong> لا يُستعمل إلا ظرفاً، مثل (قطّ — لبعد الماضي، عوض — للمستقبل، إذ، إذا).
+          <strong>فرق مهم — الظرف المتصرف وغير المتصرف:</strong><br />
+          <strong>المتصرف:</strong> يقبل وظائف إعرابية أخرى غير الظرفية، مثل
+          (يوم، ليل، وقت). تقول: "يومٌ مشمسٌ" — مبتدأ، وتقول: "سافرتُ يومَ
+          الجمعة" — ظرف.<br />
+          <strong>غير المتصرف (الملازم للظرفية):</strong> لا يُستعمل إلا ظرفاً،
+          مثل (قطّ — لبعد الماضي، عوض — للمستقبل، إذ، إذا).
         </div>
       </section>
 
@@ -829,17 +1113,28 @@
 
         <div class="def-box">
           <p>
-            <strong>التعلُّق</strong> هو الارتباط المعنوي لشبه الجملة بفعل أو شبه فعل يُفسّر سبب ذكره في الجملة.
-            لا يمكن لشبه الجملة أن يكون معلَّقاً في الهواء — لا بد أن يتعلق بشيء يُكمل معناه.
+            <strong>التعلُّق</strong> هو الارتباط المعنوي لشبه الجملة بفعل أو
+            شبه فعل يُفسّر سبب ذكره في الجملة. لا يمكن لشبه الجملة أن يكون
+            معلَّقاً في الهواء — لا بد أن يتعلق بشيء يُكمل معناه.
           </p>
         </div>
 
         <div class="note">
           <strong>القاعدة:</strong> كل جار ومجرور، وكل ظرف، لا بد أن يتعلق بـ:
-          <strong>فعل</strong> أو <strong>مشتق</strong> (اسم فاعل / اسم مفعول / صفة مشبهة / مصدر) أو شيء يقوم مقامهما.
+          <strong>فعل</strong> أو <strong>مشتق</strong> (اسم فاعل / اسم مفعول /
+          صفة مشبهة / مصدر) أو شيء يقوم مقامهما.
         </div>
 
-        <h3 style="font-size:1.05rem; font-weight:700; color:var(--purple); margin: 20px 0 12px;">أنواع المتعلَّق به</h3>
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 20px 0 12px;
+          "
+        >
+          أنواع المتعلَّق به
+        </h3>
 
         <table class="th-dark">
           <thead>
@@ -858,7 +1153,10 @@
             <tr>
               <td><span class="tag tag-fil">فعل محذوف</span></td>
               <td>الكتابُ <span class="highlight-word">على المكتبِ</span></td>
-              <td>الجار والمجرور خبر، والمتعلَّق به فعل محذوف تقديره: (استقرَّ / كائنٌ)</td>
+              <td>
+                الجار والمجرور خبر، والمتعلَّق به فعل محذوف تقديره: (استقرَّ /
+                كائنٌ)
+              </td>
             </tr>
             <tr>
               <td><span class="tag tag-hrf">اسم فاعل</span></td>
@@ -872,30 +1170,53 @@
             </tr>
             <tr>
               <td><span class="tag tag-purple">مصدر</span></td>
-              <td>أُعجبتُ بـ<span class="highlight-word">سفرِهِ إلى مكةَ</span></td>
+              <td>
+                أُعجبتُ بـ<span class="highlight-word">سفرِهِ إلى مكةَ</span>
+              </td>
               <td>(إلى مكة) متعلق بالمصدر (سفر)</td>
             </tr>
           </tbody>
         </table>
 
         <div class="note gold">
-          <strong>التعلق بكون محذوف:</strong> إذا كان شبه الجملة خبراً أو صفةً أو حالاً، وأردنا أن نُقدِّر المتعلَّق به — نقول: متعلق بـ<strong>(كائن / مستقر / موجود)</strong> محذوفاً. هذا الفعل أو الوصف المحذوف هو ما يُسمى في كتب النحو <em>الكون العام</em>.
+          <strong>التعلق بكون محذوف:</strong> إذا كان شبه الجملة خبراً أو صفةً
+          أو حالاً، وأردنا أن نُقدِّر المتعلَّق به — نقول: متعلق بـ<strong
+            >(كائن / مستقر / موجود)</strong
+          >
+          محذوفاً. هذا الفعل أو الوصف المحذوف هو ما يُسمى في كتب النحو
+          <em>الكون العام</em>.
         </div>
 
-        <h3 style="font-size:1.05rem; font-weight:700; color:var(--purple); margin: 24px 0 12px;">شاهد قرآني على التعلق</h3>
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 24px 0 12px;
+          "
+        >
+          شاهد قرآني على التعلق
+        </h3>
 
         <div class="quran-box">
-          <div class="quran-text">﴿وَلِلَّهِ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ﴾</div>
+          <div class="quran-text">
+            ﴿وَلِلَّهِ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ﴾
+          </div>
           <div class="quran-note">
-            آل عمران: ١٠٩ — <span class="highlight-word">لِلَّهِ</span>: جار ومجرور خبر مقدم، متعلق بكون محذوف تقديره (مستقر).
-            <span class="highlight-blue">فِي السَّمَاوَاتِ</span>: جار ومجرور متعلق بالفعل المحذوف (استقرّ) صلة لـ(ما).
+            آل عمران: ١٠٩ — <span class="highlight-word">لِلَّهِ</span>: جار
+            ومجرور خبر مقدم، متعلق بكون محذوف تقديره (مستقر).
+            <span class="highlight-blue">فِي السَّمَاوَاتِ</span>: جار ومجرور
+            متعلق بالفعل المحذوف (استقرّ) صلة لـ(ما).
           </div>
         </div>
 
         <div class="quran-box">
-          <div class="quran-text">﴿إِنَّ الْمُتَّقِينَ فِي جَنَّاتٍ وَنَهَرٍ﴾</div>
+          <div class="quran-text">
+            ﴿إِنَّ الْمُتَّقِينَ فِي جَنَّاتٍ وَنَهَرٍ﴾
+          </div>
           <div class="quran-note">
-            القمر: ٥٤ — <span class="highlight-word">فِي جَنَّاتٍ</span>: جار ومجرور في محل رفع خبر (إنّ)، متعلق بكون محذوف تقديره (مستقرون).
+            القمر: ٥٤ — <span class="highlight-word">فِي جَنَّاتٍ</span>: جار
+            ومجرور في محل رفع خبر (إنّ)، متعلق بكون محذوف تقديره (مستقرون).
           </div>
         </div>
       </section>
@@ -912,42 +1233,72 @@
 
         <div class="def-box">
           <p>
-            يقع شبه الجملة (جار ومجرور أو ظرف) <strong>خبراً للمبتدأ</strong>، أو خبراً لـ(كان وأخواتها) أو لـ(إنّ وأخواتها).
-            وهو في هذه الحالة يكون في <span class="highlight-word">محل رفع</span>، ومتعلق بكون محذوف.
+            يقع شبه الجملة (جار ومجرور أو ظرف) <strong>خبراً للمبتدأ</strong>،
+            أو خبراً لـ(كان وأخواتها) أو لـ(إنّ وأخواتها). وهو في هذه الحالة
+            يكون في <span class="highlight-word">محل رفع</span>، ومتعلق بكون
+            محذوف.
           </p>
         </div>
 
-        <h3 style="font-size:1.05rem; font-weight:700; color:var(--purple); margin: 20px 0 12px;">أنواع الخبر من شبه الجملة</h3>
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 20px 0 12px;
+          "
+        >
+          أنواع الخبر من شبه الجملة
+        </h3>
 
         <div class="card-grid">
           <div class="card">
             <div class="card-title">١ — خبر المبتدأ</div>
-            <div class="example-box" style="margin:0;">
-              <div class="example-text">الكتابُ <span class="highlight-word">على الرفِّ</span></div>
-              <div class="example-note">شبه الجملة (على الرفِّ) في محل رفع خبر المبتدأ (الكتاب)</div>
+            <div class="example-box" style="margin: 0">
+              <div class="example-text">
+                الكتابُ <span class="highlight-word">على الرفِّ</span>
+              </div>
+              <div class="example-note">
+                شبه الجملة (على الرفِّ) في محل رفع خبر المبتدأ (الكتاب)
+              </div>
             </div>
           </div>
           <div class="card blue">
             <div class="card-title">٢ — خبر كان وأخواتها</div>
-            <div class="example-box" style="margin:0;">
-              <div class="example-text">كانَ الطالبُ <span class="highlight-blue">في الفصلِ</span></div>
+            <div class="example-box" style="margin: 0">
+              <div class="example-text">
+                كانَ الطالبُ <span class="highlight-blue">في الفصلِ</span>
+              </div>
               <div class="example-note">شبه الجملة في محل نصب خبر (كانَ)</div>
             </div>
           </div>
           <div class="card green">
             <div class="card-title">٣ — خبر إنّ وأخواتها</div>
-            <div class="example-box" style="margin:0;">
-              <div class="example-text">إنّ الرزقَ <span class="highlight-green">بيدِ اللهِ</span></div>
+            <div class="example-box" style="margin: 0">
+              <div class="example-text">
+                إنّ الرزقَ <span class="highlight-green">بيدِ اللهِ</span>
+              </div>
               <div class="example-note">شبه الجملة في محل رفع خبر (إنّ)</div>
             </div>
           </div>
         </div>
 
-        <h3 style="font-size:1.05rem; font-weight:700; color:var(--purple); margin: 24px 0 12px;">الإعراب التفصيلي</h3>
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 24px 0 12px;
+          "
+        >
+          الإعراب التفصيلي
+        </h3>
 
         <div class="example-box">
           <div class="example-label">✏️ مثال: الجارُّ والمجرور خبرًا</div>
-          <div class="example-text">النجاحُ <span class="highlight-word">في الصبرِ</span></div>
+          <div class="example-text">
+            النجاحُ <span class="highlight-word">في الصبرِ</span>
+          </div>
         </div>
         <div class="analysis-row">
           <div class="analysis-part">
@@ -968,9 +1319,11 @@
           </div>
         </div>
 
-        <div class="example-box" style="margin-top:18px;">
+        <div class="example-box" style="margin-top: 18px">
           <div class="example-label">✏️ مثال: الظرف خبرًا</div>
-          <div class="example-text">الاجتماعُ <span class="highlight-blue">صباحَ غدٍ</span></div>
+          <div class="example-text">
+            الاجتماعُ <span class="highlight-blue">صباحَ غدٍ</span>
+          </div>
         </div>
         <div class="analysis-row">
           <div class="analysis-part">
@@ -991,33 +1344,50 @@
           </div>
         </div>
 
-        <h3 style="font-size:1.05rem; font-weight:700; color:var(--purple); margin: 24px 0 12px;">شواهد قرآنية</h3>
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 24px 0 12px;
+          "
+        >
+          شواهد قرآنية
+        </h3>
 
         <div class="quran-box">
           <div class="quran-text">﴿وَاللَّهُ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ﴾</div>
           <div class="quran-note">
-            البقرة: ٢٨٤ — <span class="highlight-word">عَلَىٰ كُلِّ شَيْءٍ</span>: جار ومجرور في محل رفع، خبر متقدم لـ(اللهُ)، أو متعلق بـ(قدير).
+            البقرة: ٢٨٤ —
+            <span class="highlight-word">عَلَىٰ كُلِّ شَيْءٍ</span>: جار ومجرور
+            في محل رفع، خبر متقدم لـ(اللهُ)، أو متعلق بـ(قدير).
           </div>
         </div>
 
         <div class="quran-box">
           <div class="quran-text">﴿إِنَّ الْأَبْرَارَ لَفِي نَعِيمٍ﴾</div>
           <div class="quran-note">
-            الانفطار: ١٣ — <span class="highlight-word">لَفِي نَعِيمٍ</span>: اللام للتوكيد، (في نعيم) جار ومجرور في محل رفع خبر (إنّ).
+            الانفطار: ١٣ — <span class="highlight-word">لَفِي نَعِيمٍ</span>:
+            اللام للتوكيد، (في نعيم) جار ومجرور في محل رفع خبر (إنّ).
           </div>
         </div>
 
         <div class="quran-box">
-          <div class="quran-text">﴿إِنَّ الْمُتَّقِينَ فِي مَقَامٍ أَمِينٍ﴾</div>
+          <div class="quran-text">
+            ﴿إِنَّ الْمُتَّقِينَ فِي مَقَامٍ أَمِينٍ﴾
+          </div>
           <div class="quran-note">
-            الدخان: ٥١ — <span class="highlight-word">فِي مَقَامٍ أَمِينٍ</span>: جار ومجرور في محل رفع خبر (إنّ)، متعلق بكون محذوف.
+            الدخان: ٥١ —
+            <span class="highlight-word">فِي مَقَامٍ أَمِينٍ</span>: جار ومجرور
+            في محل رفع خبر (إنّ)، متعلق بكون محذوف.
           </div>
         </div>
 
         <div class="note">
           <strong>مسألة: الخبر المقدَّم وشبه الجملة.</strong>
-          يجوز تقديم الخبر (وهو شبه جملة) على المبتدأ. مثال: <strong>في البيتِ رجلٌ</strong>.
-          (في البيت) خبر مقدم في محل رفع، (رجلٌ) مبتدأ مؤخر. وهذا أسلوب شائع في القرآن الكريم والعربية الفصحى.
+          يجوز تقديم الخبر (وهو شبه جملة) على المبتدأ. مثال:
+          <strong>في البيتِ رجلٌ</strong>. (في البيت) خبر مقدم في محل رفع،
+          (رجلٌ) مبتدأ مؤخر. وهذا أسلوب شائع في القرآن الكريم والعربية الفصحى.
         </div>
       </section>
 
@@ -1032,54 +1402,101 @@
         </h2>
 
         <!-- ── الصفة ── -->
-        <h3 style="font-size:1.15rem; font-weight:800; color:var(--blue-dark); margin-bottom:14px;">أولًا: شبه الجملة صفةً (نعتًا)</h3>
+        <h3
+          style="
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--blue-dark);
+            margin-bottom: 14px;
+          "
+        >
+          أولًا: شبه الجملة صفةً (نعتًا)
+        </h3>
 
         <div class="def-box">
           <p>
-            يقع شبه الجملة <strong>نعتاً (صفة)</strong> للنكرة، فيكون في محل جر إذا كان المنعوت مجروراً،
-            أو في محل نصب إذا كان منصوباً، أو في محل رفع إذا كان مرفوعاً.
-            ويتعلق بكون محذوف.
+            يقع شبه الجملة <strong>نعتاً (صفة)</strong> للنكرة، فيكون في محل جر
+            إذا كان المنعوت مجروراً، أو في محل نصب إذا كان منصوباً، أو في محل
+            رفع إذا كان مرفوعاً. ويتعلق بكون محذوف.
           </p>
         </div>
 
         <div class="example-box">
           <div class="example-label">✏️ الجار والمجرور صفةً</div>
-          <div class="example-text">مررتُ برجلٍ <span class="highlight-word">في يدِهِ كتابٌ</span></div>
-          <div class="example-note">شبه الجملة (في يده) في محل جر صفة لـ(رجل) النكرة</div>
+          <div class="example-text">
+            مررتُ برجلٍ <span class="highlight-word">في يدِهِ كتابٌ</span>
+          </div>
+          <div class="example-note">
+            شبه الجملة (في يده) في محل جر صفة لـ(رجل) النكرة
+          </div>
         </div>
 
         <div class="example-box">
           <div class="example-label">✏️ الظرف صفةً</div>
-          <div class="example-text">رأيتُ طالبًا <span class="highlight-blue">أمامَ المكتبةِ</span></div>
-          <div class="example-note">شبه الجملة (أمام المكتبة) في محل نصب صفة لـ(طالب) النكرة</div>
+          <div class="example-text">
+            رأيتُ طالبًا <span class="highlight-blue">أمامَ المكتبةِ</span>
+          </div>
+          <div class="example-note">
+            شبه الجملة (أمام المكتبة) في محل نصب صفة لـ(طالب) النكرة
+          </div>
         </div>
 
         <div class="note">
-          <strong>شرط مهم:</strong> الصفة التي هي شبه جملة لا تكون إلا للنكرة. أما المعرفة فنعتها يكون جملة، لا شبه جملة — بل يكون الجار والمجرور عندها في محل نصب <em>حال</em> (انظر الحال أدناه).
+          <strong>شرط مهم:</strong> الصفة التي هي شبه جملة لا تكون إلا للنكرة.
+          أما المعرفة فنعتها يكون جملة، لا شبه جملة — بل يكون الجار والمجرور
+          عندها في محل نصب <em>حال</em> (انظر الحال أدناه).
         </div>
 
-        <h3 style="font-size:1.15rem; font-weight:800; color:var(--green); margin: 30px 0 14px;">ثانيًا: شبه الجملة حالًا</h3>
+        <h3
+          style="
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--green);
+            margin: 30px 0 14px;
+          "
+        >
+          ثانيًا: شبه الجملة حالًا
+        </h3>
 
         <div class="def-box">
           <p>
-            يقع شبه الجملة <strong>حالاً</strong> إذا جاء بعد <strong>معرفة</strong>، ووصفَ هيئة صاحبه وقت وقوع الحدث.
-            ويكون في محل نصب، متعلقاً بكون محذوف.
+            يقع شبه الجملة <strong>حالاً</strong> إذا جاء بعد
+            <strong>معرفة</strong>، ووصفَ هيئة صاحبه وقت وقوع الحدث. ويكون في
+            محل نصب، متعلقاً بكون محذوف.
           </p>
         </div>
 
         <div class="example-box">
           <div class="example-label">✏️ الجار والمجرور حالًا</div>
-          <div class="example-text">جاءَ محمدٌ <span class="highlight-gold">بيدِهِ كتابٌ</span></div>
-          <div class="example-note">شبه الجملة (بيده) في محل نصب حال من (محمد) المعرفة — أي: جاء وكتابٌ بيده</div>
+          <div class="example-text">
+            جاءَ محمدٌ <span class="highlight-gold">بيدِهِ كتابٌ</span>
+          </div>
+          <div class="example-note">
+            شبه الجملة (بيده) في محل نصب حال من (محمد) المعرفة — أي: جاء وكتابٌ
+            بيده
+          </div>
         </div>
 
         <div class="example-box">
           <div class="example-label">✏️ الظرف حالًا</div>
-          <div class="example-text">دخلَ الطالبُ <span class="highlight-blue">أمامَ الأستاذِ</span></div>
-          <div class="example-note">شبه الجملة (أمام الأستاذ) في محل نصب حال من (الطالب)</div>
+          <div class="example-text">
+            دخلَ الطالبُ <span class="highlight-blue">أمامَ الأستاذِ</span>
+          </div>
+          <div class="example-note">
+            شبه الجملة (أمام الأستاذ) في محل نصب حال من (الطالب)
+          </div>
         </div>
 
-        <h3 style="font-size:1.05rem; font-weight:700; color:var(--purple); margin: 24px 0 12px;">مقارنة سريعة — صفة أم حال؟</h3>
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 24px 0 12px;
+          "
+        >
+          مقارنة سريعة — صفة أم حال؟
+        </h3>
 
         <table class="th-blue">
           <thead>
@@ -1107,39 +1524,65 @@
             </tr>
             <tr>
               <td><strong>مثال</strong></td>
-              <td>مررتُ برجلٍ <span class="highlight-word">في يدِه كتابٌ</span></td>
-              <td>مررتُ بمحمدٍ <span class="highlight-blue">في يدِه كتابٌ</span></td>
+              <td>
+                مررتُ برجلٍ <span class="highlight-word">في يدِه كتابٌ</span>
+              </td>
+              <td>
+                مررتُ بمحمدٍ <span class="highlight-blue">في يدِه كتابٌ</span>
+              </td>
             </tr>
           </tbody>
         </table>
 
-        <h3 style="font-size:1.05rem; font-weight:700; color:var(--purple); margin: 24px 0 12px;">شواهد قرآنية</h3>
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 24px 0 12px;
+          "
+        >
+          شواهد قرآنية
+        </h3>
 
         <div class="quran-box">
           <div class="quran-text">﴿فِيهَا كُتُبٌ قَيِّمَةٌ﴾</div>
           <div class="quran-note">
-            البيّنة: ٣ — <span class="highlight-word">فِيهَا</span>: جار ومجرور في محل رفع خبر مقدم، أو يمكن اعتباره في محل رفع صفة لـ(كتب) — وهي نكرة — إذا أُعرب (كتبٌ) مبتدأ مؤخراً.
+            البيّنة: ٣ — <span class="highlight-word">فِيهَا</span>: جار ومجرور
+            في محل رفع خبر مقدم، أو يمكن اعتباره في محل رفع صفة لـ(كتب) — وهي
+            نكرة — إذا أُعرب (كتبٌ) مبتدأ مؤخراً.
           </div>
         </div>
 
         <div class="quran-box">
           <div class="quran-text">﴿وَجَاءُوا أَبَاهُمْ عِشَاءً يَبْكُونَ﴾</div>
           <div class="quran-note">
-            يوسف: ١٦ — <span class="highlight-word">عِشَاءً</span>: ظرف زمان في محل نصب حال، يصف هيئة مجيئهم — أي: جاؤوا في وقت العشاء.
+            يوسف: ١٦ — <span class="highlight-word">عِشَاءً</span>: ظرف زمان في
+            محل نصب حال، يصف هيئة مجيئهم — أي: جاؤوا في وقت العشاء.
           </div>
         </div>
 
         <div class="quran-box">
-          <div class="quran-text">﴿وَادْخُلُوا الْبَابَ سُجَّدًا وَقُولُوا حِطَّةٌ﴾</div>
+          <div class="quran-text">
+            ﴿وَادْخُلُوا الْبَابَ سُجَّدًا وَقُولُوا حِطَّةٌ﴾
+          </div>
           <div class="quran-note">
-            البقرة: ٥٨ — <span class="highlight-word">سُجَّدًا</span>: حال من الفاعل (واو الجماعة)، وهي حال مفردة — لكن يُقاس عليها: لو قيل (ادخلوا البابَ <em>على رُكبِهم</em>) لكان الجار والمجرور حالاً من الفاعل.
+            البقرة: ٥٨ — <span class="highlight-word">سُجَّدًا</span>: حال من
+            الفاعل (واو الجماعة)، وهي حال مفردة — لكن يُقاس عليها: لو قيل
+            (ادخلوا البابَ <em>على رُكبِهم</em>) لكان الجار والمجرور حالاً من
+            الفاعل.
           </div>
         </div>
 
         <div class="quran-box">
-          <div class="quran-text">﴿أَيَوَدُّ أَحَدُكُمْ أَن تَكُونَ لَهُ جَنَّةٌ مِّن نَّخِيلٍ وَأَعْنَابٍ﴾</div>
+          <div class="quran-text">
+            ﴿أَيَوَدُّ أَحَدُكُمْ أَن تَكُونَ لَهُ جَنَّةٌ مِّن نَّخِيلٍ
+            وَأَعْنَابٍ﴾
+          </div>
           <div class="quran-note">
-            البقرة: ٢٦٦ — <span class="highlight-word">مِّن نَّخِيلٍ وَأَعْنَابٍ</span>: جار ومجرور في محل جر صفة لـ(جنّة) النكرة.
+            البقرة: ٢٦٦ —
+            <span class="highlight-word">مِّن نَّخِيلٍ وَأَعْنَابٍ</span>: جار
+            ومجرور في محل جر صفة لـ(جنّة) النكرة.
           </div>
         </div>
       </section>
@@ -1158,32 +1601,55 @@
           <div class="sum-card">
             <div class="sum-icon">📌</div>
             <div class="sum-title">التعريف</div>
-            <div class="sum-text">تعبير من كلمتين أو أكثر يؤدي وظيفة نحوية، نوعاه: الجار والمجرور، والظرف.</div>
+            <div class="sum-text">
+              تعبير من كلمتين أو أكثر يؤدي وظيفة نحوية، نوعاه: الجار والمجرور،
+              والظرف.
+            </div>
           </div>
           <div class="sum-card">
             <div class="sum-icon">🔗</div>
             <div class="sum-title">الجار والمجرور</div>
-            <div class="sum-text">حرف جر + اسم مجرور. لا محل للحرف، وللاسم محل بحسب الجر. المجموع له محل إعرابي.</div>
+            <div class="sum-text">
+              حرف جر + اسم مجرور. لا محل للحرف، وللاسم محل بحسب الجر. المجموع له
+              محل إعرابي.
+            </div>
           </div>
           <div class="sum-card">
             <div class="sum-icon">⏱</div>
             <div class="sum-title">الظرف</div>
-            <div class="sum-text">اسم منصوب يدل على زمان أو مكان. دائماً في تقدير (في + الاسم). متعلق بفعل أو مشتق.</div>
+            <div class="sum-text">
+              اسم منصوب يدل على زمان أو مكان. دائماً في تقدير (في + الاسم).
+              متعلق بفعل أو مشتق.
+            </div>
           </div>
           <div class="sum-card">
             <div class="sum-icon">⚡</div>
             <div class="sum-title">التعلّق</div>
-            <div class="sum-text">شبه الجملة لا بد أن يتعلق بفعل أو مشتق. إن لم يُذكر قُدِّر بـ (كائن/مستقر) محذوف.</div>
+            <div class="sum-text">
+              شبه الجملة لا بد أن يتعلق بفعل أو مشتق. إن لم يُذكر قُدِّر بـ
+              (كائن/مستقر) محذوف.
+            </div>
           </div>
           <div class="sum-card">
             <div class="sum-icon">📝</div>
             <div class="sum-title">الوظائف</div>
-            <div class="sum-text">خبراً (في محل رفع) — صفةً للنكرة — حالاً من المعرفة (في محل نصب).</div>
+            <div class="sum-text">
+              خبراً (في محل رفع) — صفةً للنكرة — حالاً من المعرفة (في محل نصب).
+            </div>
           </div>
         </div>
 
-        <div style="margin-top: 32px;">
-          <h3 style="font-size:1.05rem; font-weight:700; color:var(--purple-dark); margin-bottom:14px;">جدول المحل الإعرابي لشبه الجملة</h3>
+        <div style="margin-top: 32px">
+          <h3
+            style="
+              font-size: 1.05rem;
+              font-weight: 700;
+              color: var(--purple-dark);
+              margin-bottom: 14px;
+            "
+          >
+            جدول المحل الإعرابي لشبه الجملة
+          </h3>
           <table class="th-dark">
             <thead>
               <tr>
@@ -1204,36 +1670,55 @@
                 <td><span class="tag tag-fil">خبر كان</span></td>
                 <td>في محل نصب</td>
                 <td>—</td>
-                <td>كانَ الأمرُ <span class="highlight-blue">بيدِ اللهِ</span></td>
+                <td>
+                  كانَ الأمرُ <span class="highlight-blue">بيدِ اللهِ</span>
+                </td>
               </tr>
               <tr>
                 <td><span class="tag tag-hrf">خبر إنّ</span></td>
                 <td>في محل رفع</td>
                 <td>—</td>
-                <td>إنّ المجدَّ <span class="highlight-word">في مقامٍ رفيعٍ</span></td>
+                <td>
+                  إنّ المجدَّ <span class="highlight-word">في مقامٍ رفيعٍ</span>
+                </td>
               </tr>
               <tr>
                 <td><span class="tag tag-green">صفة (نعت)</span></td>
                 <td>يتبع المنعوت</td>
                 <td>المنعوت نكرة</td>
-                <td>مررتُ برجلٍ <span class="highlight-gold">عندَه علمٌ</span></td>
+                <td>
+                  مررتُ برجلٍ <span class="highlight-gold">عندَه علمٌ</span>
+                </td>
               </tr>
               <tr>
                 <td><span class="tag tag-purple">حال</span></td>
                 <td>في محل نصب</td>
                 <td>صاحب الحال معرفة</td>
-                <td>جاءَ الأستاذُ <span class="highlight-blue">في يدِهِ كتابٌ</span></td>
+                <td>
+                  جاءَ الأستاذُ
+                  <span class="highlight-blue">في يدِهِ كتابٌ</span>
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
       </section>
-
     </main>
 
-    <footer style="background:var(--dark); color:#a0a8c0; text-align:center; padding:24px 20px; font-size:0.88rem; margin-top:10px;">
-      <p style="margin-bottom:6px;">أساسيات علم النحو — شبه الجملة</p>
-      <p style="opacity:0.6;">للمراجعة والتعلُّم الذاتي — جميع الشواهد من القرآن الكريم</p>
+    <footer
+      style="
+        background: var(--dark);
+        color: #a0a8c0;
+        text-align: center;
+        padding: 24px 20px;
+        font-size: 0.88rem;
+        margin-top: 10px;
+      "
+    >
+      <p style="margin-bottom: 6px">أساسيات علم النحو — شبه الجملة</p>
+      <p style="opacity: 0.6">
+        للمراجعة والتعلُّم الذاتي — جميع الشواهد من القرآن الكريم
+      </p>
     </footer>
 
     <script>
@@ -1245,7 +1730,9 @@
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               navLinks.forEach((l) => l.classList.remove('active'))
-              const active = document.querySelector(`nav a[href="#${entry.target.id}"]`)
+              const active = document.querySelector(
+                `nav a[href="#${entry.target.id}"]`,
+              )
               if (active) {
                 active.classList.add('active')
                 active.scrollIntoView({ block: 'nearest', inline: 'center' })
@@ -1253,7 +1740,7 @@
             }
           })
         },
-        { rootMargin: '-20% 0px -70% 0px' }
+        { rootMargin: '-20% 0px -70% 0px' },
       )
 
       sections.forEach((s) => observer.observe(s))

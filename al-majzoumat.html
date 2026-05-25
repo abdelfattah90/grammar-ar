@@ -1,0 +1,2047 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>علم النحو — المجزومات</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --purple: #b370a4;
+        --purple-light: #c98fbb;
+        --purple-dark: #8a5280;
+        --blue: #72add4;
+        --blue-light: #9dc5e0;
+        --blue-dark: #4e8ab5;
+        --bg: #f2f2f2;
+        --white: #ffffff;
+        --dark: #3e3e48;
+        --dark2: #3a3a52;
+        --text: #3a3350;
+        --text-light: #6a6080;
+        --gold: #c9a84c;
+        --gold-light: #f0d080;
+        --green: #4caf7a;
+        --green-light: #80d4a8;
+        --red: #c0504a;
+        --red-light: #f0a0a0;
+        --shadow: 0 4px 20px rgba(179, 112, 164, 0.12);
+        --shadow-hover: 0 8px 32px rgba(179, 112, 164, 0.22);
+        --radius: 14px;
+        --radius-sm: 8px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Scheherazade New', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        direction: rtl;
+        line-height: 1.9;
+        font-size: 16px;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--white);
+        border-bottom: 3px solid var(--purple);
+        box-shadow: 0 2px 16px rgba(179, 112, 164, 0.15);
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+      }
+      nav::-webkit-scrollbar {
+        display: none;
+      }
+      .nav-brand {
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--purple);
+        padding: 14px 10px;
+        border-left: 2px solid var(--bg);
+        margin-left: 8px;
+        flex-shrink: 0;
+      }
+      nav a {
+        display: inline-block;
+        padding: 10px 14px;
+        color: var(--text-light);
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 600;
+        border-radius: var(--radius-sm);
+        transition: all 0.2s;
+        flex-shrink: 0;
+      }
+      nav a:hover,
+      nav a.active {
+        background: var(--purple);
+        color: var(--white);
+      }
+
+      /* ── HERO ── */
+      .hero {
+        background: linear-gradient(135deg, var(--purple) 0%, var(--blue) 100%);
+        color: var(--white);
+        text-align: center;
+        padding: 60px 20px 50px;
+      }
+      .hero h1 {
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+      .hero p {
+        font-size: 1.1rem;
+        opacity: 0.88;
+      }
+      .hero-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        padding: 4px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+      }
+
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 40px 20px 60px;
+      }
+
+      section {
+        margin-bottom: 60px;
+        scroll-margin-top: 80px;
+      }
+
+      .section-title {
+        font-size: 1.55rem;
+        font-weight: 800;
+        color: var(--purple-dark);
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-title::after {
+        content: '';
+        flex: 1;
+        height: 3px;
+        background: linear-gradient(to left, transparent, var(--purple));
+        border-radius: 2px;
+      }
+      .section-num {
+        background: var(--purple);
+        color: var(--white);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        font-weight: 800;
+        flex-shrink: 0;
+      }
+
+      /* ── DEF BOX ── */
+      .def-box {
+        background: var(--white);
+        border: 2px solid var(--gold);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin-bottom: 22px;
+        position: relative;
+        box-shadow: 0 2px 12px rgba(201, 168, 76, 0.12);
+      }
+      .def-box::before {
+        content: '📖 تعريف';
+        position: absolute;
+        top: -13px;
+        right: 20px;
+        background: var(--gold);
+        color: var(--white);
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 2px 12px;
+        border-radius: 20px;
+      }
+      .def-box p {
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      /* ── QURAN BOX ── */
+      .quran-box {
+        background: linear-gradient(135deg, #f7f7f7 0%, #fcfffd 100%);
+        border: 2px solid var(--green);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin: 18px 0;
+        position: relative;
+        box-shadow: 0 2px 12px rgba(76, 175, 122, 0.1);
+      }
+      .quran-box::before {
+        content: '🌿 قرآن كريم';
+        position: absolute;
+        top: -13px;
+        right: 20px;
+        background: var(--green);
+        color: var(--white);
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 2px 12px;
+        border-radius: 20px;
+      }
+      .quran-text {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #1a5c35;
+        line-height: 2.1;
+        margin-bottom: 8px;
+        text-align: center;
+      }
+      .quran-note {
+        font-size: 0.9rem;
+        color: #3a7a55;
+        font-weight: 500;
+      }
+
+      /* ── DIAGRAM ── */
+      .diagram {
+        background: var(--dark);
+        border-radius: var(--radius);
+        padding: 28px 24px;
+        margin: 22px 0;
+        color: #e0e0f0;
+        font-family: 'Scheherazade New', sans-serif;
+      }
+      .diagram-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 18px;
+        text-align: center;
+        color: #f0e0ff;
+      }
+      .tree {
+        font-size: 0.98rem;
+        line-height: 2;
+        color: #d0d8f0;
+      }
+
+      /* ── CARDS ── */
+      .card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 22px 24px;
+        margin-bottom: 16px;
+        box-shadow: var(--shadow);
+        border-top: 4px solid var(--purple);
+        transition: box-shadow 0.2s;
+      }
+      .card:hover {
+        box-shadow: var(--shadow-hover);
+      }
+      .card-title {
+        font-weight: 800;
+        font-size: 1.05rem;
+        color: var(--purple-dark);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .card.blue {
+        border-top-color: var(--blue);
+      }
+      .card.blue .card-title {
+        color: var(--blue-dark);
+      }
+      .card.green {
+        border-top-color: var(--green);
+      }
+      .card.green .card-title {
+        color: #2e7a50;
+      }
+      .card.gold {
+        border-top-color: var(--gold);
+      }
+      .card.gold .card-title {
+        color: #8a6020;
+      }
+      .card.red {
+        border-top-color: var(--red);
+      }
+      .card.red .card-title {
+        color: var(--red);
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+        margin-bottom: 22px;
+      }
+
+      /* ── TAGS ── */
+      .tag {
+        display: inline-block;
+        padding: 3px 12px;
+        border-radius: 20px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        margin: 3px;
+      }
+      .tag-ism {
+        background: #ede0f8;
+        color: #6a2e8a;
+      }
+      .tag-fil {
+        background: #dceefb;
+        color: #1a5c8a;
+      }
+      .tag-hrf {
+        background: #fdeedd;
+        color: #8a5010;
+      }
+      .tag-green {
+        background: #e0f5e8;
+        color: #2a6a40;
+      }
+      .tag-gold {
+        background: #fdf0e0;
+        color: #8a6020;
+        border: 1px solid var(--gold);
+      }
+      .tag-red {
+        background: #fde0e0;
+        color: #8a2020;
+      }
+      .tag-dark {
+        background: var(--dark);
+        color: #e0e0f0;
+      }
+
+      /* ── TABLES ── */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        margin: 16px 0;
+        font-size: 0.95rem;
+      }
+      th {
+        background: var(--purple);
+        color: var(--white);
+        padding: 12px 16px;
+        font-weight: 700;
+        text-align: center;
+      }
+      td {
+        padding: 10px 16px;
+        text-align: center;
+        border-bottom: 1px solid #efe8f4;
+        color: var(--text);
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      tr:nth-child(even) td {
+        background: #faf5fc;
+      }
+      tr:hover td {
+        background: #f3ecf9;
+      }
+      .th-blue th {
+        background: var(--blue);
+      }
+      .th-gold th {
+        background: var(--gold);
+      }
+      .th-dark th {
+        background: var(--dark);
+      }
+      .th-green th {
+        background: var(--green);
+      }
+
+      .irab-word {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: var(--purple-dark);
+      }
+
+      /* ── NOTE ── */
+      .note {
+        background: #fdf4ff;
+        border-right: 4px solid var(--purple);
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        padding: 14px 18px;
+        margin: 14px 0;
+        font-size: 0.93rem;
+        color: var(--text);
+      }
+      .note strong {
+        color: var(--purple-dark);
+      }
+      .note.blue {
+        background: #f0f6fd;
+        border-right-color: var(--blue);
+      }
+      .note.gold {
+        background: #fdf8f0;
+        border-right-color: var(--gold);
+      }
+      .note.green {
+        background: #f0faf4;
+        border-right-color: var(--green);
+      }
+      .note.red {
+        background: #fdf0f0;
+        border-right-color: var(--red);
+      }
+
+      .highlight-word {
+        background: linear-gradient(
+          to top,
+          var(--purple-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .highlight-blue {
+        background: linear-gradient(
+          to top,
+          var(--blue-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .highlight-green {
+        background: linear-gradient(
+          to top,
+          var(--green-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .highlight-gold {
+        background: linear-gradient(
+          to top,
+          var(--gold-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+
+      /* ── SUM GRID ── */
+      .sum-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        margin-top: 30px;
+      }
+      .sum-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 20px;
+        text-align: center;
+        box-shadow: var(--shadow);
+        border-bottom: 4px solid var(--purple);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .sum-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
+      }
+      .sum-card:nth-child(2) {
+        border-bottom-color: var(--blue);
+      }
+      .sum-card:nth-child(3) {
+        border-bottom-color: var(--green);
+      }
+      .sum-card:nth-child(4) {
+        border-bottom-color: var(--gold);
+      }
+      .sum-card:nth-child(5) {
+        border-bottom-color: var(--red);
+      }
+      .sum-icon {
+        font-size: 2rem;
+        margin-bottom: 8px;
+      }
+      .sum-title {
+        font-weight: 800;
+        font-size: 1rem;
+        color: var(--text);
+        margin-bottom: 6px;
+      }
+      .sum-text {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+
+      /* ── EXAMPLE BOX ── */
+      .example-box {
+        background: #f8f5ff;
+        border: 1.5px dashed var(--purple-light);
+        border-radius: var(--radius-sm);
+        padding: 14px 18px;
+        margin: 12px 0;
+        font-size: 1rem;
+      }
+      .example-box .ex-title {
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: var(--purple);
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .example-box p {
+        margin: 4px 0;
+      }
+      .example-box .irab {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        margin-top: 6px;
+      }
+
+      /* ── PARTICLE BOX ── */
+      .particle-box {
+        background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
+        border-radius: var(--radius);
+        padding: 24px 28px;
+        margin: 18px 0;
+        color: #f0ecff;
+        text-align: center;
+      }
+      .particle-word {
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: var(--gold-light);
+        display: block;
+        margin-bottom: 6px;
+        letter-spacing: 2px;
+      }
+      .particle-label {
+        font-size: 0.9rem;
+        color: #a090c0;
+      }
+      .particle-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 14px;
+        margin: 20px 0;
+      }
+
+      /* ── CONDITION FLOW ── */
+      .flow-box {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 24px;
+        box-shadow: var(--shadow);
+        margin: 18px 0;
+      }
+      .flow-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        flex-wrap: wrap;
+        margin: 12px 0;
+      }
+      .flow-item {
+        background: var(--purple);
+        color: white;
+        padding: 10px 18px;
+        font-size: 1rem;
+        font-weight: 700;
+        border-radius: 8px;
+        text-align: center;
+        min-width: 100px;
+      }
+      .flow-item.blue {
+        background: var(--blue-dark);
+      }
+      .flow-item.green {
+        background: #2e7a50;
+      }
+      .flow-item.gold {
+        background: #8a6020;
+      }
+      .flow-arrow {
+        font-size: 1.4rem;
+        color: var(--text-light);
+        padding: 0 8px;
+        font-weight: 300;
+      }
+      .flow-label {
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.75);
+        display: block;
+        margin-top: 3px;
+      }
+
+      /* ── SEP ── */
+      .sep {
+        height: 2px;
+        background: linear-gradient(
+          to left,
+          transparent,
+          var(--purple),
+          transparent
+        );
+        margin: 30px 0;
+        border-radius: 2px;
+      }
+
+      /* ── SCROLL REVEAL ── */
+      section {
+        animation: fadeUp 0.4s ease both;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 600px) {
+        nav {
+          gap: 4px;
+          padding: 0 10px;
+        }
+        nav a {
+          padding: 10px 10px;
+          font-size: 0.82rem;
+        }
+        .hero {
+          padding: 40px 16px 36px;
+        }
+        main {
+          padding: 28px 14px 50px;
+        }
+        .def-box,
+        .quran-box {
+          padding: 18px 16px;
+        }
+        .def-box::before,
+        .quran-box::before {
+          right: 14px;
+        }
+        .quran-text {
+          font-size: 1.05rem;
+        }
+        table {
+          font-size: 0.85rem;
+        }
+        td,
+        th {
+          padding: 8px 10px;
+        }
+        .sum-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .flow-row {
+          flex-direction: column;
+          gap: 4px;
+        }
+        .flow-arrow {
+          transform: rotate(90deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <a style="text-decoration: none" href="./index.html">🏠</a>
+    <nav>
+      <div class="nav-brand">المجزومات</div>
+      <a href="#s1">مدخل</a>
+      <a href="#s2">لم ولا الناهية</a>
+      <a href="#s3">لام الأمر</a>
+      <a href="#s4">أدوات الشرط</a>
+      <a href="#s5">فعل الشرط وجوابه</a>
+      <a href="#s6">أحكام الجواب</a>
+      <a href="#s7">الملخص</a>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-badge">أساسيات علم النحو</div>
+      <h1>المجزومات</h1>
+      <p>
+        الجزم بالحروف · أدوات الشرط الجازمة · فعل الشرط وجوابه · أحكام الجواب
+      </p>
+    </div>
+
+    <main>
+      <!-- ══════════════════════════════════════════════════
+           SECTION 1 — مدخل
+      ══════════════════════════════════════════════════ -->
+      <section id="s1">
+        <h2 class="section-title">
+          <span class="section-num">١</span>مدخل: ما الجزم؟
+        </h2>
+
+        <div class="def-box">
+          <p>
+            <strong>الجزم</strong> هو الإعراب الخاص بالفعل المضارع، ولا يدخل إلا
+            عليه. وعلامته الأصلية: <span class="highlight-word">السكون</span> ،
+            وتنوب عنها <span class="highlight-blue">حذف النون</span> في الأفعال
+            الخمسة، و<span class="highlight-green">حذف حرف العلة</span> في الفعل
+            المعتل الآخر.
+          </p>
+        </div>
+
+        <div class="diagram">
+          <div class="diagram-title">🗂️ خريطة المجزومات</div>
+          <div class="tree">
+            <p>المجزومات نوعان:</p>
+            <p style="margin-right: 20px; color: #c9a84c">
+              أولاً — مجزوم بحرف جازم (يجزم فعلاً واحداً):
+            </p>
+            <p style="margin-right: 40px; color: #9dc5e0">
+              • لَمْ — لَمَّا — لام الأمر — لا الناهية
+            </p>
+            <p style="margin-right: 20px; color: #80d4a8; margin-top: 10px">
+              ثانياً — مجزوم بأداة شرط (تجزم فعلين):
+            </p>
+            <p style="margin-right: 40px; color: #9dc5e0">
+              • إنْ — مَنْ — ما — مهما — أيّ — متى — أيّان — أين — أينما — حيثما
+              — أنّى — كيفما
+            </p>
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>تذكُّر:</strong> الرفع للفعل المضارع الأصل، والجزم يحتاج إلى
+          <em>جازم</em>. كلما وجدت جازماً فعليك البحث عن الفعل المضارع المجزوم
+          بعده.
+        </div>
+
+        <!-- علامات الجزم -->
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 24px 0 10px;
+          "
+        >
+          علامات الجزم
+        </h3>
+        <table>
+          <thead>
+            <tr>
+              <th>نوع الفعل</th>
+              <th>علامة الجزم</th>
+              <th>مثال مرفوع</th>
+              <th>مثال مجزوم</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>صحيح الآخر</td>
+              <td><span class="tag tag-ism">السكون</span></td>
+              <td>يكتُبُ</td>
+              <td class="irab-word">لم يكتُبْ</td>
+            </tr>
+            <tr>
+              <td>معتل الآخر بالواو أو الياء</td>
+              <td><span class="tag tag-fil">حذف حرف العلة</span></td>
+              <td>يدعُو / يرمِي</td>
+              <td class="irab-word">لم يدعُ / لم يرمِ</td>
+            </tr>
+            <tr>
+              <td>معتل الآخر بالألف</td>
+              <td><span class="tag tag-fil">حذف حرف العلة</span></td>
+              <td>يخشَى</td>
+              <td class="irab-word">لم يخشَ</td>
+            </tr>
+            <tr>
+              <td>الأفعال الخمسة</td>
+              <td><span class="tag tag-green">حذف النون</span></td>
+              <td>يكتبونَ / تكتبينَ</td>
+              <td class="irab-word">لم يكتبوا / لم تكتبي</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 2 — لم / لما / لا الناهية
+      ══════════════════════════════════════════════════ -->
+      <section id="s2">
+        <h2 class="section-title">
+          <span class="section-num">٢</span>الجزم بـ: لم — لمَّا — لا الناهية
+        </h2>
+
+        <!-- لم -->
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title">⛔ لَمْ</div>
+            <p>
+              حرف نفي وجزم وقلب. تنفي الفعل المضارع وتقلب زمنه إلى
+              <strong>الماضي</strong>. تدخل على الفعل المضارع فتجزمه.
+            </p>
+            <div class="example-box" style="margin-top: 12px">
+              <div class="ex-title">✏️ أمثلة</div>
+              <p>
+                لم <span class="highlight-word">يكتبْ</span> الطالبُ الدرسَ.
+              </p>
+              <p>لم <span class="highlight-word">يقمْ</span> زيدٌ بواجبه.</p>
+              <p>لم <span class="highlight-word">يأتوا</span> إلى الاجتماع.</p>
+              <div class="irab">
+                ← "يكتبْ" مضارع مجزوم بـ(لم) وعلامة جزمه السكون.
+              </div>
+            </div>
+            <div class="quran-box" style="margin-top: 12px">
+              <div class="quran-text">﴿لَمْ يَلِدْ وَلَمْ يُولَدْ﴾</div>
+              <div class="quran-note">
+                الإخلاص: ٣ — فعلان مجزومان بـ(لم)، والفاعل ضمير مستتر.
+              </div>
+            </div>
+            <div class="quran-box">
+              <div class="quran-text">﴿أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ﴾</div>
+              <div class="quran-note">
+                الشرح: ١ — همزة الاستفهام دخلت على (لم)، والفعل (نشرحْ) مجزوم
+                بها.
+              </div>
+            </div>
+          </div>
+
+          <div class="card blue">
+            <div class="card-title">⏳ لَمَّا</div>
+            <p>
+              حرف نفي وجزم وقلب أيضاً، لكنها تختلف عن (لم) في أن النفي يمتد
+              <strong>حتى وقت التكلم</strong>، ويُتوقع زوال النفي قريباً.
+            </p>
+            <div class="example-box" style="margin-top: 12px">
+              <div class="ex-title">✏️ أمثلة</div>
+              <p>
+                جاء الربيعُ ولمَّا
+                <span class="highlight-blue">يذهبْ</span> الشتاءُ تماماً.
+              </p>
+              <p>
+                قرأتُ الكتابَ ولمَّا
+                <span class="highlight-blue">أُكملْ</span> نصفه.
+              </p>
+              <div class="irab">← النفي مستمر إلى الآن ويُتوقع الانتهاء.</div>
+            </div>
+            <div class="quran-box" style="margin-top: 12px">
+              <div class="quran-text">
+                ﴿وَلَمَّا يَدْخُلِ الْإِيمَانُ فِي قُلُوبِكُمْ﴾
+              </div>
+              <div class="quran-note">
+                الحجرات: ١٤ — النفي مستمر والإيمان الكامل لم يتحقق بعد.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="note blue">
+          <strong>الفرق بين لم ولمَّا:</strong>
+          لم تنفي فعلاً منقطعاً أو لا يُتوقع عودته، بينما لمَّا تفيد استمرار
+          النفي حتى لحظة الكلام مع توقع الحدوث. مثال: "لم يحضرْ أمس" ← لمَّا لا
+          تصلح هنا. "لمَّا يحضرْ بعد" ← وهو متوقع أن يحضر.
+        </div>
+
+        <!-- لا الناهية -->
+        <h3
+          style="
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--purple-dark);
+            margin: 28px 0 14px;
+          "
+        >
+          🚫 لا الناهية
+        </h3>
+
+        <div class="def-box">
+          <p>
+            <span class="highlight-word">لا الناهية</span> حرف جازم يُفيد
+            <strong>النهي عن الفعل</strong>
+            وطلب الكفِّ عنه. وهي مخصصة للمخاطَب دائماً. تجزم الفعل المضارع
+            وتحوِّله معنوياً إلى نهي.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          <div class="card red">
+            <div class="card-title">📌 للمفرد المذكر</div>
+            <p>لا <span class="highlight-word">تكذبْ</span> على أحد.</p>
+            <p>لا <span class="highlight-word">تتركْ</span> الصلاةَ.</p>
+            <div class="quran-box" style="margin-top: 10px">
+              <div class="quran-text">﴿وَلَا تَقْرَبُوا الزِّنَا﴾</div>
+              <div class="quran-note">
+                الإسراء: ٣٢ — لا الناهية جزمت الفعل (تقربوا) بحذف النون.
+              </div>
+            </div>
+          </div>
+          <div class="card red">
+            <div class="card-title">📌 للجمع</div>
+            <p>لا <span class="highlight-word">تهملوا</span> واجباتكم.</p>
+            <p>لا <span class="highlight-word">تيأسوا</span> من رحمة الله.</p>
+            <div class="quran-box" style="margin-top: 10px">
+              <div class="quran-text">
+                ﴿وَلَا تَيْأَسُوا مِن رَّوْحِ اللَّهِ﴾
+              </div>
+              <div class="quran-note">
+                يوسف: ٨٧ — مجزوم بحذف النون لأنه من الأفعال الخمسة.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿وَلَا تَحْسَبَنَّ اللَّهَ غَافِلًا عَمَّا يَعْمَلُ الظَّالِمُونَ﴾
+          </div>
+          <div class="quran-note">
+            إبراهيم: ٤٢ — لا الناهية + نون التوكيد (الثقيلة)، والفعل مبني على
+            الفتح.
+          </div>
+        </div>
+
+        <div class="note red">
+          <strong>تمييز لا الناهية من لا النافية:</strong>
+          لا الناهية تجزم الفعل المضارع وتطلب الكف عن الفعل، ولا تأتي إلا مع فعل
+          مضارع مسبوقة بقصد النهي. أما لا النافية فلا تجزم: "لا يكتبُ" ← نفي (لا
+          نافية)، "لا تكتبْ" ← نهي (لا جازمة).
+        </div>
+
+        <!-- جدول المقارنة -->
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 22px 0 10px;
+          "
+        >
+          جدول مقارنة الجوازم الحرفية
+        </h3>
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>الجازم</th>
+              <th>المعنى</th>
+              <th>الزمن</th>
+              <th>ملاحظة</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word">لَمْ</td>
+              <td>نفي الماضي المنقطع</td>
+              <td>يقلبه إلى الماضي</td>
+              <td>النفي انتهى</td>
+            </tr>
+            <tr>
+              <td class="irab-word">لَمَّا</td>
+              <td>نفي الماضي المستمر</td>
+              <td>يقلبه إلى الماضي</td>
+              <td>النفي مستمر للحال</td>
+            </tr>
+            <tr>
+              <td class="irab-word">لا الناهية</td>
+              <td>طلب الكف عن الفعل</td>
+              <td>المستقبل</td>
+              <td>للمخاطَب دائماً</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 3 — لام الأمر
+      ══════════════════════════════════════════════════ -->
+      <section id="s3">
+        <h2 class="section-title">
+          <span class="section-num">٣</span>لام الأمر
+        </h2>
+
+        <div class="def-box">
+          <p>
+            <span class="highlight-word">لام الأمر</span> حرف جازم يُفيد الأمر
+            والطلب. وهي مكسورة دائماً (لِـ)، وقد تُسكَّن بعد الواو والفاء وثم.
+            تدخل على الفعل المضارع فتجزمه وتحوِّل معناه إلى أمر.
+          </p>
+        </div>
+
+        <div class="note">
+          <strong>لماذا لام الأمر ولا فعل الأمر؟</strong> فعل الأمر خاص
+          بالمخاطَب المفرد المذكر في الغالب. أما لام الأمر فتدخل على
+          <strong>الغائب والمتكلم</strong> للأمر، وكذلك تدخل على المخاطَب
+          للتوكيد أو الأمر الشكلي.
+        </div>
+
+        <div class="card-grid">
+          <div class="card green">
+            <div class="card-title">👤 للغائب</div>
+            <p>لِـ<span class="highlight-green">يكتبْ</span> محمدٌ درسَه.</p>
+            <p>لِـ<span class="highlight-green">يقمْ</span> المسؤولُ بواجبه.</p>
+            <p>
+              لِـ<span class="highlight-green">يعملوا</span> الموظفون بجدٍّ.
+            </p>
+            <div class="quran-box" style="margin-top: 12px">
+              <div class="quran-text">﴿لِيُنفِقْ ذُو سَعَةٍ مِّن سَعَتِهِ﴾</div>
+              <div class="quran-note">
+                الطلاق: ٧ — لام الأمر للغائب، الفعل (يُنفقْ) مجزوم بالسكون.
+              </div>
+            </div>
+          </div>
+          <div class="card blue">
+            <div class="card-title">🗣️ للمتكلم</div>
+            <p>لِـ<span class="highlight-blue">أكتبْ</span> رسالةً إلى أبي.</p>
+            <p>
+              لِـ<span class="highlight-blue">نعملْ</span> معاً لإنجاز المشروع.
+            </p>
+            <div class="quran-box" style="margin-top: 12px">
+              <div class="quran-text">﴿وَلْنَحْمِلْ خَطَايَاكُمْ﴾</div>
+              <div class="quran-note">
+                العنكبوت: ١٢ — الواو عاطفة، ثم لام الأمر للمتكلمين.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿فَلْيَعْبُدُوا رَبَّ هَٰذَا الْبَيْتِ﴾</div>
+          <div class="quran-note">
+            قريش: ٣ — الفاء ثم لام الأمر مُسكَّنة، والفعل (يعبدوا) مجزوم بحذف
+            النون.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿ثُمَّ لْيَقْضُوا تَفَثَهُمْ وَلْيُوفُوا نُذُورَهُمْ﴾
+          </div>
+          <div class="quran-note">
+            الحج: ٢٩ — لام الأمر مُسكَّنة بعد (ثم)، الأفعال مجزومة بحذف النون.
+          </div>
+        </div>
+
+        <div class="note gold">
+          <strong>تسكين لام الأمر:</strong> تُكسر لام الأمر في الأصل (لِيفعلْ)،
+          لكنها تُسكَّن إذا سبقتها واو (وَلْيفعلْ) أو فاء (فَلْيفعلْ) أو ثم
+          (ثُمَّ لْيفعلْ)، وذلك تخفيفاً.
+        </div>
+
+        <div class="example-box">
+          <div class="ex-title">✏️ أمثلة تطبيقية شاملة</div>
+          <p>
+            لِـ<strong>يصدقْ</strong> من يريد أن يُصدَّق.
+            <span class="irab">(غائب مفرد)</span>
+          </p>
+          <p>
+            وَلْـ<strong>يتقِ</strong> اللهَ المؤمنُ.
+            <span class="irab">(واو + لام الأمر)</span>
+          </p>
+          <p>
+            فَلْـ<strong>نشكرِ</strong> اللهَ على نعمه.
+            <span class="irab">(فاء + لام الأمر للمتكلمين)</span>
+          </p>
+          <p>
+            لِـ<strong>تسعَ</strong> في الخير ما استطعتِ.
+            <span class="irab">(غائبة مؤنثة، حذف حرف العلة)</span>
+          </p>
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 4 — أدوات الشرط الجازمة
+      ══════════════════════════════════════════════════ -->
+      <section id="s4">
+        <h2 class="section-title">
+          <span class="section-num">٤</span>أدوات الشرط الجازمة
+        </h2>
+
+        <div class="def-box">
+          <p>
+            أدوات الشرط الجازمة هي كلمات تجزم <strong>فعلين</strong>: الأول
+            يُسمَّى <span class="highlight-word">فعل الشرط</span>، والثاني
+            يُسمَّى <span class="highlight-blue">جواب الشرط</span> (أو جزاء
+            الشرط). والرابط بينهما أن الثاني متوقف في حصوله على حصول الأول.
+          </p>
+        </div>
+
+        <!-- الأدوات -->
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 20px 0 12px;
+          "
+        >
+          أولاً — إنْ (أمُّ أدوات الشرط)
+        </h3>
+
+        <div class="card">
+          <div class="card-title">🔑 إنْ</div>
+          <p>
+            حرف شرط جازم. هي أصل أدوات الشرط، وتُستخدم لربط شرط بجزائه في كل
+            الأحوال. وهي <strong>حرف</strong> لا محل له من الإعراب.
+          </p>
+          <div class="example-box" style="margin-top: 12px">
+            <div class="ex-title">✏️ أمثلة</div>
+            <p>
+              إنْ <span class="highlight-word">تجتهدْ</span>
+              <span class="highlight-blue">تنجحْ</span>.
+            </p>
+            <p>
+              إنْ <span class="highlight-word">تزرعْ</span> الخيرَ
+              <span class="highlight-blue">تحصدْ</span> ثمرَه.
+            </p>
+            <div class="irab">
+              ← (تجتهدْ) فعل الشرط مجزوم، (تنجحْ) جواب الشرط مجزوم.
+            </div>
+          </div>
+          <div class="quran-box" style="margin-top: 12px">
+            <div class="quran-text">﴿إِن تَنصُرُوا اللَّهَ يَنصُرْكُمْ﴾</div>
+            <div class="quran-note">
+              محمد: ٧ — (تنصروا) فعل الشرط مجزوم بحذف النون، (ينصرْكم) جواب
+              مجزوم بالسكون.
+            </div>
+          </div>
+          <div class="quran-box">
+            <div class="quran-text">
+              ﴿إِن تُبْدُوا الصَّدَقَاتِ فَنِعِمَّا هِيَ﴾
+            </div>
+            <div class="quran-note">
+              البقرة: ٢٧١ — فعل الشرط (تُبدوا) مجزوم بحذف النون، والجواب جملة
+              اسمية اقترنت بالفاء.
+            </div>
+          </div>
+        </div>
+
+        <!-- باقي الأدوات -->
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 22px 0 12px;
+          "
+        >
+          ثانياً — الأدوات الاسمية (تجزم فعلين وتكون في محل إعرابي)
+        </h3>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title">👤 مَنْ</div>
+            <p>
+              للعاقل (أشخاص). وهي اسم في محل رفع مبتدأ، أو نصب أو جر حسب الموقع.
+            </p>
+            <div class="example-box" style="margin-top: 10px">
+              <div class="ex-title">✏️</div>
+              <p>
+                مَنْ <span class="highlight-word">يعملْ</span> خيراً
+                <span class="highlight-blue">يجدْه</span>.
+              </p>
+            </div>
+            <div class="quran-box" style="margin-top: 8px">
+              <div class="quran-text">
+                ﴿مَّن يَشْفَعْ شَفَاعَةً حَسَنَةً يَكُن لَّهُ نَصِيبٌ مِّنْهَا﴾
+              </div>
+              <div class="quran-note">النساء: ٨٥</div>
+            </div>
+          </div>
+
+          <div class="card blue">
+            <div class="card-title">📦 مَا</div>
+            <p>لغير العاقل من الأشياء والحيوانات. اسم في محل رفع مبتدأ.</p>
+            <div class="example-box" style="margin-top: 10px">
+              <div class="ex-title">✏️</div>
+              <p>
+                ما <span class="highlight-word">تزرعْ</span>
+                <span class="highlight-blue">تحصدْ</span>.
+              </p>
+            </div>
+            <div class="quran-box" style="margin-top: 8px">
+              <div class="quran-text">
+                ﴿وَمَا تَفْعَلُوا مِنْ خَيْرٍ يَعْلَمْهُ اللَّهُ﴾
+              </div>
+              <div class="quran-note">البقرة: ١٩٧</div>
+            </div>
+          </div>
+
+          <div class="card green">
+            <div class="card-title">🌊 مَهْمَا</div>
+            <p>
+              لغير العاقل، وتفيد التعميم والشمول أكثر من (ما). اسم مبني في محل
+              رفع مبتدأ.
+            </p>
+            <div class="example-box" style="margin-top: 10px">
+              <div class="ex-title">✏️</div>
+              <p>
+                مهما <span class="highlight-word">يكنْ</span> الأمرُ
+                <span class="highlight-blue">فثقْ</span> بالله.
+              </p>
+            </div>
+            <div class="quran-box" style="margin-top: 8px">
+              <div class="quran-text">
+                ﴿وَقَالُوا مَهْمَا تَأْتِنَا بِهِ مِن آيَةٍ لِّتَسْحَرَنَا بِهَا
+                فَمَا نَحْنُ لَكَ بِمُؤْمِنِينَ﴾
+              </div>
+              <div class="quran-note">الأعراف: ١٣٢</div>
+            </div>
+          </div>
+
+          <div class="card gold">
+            <div class="card-title">🔄 أَيٌّ</div>
+            <p>
+              تكون للعاقل ولغيره حسب السياق. معربة (مضاف إليه يحدد معناها). لها
+              إعراب خاص لأنها اسم معرب.
+            </p>
+            <div class="example-box" style="margin-top: 10px">
+              <div class="ex-title">✏️</div>
+              <p>
+                أيَّ كتابٍ <span class="highlight-word">تقرأْ</span>
+                <span class="highlight-blue">تستفدْ</span>.
+              </p>
+              <p>
+                أيُّ رجلٍ <span class="highlight-word">يجتهدْ</span>
+                <span class="highlight-blue">ينجحْ</span>.
+              </p>
+            </div>
+            <div class="quran-box" style="margin-top: 8px">
+              <div class="quran-text">
+                ﴿أَيًّا مَّا تَدْعُوا فَلَهُ الْأَسْمَاءُ الْحُسْنَىٰ﴾
+              </div>
+              <div class="quran-note">الإسراء: ١١٠</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- أدوات الزمان والمكان -->
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 22px 0 12px;
+          "
+        >
+          ثالثاً — أدوات الزمان والمكان
+        </h3>
+
+        <table class="th-blue">
+          <thead>
+            <tr>
+              <th>الأداة</th>
+              <th>المعنى</th>
+              <th>مثال</th>
+              <th>ملاحظة</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word">مَتَى</td>
+              <td>للزمان (أيَّ وقت)</td>
+              <td>
+                متى <span class="highlight-word">تحضرْ</span>
+                <span class="highlight-blue">أكرمْكَ</span>
+              </td>
+              <td>اسم في محل نصب ظرف زمان</td>
+            </tr>
+            <tr>
+              <td class="irab-word">أَيَّانَ</td>
+              <td>للزمان المستقبل (بمعنى متى)</td>
+              <td>
+                أيّانَ <span class="highlight-word">تسألْ</span>
+                <span class="highlight-blue">أجبْ</span>
+              </td>
+              <td>أقل شيوعاً من متى</td>
+            </tr>
+            <tr>
+              <td class="irab-word">أَيْنَ</td>
+              <td>للمكان (في أيِّ مكان)</td>
+              <td>
+                أين <span class="highlight-word">تذهبْ</span>
+                <span class="highlight-blue">أذهبْ</span>
+              </td>
+              <td>اسم في محل نصب ظرف مكان</td>
+            </tr>
+            <tr>
+              <td class="irab-word">أَيْنَمَا</td>
+              <td>للمكان مع التعميم</td>
+              <td>
+                أينما <span class="highlight-word">تكونوا</span>
+                <span class="highlight-blue">يُدرككم</span> الموت
+              </td>
+              <td>(ما) زائدة تفيد التعميم</td>
+            </tr>
+            <tr>
+              <td class="irab-word">حَيْثُمَا</td>
+              <td>للمكان مع التعميم</td>
+              <td>
+                حيثما <span class="highlight-word">تستقمْ</span>
+                <span class="highlight-blue">يُقدِّرْ</span> لك الله
+              </td>
+              <td>ملازمة لـ(ما)</td>
+            </tr>
+            <tr>
+              <td class="irab-word">أَنَّى</td>
+              <td>للمكان والزمان والحال</td>
+              <td>
+                أنَّى <span class="highlight-word">تولُّوا</span>
+                <span class="highlight-blue">فثَمَّ</span> وجه الله
+              </td>
+              <td>متعددة المعنى</td>
+            </tr>
+            <tr>
+              <td class="irab-word">كَيْفَمَا</td>
+              <td>للحال</td>
+              <td>
+                كيفما <span class="highlight-word">تُعاملِ</span> الناسَ
+                <span class="highlight-blue">يُعاملوكَ</span>
+              </td>
+              <td>ملازمة لـ(ما)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿أَيْنَمَا تَكُونُوا يُدْرِككُّمُ الْمَوْتُ وَلَوْ كُنتُمْ فِي
+            بُرُوجٍ مُّشَيَّدَةٍ﴾
+          </div>
+          <div class="quran-note">
+            النساء: ٧٨ — (أينما) أداة شرط، (تكونوا) فعل الشرط مجزوم بحذف النون،
+            (يُدرككم) جواب مجزوم بالسكون.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿وَلِلَّهِ الْمَشْرِقُ وَالْمَغْرِبُ ۚ فَأَيْنَمَا تُوَلُّوا فَثَمَّ
+            وَجْهُ اللَّهِ﴾
+          </div>
+          <div class="quran-note">
+            البقرة: ١١٥ — (أينما) جازمة، الجواب جملة اسمية اقترنت بالفاء.
+          </div>
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 5 — فعل الشرط وجوابه
+      ══════════════════════════════════════════════════ -->
+      <section id="s5">
+        <h2 class="section-title">
+          <span class="section-num">٥</span>فعل الشرط وجواب الشرط
+        </h2>
+
+        <div class="def-box">
+          <p>
+            يتكوَّن أسلوب الشرط الجازم من ثلاثة أركان:
+            <span class="highlight-word">أداة الشرط</span> +
+            <span class="highlight-blue">فعل الشرط</span> +
+            <span class="highlight-green">جواب الشرط</span>. وكلا الفعلين يكونان
+            مضارعَين مجزومَين، أو قد يكون أحدهما ماضياً.
+          </p>
+        </div>
+
+        <!-- مخطط الأركان -->
+        <div class="flow-box">
+          <div
+            style="
+              text-align: center;
+              font-weight: 700;
+              color: var(--purple-dark);
+              margin-bottom: 16px;
+            "
+          >
+            🏗️ بنية أسلوب الشرط
+          </div>
+          <div class="flow-row">
+            <div class="flow-item">
+              أداة الشرط
+              <span class="flow-label">(إنْ، مَنْ، ما...)</span>
+            </div>
+            <div class="flow-arrow">←</div>
+            <div class="flow-item blue">
+              فعل الشرط
+              <span class="flow-label">(مجزوم)</span>
+            </div>
+            <div class="flow-arrow">←</div>
+            <div class="flow-item green">
+              جواب الشرط
+              <span class="flow-label">(مجزوم أو مع الفاء)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- حالات فعل الشرط -->
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple-dark);
+            margin: 24px 0 12px;
+          "
+        >
+          أولاً — فعل الشرط
+        </h3>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title">✅ مضارع (الأشيع)</div>
+            <p>الأصل أن يكون فعل الشرط مضارعاً مجزوماً.</p>
+            <div class="example-box" style="margin-top: 10px">
+              <div class="ex-title">✏️</div>
+              <p>إنْ <span class="highlight-word">تدرسْ</span> تنجحْ.</p>
+              <p>
+                مَن <span class="highlight-word">يزرعِ</span> الخيرَ يحصدْه.
+              </p>
+            </div>
+          </div>
+          <div class="card blue">
+            <div class="card-title">📅 ماضٍ (في محل جزم)</div>
+            <p>
+              يجوز أن يكون فعل الشرط فعلاً ماضياً. وهو مبني على الفتح لكنه في
+              <strong>محل جزم</strong> بأداة الشرط.
+            </p>
+            <div class="example-box" style="margin-top: 10px">
+              <div class="ex-title">✏️</div>
+              <p>إنْ <span class="highlight-word">اجتهدتَ</span> نجحتَ.</p>
+              <p>مَن <span class="highlight-word">صدَقَ</span> في قوله فازَ.</p>
+            </div>
+            <div class="quran-box" style="margin-top: 10px">
+              <div class="quran-text">
+                ﴿إِن كُنتُمْ تُحِبُّونَ اللَّهَ فَاتَّبِعُونِي﴾
+              </div>
+              <div class="quran-note">
+                آل عمران: ٣١ — (كنتم) فعل ماضٍ في محل جزم فعل الشرط.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- حالات جواب الشرط -->
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple-dark);
+            margin: 24px 0 12px;
+          "
+        >
+          ثانياً — جواب الشرط (حالاته)
+        </h3>
+
+        <div class="note">
+          <strong>القاعدة الأساسية:</strong> جواب الشرط يكون مجزوماً إذا كان
+          فعلاً مضارعاً مجرداً من الفاء والواو. أما إذا لم يصلح للجزم فيقترن
+          بالفاء وتكون الجملة بعدها في محل جزم.
+        </div>
+
+        <table class="th-green">
+          <thead>
+            <tr>
+              <th>نوع جواب الشرط</th>
+              <th>الحكم</th>
+              <th>مثال</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>فعل مضارع مجرد</td>
+              <td><span class="tag tag-green">مجزوم مباشرة</span></td>
+              <td>إنْ تجتهدْ <span class="highlight-green">تنجحْ</span></td>
+            </tr>
+            <tr>
+              <td>فعل ماضٍ</td>
+              <td><span class="tag tag-fil">في محل جزم</span></td>
+              <td>إنْ تجتهدْ <span class="highlight-blue">نجحتَ</span></td>
+            </tr>
+            <tr>
+              <td>جملة اسمية</td>
+              <td><span class="tag tag-hrf">الفاء + جملة في محل جزم</span></td>
+              <td>
+                إنْ تجتهدْ <span class="highlight-word">فأنتَ ناجحٌ</span>
+              </td>
+            </tr>
+            <tr>
+              <td>جملة فعلية بالفاء</td>
+              <td><span class="tag tag-hrf">الفاء + مجزوم أو محل جزم</span></td>
+              <td>
+                إنْ تجتهدْ <span class="highlight-word">فسوفَ تنجحُ</span>
+              </td>
+            </tr>
+            <tr>
+              <td>فعل أمر أو نهي</td>
+              <td><span class="tag tag-hrf">الفاء + فعل في محل جزم</span></td>
+              <td>
+                إنْ جاءَكَ صديقٌ <span class="highlight-word">فأكرمْه</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿وَإِن تَعُودُوا نَعُدْ﴾</div>
+          <div class="quran-note">
+            الأنفال: ١٩ — (تعودوا) فعل الشرط مجزوم بحذف النون، (نعُدْ) جواب
+            مجزوم بالسكون.
+          </div>
+        </div>
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿مَن جَاءَ بِالْحَسَنَةِ فَلَهُ عَشْرُ أَمْثَالِهَا﴾
+          </div>
+          <div class="quran-note">
+            الأنعام: ١٦٠ — (جاء) فعل شرط ماضٍ في محل جزم، والجواب جملة اسمية
+            اقترنت بالفاء.
+          </div>
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 6 — أحكام جواب الشرط
+      ══════════════════════════════════════════════════ -->
+      <section id="s6">
+        <h2 class="section-title">
+          <span class="section-num">٦</span>أحكام جواب الشرط
+        </h2>
+
+        <div class="def-box">
+          <p>
+            ثمة مواضع يجب فيها اقتران جواب الشرط بالفاء، ومواضع يمتنع فيها،
+            ومواضع يجوز فيها الأمران. وفهم هذه الأحكام ضرورة لإعراب أسلوب الشرط
+            بشكل صحيح.
+          </p>
+        </div>
+
+        <!-- وجوب الفاء -->
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #8a2020;
+            margin: 20px 0 12px;
+          "
+        >
+          🔴 أولاً: مواضع وجوب اقتران الجواب بالفاء
+        </h3>
+        <p style="margin-bottom: 12px; color: var(--text-light)">
+          إذا لم يصلح الجواب أن يكون مجزوماً مباشرة وجب الاقتران بالفاء، وذلك في
+          ستة مواضع:
+        </p>
+
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>الموضع</th>
+              <th>مثال</th>
+              <th>شاهد قرآني</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>١</td>
+              <td>جملة اسمية</td>
+              <td>
+                إنْ تجتهدْ <span class="highlight-word">فأنتَ ناجحٌ</span>
+              </td>
+              <td>﴿إِن كُنتُمْ تُحِبُّونَ اللَّهَ فَاتَّبِعُونِي﴾</td>
+            </tr>
+            <tr>
+              <td>٢</td>
+              <td>فعل ماضٍ معنوياً</td>
+              <td>إنْ تكرمْه <span class="highlight-word">فقد أكرمَك</span></td>
+              <td>﴿مَّن جَاءَ بِالْحَسَنَةِ فَلَهُ خَيْرٌ مِّنْهَا﴾</td>
+            </tr>
+            <tr>
+              <td>٣</td>
+              <td>فعل أمر</td>
+              <td>إنْ لقيتَه <span class="highlight-word">فأكرمْه</span></td>
+              <td>﴿إِن كُنتُمْ مُؤْمِنِينَ فَتَوَكَّلُوا﴾</td>
+            </tr>
+            <tr>
+              <td>٤</td>
+              <td>فعل نهي (لا الناهية)</td>
+              <td>
+                إنْ أخطأَ <span class="highlight-word">فلا تُعاقبْه</span>
+              </td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>٥</td>
+              <td>فعل مسبوق بـ(سوف/السين)</td>
+              <td>إنْ تصبرْ <span class="highlight-word">فسوف تنجحُ</span></td>
+              <td>
+                ﴿إِن يَكُن غَنِيًّا أَوْ فَقِيرًا فَاللَّهُ أَوْلَىٰ بِهِمَا﴾
+              </td>
+            </tr>
+            <tr>
+              <td>٦</td>
+              <td>فعل مسبوق بـ(قد)</td>
+              <td>إنْ تأتِ <span class="highlight-word">فقد عفوتُ</span></td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿مَن يَعْمَلْ سُوءًا يُجْزَ بِهِ﴾</div>
+          <div class="quran-note">
+            النساء: ١٢٣ — الجواب (يُجزَ) مضارع مجزوم مباشرة بلا فاء، علامة الجزم
+            حذف حرف العلة.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿وَمَن يَفْعَلْ ذَٰلِكَ فَأُولَٰئِكَ هُمُ الْخَاسِرُونَ﴾
+          </div>
+          <div class="quran-note">
+            البقرة: ١٢١ — الجواب جملة اسمية، فاقترنت بالفاء وجوباً، وهي في محل
+            جزم.
+          </div>
+        </div>
+
+        <!-- حذف الجواب -->
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--blue-dark);
+            margin: 28px 0 12px;
+          "
+        >
+          🔵 ثانياً: حذف جواب الشرط
+        </h3>
+
+        <div class="def-box">
+          <p>
+            يجوز حذف جواب الشرط إذا دلَّ عليه دليلٌ من السياق. وكثيراً ما يُحذف
+            في أسلوب الاحتراس أو حين يكون الجواب مفهوماً ضمناً.
+          </p>
+        </div>
+
+        <div class="example-box">
+          <div class="ex-title">✏️ أمثلة</div>
+          <p>
+            قال تعالى: ﴿وَإِن كَانَ ذُو عُسْرَةٍ فَنَظِرَةٌ إِلَىٰ مَيْسَرَةٍ﴾ —
+            الجواب (فنظرةٌ) خبر لمبتدأ محذوف: (فالواجبُ نظرةٌ).
+          </p>
+          <p style="margin-top: 8px">
+            وقد يُحذف الجواب كلياً: "إنْ شاءَ الله..." دون ذكر الجواب ← مفهوم من
+            السياق.
+          </p>
+        </div>
+
+        <!-- حذف فعل الشرط -->
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--green);
+            margin: 28px 0 12px;
+          "
+        >
+          🟢 ثالثاً: ارتباط الجوابَين بـ(إذا الفجائية)
+        </h3>
+
+        <div class="note green">
+          <strong>إذا الفجائية:</strong> قد تنوب (إذا) الفجائية عن الفاء في ربط
+          جواب الشرط بشرطه، وذلك مع الجمل الاسمية خاصة. ومواضع هذا قليلة وخاصة
+          بالنثر الأدبي والقرآن.
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿وَإِن تُصِبْهُمْ سَيِّئَةٌ بِمَا قَدَّمَتْ أَيْدِيهِمْ إِذَا هُمْ
+            يَقْنَطُونَ﴾
+          </div>
+          <div class="quran-note">
+            الروم: ٣٦ — (إذا) هنا فجائية ربطت الجواب بفعل الشرط (تصبهم).
+          </div>
+        </div>
+
+        <!-- حكم الفعلين كلاهما ماضيان -->
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--gold);
+            margin: 28px 0 12px;
+          "
+        >
+          🟡 رابعاً: حين يكون الفعلان ماضيَين
+        </h3>
+
+        <div class="card gold">
+          <div class="card-title">⚙️ الفعلان الماضيان في أسلوب الشرط</div>
+          <p>
+            إذا كان فعل الشرط وجوابه كلاهما فعلاً ماضياً فهما
+            <strong>مبنيان على الفتح</strong> لا علاقة للجزم بهما لفظاً، لكنهما
+            في <strong>محل جزم</strong>: الأول بأداة الشرط، والثاني بكونه
+            جواباً.
+          </p>
+          <div class="example-box" style="margin-top: 12px">
+            <div class="ex-title">✏️</div>
+            <p>
+              إنْ <span class="highlight-word">اجتهدتَ</span>
+              <span class="highlight-blue">نجحتَ</span>.
+            </p>
+            <p>
+              مَن <span class="highlight-word">صدَقَ</span>
+              <span class="highlight-blue">أُكرمَ</span>.
+            </p>
+            <div class="irab">← كلا الفعلين مبني على الفتح في محل جزم.</div>
+          </div>
+          <div class="quran-box" style="margin-top: 12px">
+            <div class="quran-text">
+              ﴿إِن أَحْسَنتُمْ أَحْسَنتُمْ لِأَنفُسِكُمْ﴾
+            </div>
+            <div class="quran-note">
+              الإسراء: ٧ — (أحسنتم) الأول: فعل شرط ماضٍ في محل جزم. (أحسنتم)
+              الثاني: جواب شرط ماضٍ في محل جزم.
+            </div>
+          </div>
+        </div>
+
+        <!-- إعراب شامل نموذجي -->
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 26px 0 12px;
+          "
+        >
+          نماذج إعرابية شاملة
+        </h3>
+
+        <div class="card" style="border-top-color: var(--dark)">
+          <div class="card-title" style="color: var(--dark)">
+            📝 مثال ١: إنْ تجتهدْ تنجحْ
+          </div>
+          <table class="th-dark" style="margin-top: 12px">
+            <thead>
+              <tr>
+                <th>الكلمة</th>
+                <th>الإعراب</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="irab-word">إنْ</td>
+                <td>حرف شرط جازم مبني على السكون، لا محل له من الإعراب.</td>
+              </tr>
+              <tr>
+                <td class="irab-word">تجتهدْ</td>
+                <td>
+                  فعل مضارع مجزوم بـ(إنْ) وعلامة جزمه السكون. والفاعل ضمير مستتر
+                  تقديره (أنتَ).
+                </td>
+              </tr>
+              <tr>
+                <td class="irab-word">تنجحْ</td>
+                <td>
+                  فعل مضارع مجزوم لأنه جواب الشرط، وعلامة جزمه السكون. والفاعل
+                  ضمير مستتر تقديره (أنتَ).
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card blue" style="margin-top: 16px">
+          <div class="card-title">📝 مثال ٢: مَنْ يعملْ خيراً فله أجرٌ</div>
+          <table class="th-dark" style="margin-top: 12px">
+            <thead>
+              <tr>
+                <th>الكلمة</th>
+                <th>الإعراب</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="irab-word">مَنْ</td>
+                <td>اسم شرط جازم في محل رفع مبتدأ.</td>
+              </tr>
+              <tr>
+                <td class="irab-word">يعملْ</td>
+                <td>
+                  فعل مضارع مجزوم بـ(مَن) وعلامة جزمه السكون. والفاعل ضمير مستتر
+                  (هو). والجملة من الفعل والفاعل في محل رفع خبر المبتدأ (مَن).
+                </td>
+              </tr>
+              <tr>
+                <td class="irab-word">خيراً</td>
+                <td>مفعول به منصوب وعلامة نصبه الفتحة.</td>
+              </tr>
+              <tr>
+                <td class="irab-word">فله أجرٌ</td>
+                <td>
+                  الفاء: رابطة لجواب الشرط. (له): جار ومجرور متعلق بخبر مقدم.
+                  (أجرٌ): مبتدأ مؤخر مرفوع. والجملة الاسمية في محل جزم جواب
+                  الشرط.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 7 — الملخص
+      ══════════════════════════════════════════════════ -->
+      <section id="s7">
+        <h2 class="section-title">
+          <span class="section-num">٧</span>الملخص الشامل
+        </h2>
+
+        <div class="sum-grid">
+          <div class="sum-card">
+            <div class="sum-icon">🔒</div>
+            <div class="sum-title">تعريف الجزم</div>
+            <div class="sum-text">
+              إعراب خاص بالفعل المضارع. علامته: السكون، أو حذف النون، أو حذف حرف
+              العلة.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">⛔</div>
+            <div class="sum-title">لم / لمَّا / لا الناهية</div>
+            <div class="sum-text">
+              تجزم فعلاً واحداً. لم: نفي منقطع. لمَّا: نفي مستمر. لا الناهية: كف
+              المخاطَب عن الفعل.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">📣</div>
+            <div class="sum-title">لام الأمر</div>
+            <div class="sum-text">
+              تجزم فعلاً واحداً. للأمر خارج صيغة افعلْ. تُسكَّن بعد الواو والفاء
+              وثم.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🔄</div>
+            <div class="sum-title">أدوات الشرط</div>
+            <div class="sum-text">
+              تجزم فعلين: إنْ (حرف)، مَنْ وما ومهما وأيٌّ (أسماء)، وأدوات الزمان
+              والمكان.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🔴</div>
+            <div class="sum-title">وجوب الفاء في الجواب</div>
+            <div class="sum-text">
+              إذا كان الجواب جملة اسمية، أو فعل أمر أو نهي، أو مسبوقاً بسوف أو
+              قد أو لن.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">📅</div>
+            <div class="sum-title">الفعل الماضي في الشرط</div>
+            <div class="sum-text">
+              إذا كان فعل الشرط أو جوابه ماضياً فهو مبني لفظاً لكنه في محل جزم.
+            </div>
+          </div>
+        </div>
+
+        <!-- جدول مرجعي سريع -->
+        <h3
+          style="
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 30px 0 12px;
+          "
+        >
+          📋 جدول مرجعي سريع: أدوات الجزم
+        </h3>
+        <table>
+          <thead>
+            <tr>
+              <th>الأداة</th>
+              <th>نوعها</th>
+              <th>عدد الأفعال</th>
+              <th>المعنى الرئيسي</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word">لَمْ</td>
+              <td><span class="tag tag-hrf">حرف</span></td>
+              <td>فعل واحد</td>
+              <td>نفي ماضٍ منقطع</td>
+            </tr>
+            <tr>
+              <td class="irab-word">لَمَّا</td>
+              <td><span class="tag tag-hrf">حرف</span></td>
+              <td>فعل واحد</td>
+              <td>نفي ماضٍ مستمر</td>
+            </tr>
+            <tr>
+              <td class="irab-word">لا الناهية</td>
+              <td><span class="tag tag-hrf">حرف</span></td>
+              <td>فعل واحد</td>
+              <td>نهي المخاطَب</td>
+            </tr>
+            <tr>
+              <td class="irab-word">لام الأمر</td>
+              <td><span class="tag tag-hrf">حرف</span></td>
+              <td>فعل واحد</td>
+              <td>الأمر للغائب والمتكلم</td>
+            </tr>
+            <tr>
+              <td class="irab-word">إنْ</td>
+              <td><span class="tag tag-hrf">حرف شرط</span></td>
+              <td>فعلان</td>
+              <td>الشرط العام</td>
+            </tr>
+            <tr>
+              <td class="irab-word">مَنْ</td>
+              <td><span class="tag tag-ism">اسم شرط</span></td>
+              <td>فعلان</td>
+              <td>للعاقل</td>
+            </tr>
+            <tr>
+              <td class="irab-word">مَا / مَهْمَا</td>
+              <td><span class="tag tag-ism">اسم شرط</span></td>
+              <td>فعلان</td>
+              <td>لغير العاقل</td>
+            </tr>
+            <tr>
+              <td class="irab-word">أَيٌّ</td>
+              <td><span class="tag tag-ism">اسم شرط معرب</span></td>
+              <td>فعلان</td>
+              <td>للعاقل وغيره</td>
+            </tr>
+            <tr>
+              <td class="irab-word">متى / أيَّان</td>
+              <td><span class="tag tag-ism">اسم شرط</span></td>
+              <td>فعلان</td>
+              <td>للزمان</td>
+            </tr>
+            <tr>
+              <td class="irab-word">أين / أينما / حيثما</td>
+              <td><span class="tag tag-ism">اسم شرط</span></td>
+              <td>فعلان</td>
+              <td>للمكان</td>
+            </tr>
+            <tr>
+              <td class="irab-word">كيفما</td>
+              <td><span class="tag tag-ism">اسم شرط</span></td>
+              <td>فعلان</td>
+              <td>للحال</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer
+      style="
+        background: var(--dark);
+        color: #a0a8c0;
+        text-align: center;
+        padding: 24px 20px;
+        font-size: 0.88rem;
+        margin-top: 10px;
+      "
+    >
+      <p style="margin-bottom: 6px">أساسيات علم النحو — المجزومات</p>
+      <p style="opacity: 0.6">
+        للمراجعة والتعلُّم الذاتي — جميع الشواهد من القرآن الكريم
+      </p>
+    </footer>
+
+    <script>
+      // Active nav on scroll
+      const sections = document.querySelectorAll('section[id]')
+      const navLinks = document.querySelectorAll('nav a')
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navLinks.forEach((l) => l.classList.remove('active'))
+              const active = document.querySelector(
+                `nav a[href="#${entry.target.id}"]`,
+              )
+              if (active) {
+                active.classList.add('active')
+                active.scrollIntoView({ block: 'nearest', inline: 'center' })
+              }
+            }
+          })
+        },
+        { rootMargin: '-20% 0px -70% 0px' },
+      )
+      sections.forEach((s) => observer.observe(s))
+
+      // Smooth scroll
+      navLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault()
+          const target = document.querySelector(link.getAttribute('href'))
+          if (target) target.scrollIntoView({ behavior: 'smooth' })
+        })
+      })
+    </script>
+  </body>
+</html>

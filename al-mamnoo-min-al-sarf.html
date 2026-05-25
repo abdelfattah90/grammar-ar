@@ -1,0 +1,1933 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>علم النحو — الممنوع من الصرف</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --purple: #b370a4;
+        --purple-light: #c98fbb;
+        --purple-dark: #8a5280;
+        --blue: #72add4;
+        --blue-light: #9dc5e0;
+        --blue-dark: #4e8ab5;
+        --bg: #f2f2f2;
+        --white: #ffffff;
+        --dark: #3e3e48;
+        --dark2: #3a3a52;
+        --text: #3a3350;
+        --text-light: #6a6080;
+        --gold: #c9a84c;
+        --gold-light: #f0d080;
+        --green: #4caf7a;
+        --green-light: #80d4a8;
+        --shadow: 0 4px 20px rgba(179, 112, 164, 0.12);
+        --shadow-hover: 0 8px 32px rgba(179, 112, 164, 0.22);
+        --radius: 14px;
+        --radius-sm: 8px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Scheherazade New', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        direction: rtl;
+        line-height: 1.9;
+        font-size: 16px;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--white);
+        border-bottom: 3px solid var(--purple);
+        box-shadow: 0 2px 16px rgba(179, 112, 164, 0.15);
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+      }
+      nav::-webkit-scrollbar {
+        display: none;
+      }
+      .nav-brand {
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--purple);
+        padding: 14px 10px;
+        border-left: 2px solid var(--bg);
+        margin-left: 8px;
+        flex-shrink: 0;
+      }
+      nav a {
+        display: inline-block;
+        padding: 10px 14px;
+        color: var(--text-light);
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 600;
+        border-radius: var(--radius-sm);
+        transition: all 0.2s;
+        flex-shrink: 0;
+      }
+      nav a:hover,
+      nav a.active {
+        background: var(--purple);
+        color: var(--white);
+      }
+
+      /* ── LAYOUT ── */
+      .hero {
+        background: linear-gradient(135deg, var(--purple) 0%, var(--blue) 100%);
+        color: var(--white);
+        text-align: center;
+        padding: 60px 20px 50px;
+      }
+      .hero h1 {
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+      .hero p {
+        font-size: 1.1rem;
+        opacity: 0.88;
+      }
+      .hero-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        padding: 4px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+      }
+
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 40px 20px 60px;
+      }
+
+      section {
+        margin-bottom: 60px;
+        scroll-margin-top: 80px;
+      }
+
+      .section-title {
+        font-size: 1.55rem;
+        font-weight: 800;
+        color: var(--purple-dark);
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-title::after {
+        content: '';
+        flex: 1;
+        height: 3px;
+        background: linear-gradient(to left, transparent, var(--purple));
+        border-radius: 2px;
+      }
+      .section-num {
+        background: var(--purple);
+        color: var(--white);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        font-weight: 800;
+        flex-shrink: 0;
+      }
+
+      /* ── DEF BOX ── */
+      .def-box {
+        background: var(--white);
+        border: 2px solid var(--gold);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin-bottom: 22px;
+        position: relative;
+        box-shadow: 0 2px 12px rgba(201, 168, 76, 0.12);
+      }
+      .def-box::before {
+        content: '📖 تعريف';
+        position: absolute;
+        top: -13px;
+        right: 20px;
+        background: var(--gold);
+        color: var(--white);
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 2px 12px;
+        border-radius: 20px;
+      }
+      .def-box p {
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      /* ── QURAN BOX ── */
+      .quran-box {
+        background: linear-gradient(135deg, #f7f7f7 0%, #fcfffd 100%);
+        border: 2px solid var(--green);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin: 18px 0;
+        position: relative;
+        box-shadow: 0 2px 12px rgba(76, 175, 122, 0.1);
+      }
+      .quran-box::before {
+        content: '🌿 قرآن كريم';
+        position: absolute;
+        top: -13px;
+        right: 20px;
+        background: var(--green);
+        color: var(--white);
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 2px 12px;
+        border-radius: 20px;
+      }
+      .quran-text {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #1a5c35;
+        line-height: 2.1;
+        margin-bottom: 8px;
+        text-align: center;
+      }
+      .quran-note {
+        font-size: 0.9rem;
+        color: #3a7a55;
+        font-weight: 500;
+      }
+
+      /* ── DIAGRAM ── */
+      .diagram {
+        background: var(--dark);
+        border-radius: var(--radius);
+        padding: 28px 24px;
+        margin: 22px 0;
+        color: #e0e0f0;
+        font-family: 'Scheherazade New', sans-serif;
+      }
+      .diagram-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 18px;
+        text-align: center;
+        color: var(--gold-light);
+      }
+      .tree {
+        font-size: 1rem;
+        line-height: 2;
+        color: #e0e0f0;
+      }
+
+      /* ── CARDS ── */
+      .card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 22px 24px;
+        margin-bottom: 16px;
+        box-shadow: var(--shadow);
+        border-top: 4px solid var(--purple);
+        transition: box-shadow 0.2s;
+      }
+      .card:hover {
+        box-shadow: var(--shadow-hover);
+      }
+      .card-title {
+        font-weight: 800;
+        font-size: 1.05rem;
+        color: var(--purple-dark);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .card.blue {
+        border-top-color: var(--blue);
+      }
+      .card.blue .card-title {
+        color: var(--blue-dark);
+      }
+      .card.green {
+        border-top-color: var(--green);
+      }
+      .card.green .card-title {
+        color: #2e7a50;
+      }
+      .card.gold {
+        border-top-color: var(--gold);
+      }
+      .card.gold .card-title {
+        color: #8a6020;
+      }
+      .card.dark {
+        border-top-color: var(--dark);
+      }
+      .card.dark .card-title {
+        color: var(--dark);
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+        margin-bottom: 22px;
+      }
+
+      /* ── PILLS / TAGS ── */
+      .tag {
+        display: inline-block;
+        padding: 3px 12px;
+        border-radius: 20px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        margin: 3px;
+      }
+      .tag-ism {
+        background: #ede0f8;
+        color: #6a2e8a;
+      }
+      .tag-fil {
+        background: #dceefb;
+        color: #1a5c8a;
+      }
+      .tag-hrf {
+        background: #fdeedd;
+        color: #8a5010;
+      }
+      .tag-marifa {
+        background: #fdf0e0;
+        color: #8a6020;
+        border: 1px solid var(--gold);
+      }
+      .tag-nakira {
+        background: #e8f4ff;
+        color: #1a5080;
+        border: 1px solid var(--blue);
+      }
+      .tag-example {
+        background: #f0f0f0;
+        color: #444;
+      }
+      .tag-highlight {
+        background: var(--purple);
+        color: white;
+      }
+      .tag-green {
+        background: #e0f5e8;
+        color: #2a6a40;
+      }
+      .tag-red {
+        background: #fde8e8;
+        color: #8a1a1a;
+      }
+      .tag-gold {
+        background: #fdf0d0;
+        color: #7a5010;
+        border: 1px solid var(--gold);
+      }
+
+      /* ── TABLES ── */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        margin: 16px 0;
+        font-size: 0.95rem;
+      }
+      th {
+        background: var(--purple);
+        color: var(--white);
+        padding: 12px 16px;
+        font-weight: 700;
+        text-align: center;
+      }
+      td {
+        padding: 10px 16px;
+        text-align: center;
+        border-bottom: 1px solid #efe8f4;
+        color: var(--text);
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      tr:nth-child(even) td {
+        background: #faf5fc;
+      }
+      tr:hover td {
+        background: #f3ecf9;
+      }
+      .th-blue th {
+        background: var(--blue);
+      }
+      .th-gold th {
+        background: var(--gold);
+      }
+      .th-dark th {
+        background: var(--dark);
+      }
+      .th-green th {
+        background: var(--green);
+      }
+
+      /* ── IRAB TABLE ── */
+      .irab-word {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: var(--purple-dark);
+      }
+      .irab-type {
+        color: var(--blue-dark);
+        font-weight: 600;
+      }
+      .irab-sign {
+        color: var(--gold);
+        font-weight: 700;
+      }
+      .irab-note {
+        color: var(--text-light);
+        font-size: 0.88rem;
+      }
+
+      /* ── SUM GRID ── */
+      .sum-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        margin-top: 30px;
+      }
+      .sum-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 20px;
+        text-align: center;
+        box-shadow: var(--shadow);
+        border-bottom: 4px solid var(--purple);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .sum-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
+      }
+      .sum-card:nth-child(2) {
+        border-bottom-color: var(--blue);
+      }
+      .sum-card:nth-child(3) {
+        border-bottom-color: var(--green);
+      }
+      .sum-card:nth-child(4) {
+        border-bottom-color: var(--gold);
+      }
+      .sum-card:nth-child(5) {
+        border-bottom-color: var(--purple-light);
+      }
+      .sum-icon {
+        font-size: 2rem;
+        margin-bottom: 8px;
+      }
+      .sum-title {
+        font-weight: 800;
+        font-size: 1rem;
+        color: var(--text);
+        margin-bottom: 6px;
+      }
+      .sum-text {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+
+      /* ── NOTE ── */
+      .note {
+        background: #fdf4ff;
+        border-right: 4px solid var(--purple);
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        padding: 14px 18px;
+        margin: 14px 0;
+        font-size: 0.93rem;
+        color: var(--text);
+      }
+      .note strong {
+        color: var(--purple-dark);
+      }
+      .note.blue {
+        background: #f0f7ff;
+        border-right-color: var(--blue);
+      }
+      .note.blue strong {
+        color: var(--blue-dark);
+      }
+      .note.green {
+        background: #f0faf5;
+        border-right-color: var(--green);
+      }
+      .note.green strong {
+        color: #2e7a50;
+      }
+      .note.gold {
+        background: #fdf8ec;
+        border-right-color: var(--gold);
+      }
+      .note.gold strong {
+        color: #7a5010;
+      }
+
+      .highlight-word {
+        background: linear-gradient(
+          to top,
+          var(--purple-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .highlight-blue {
+        background: linear-gradient(
+          to top,
+          var(--blue-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .highlight-gold {
+        background: linear-gradient(
+          to top,
+          var(--gold-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .highlight-green {
+        background: linear-gradient(
+          to top,
+          var(--green-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+
+      /* ── علل BOX ── */
+      .illa-box {
+        background: var(--white);
+        border: 2px solid var(--purple);
+        border-radius: var(--radius);
+        padding: 18px 22px;
+        margin: 14px 0;
+        position: relative;
+      }
+      .illa-box-title {
+        font-weight: 800;
+        font-size: 1rem;
+        color: var(--purple-dark);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .illa-box.blue {
+        border-color: var(--blue);
+      }
+      .illa-box.blue .illa-box-title {
+        color: var(--blue-dark);
+      }
+      .illa-box.gold {
+        border-color: var(--gold);
+      }
+      .illa-box.gold .illa-box-title {
+        color: #8a6020;
+      }
+      .illa-box.green {
+        border-color: var(--green);
+      }
+      .illa-box.green .illa-box-title {
+        color: #2e7a50;
+      }
+
+      /* ── COUNTER BADGE ── */
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        font-size: 0.85rem;
+        font-weight: 800;
+        flex-shrink: 0;
+      }
+      .badge-purple {
+        background: var(--purple);
+        color: white;
+      }
+      .badge-blue {
+        background: var(--blue);
+        color: white;
+      }
+      .badge-gold {
+        background: var(--gold);
+        color: white;
+      }
+      .badge-green {
+        background: var(--green);
+        color: white;
+      }
+
+      /* ── EXAMPLE ROW ── */
+      .ex-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 12px 0;
+      }
+      .ex-item {
+        background: #faf5fc;
+        border: 1px solid #ddd0ea;
+        border-radius: 8px;
+        padding: 8px 16px;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--purple-dark);
+      }
+      .ex-item.blue {
+        background: #f0f7ff;
+        border-color: #c0d8ee;
+        color: var(--blue-dark);
+      }
+      .ex-item.gold {
+        background: #fdf8ec;
+        border-color: #e0cc90;
+        color: #7a5010;
+      }
+      .ex-item.green {
+        background: #f0faf5;
+        border-color: #b0ddc0;
+        color: #2e7a50;
+      }
+
+      /* ── RULE BOX ── */
+      .rule-box {
+        background: linear-gradient(135deg, #3e3e48 0%, #2e2e42 100%);
+        border-radius: var(--radius);
+        padding: 20px 24px;
+        margin: 18px 0;
+        color: #e0e0f0;
+      }
+      .rule-box-title {
+        color: var(--gold-light);
+        font-size: 1rem;
+        font-weight: 800;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .rule-box p {
+        line-height: 2;
+        font-size: 0.97rem;
+      }
+      .rule-box .hl {
+        color: var(--purple-light);
+        font-weight: 700;
+      }
+      .rule-box .hl-gold {
+        color: var(--gold-light);
+        font-weight: 700;
+      }
+      .rule-box .hl-blue {
+        color: var(--blue-light);
+        font-weight: 700;
+      }
+      .rule-box .hl-green {
+        color: var(--green-light);
+        font-weight: 700;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 600px) {
+        nav {
+          gap: 4px;
+          padding: 0 10px;
+        }
+        nav a {
+          padding: 10px 10px;
+          font-size: 0.82rem;
+        }
+        .hero {
+          padding: 40px 16px 36px;
+        }
+        main {
+          padding: 28px 14px 50px;
+        }
+        .def-box,
+        .quran-box {
+          padding: 18px 16px;
+        }
+        .def-box::before,
+        .quran-box::before {
+          right: 14px;
+        }
+        .quran-text {
+          font-size: 1.05rem;
+        }
+        table {
+          font-size: 0.85rem;
+        }
+        td,
+        th {
+          padding: 8px 10px;
+        }
+        .sum-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .card-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ── SEPARATOR ── */
+      .sep {
+        height: 2px;
+        background: linear-gradient(
+          to left,
+          transparent,
+          var(--purple),
+          transparent
+        );
+        margin: 30px 0;
+        border-radius: 2px;
+      }
+
+      /* ── SCROLL REVEAL ── */
+      section {
+        animation: fadeUp 0.4s ease both;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ── ILLA COUNTER LIST ── */
+      .illa-list {
+        list-style: none;
+        padding: 0;
+        margin: 12px 0;
+      }
+      .illa-list li {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        padding: 10px 14px;
+        border-radius: var(--radius-sm);
+        margin-bottom: 8px;
+        background: #faf5fc;
+        border-right: 3px solid var(--purple);
+        font-size: 0.96rem;
+      }
+      .illa-list li.blue {
+        background: #f0f7ff;
+        border-right-color: var(--blue);
+      }
+      .illa-list li.gold {
+        background: #fdf8ec;
+        border-right-color: var(--gold);
+      }
+      .illa-list li.green {
+        background: #f0faf5;
+        border-right-color: var(--green);
+      }
+      .illa-list li strong {
+        font-size: 1rem;
+      }
+
+      .sub-title {
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: var(--blue-dark);
+        margin: 24px 0 12px;
+        padding-right: 12px;
+        border-right: 4px solid var(--blue);
+      }
+      .sub-title.purple {
+        color: var(--purple-dark);
+        border-right-color: var(--purple);
+      }
+      .sub-title.gold {
+        color: #8a6020;
+        border-right-color: var(--gold);
+      }
+      .sub-title.green {
+        color: #2e7a50;
+        border-right-color: var(--green);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <a style="text-decoration: none" href="./index.html">🏠</a>
+    <nav>
+      <div class="nav-brand">الممنوع من الصرف</div>
+      <a href="#s1">التعريف والعلة</a>
+      <a href="#s2">ممنوع لعلة واحدة</a>
+      <a href="#s3">ممنوع لعلتين</a>
+      <a href="#s4">الإعراب والأحكام</a>
+      <a href="#s5">الملخص</a>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-badge">أساسيات علم النحو</div>
+      <h1>الممنوع من الصرف</h1>
+      <p>تعريفه · علله · أحكامه · شواهده من القرآن الكريم</p>
+    </div>
+
+    <main>
+      <!-- ══════════════════════════════════════════════════
+           SECTION 1 — التعريف والعلة
+      ══════════════════════════════════════════════════ -->
+      <section id="s1">
+        <h2 class="section-title">
+          <span class="section-num">١</span>التعريف وعلة المنع
+        </h2>
+
+        <div class="def-box">
+          <p>
+            <strong>الممنوع من الصرف</strong> هو الاسم الذي لا يُنوَّن في حال
+            تنكيره، ولا تدخل عليه كسرةٌ في الجر، بل يُجرُّ بالفتحة نيابةً عن
+            الكسرة. ويُسمّى أيضاً
+            <span class="highlight-word">الاسم الذي لا ينصرف</span>.
+          </p>
+        </div>
+
+        <div class="note">
+          <strong>الصرف في اللغة:</strong> هو التنوين. فحين نقول «منعٌ من الصرف»
+          نعني: منع هذا الاسم من قبول التنوين، بسبب وجود علة أو علتين فيه
+          تُشبّهانه بالفعل.
+        </div>
+
+        <h3 class="sub-title purple">لماذا يُمنع الاسم من الصرف؟</h3>
+
+        <div class="rule-box">
+          <div class="rule-box-title">⚙️ المبدأ الجوهري</div>
+          <p>
+            الأصل في الأسماء أن تُنوَّن وتُجرَّ بالكسرة. فإذا أشبه الاسمُ الفعلَ
+            في بعض خصائصه، ثقُل على العربية أن تُعطيه علامات الأسماء الكاملة
+            (التنوين والكسر)، فمنعته منهما.
+            <br /><br />
+            وهذا الشبه بالفعل يكون إما في <span class="hl">علة واحدة</span> تختص
+            بالأسماء كالألف والنون الزائدتين، وإما في
+            <span class="hl-gold">علتين</span> مجتمعتين من تسع علل معروفة.
+          </p>
+        </div>
+
+        <div class="diagram">
+          <div class="diagram-title">🌳 خريطة الممنوع من الصرف</div>
+          <div class="tree">
+            <div
+              style="
+                text-align: center;
+                font-size: 1.15rem;
+                font-weight: 700;
+                color: var(--gold-light);
+                margin-bottom: 16px;
+              "
+            >
+              الممنوع من الصرف
+            </div>
+            <div
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px"
+            >
+              <div
+                style="
+                  background: rgba(179, 112, 164, 0.2);
+                  border-radius: 10px;
+                  padding: 14px;
+                "
+              >
+                <div
+                  style="
+                    color: var(--purple-light);
+                    font-weight: 800;
+                    margin-bottom: 8px;
+                  "
+                >
+                  📌 ممنوع لعلة واحدة
+                </div>
+                <div style="font-size: 0.92rem; color: #c8c0d8; line-height: 2">
+                  — صيغة منتهى الجموع<br />
+                  — ألف التأنيث المقصورة<br />
+                  — ألف التأنيث الممدودة
+                </div>
+              </div>
+              <div
+                style="
+                  background: rgba(114, 173, 212, 0.2);
+                  border-radius: 10px;
+                  padding: 14px;
+                "
+              >
+                <div
+                  style="
+                    color: var(--blue-light);
+                    font-weight: 800;
+                    margin-bottom: 8px;
+                  "
+                >
+                  📌 ممنوع لعلتين
+                </div>
+                <div style="font-size: 0.92rem; color: #c0d4e0; line-height: 2">
+                  — العلم + (وزن الفعل / التأنيث / العجمة / التركيب / زيادة
+                  الألف والنون / الوصفية)<br />
+                  — الوصف + (وزن الفعل / العدل / زيادة الألف والنون)
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="note gold">
+          <strong>تنبيه مهم:</strong> الممنوع من الصرف إذا أُضيف أو دخلت عليه
+          «ال» التعريف، جاز جرُّه بالكسرة وعاد إليه التنوين إن نُكِّر في بعض
+          السياقات — وهذا من أحكامه التي سيأتي تفصيلها في القسم الرابع.
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 2 — ممنوع لعلة واحدة
+      ══════════════════════════════════════════════════ -->
+      <section id="s2">
+        <h2 class="section-title">
+          <span class="section-num">٢</span>ما يُمنع لعلة واحدة
+        </h2>
+
+        <div class="def-box">
+          <p>
+            هي أسماء تحمل في بنيتها الصرفية علة قوية واحدة تكفي وحدها لمنعها من
+            الصرف دون الحاجة إلى علة ثانية، وهي ثلاثة أنواع:
+            <span class="highlight-word">صيغة منتهى الجموع</span>،
+            <span class="highlight-blue">ألف التأنيث المقصورة</span>،
+            <span class="highlight-gold">ألف التأنيث الممدودة</span>.
+          </p>
+        </div>
+
+        <!-- ── النوع الأول ── -->
+        <h3 class="sub-title purple">أولاً: صيغة منتهى الجموع</h3>
+
+        <div class="illa-box">
+          <div class="illa-box-title">
+            <span class="badge badge-purple">١</span> ما هي؟
+          </div>
+          <p>
+            هي كل جمع تكسير تجاوز بعد ألف مده حرفٌ واحد أو حرفان وسطهما حرف
+            ساكن. أي جمع على وزن <span class="highlight-word">مَفَاعِل</span> أو
+            <span class="highlight-word">مَفَاعِيل</span> وما شابههما.
+          </p>
+        </div>
+
+        <div class="rule-box">
+          <div class="rule-box-title">📐 الضابط</div>
+          <p>
+            كل جمع تكسير بعد ألفه:
+            <br />
+            &nbsp;&nbsp;• <span class="hl">حرفان</span>: مثل مَسَاجِد ← مَفَاعِل
+            <br />
+            &nbsp;&nbsp;• <span class="hl">ثلاثة أحرف وسطها ساكن</span>: مثل
+            مَصَابِيح ← مَفَاعِيل
+          </p>
+        </div>
+
+        <div class="note">
+          <strong>القاعدة الذهبية:</strong> كل جمع يقع بعد ألفه حرفان أو ثلاثة
+          وسطها ساكن فهو على صيغة منتهى الجموع، وهو ممنوع من الصرف لهذه العلة
+          وحدها.
+        </div>
+
+        <h3 class="sub-title" style="margin-top: 20px">أمثلة عملية</h3>
+
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>الجمع</th>
+              <th>المفرد</th>
+              <th>الوزن</th>
+              <th>جملة مثالية</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word">مَسَاجِد</td>
+              <td>مسجد</td>
+              <td><span class="tag tag-ism">مَفَاعِل</span></td>
+              <td>صلّيتُ في مَسَاجِدَ كثيرةٍ</td>
+            </tr>
+            <tr>
+              <td class="irab-word">مَدَارِس</td>
+              <td>مدرسة</td>
+              <td><span class="tag tag-ism">مَفَاعِل</span></td>
+              <td>أنشأَ الوالي مَدَارِسَ حديثةً</td>
+            </tr>
+            <tr>
+              <td class="irab-word">مَصَابِيح</td>
+              <td>مصباح</td>
+              <td><span class="tag tag-fil">مَفَاعِيل</span></td>
+              <td>زيَّنَّا البيتَ بمَصَابِيحَ مُضيئةٍ</td>
+            </tr>
+            <tr>
+              <td class="irab-word">أَعَاجِيب</td>
+              <td>أُعجوبة</td>
+              <td><span class="tag tag-fil">أَفَاعِيل</span></td>
+              <td>رأيتُ في الكونِ أَعَاجِيبَ كثيرةً</td>
+            </tr>
+            <tr>
+              <td class="irab-word">أَنْهَار</td>
+              <td>نهر</td>
+              <td><span class="tag tag-hrf">أَفْعَال</span></td>
+              <td>— (هذا منصرف، ألفه ليست ألف مدّ جمع منتهى الجموع)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note blue">
+          <strong>تفريق مهم:</strong> جمع «أَفْعَال» مثل «أَقْلَام» و«أَنْهَار»
+          ليس على صيغة منتهى الجموع لأن ألفه ليست ألف مد زيادة، بل هي أصلية في
+          الوزن، فهو <span class="highlight-blue">منصرف</span>.
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿سُبْحَانَ الَّذِي أَسْرَىٰ بِعَبْدِهِ لَيْلًا مِّنَ الْمَسْجِدِ
+            الْحَرَامِ إِلَى الْمَسْجِدِ الْأَقْصَى الَّذِي بَارَكْنَا حَوْلَهُ﴾
+          </div>
+          <div class="quran-note">
+            الإسراء: ١ — وفي آيات أخرى وردت «مَسَاجِدَ» بالفتح دون تنوين دليلاً
+            على منعها من الصرف.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿وَجَعَلْنَا السَّمَاءَ سَقْفًا مَّحْفُوظًا ۖ وَهُمْ عَنْ آيَاتِهَا
+            مُعْرِضُونَ﴾
+          </div>
+          <div class="quran-note">
+            الأنبياء: ٣٢ —
+            <span style="color: #1a5c35; font-weight: 700">آيَاتِهَا</span>:
+            مضافة فجُرَّت بالكسرة.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿وَلَقَدْ زَيَّنَّا السَّمَاءَ الدُّنْيَا بِمَصَابِيحَ﴾
+          </div>
+          <div class="quran-note">
+            الملك: ٥ —
+            <span style="color: #1a5c35; font-weight: 700">بِمَصَابِيحَ</span>:
+            مجرورة بالباء وعلامة جرها الفتحة نيابةً عن الكسرة لأنها ممنوعة من
+            الصرف.
+          </div>
+        </div>
+
+        <!-- ── النوع الثاني ── -->
+        <h3 class="sub-title blue" style="margin-top: 28px">
+          ثانياً: ألف التأنيث المقصورة
+        </h3>
+
+        <div class="illa-box blue">
+          <div class="illa-box-title">
+            <span class="badge badge-blue">٢</span> ما هي؟
+          </div>
+          <p>
+            كل اسم في آخره ألف مقصورة (مرسومة ياءً أو ألفاً) زائدة للتأنيث فهو
+            ممنوع من الصرف. الضابط: الألف لا تُحذف عند التثنية بل تقلب واواً أو
+            ياءً.
+          </p>
+        </div>
+
+        <div class="ex-row">
+          <span class="ex-item blue">ذِكْرَى</span>
+          <span class="ex-item blue">حُبْلَى</span>
+          <span class="ex-item blue">سَلْمَى</span>
+          <span class="ex-item blue">كُبْرَى</span>
+          <span class="ex-item blue">بُشْرَى</span>
+          <span class="ex-item blue">فُصْحَى</span>
+          <span class="ex-item blue">صُغْرَى</span>
+          <span class="ex-item blue">مُوسَى (علم)</span>
+          <span class="ex-item blue">لَيْلَى (علم)</span>
+        </div>
+
+        <div class="note blue">
+          <strong>كيف تميّز ألف التأنيث المقصورة؟</strong> ثنِّ الكلمة: إن صارت
+          «ذِكْرَيَان» ← الألف للتأنيث. أما «عَصَا» فتثنيتها «عَصَوَان» ← الألف
+          أصلية، فهي منصرفة.
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿وَبَشَّرْنَاهُ بِإِسْحَاقَ نَبِيًّا مِّنَ الصَّالِحِينَ﴾
+          </div>
+          <div class="quran-note">
+            الصافات: ١١٢ — وفي آية أخرى ﴿وَلَهُمُ الْبُشْرَىٰ﴾ (يونس: ٦٤) —
+            <span style="color: #1a5c35; font-weight: 700">البُشْرَى</span>:
+            دخلت عليها أل فجُرَّت بالكسرة.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿فَلَمَّا بَلَغَ مَعَهُ السَّعْيَ قَالَ يَا بُنَيَّ إِنِّي أَرَىٰ
+            فِي الْمَنَامِ أَنِّي أَذْبَحُكَ﴾
+          </div>
+          <div class="quran-note">
+            الصافات: ١٠٢ —
+            <span style="color: #1a5c35; font-weight: 700">أَرَىٰ</span>: فعل،
+            لا علاقة له بالباب — ذُكر للتوضيح.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿وَكَلَّمَ اللَّهُ مُوسَىٰ تَكْلِيمًا﴾</div>
+          <div class="quran-note">
+            النساء: ١٦٤ —
+            <span style="color: #1a5c35; font-weight: 700">مُوسَىٰ</span>: علم
+            ممنوع من الصرف لعلتين: العلمية وألف التأنيث المقصورة، منصوب وعلامته
+            الفتحة.
+          </div>
+        </div>
+
+        <!-- ── النوع الثالث ── -->
+        <h3 class="sub-title gold" style="margin-top: 28px">
+          ثالثاً: ألف التأنيث الممدودة
+        </h3>
+
+        <div class="illa-box gold">
+          <div class="illa-box-title">
+            <span class="badge badge-gold">٣</span> ما هي؟
+          </div>
+          <p>
+            كل اسم في آخره ألف ممدودة (ألف + همزة) زائدة للتأنيث فهو ممنوع من
+            الصرف. الضابط: الهمزة تُقلب واواً في التثنية مثل «حمراء ← حمراوان».
+          </p>
+        </div>
+
+        <div class="ex-row">
+          <span class="ex-item gold">حَمْرَاء</span>
+          <span class="ex-item gold">صَحْرَاء</span>
+          <span class="ex-item gold">خَضْرَاء</span>
+          <span class="ex-item gold">بَيْضَاء</span>
+          <span class="ex-item gold">شَقْرَاء</span>
+          <span class="ex-item gold">سَوْدَاء</span>
+          <span class="ex-item gold">أَسْمَاء (علم)</span>
+          <span class="ex-item gold">زَكَرِيَّاء (علم)</span>
+        </div>
+
+        <div class="note gold">
+          <strong>تمييز ألف التأنيث الممدودة:</strong> الهمزة في «حمراء» زائدة
+          للتأنيث — تقلب واواً في التثنية (حمراوان). أما همزة «إنشاء» فأصلية،
+          ويمكن التنوين: إنشاءٌ.
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿حُورٌ عِينٌ﴾</div>
+          <div class="quran-note">
+            الواقعة: ٢٢ — ومنه ﴿بَيْضَاءَ لَذَّةٍ لِّلشَّارِبِينَ﴾ (الصافات: ٤٦)
+            — <span style="color: #1a5c35; font-weight: 700">بَيْضَاءَ</span>:
+            ممنوعة من الصرف، مجرورة بالفتحة نيابةً عن الكسرة.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿وَنَزَعْنَا مَا فِي صُدُورِهِم مِّنْ غِلٍّ إِخْوَانًا عَلَىٰ سُرُرٍ
+            مُّتَقَابِلِينَ﴾
+          </div>
+          <div class="quran-note">
+            الحجر: ٤٧ — ومن الباب ذاته ﴿وَظِلٍّ مَّمْدُودٍ وَمَاءٍ مَّسْكُوبٍ
+            وَفَاكِهَةٍ كَثِيرَةٍ﴾ ثم ﴿وَحُورٍ عِينٍ﴾ — مثال على الصحراء:
+            ﴿وَأَلْقَاهُ فِي غَيَابَتِ الْجُبِّ﴾ وغيرها.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿إِنَّ اللَّهَ اصْطَفَىٰ آدَمَ وَنُوحًا وَآلَ إِبْرَاهِيمَ وَآلَ
+            عِمْرَانَ عَلَى الْعَالَمِينَ﴾
+          </div>
+          <div class="quran-note">
+            آل عمران: ٣٣ —
+            <span style="color: #1a5c35; font-weight: 700"
+              >إِبْرَاهِيمَ، عِمْرَانَ</span
+            >: أعلام أعجمية ممنوعة من الصرف، مجرورة بالفتحة.
+          </div>
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 3 — ممنوع لعلتين
+      ══════════════════════════════════════════════════ -->
+      <section id="s3">
+        <h2 class="section-title">
+          <span class="section-num">٣</span>ما يُمنع لعلتين
+        </h2>
+
+        <div class="def-box">
+          <p>
+            هي أسماء تحتاج لاجتماع <strong>علّتين</strong> من علل معينة حتى
+            تُمنع من الصرف. ينقسم هذا القسم إلى فريقين رئيسيين:
+            <span class="highlight-word">الأعلام</span> الممنوعة بعلمية + علة
+            أخرى، و <span class="highlight-blue">الأوصاف</span> الممنوعة بوصفية
+            + علة أخرى.
+          </p>
+        </div>
+
+        <!-- ── الأعلام ── -->
+        <h3 class="sub-title purple">أولاً: الأعلام الممنوعة من الصرف</h3>
+        <p style="margin-bottom: 14px; color: var(--text-light)">
+          العلة الأولى دائماً هي <strong>العلمية</strong>، والعلة الثانية واحدة
+          من الآتي:
+        </p>
+
+        <!-- 1. وزن الفعل -->
+        <div class="card">
+          <div class="card-title">
+            <span class="badge badge-purple">١</span> العلمية + وزن الفعل
+          </div>
+          <p>
+            إذا كان العلم على وزن يختص بالأفعال أو يغلب عليها، مثل أوزان:
+            <span class="tag tag-ism">أَفْعَل</span>
+            <span class="tag tag-ism">يَفْعَل</span>
+            <span class="tag tag-ism">تَفْعَل</span>
+            <span class="tag tag-ism">فَعَّل</span>
+          </p>
+          <div class="ex-row" style="margin-top: 10px">
+            <span class="ex-item">أَحْمَد</span>
+            <span class="ex-item">يَزِيد</span>
+            <span class="ex-item">تَغْلِب</span>
+            <span class="ex-item">شَمَّر</span>
+          </div>
+          <div class="quran-box" style="margin-top: 14px">
+            <div class="quran-text">
+              ﴿وَمُبَشِّرًا بِرَسُولٍ يَأْتِي مِن بَعْدِي اسْمُهُ أَحْمَدُ﴾
+            </div>
+            <div class="quran-note">
+              الصف: ٦ —
+              <span style="color: #1a5c35; font-weight: 700">أَحْمَدُ</span>:
+              علم على وزن أفعل، مرفوع بالضمة (خبر المبتدأ)، ولو كان مجروراً
+              لجُرَّ بالفتحة.
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. التأنيث -->
+        <div class="card blue">
+          <div class="card-title">
+            <span class="badge badge-blue">٢</span> العلمية + التأنيث
+          </div>
+          <p>
+            إذا كان العلم مؤنثاً لفظاً (بتاء التأنيث) أو معنىً (مؤنث بلا علامة
+            لكنه اسم بلد أو امرأة)، وكان زائداً على ثلاثة أحرف — أو كان ثلاثياً
+            محرّك الوسط.
+          </p>
+          <div class="ex-row" style="margin-top: 10px">
+            <span class="ex-item blue">فَاطِمَة</span>
+            <span class="ex-item blue">خَدِيجَة</span>
+            <span class="ex-item blue">مَكَّة</span>
+            <span class="ex-item blue">مِصْر (مؤنثة معنوياً)</span>
+            <span class="ex-item blue">سُعَاد</span>
+            <span class="ex-item blue">زَيْنَب</span>
+          </div>
+          <div class="note blue" style="margin-top: 10px">
+            <strong>استثناء:</strong> الثلاثي ساكن الوسط كـ«هِنْد» و«دَعْد» يجوز
+            فيه الصرف وعدمه.
+          </div>
+          <div class="quran-box" style="margin-top: 14px">
+            <div class="quran-text">
+              ﴿إِنَّ أَوَّلَ بَيْتٍ وُضِعَ لِلنَّاسِ لَلَّذِي بِبَكَّةَ
+              مُبَارَكًا﴾
+            </div>
+            <div class="quran-note">
+              آل عمران: ٩٦ —
+              <span style="color: #1a5c35; font-weight: 700">بَكَّةَ</span>: علم
+              مؤنث مجرور بالباء وعلامة جره الفتحة.
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. العجمة -->
+        <div class="card green">
+          <div class="card-title">
+            <span class="badge badge-green">٣</span> العلمية + العجمة
+          </div>
+          <p>
+            إذا كان العلم أعجمياً (غير عربي الأصل) وزاد على ثلاثة أحرف. الثلاثي
+            الأعجمي كـ«نُوح» يجوز صرفه عند بعض النحاة.
+          </p>
+          <div class="ex-row" style="margin-top: 10px">
+            <span class="ex-item green">إِبْرَاهِيم</span>
+            <span class="ex-item green">إِسْمَاعِيل</span>
+            <span class="ex-item green">إِسْحَاق</span>
+            <span class="ex-item green">يَعْقُوب</span>
+            <span class="ex-item green">يُوسُف</span>
+            <span class="ex-item green">إِدْرِيس</span>
+          </div>
+          <div class="quran-box" style="margin-top: 14px">
+            <div class="quran-text">
+              ﴿وَاتَّخَذَ اللَّهُ إِبْرَاهِيمَ خَلِيلًا﴾
+            </div>
+            <div class="quran-note">
+              النساء: ١٢٥ —
+              <span style="color: #1a5c35; font-weight: 700">إِبْرَاهِيمَ</span
+              >: مفعول به منصوب وعلامة نصبه الفتحة، وهي هنا لا تختلف عن المنصرف،
+              والفرق يظهر في الجر.
+            </div>
+          </div>
+          <div class="quran-box">
+            <div class="quran-text">
+              ﴿مَا كَانَ إِبْرَاهِيمُ يَهُودِيًّا وَلَا نَصْرَانِيًّا وَلَٰكِن
+              كَانَ حَنِيفًا مُّسْلِمًا﴾
+            </div>
+            <div class="quran-note">
+              آل عمران: ٦٧ —
+              <span style="color: #1a5c35; font-weight: 700">إِبْرَاهِيمُ</span
+              >: اسم كان مرفوع بالضمة.
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. التركيب المزجي -->
+        <div class="card gold">
+          <div class="card-title">
+            <span class="badge badge-gold">٤</span> العلمية + التركيب المزجي
+          </div>
+          <p>
+            إذا كان العلم مركّباً تركيباً مزجياً، أي مزجت فيه كلمتان وصارتا كلمة
+            واحدة (غير «ويه» التي تُبنى على الكسر).
+          </p>
+          <div class="ex-row" style="margin-top: 10px">
+            <span class="ex-item gold">بَعْلَبَكّ</span>
+            <span class="ex-item gold">حَضْرَمَوْت</span>
+            <span class="ex-item gold">مَعْدِي كَرِب</span>
+          </div>
+          <div class="note gold">
+            <strong>استثناء:</strong> «ويه» كـ«سيبويه» و«نفطويه» تُبنى على الكسر
+            دائماً ولا تُمنع.
+          </div>
+        </div>
+
+        <!-- 5. زيادة الألف والنون -->
+        <div class="card">
+          <div class="card-title">
+            <span class="badge badge-purple">٥</span> العلمية + زيادة الألف
+            والنون
+          </div>
+          <p>إذا كان العلم مختوماً بألف ونون زائدتين ليستا للمضارعة، مثل:</p>
+          <div class="ex-row" style="margin-top: 10px">
+            <span class="ex-item">عُثْمَان</span>
+            <span class="ex-item">سُفْيَان</span>
+            <span class="ex-item">رَمَضَان</span>
+            <span class="ex-item">عَدْنَان</span>
+            <span class="ex-item">مَرْوَان</span>
+          </div>
+          <div class="quran-box" style="margin-top: 14px">
+            <div class="quran-text">
+              ﴿شَهْرُ رَمَضَانَ الَّذِي أُنزِلَ فِيهِ الْقُرْآنُ﴾
+            </div>
+            <div class="quran-note">
+              البقرة: ١٨٥ —
+              <span style="color: #1a5c35; font-weight: 700">رَمَضَانَ</span>:
+              مضاف إليه مجرور وعلامة جره الفتحة نيابةً عن الكسرة.
+            </div>
+          </div>
+        </div>
+
+        <!-- ── الأوصاف ── -->
+        <h3 class="sub-title blue" style="margin-top: 28px">
+          ثانياً: الأوصاف الممنوعة من الصرف
+        </h3>
+        <p style="margin-bottom: 14px; color: var(--text-light)">
+          العلة الأولى هي <strong>الوصفية</strong>، والعلة الثانية واحدة من
+          ثلاث:
+        </p>
+
+        <!-- 1. الوصف + وزن الفعل -->
+        <div class="card blue">
+          <div class="card-title">
+            <span class="badge badge-blue">١</span> الوصفية + وزن الفعل
+          </div>
+          <p>
+            كل وصف (صفة) جاء على وزن يختص بالأفعال أو يغلب عليها، أبرزها:
+            <span class="tag tag-fil">أَفْعَل</span>
+            <span class="tag tag-fil">فَعْلَان</span>
+          </p>
+          <div class="ex-row" style="margin-top: 10px">
+            <span class="ex-item blue">أَحْمَر</span>
+            <span class="ex-item blue">أَكْبَر</span>
+            <span class="ex-item blue">أَصْغَر</span>
+            <span class="ex-item blue">عَطْشَان</span>
+            <span class="ex-item blue">غَضْبَان</span>
+            <span class="ex-item blue">سَكْرَان</span>
+          </div>
+          <div class="note blue">
+            <strong>شرط «فَعْلَان»:</strong> ألا يكون له مؤنث على «فَعْلَانَة» —
+            فإن كان كـ«نَدْمَانَة» فهو منصرف.
+          </div>
+          <div class="quran-box" style="margin-top: 14px">
+            <div class="quran-text">
+              ﴿وَيَوْمَ الْقِيَامَةِ تَرَى الَّذِينَ كَذَبُوا عَلَى اللَّهِ
+              وُجُوهُهُم مُّسْوَدَّةٌ﴾
+            </div>
+            <div class="quran-note">
+              الزمر: ٦٠ — ومن الباب: ﴿وُجُوهٌ يَوْمَئِذٍ مُّسْفِرَةٌ﴾ — الوصف
+              الأصلي غير الزائد للتفضيل يعامل معاملة مشابهة.
+            </div>
+          </div>
+          <div class="quran-box">
+            <div class="quran-text">
+              ﴿وَلَا تَقُولُوا لِمَنْ يُقْتَلُ فِي سَبِيلِ اللَّهِ أَمْوَاتٌ ۚ
+              بَلْ أَحْيَاءٌ وَلَٰكِن لَّا تَشْعُرُونَ﴾
+            </div>
+            <div class="quran-note">البقرة: ١٥٤</div>
+          </div>
+          <div class="quran-box">
+            <div class="quran-text">
+              ﴿الَّذِي جَعَلَ لَكُم مِّنَ الشَّجَرِ الْأَخْضَرِ نَارًا﴾
+            </div>
+            <div class="quran-note">
+              يس: ٨٠ —
+              <span style="color: #1a5c35; font-weight: 700">الْأَخْضَرِ</span>:
+              وصف على وزن أفعل، لكنه دخلت عليه «ال» فجُرَّ بالكسرة.
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. الوصف + العدل -->
+        <div class="card">
+          <div class="card-title">
+            <span class="badge badge-purple">٢</span> الوصفية + العدل
+          </div>
+          <p>
+            العدل هو تحويل الاسم عن صيغته الأصلية إلى صيغة أخرى. أبرز أمثلته
+            أوزان العدد كـ<span class="highlight-word"
+              >مَثْنَى، ثُلَاث، رُبَاع</span
+            >
+            وأيضاً «أُخَر» جمع «أُخرى».
+          </p>
+          <div class="ex-row" style="margin-top: 10px">
+            <span class="ex-item">مَثْنَى</span>
+            <span class="ex-item">ثُلَاث</span>
+            <span class="ex-item">رُبَاع</span>
+            <span class="ex-item">أُخَر</span>
+          </div>
+          <div class="quran-box" style="margin-top: 14px">
+            <div class="quran-text">
+              ﴿فَانكِحُوا مَا طَابَ لَكُم مِّنَ النِّسَاءِ مَثْنَىٰ وَثُلَاثَ
+              وَرُبَاعَ﴾
+            </div>
+            <div class="quran-note">
+              النساء: ٣ —
+              <span style="color: #1a5c35; font-weight: 700"
+                >مَثْنَىٰ، ثُلَاثَ، رُبَاعَ</span
+              >: أوصاف معدولة ممنوعة من الصرف، منصوبة بالفتحة.
+            </div>
+          </div>
+          <div class="quran-box">
+            <div class="quran-text">﴿فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ﴾</div>
+            <div class="quran-note">
+              البقرة: ١٨٤ —
+              <span style="color: #1a5c35; font-weight: 700">أُخَرَ</span>: جمع
+              أُخرى، ممنوعة من الصرف للوصفية والعدل، مجرورة بالفتحة.
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. الوصف + الألف والنون -->
+        <div class="card green">
+          <div class="card-title">
+            <span class="badge badge-green">٣</span> الوصفية + زيادة الألف
+            والنون
+          </div>
+          <p>
+            الوصف المختوم بألف ونون زائدتين مع عدم وجود مؤنث له على
+            «فَعْلَانَة». وهذا يُدرج في الغالب ضمن وزن فَعْلَان السابق.
+          </p>
+          <div class="ex-row" style="margin-top: 10px">
+            <span class="ex-item green">عَطْشَان</span>
+            <span class="ex-item green">غَضْبَان</span>
+            <span class="ex-item green">ظَمْآن</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 4 — الإعراب والأحكام
+      ══════════════════════════════════════════════════ -->
+      <section id="s4">
+        <h2 class="section-title">
+          <span class="section-num">٤</span>إعرابه وأحكامه
+        </h2>
+
+        <div class="def-box">
+          <p>
+            للممنوع من الصرف <strong>ثلاثة أحكام رئيسية</strong> تميّزه عن
+            الأسماء المنصرفة، وهي تتعلق بالتنوين، وعلامة الجر، والتعامل مع
+            الإضافة وأل التعريف.
+          </p>
+        </div>
+
+        <!-- الحكم الأول -->
+        <h3 class="sub-title purple">
+          الحكم الأول: لا يُنوَّن في حالة التنكير
+        </h3>
+
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>الحالة</th>
+              <th>المنصرف</th>
+              <th>الممنوع من الصرف</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>الرفع</strong></td>
+              <td class="irab-word">جاءَ رجلٌ</td>
+              <td class="irab-word">جاءَ إبراهيمُ</td>
+            </tr>
+            <tr>
+              <td><strong>النصب</strong></td>
+              <td class="irab-word">رأيتُ رجلاً</td>
+              <td class="irab-word">رأيتُ إبراهيمَ</td>
+            </tr>
+            <tr>
+              <td><strong>الجر</strong></td>
+              <td class="irab-word">مررتُ برجلٍ</td>
+              <td class="irab-word">مررتُ بإبراهيمَ</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- الحكم الثاني -->
+        <h3 class="sub-title blue" style="margin-top: 24px">
+          الحكم الثاني: يُجرُّ بالفتحة نيابةً عن الكسرة
+        </h3>
+
+        <div class="rule-box">
+          <div class="rule-box-title">⚖️ القاعدة</div>
+          <p>
+            الممنوع من الصرف <span class="hl">يُرفع بالضمة</span> كالاسم العادي،
+            و<span class="hl">يُنصب بالفتحة</span> كالاسم العادي، لكن
+            <span class="hl-gold">يُجرُّ بالفتحة</span> لا بالكسرة. فالفتحة هنا
+            نائبة عن الكسرة.
+          </p>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>الاسم</th>
+              <th>الحالة الإعرابية</th>
+              <th>العلامة</th>
+              <th>مثال</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word">مَسَاجِدُ</td>
+              <td>رفع (فاعل)</td>
+              <td class="irab-sign">الضمة</td>
+              <td>وُجِدت مَسَاجِدُ عتيقةٌ</td>
+            </tr>
+            <tr>
+              <td class="irab-word">مَسَاجِدَ</td>
+              <td>نصب (مفعول به)</td>
+              <td class="irab-sign">الفتحة</td>
+              <td>بنى المسلمون مَسَاجِدَ</td>
+            </tr>
+            <tr>
+              <td class="irab-word">مَسَاجِدَ</td>
+              <td>جر (مضاف إليه / بحرف)</td>
+              <td class="irab-sign">الفتحة (نيابة عن الكسرة)</td>
+              <td>صلّيتُ في مَسَاجِدَ كبيرةٍ</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿وَمَنْ أَظْلَمُ مِمَّن مَّنَعَ مَسَاجِدَ اللَّهِ أَن يُذْكَرَ
+            فِيهَا اسْمُهُ﴾
+          </div>
+          <div class="quran-note">
+            البقرة: ١١٤ —
+            <span style="color: #1a5c35; font-weight: 700">مَسَاجِدَ</span>:
+            مفعول به منصوب وعلامة نصبه الفتحة. وقد أُضيفت فجاءت بالفتحة أيضاً
+            وهي مضاف إليه بالفتحة.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿وَلِلَّهِ يَسْجُدُ مَن فِي السَّمَاوَاتِ وَالْأَرْضِ﴾
+          </div>
+          <div class="quran-note">
+            الرعد: ١٥ — مثال على الجمع المنصرف للمقارنة.
+          </div>
+        </div>
+
+        <!-- الحكم الثالث -->
+        <h3 class="sub-title green" style="margin-top: 24px">
+          الحكم الثالث: يُصرف عند الإضافة أو دخول أل
+        </h3>
+
+        <div class="rule-box">
+          <div class="rule-box-title">🔑 القاعدة الذهبية</div>
+          <p>
+            إذا دخلت <span class="hl">(ال) التعريف</span> على الممنوع من الصرف
+            أو <span class="hl">أُضيف</span> إلى اسم بعده، جاز جرّه بالكسرة
+            كالأسماء العادية. لأن المانع من الصرف (التنكير مع الشبه بالفعل) قد
+            زال بسبب التعريف.
+          </p>
+        </div>
+
+        <table class="th-green">
+          <thead>
+            <tr>
+              <th>الحالة</th>
+              <th>مثال</th>
+              <th>علامة الجر</th>
+              <th>السبب</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>بدون أل وبدون إضافة</td>
+              <td class="irab-word">صلّيتُ في مَسَاجِدَ</td>
+              <td class="irab-sign">الفتحة</td>
+              <td>ممنوع من الصرف — نكرة</td>
+            </tr>
+            <tr>
+              <td>مع أل التعريف</td>
+              <td class="irab-word">صلّيتُ في المَسَاجِدِ</td>
+              <td class="irab-sign">الكسرة</td>
+              <td>دخلت أل فعاد إليه الجر بالكسرة</td>
+            </tr>
+            <tr>
+              <td>مع الإضافة</td>
+              <td class="irab-word">صلّيتُ في مَسَاجِدِ المدينةِ</td>
+              <td class="irab-sign">الكسرة</td>
+              <td>أُضيف فعاد إليه الجر بالكسرة</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿فِي الْمَسَاجِدِ﴾</div>
+          <div class="quran-note">
+            البقرة: ١٨٧ (ضمن آية الاعتكاف) —
+            <span style="color: #1a5c35; font-weight: 700">الْمَسَاجِدِ</span>:
+            دخلت عليه (ال) فجُرَّ بالكسرة رغم أنه على صيغة منتهى الجموع.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿فِي مَسَاجِدِ اللَّهِ﴾</div>
+          <div class="quran-note">
+            البقرة: ١١٤ (جزء من الآية) —
+            <span style="color: #1a5c35; font-weight: 700">مَسَاجِدِ</span>:
+            أُضيف لـ«اللَّهِ» فجُرَّ بالكسرة.
+          </div>
+        </div>
+
+        <!-- إعراب تطبيقي -->
+        <h3 class="sub-title purple" style="margin-top: 24px">
+          تطبيقات إعرابية من القرآن الكريم
+        </h3>
+
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>الكلمة</th>
+              <th>الحالة</th>
+              <th>العلامة</th>
+              <th>الإعراب التفصيلي</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word">إِبْرَاهِيمَ</td>
+              <td>مجرور</td>
+              <td class="irab-sign">الفتحة ن. الكسرة</td>
+              <td>
+                مضاف إليه مجرور وعلامة جره الفتحة نيابةً عن الكسرة لأنه ممنوع من
+                الصرف (علمية + عجمة)
+              </td>
+            </tr>
+            <tr>
+              <td class="irab-word">بِمَصَابِيحَ</td>
+              <td>مجرور</td>
+              <td class="irab-sign">الفتحة ن. الكسرة</td>
+              <td>
+                مجرور بالباء وعلامة جره الفتحة نيابةً عن الكسرة (صيغة منتهى
+                الجموع)
+              </td>
+            </tr>
+            <tr>
+              <td class="irab-word">رَمَضَانَ</td>
+              <td>مجرور</td>
+              <td class="irab-sign">الفتحة ن. الكسرة</td>
+              <td>
+                مضاف إليه مجرور وعلامة جره الفتحة (علمية + ألف ونون زائدتان)
+              </td>
+            </tr>
+            <tr>
+              <td class="irab-word">مَثْنَى</td>
+              <td>منصوب</td>
+              <td class="irab-sign">الفتحة</td>
+              <td>حال منصوبة وعلامة نصبها الفتحة (وصفية + عدل)</td>
+            </tr>
+            <tr>
+              <td class="irab-word">أُخَرَ</td>
+              <td>مجرور</td>
+              <td class="irab-sign">الفتحة ن. الكسرة</td>
+              <td>نعت مجرور بالفتحة نيابةً عن الكسرة (وصفية + عدل)</td>
+            </tr>
+            <tr>
+              <td class="irab-word">الْمَسَاجِدِ</td>
+              <td>مجرور</td>
+              <td class="irab-sign">الكسرة</td>
+              <td>مجرور بالكسرة لدخول (ال) عليه رغم كونه صيغة منتهى الجموع</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 5 — الملخص
+      ══════════════════════════════════════════════════ -->
+      <section id="s5">
+        <h2 class="section-title">
+          <span class="section-num">٥</span>الملخص الشامل
+        </h2>
+
+        <div class="sum-grid">
+          <div class="sum-card">
+            <div class="sum-icon">📖</div>
+            <div class="sum-title">التعريف</div>
+            <div class="sum-text">
+              اسم لا يُنوَّن ويُجرُّ بالفتحة نيابةً عن الكسرة بسبب شبهه بالفعل.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">1️⃣</div>
+            <div class="sum-title">ممنوع لعلة واحدة</div>
+            <div class="sum-text">
+              صيغة منتهى الجموع · ألف التأنيث المقصورة · ألف التأنيث الممدودة.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">2️⃣</div>
+            <div class="sum-title">ممنوع لعلتين</div>
+            <div class="sum-text">
+              الأعلام: علمية + (وزن فعل/تأنيث/عجمة/تركيب/ألف ونون). الأوصاف:
+              وصفية + (وزن فعل/عدل/ألف ونون).
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">⚖️</div>
+            <div class="sum-title">أحكامه</div>
+            <div class="sum-text">
+              لا تنوين · جر بالفتحة · يعود إلى الكسرة مع أل أو الإضافة.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🔑</div>
+            <div class="sum-title">المفتاح العملي</div>
+            <div class="sum-text">
+              إذا رأيت اسماً مجروراً بالفتحة وليس مثنى ولا جمع مذكر سالم فهو
+              ممنوع من الصرف.
+            </div>
+          </div>
+        </div>
+
+        <!-- جدول شامل -->
+        <h3 class="sub-title purple" style="margin-top: 30px">
+          جدول شامل للممنوع من الصرف
+        </h3>
+
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>النوع</th>
+              <th>العلة / العلتان</th>
+              <th>أمثلة</th>
+              <th>شاهد قرآني</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>صيغة منتهى الجموع</td>
+              <td><span class="tag tag-ism">علة واحدة</span></td>
+              <td class="irab-word">مساجد، مصابيح، مدارس</td>
+              <td>﴿بِمَصَابِيحَ﴾</td>
+            </tr>
+            <tr>
+              <td>ألف التأنيث المقصورة</td>
+              <td><span class="tag tag-ism">علة واحدة</span></td>
+              <td class="irab-word">بُشرى، ذِكرى، ليلى</td>
+              <td>﴿وَلَهُمُ الْبُشْرَىٰ﴾</td>
+            </tr>
+            <tr>
+              <td>ألف التأنيث الممدودة</td>
+              <td><span class="tag tag-ism">علة واحدة</span></td>
+              <td class="irab-word">حمراء، صحراء، بيضاء</td>
+              <td>﴿بَيْضَاءَ لَذَّةٍ﴾</td>
+            </tr>
+            <tr>
+              <td>علم + وزن الفعل</td>
+              <td><span class="tag tag-fil">علتان</span></td>
+              <td class="irab-word">أحمد، يزيد</td>
+              <td>﴿اسْمُهُ أَحْمَدُ﴾</td>
+            </tr>
+            <tr>
+              <td>علم + تأنيث</td>
+              <td><span class="tag tag-fil">علتان</span></td>
+              <td class="irab-word">فاطمة، مكة، سعاد</td>
+              <td>﴿بِبَكَّةَ﴾</td>
+            </tr>
+            <tr>
+              <td>علم + عجمة</td>
+              <td><span class="tag tag-fil">علتان</span></td>
+              <td class="irab-word">إبراهيم، يوسف، إسحاق</td>
+              <td>﴿إِبْرَاهِيمَ خَلِيلًا﴾</td>
+            </tr>
+            <tr>
+              <td>علم + تركيب مزجي</td>
+              <td><span class="tag tag-fil">علتان</span></td>
+              <td class="irab-word">بعلبكّ، حضرموت</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>علم + ألف ونون</td>
+              <td><span class="tag tag-fil">علتان</span></td>
+              <td class="irab-word">رمضان، عثمان، سفيان</td>
+              <td>﴿شَهْرُ رَمَضَانَ﴾</td>
+            </tr>
+            <tr>
+              <td>وصف + وزن الفعل</td>
+              <td><span class="tag tag-hrf">علتان</span></td>
+              <td class="irab-word">أحمر، أكبر، غضبان</td>
+              <td>﴿الْأَخْضَرِ﴾ (بعد ال)</td>
+            </tr>
+            <tr>
+              <td>وصف + عدل</td>
+              <td><span class="tag tag-hrf">علتان</span></td>
+              <td class="irab-word">مثنى، ثلاث، أُخَر</td>
+              <td>﴿مَثْنَىٰ وَثُلَاثَ﴾</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer
+      style="
+        background: var(--dark);
+        color: #a0a8c0;
+        text-align: center;
+        padding: 24px 20px;
+        font-size: 0.88rem;
+        margin-top: 10px;
+      "
+    >
+      <p style="margin-bottom: 6px">أساسيات علم النحو — الممنوع من الصرف</p>
+      <p style="opacity: 0.6">
+        للمراجعة والتعلُّم الذاتي — جميع الشواهد من القرآن الكريم
+      </p>
+    </footer>
+
+    <script>
+      // Active nav on scroll
+      const sections = document.querySelectorAll('section[id]')
+      const navLinks = document.querySelectorAll('nav a')
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navLinks.forEach((l) => l.classList.remove('active'))
+              const active = document.querySelector(
+                `nav a[href="#${entry.target.id}"]`,
+              )
+              if (active) {
+                active.classList.add('active')
+                active.scrollIntoView({ block: 'nearest', inline: 'center' })
+              }
+            }
+          })
+        },
+        { rootMargin: '-20% 0px -70% 0px' },
+      )
+
+      sections.forEach((s) => observer.observe(s))
+
+      navLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault()
+          const target = document.querySelector(link.getAttribute('href'))
+          if (target) target.scrollIntoView({ behavior: 'smooth' })
+        })
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1846 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>علم النحو — الأساليب النحوية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --purple: #b370a4;
+        --purple-light: #c98fbb;
+        --purple-dark: #8a5280;
+        --blue: #72add4;
+        --blue-light: #9dc5e0;
+        --blue-dark: #4e8ab5;
+        --bg: #f2f2f2;
+        --white: #ffffff;
+        --dark: #3e3e48;
+        --dark2: #3a3a52;
+        --text: #3a3350;
+        --text-light: #6a6080;
+        --gold: #c9a84c;
+        --gold-light: #f0d080;
+        --green: #4caf7a;
+        --green-light: #80d4a8;
+        --red: #d9534f;
+        --red-light: #f4a09e;
+        --shadow: 0 4px 20px rgba(179, 112, 164, 0.12);
+        --shadow-hover: 0 8px 32px rgba(179, 112, 164, 0.22);
+        --radius: 14px;
+        --radius-sm: 8px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Scheherazade New', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        direction: rtl;
+        line-height: 1.9;
+        font-size: 16px;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--white);
+        border-bottom: 3px solid var(--purple);
+        box-shadow: 0 2px 16px rgba(179, 112, 164, 0.15);
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+      }
+      nav::-webkit-scrollbar {
+        display: none;
+      }
+      .nav-brand {
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--purple);
+        padding: 14px 10px;
+        border-left: 2px solid var(--bg);
+        margin-left: 8px;
+        flex-shrink: 0;
+      }
+      nav a {
+        display: inline-block;
+        padding: 10px 14px;
+        color: var(--text-light);
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 600;
+        border-radius: var(--radius-sm);
+        transition: all 0.2s;
+        flex-shrink: 0;
+      }
+      nav a:hover,
+      nav a.active {
+        background: var(--purple);
+        color: var(--white);
+      }
+
+      /* ── LAYOUT ── */
+      .hero {
+        background: linear-gradient(135deg, var(--purple) 0%, var(--blue) 100%);
+        color: var(--white);
+        text-align: center;
+        padding: 60px 20px 50px;
+      }
+      .hero h1 {
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+      .hero p {
+        font-size: 1.1rem;
+        opacity: 0.88;
+      }
+      .hero-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        padding: 4px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+      }
+
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 40px 20px 60px;
+      }
+
+      section {
+        margin-bottom: 60px;
+        scroll-margin-top: 80px;
+      }
+
+      .section-title {
+        font-size: 1.55rem;
+        font-weight: 800;
+        color: var(--purple-dark);
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-title::after {
+        content: '';
+        flex: 1;
+        height: 3px;
+        background: linear-gradient(to left, transparent, var(--purple));
+        border-radius: 2px;
+      }
+      .section-num {
+        background: var(--purple);
+        color: var(--white);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        font-weight: 800;
+        flex-shrink: 0;
+      }
+
+      /* sub-section title */
+      .sub-title {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: var(--purple);
+        margin: 28px 0 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .sub-title::before {
+        content: '';
+        width: 5px;
+        height: 20px;
+        background: var(--purple);
+        border-radius: 3px;
+        flex-shrink: 0;
+      }
+
+      /* ── DEF BOX ── */
+      .def-box {
+        background: var(--white);
+        border: 2px solid var(--gold);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin-bottom: 22px;
+        position: relative;
+        box-shadow: 0 2px 12px rgba(201, 168, 76, 0.12);
+      }
+      .def-box::before {
+        content: '📖 تعريف';
+        position: absolute;
+        top: -13px;
+        right: 20px;
+        background: var(--gold);
+        color: var(--white);
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 2px 12px;
+        border-radius: 20px;
+      }
+      .def-box p {
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      /* ── QURAN BOX ── */
+      .quran-box {
+        background: linear-gradient(135deg, #f7f7f7 0%, #fcfffd 100%);
+        border: 2px solid var(--green);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin: 18px 0;
+        position: relative;
+        box-shadow: 0 2px 12px rgba(76, 175, 122, 0.1);
+      }
+      .quran-box::before {
+        content: '🌿 قرآن كريم';
+        position: absolute;
+        top: -13px;
+        right: 20px;
+        background: var(--green);
+        color: var(--white);
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 2px 12px;
+        border-radius: 20px;
+      }
+      .quran-text {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #1a5c35;
+        line-height: 2.1;
+        margin-bottom: 8px;
+        text-align: center;
+      }
+      .quran-note {
+        font-size: 0.9rem;
+        color: #3a7a55;
+        font-weight: 500;
+      }
+
+      /* ── DIAGRAM ── */
+      .diagram {
+        background: var(--dark);
+        border-radius: var(--radius);
+        padding: 28px 24px;
+        margin: 22px 0;
+        color: #e0e0f0;
+        font-family: 'Scheherazade New', sans-serif;
+      }
+      .diagram-title {
+        color: #fff;
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 18px;
+        text-align: center;
+      }
+      .tree {
+        font-family: 'Scheherazade New', monospace;
+        font-size: 1rem;
+        line-height: 2;
+        color: #ffffff;
+      }
+      .tree .branch {
+        color: var(--purple-light);
+        font-weight: 700;
+      }
+      .tree .leaf {
+        color: var(--gold-light);
+      }
+      .tree .leaf2 {
+        color: #9de8b8;
+      }
+
+      /* ── CARDS ── */
+      .card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 22px 24px;
+        margin-bottom: 16px;
+        box-shadow: var(--shadow);
+        border-top: 4px solid var(--purple);
+        transition: box-shadow 0.2s;
+      }
+      .card:hover {
+        box-shadow: var(--shadow-hover);
+      }
+      .card-title {
+        font-weight: 800;
+        font-size: 1.05rem;
+        color: var(--purple-dark);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .card.blue {
+        border-top-color: var(--blue);
+      }
+      .card.blue .card-title {
+        color: var(--blue-dark);
+      }
+      .card.green {
+        border-top-color: var(--green);
+      }
+      .card.green .card-title {
+        color: #2e7a50;
+      }
+      .card.gold {
+        border-top-color: var(--gold);
+      }
+      .card.gold .card-title {
+        color: #8a6020;
+      }
+      .card.red {
+        border-top-color: var(--red);
+      }
+      .card.red .card-title {
+        color: #8a1a1a;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+        margin-bottom: 22px;
+      }
+
+      /* ── PILLS / TAGS ── */
+      .tag {
+        display: inline-block;
+        padding: 3px 12px;
+        border-radius: 20px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        margin: 3px;
+      }
+      .tag-ism {
+        background: #ede0f8;
+        color: #6a2e8a;
+      }
+      .tag-fil {
+        background: #dceefb;
+        color: #1a5c8a;
+      }
+      .tag-hrf {
+        background: #fdeedd;
+        color: #8a5010;
+      }
+      .tag-marifa {
+        background: #fdf0e0;
+        color: #8a6020;
+        border: 1px solid var(--gold);
+      }
+      .tag-nakira {
+        background: #e8f4ff;
+        color: #1a5080;
+        border: 1px solid var(--blue);
+      }
+      .tag-green {
+        background: #e0f5e8;
+        color: #2a6a40;
+      }
+      .tag-red {
+        background: #fde8e8;
+        color: #8a1a1a;
+      }
+      .tag-highlight {
+        background: var(--purple);
+        color: white;
+      }
+
+      /* ── TABLES ── */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        margin: 16px 0;
+        font-size: 0.95rem;
+      }
+      th {
+        background: var(--purple);
+        color: var(--white);
+        padding: 12px 16px;
+        font-weight: 700;
+        text-align: center;
+      }
+      td {
+        padding: 10px 16px;
+        text-align: center;
+        border-bottom: 1px solid #efe8f4;
+        color: var(--text);
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      tr:nth-child(even) td {
+        background: #faf5fc;
+      }
+      tr:hover td {
+        background: #f3ecf9;
+      }
+      .th-blue th {
+        background: var(--blue);
+      }
+      .th-gold th {
+        background: var(--gold);
+      }
+      .th-dark th {
+        background: var(--dark);
+      }
+      .th-green th {
+        background: var(--green);
+      }
+      .th-red th {
+        background: var(--red);
+      }
+
+      .irab-word {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: var(--purple-dark);
+      }
+
+      /* ── SUM GRID ── */
+      .sum-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        margin-top: 30px;
+      }
+      .sum-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 20px;
+        text-align: center;
+        box-shadow: var(--shadow);
+        border-bottom: 4px solid var(--purple);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .sum-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
+      }
+      .sum-card:nth-child(2) {
+        border-bottom-color: var(--blue);
+      }
+      .sum-card:nth-child(3) {
+        border-bottom-color: var(--green);
+      }
+      .sum-card:nth-child(4) {
+        border-bottom-color: var(--gold);
+      }
+      .sum-card:nth-child(5) {
+        border-bottom-color: var(--red);
+      }
+      .sum-icon {
+        font-size: 2rem;
+        margin-bottom: 8px;
+      }
+      .sum-title {
+        font-weight: 800;
+        font-size: 1rem;
+        color: var(--text);
+        margin-bottom: 6px;
+      }
+      .sum-text {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+
+      /* ── NOTE ── */
+      .note {
+        background: #fdf4ff;
+        border-right: 4px solid var(--purple);
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        padding: 14px 18px;
+        margin: 14px 0;
+        font-size: 0.93rem;
+        color: var(--text);
+      }
+      .note.blue {
+        background: #f0f7ff;
+        border-right-color: var(--blue);
+      }
+      .note.green {
+        background: #f0fff5;
+        border-right-color: var(--green);
+      }
+      .note.gold {
+        background: #fffbf0;
+        border-right-color: var(--gold);
+      }
+      .note.red {
+        background: #fff5f5;
+        border-right-color: var(--red);
+      }
+      .note strong {
+        color: var(--purple-dark);
+      }
+      .note.blue strong {
+        color: var(--blue-dark);
+      }
+      .note.green strong {
+        color: #2e7a50;
+      }
+      .note.gold strong {
+        color: #8a6020;
+      }
+      .note.red strong {
+        color: #8a1a1a;
+      }
+
+      .highlight-word {
+        background: linear-gradient(
+          to top,
+          var(--purple-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .highlight-blue {
+        background: linear-gradient(
+          to top,
+          var(--blue-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .highlight-gold {
+        background: linear-gradient(
+          to top,
+          var(--gold-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .highlight-green {
+        background: linear-gradient(
+          to top,
+          var(--green-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .highlight-red {
+        background: linear-gradient(
+          to top,
+          var(--red-light) 10%,
+          transparent 10%
+        );
+        padding: 0 3px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+
+      /* formula box */
+      .formula {
+        background: var(--dark2);
+        color: #fff;
+        border-radius: var(--radius);
+        padding: 18px 24px;
+        margin: 16px 0;
+        text-align: center;
+        font-size: 1.15rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+      .formula span {
+        color: var(--gold-light);
+      }
+      .formula .plus {
+        color: #aaa;
+        margin: 0 8px;
+        font-size: 1rem;
+      }
+
+      /* example list */
+      .ex-list {
+        list-style: none;
+        padding: 0;
+        margin: 12px 0;
+      }
+      .ex-list li {
+        padding: 10px 16px;
+        margin-bottom: 8px;
+        background: var(--white);
+        border-radius: var(--radius-sm);
+        border-right: 4px solid var(--purple);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        font-size: 1rem;
+      }
+      .ex-list li .ex-num {
+        font-weight: 800;
+        color: var(--purple);
+        margin-left: 8px;
+      }
+      .ex-list li .irab-note {
+        font-size: 0.82rem;
+        color: var(--text-light);
+        display: block;
+        margin-top: 4px;
+      }
+      .ex-list.blue li {
+        border-right-color: var(--blue);
+      }
+      .ex-list.blue li .ex-num {
+        color: var(--blue-dark);
+      }
+      .ex-list.gold li {
+        border-right-color: var(--gold);
+      }
+      .ex-list.gold li .ex-num {
+        color: #8a6020;
+      }
+      .ex-list.green li {
+        border-right-color: var(--green);
+      }
+      .ex-list.green li .ex-num {
+        color: #2e7a50;
+      }
+      .ex-list.red li {
+        border-right-color: var(--red);
+      }
+      .ex-list.red li .ex-num {
+        color: #8a1a1a;
+      }
+
+      /* ── SEPARATOR ── */
+      .sep {
+        height: 2px;
+        background: linear-gradient(
+          to left,
+          transparent,
+          var(--purple),
+          transparent
+        );
+        margin: 30px 0;
+        border-radius: 2px;
+      }
+
+      /* ── SCROLL REVEAL ── */
+      section {
+        animation: fadeUp 0.4s ease both;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 600px) {
+        nav {
+          gap: 4px;
+          padding: 0 10px;
+        }
+        nav a {
+          padding: 10px 10px;
+          font-size: 0.82rem;
+        }
+        .hero {
+          padding: 40px 16px 36px;
+        }
+        main {
+          padding: 28px 14px 50px;
+        }
+        .def-box,
+        .quran-box {
+          padding: 18px 16px;
+        }
+        .def-box::before,
+        .quran-box::before {
+          right: 14px;
+        }
+        .quran-text {
+          font-size: 1.05rem;
+        }
+        table {
+          font-size: 0.85rem;
+        }
+        td,
+        th {
+          padding: 8px 10px;
+        }
+        .sum-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <a style="text-decoration: none" href="./index.html">🏠</a>
+    <nav>
+      <div class="nav-brand">الأساليب النحوية</div>
+      <a href="#s1">التعجب</a>
+      <a href="#s2">المدح والذم</a>
+      <a href="#s3">الاختصاص</a>
+      <a href="#s4">الإغراء والتحذير</a>
+      <a href="#s5">الاستثناء</a>
+      <a href="#s6">الملخص</a>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-badge">أساسيات علم النحو</div>
+      <h1>الأساليب النحوية</h1>
+      <p>التعجب · المدح والذم · الاختصاص · الإغراء والتحذير · الاستثناء</p>
+    </div>
+
+    <main>
+      <!-- ══════════════════════════════════════════════════
+           SECTION 1 — أسلوب التعجب
+      ══════════════════════════════════════════════════ -->
+      <section id="s1">
+        <h2 class="section-title">
+          <span class="section-num">١</span>أسلوب التعجب
+        </h2>
+
+        <div class="def-box">
+          <p>
+            <strong>التعجب</strong> أسلوبٌ يُعبِّر به المتكلم عن استعظامه لصفةٍ
+            بلغت من الشدة حدًّا خفيَ سببُه وغمض. وله في العربية
+            <span class="highlight-word">صيغتان قياسيتان</span>
+            وصيَغٌ سماعية أخرى.
+          </p>
+        </div>
+
+        <!-- الصيغتان القياسيتان -->
+        <h3 class="sub-title">الصيغتان القياسيتان</h3>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title">🔷 ما أَفْعَلَهُ</div>
+            <p>
+              فعل تعجب جامد على وزن <strong>أَفْعَل</strong>، و<strong
+                >ما</strong
+              >
+              قبله اسم تعجب.
+            </p>
+            <div class="formula">
+              <span>ما</span>
+              <span class="plus">+</span>
+              <span>أَفْعَلَ</span>
+              <span class="plus">+</span>
+              <span>المتعجَّب منه (مفعول به)</span>
+            </div>
+            <ul class="ex-list">
+              <li><span class="ex-num">◂</span> ما أَجْمَلَ السماءَ!</li>
+              <li><span class="ex-num">◂</span> ما أَعْظَمَ الصبرَ!</li>
+            </ul>
+          </div>
+          <div class="card blue">
+            <div class="card-title">🔷 أَفْعِلْ بِهِ</div>
+            <p>فعل أمر جامد، والاسم بعد الباء فاعل في محل رفع.</p>
+            <div class="formula">
+              <span>أَفْعِلْ</span>
+              <span class="plus">+</span>
+              <span>بـِ</span>
+              <span class="plus">+</span>
+              <span>المتعجَّب منه (فاعل)</span>
+            </div>
+            <ul class="ex-list blue">
+              <li><span class="ex-num">◂</span> أَجْمِلْ بالسماءِ!</li>
+              <li><span class="ex-num">◂</span> أَعْظِمْ بالصبرِ!</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- شروط الفعل للتعجب -->
+        <h3 class="sub-title">شروط الفعل المُتعجَّب منه</h3>
+
+        <div class="diagram">
+          <div class="diagram-title">⚙️ شروط صياغة التعجب القياسي</div>
+          <div class="tree">
+            <p><span class="branch">يجب أن يكون الفعل:</span></p>
+            <p>
+              ١ — <span class="leaf">ثلاثيًّا</span> (لا ثلاثي مزيد في الغالب)
+            </p>
+            <p>٢ — <span class="leaf">مُثبَتًا</span> (غير منفي)</p>
+            <p>٣ — <span class="leaf">متصرفًا</span> (ليس جامدًا)</p>
+            <p>
+              ٤ — <span class="leaf">قابلًا للتفاضل</span> (لا مطاوع لازم محصور)
+            </p>
+            <p>٥ — <span class="leaf">تامًّا</span> (ليس ناقصًا كـ كان)</p>
+            <p>٦ — <span class="leaf">غير مبني للمجهول</span></p>
+            <br />
+            <p><span class="branch">إذا تخلف شرط:</span></p>
+            <p>
+              → نأتي بمصدر الفعل +
+              <span class="leaf2">ما أشدَّ / ما أكثرَ / أشدِدْ بـِ</span>
+            </p>
+            <p>مثال: ما أشدَّ <span class="leaf2">احمرارَ</span> وجهِه!</p>
+          </div>
+        </div>
+
+        <!-- الإعراب التفصيلي -->
+        <h3 class="sub-title">الإعراب التفصيلي</h3>
+
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>المثال</th>
+              <th>الكلمة</th>
+              <th>الإعراب</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="3" class="irab-word">ما أَجْمَلَ الوردةَ!</td>
+              <td><span class="highlight-word">ما</span></td>
+              <td>اسم تعجب مبني على السكون في محل رفع مبتدأ</td>
+            </tr>
+            <tr>
+              <td><span class="highlight-word">أَجْمَلَ</span></td>
+              <td>
+                فعل ماضٍ جامد لإنشاء التعجب، مبني على الفتح، والفاعل ضمير مستتر
+                تقديره «هو» يعود على «ما»، والجملة في محل رفع خبر
+              </td>
+            </tr>
+            <tr>
+              <td><span class="highlight-word">الوردةَ</span></td>
+              <td>مفعول به منصوب وعلامة نصبه الفتحة</td>
+            </tr>
+            <tr>
+              <td rowspan="2" class="irab-word">أَجْمِلْ بالوردةِ!</td>
+              <td><span class="highlight-word">أَجْمِلْ</span></td>
+              <td>
+                فعل ماضٍ جاء بصورة الأمر جامد لإنشاء التعجب، مبني على السكون
+              </td>
+            </tr>
+            <tr>
+              <td><span class="highlight-word">بالوردةِ</span></td>
+              <td>الباء حرف جر زائد، «الوردة» فاعل مرفوع محلًّا مجرور لفظًا</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- الصيغ السماعية -->
+        <h3 class="sub-title">صيغ التعجب السماعية</h3>
+        <div class="card-grid">
+          <div class="card gold">
+            <div class="card-title">🌟 لله دَرُّهُ / يا لَـ</div>
+            <ul class="ex-list gold">
+              <li>
+                <span class="ex-num">◂</span> لله درُّهُ عالِمًا! (تعجب وإعجاب)
+              </li>
+              <li>
+                <span class="ex-num">◂</span> يا لَلجمالِ! (تعجب من الجمال)
+              </li>
+            </ul>
+          </div>
+          <div class="card green">
+            <div class="card-title">🌟 سُبحانَ الله / يا سُبحانَ</div>
+            <ul class="ex-list green">
+              <li>
+                <span class="ex-num">◂</span> سبحانَ الله، ما أبدعَ هذا الخلقَ!
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- شواهد قرآنية -->
+        <h3 class="sub-title">شواهد قرآنية</h3>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿أَبْصِرْ بِهِ وَأَسْمِعْ﴾</div>
+          <div class="quran-note">
+            الكهف: ٢٦ —
+            <span class="highlight-word">أَبْصِرْ بِهِ وَأَسْمِعْ</span>: صيغتا
+            تعجب بمعنى «ما أبصرَهُ وما أسمعَهُ»، تعجُّبًا من إحاطة الله بكل شيء.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿كَيْفَ تَكْفُرُونَ بِاللَّهِ وَكُنتُمْ أَمْوَاتًا فَأَحْيَاكُمْ﴾
+          </div>
+          <div class="quran-note">
+            البقرة: ٢٨ — <span class="highlight-word">كَيْفَ تَكْفُرُونَ</span>:
+            استفهام للتعجب والتوبيخ، تعجُّبٌ من كفر من شهد دلائل الإحياء.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿قُتِلَ الْإِنسَانُ مَا أَكْفَرَهُ﴾</div>
+          <div class="quran-note">
+            عبس: ١٧ — <span class="highlight-word">مَا أَكْفَرَهُ</span>: صيغة
+            تعجب على وزن «ما أَفْعَلَهُ»، والمعنى: ما أشدَّ كُفرَ الإنسان!
+          </div>
+        </div>
+      </section>
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 2 — أسلوب المدح والذم
+      ══════════════════════════════════════════════════ -->
+      <section id="s2">
+        <h2 class="section-title">
+          <span class="section-num">٢</span>أسلوب المدح والذم
+        </h2>
+
+        <div class="def-box">
+          <p>
+            أسلوبٌ إنشائيٌّ غير طلبي يُستخدَم للمبالغة في
+            <span class="highlight-word">مدح</span> شيء أو
+            <span class="highlight-red">ذمِّه</span>. وله أفعال جامدة لازمة
+            مخصوصة.
+          </p>
+        </div>
+
+        <!-- أفعال المدح والذم -->
+        <h3 class="sub-title">أفعال المدح والذم</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>الفعل</th>
+              <th>النوع</th>
+              <th>مثال</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word" style="color: var(--green)">نِعْمَ</td>
+              <td><span class="tag tag-green">مدح</span></td>
+              <td>نِعمَ الصديقُ الوفيُّ</td>
+            </tr>
+            <tr>
+              <td class="irab-word" style="color: var(--red)">بِئْسَ</td>
+              <td><span class="tag tag-red">ذم</span></td>
+              <td>بِئسَ الرفيقُ الكاذبُ</td>
+            </tr>
+            <tr>
+              <td class="irab-word" style="color: var(--green)">حَبَّذَا</td>
+              <td><span class="tag tag-green">مدح</span></td>
+              <td>حَبَّذَا العِلمُ</td>
+            </tr>
+            <tr>
+              <td class="irab-word" style="color: var(--red)">لَا حَبَّذَا</td>
+              <td><span class="tag tag-red">ذم</span></td>
+              <td>لا حَبَّذَا الكسلُ</td>
+            </tr>
+            <tr>
+              <td class="irab-word" style="color: var(--green)">سَاءَ</td>
+              <td><span class="tag tag-red">ذم</span></td>
+              <td>سَاءَ مَثَلًا القومُ الكافرون</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- تركيب الجملة -->
+        <h3 class="sub-title">أركان الجملة في نِعْمَ وبِئْسَ</h3>
+
+        <div class="diagram">
+          <div class="diagram-title">🏗️ بنية جملة المدح والذم</div>
+          <div class="tree">
+            <p><span class="branch">الجملة تتكون من ثلاثة أركان:</span></p>
+            <br />
+            <p>١ — <span class="leaf">الفعل الجامد</span> (نِعمَ / بِئسَ)</p>
+            <p>→ مبني على الفتح، لا يتصرف</p>
+            <br />
+            <p>٢ — <span class="leaf">الفاعل</span> — وله ثلاث حالات:</p>
+            <p>
+              أ) اسم مُعرَّف بـ (ال): <span class="leaf2">نِعمَ الرجلُ</span>
+            </p>
+            <p>
+              ب) مضاف إلى مُعرَّف بـ (ال):
+              <span class="leaf2">نِعمَ رجلُ العِلمِ</span>
+            </p>
+            <p>
+              ج) ضمير مستتر + تمييز نكرة:
+              <span class="leaf2">نِعمَ رجلًا خالدٌ</span>
+            </p>
+            <br />
+            <p>٣ — <span class="leaf">المخصوص بالمدح أو الذم</span></p>
+            <p>→ الاسم الذي قُصد مدحُه أو ذمُّه</p>
+            <p>→ إعرابه: مبتدأ مؤخر، أو خبر لمبتدأ محذوف</p>
+          </div>
+        </div>
+
+        <!-- الإعراب التفصيلي -->
+        <h3 class="sub-title">الإعراب التفصيلي</h3>
+
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>المثال</th>
+              <th>الكلمة</th>
+              <th>الإعراب</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="3" class="irab-word">نِعمَ الصديقُ خالدٌ</td>
+              <td><span class="highlight-word">نِعمَ</span></td>
+              <td>فعل ماضٍ جامد لإنشاء المدح، مبني على الفتح</td>
+            </tr>
+            <tr>
+              <td><span class="highlight-word">الصديقُ</span></td>
+              <td>فاعل مرفوع وعلامة رفعه الضمة</td>
+            </tr>
+            <tr>
+              <td><span class="highlight-word">خالدٌ</span></td>
+              <td>
+                المخصوص بالمدح: مبتدأ مؤخر مرفوع، أو خبر لمبتدأ محذوف تقديره
+                «هو»
+              </td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="irab-word">نِعمَ رجلًا عمرُ</td>
+              <td><span class="highlight-word">نِعمَ</span></td>
+              <td>فعل ماضٍ جامد مبني على الفتح</td>
+            </tr>
+            <tr>
+              <td><span class="highlight-word">(ضمير مستتر)</span></td>
+              <td>فاعل ضمير مستتر وجوبًا تقديره «هو»</td>
+            </tr>
+            <tr>
+              <td><span class="highlight-word">رجلًا</span></td>
+              <td>تمييز منصوب وعلامة نصبه الفتحة</td>
+            </tr>
+            <tr>
+              <td><span class="highlight-word">عمرُ</span></td>
+              <td>المخصوص بالمدح مرفوع</td>
+            </tr>
+            <tr>
+              <td rowspan="3" class="irab-word">حَبَّذَا الأمانةُ</td>
+              <td><span class="highlight-word">حَبَّ</span></td>
+              <td>فعل ماضٍ جامد مبني على الفتح</td>
+            </tr>
+            <tr>
+              <td><span class="highlight-word">ذَا</span></td>
+              <td>اسم إشارة مبني في محل رفع فاعل</td>
+            </tr>
+            <tr>
+              <td><span class="highlight-word">الأمانةُ</span></td>
+              <td>المخصوص بالمدح: مبتدأ مؤخر أو خبر لمبتدأ محذوف</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note gold">
+          <strong>تنبيه:</strong> «حَبَّذَا» كلمة واحدة مُركَّبة من (حَبَّ +
+          ذَا)، لا تتغير بتغير المتحدَّث عنه، فنقول: حَبَّذَا المرأةُ الصالحةُ
+          (ولا نقول: حَبَّذِهِ).
+        </div>
+
+        <!-- شواهد قرآنية -->
+        <h3 class="sub-title">شواهد قرآنية</h3>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿نِعْمَ الْعَبْدُ إِنَّهُ أَوَّابٌ﴾</div>
+          <div class="quran-note">
+            ص: ٤٤ — <span class="highlight-word">نِعْمَ الْعَبْدُ</span>: مدح
+            لأيوب عليه السلام. «العبدُ» فاعل نِعمَ، والمخصوص بالمدح محذوف تقديره
+            «هو» (أيوب).
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿بِئْسَ لِلظَّالِمِينَ بَدَلًا﴾</div>
+          <div class="quran-note">
+            الكهف: ٥٠ — <span class="highlight-word">بِئْسَ</span>: ذمٌّ للشيطان
+            بديلًا عن الله. الفاعل ضمير مستتر، و«بَدَلًا» تمييز.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿سَاءَ مَثَلًا الْقَوْمُ الَّذِينَ كَذَّبُوا بِآيَاتِنَا﴾
+          </div>
+          <div class="quran-note">
+            الأعراف: ١٧٧ — <span class="highlight-word">سَاءَ مَثَلًا</span>:
+            «ساءَ» فعل ذمٍّ، «مَثَلًا» تمييز، «القومُ» المخصوص بالذم.
+          </div>
+        </div>
+      </section>
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 3 — أسلوب الاختصاص
+      ══════════════════════════════════════════════════ -->
+      <section id="s3">
+        <h2 class="section-title">
+          <span class="section-num">٣</span>أسلوب الاختصاص
+        </h2>
+
+        <div class="def-box">
+          <p>
+            <strong>أسلوب الاختصاص</strong> هو أسلوب يُستخدم لتخصيص الضمير
+            المتكلم أو المخاطب ببيان المراد منه، عن طريق اسم منصوب يُسمَّى
+            <span class="highlight-word">المختصَّ</span>، ويُضمَر قبله فعل
+            «أَخُصُّ» أو «أَعني».
+          </p>
+        </div>
+
+        <!-- صيغة الاختصاص -->
+        <h3 class="sub-title">صيغة الاختصاص وبناؤه</h3>
+
+        <div class="formula">
+          <span>ضمير المتكلم / المخاطب</span>
+          <span class="plus">+</span>
+          <span>المختصَّ (منصوب)</span>
+        </div>
+
+        <div class="diagram">
+          <div class="diagram-title">🔍 حالات المختصَّ</div>
+          <div class="tree">
+            <p><span class="branch">المختصَّ يأتي في صور ثلاث:</span></p>
+            <br />
+            <p>١ — <span class="leaf">اسم معرَّف بـ (ال):</span></p>
+            <p>
+              نحن — <span class="leaf2">المعلمينَ</span> — نحرص على التعليم.
+            </p>
+            <br />
+            <p>٢ — <span class="leaf">اسم معرَّف بالإضافة:</span></p>
+            <p>أنا — <span class="leaf2">طالبَ العِلمِ</span> — لا أكسل.</p>
+            <br />
+            <p>٣ — <span class="leaf">أيُّها / أيَّتها + صفة:</span></p>
+            <p>أيُّها <span class="leaf2">القارئُ</span> المتدبِّر، تأمَّلْ.</p>
+            <p>أيَّتها <span class="leaf2">المرأةُ</span> الصالحة، اصبري.</p>
+          </div>
+        </div>
+
+        <!-- الإعراب -->
+        <h3 class="sub-title">الإعراب التفصيلي</h3>
+
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>المثال</th>
+              <th>الكلمة</th>
+              <th>الإعراب</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="3" class="irab-word">
+                نحن — المسلمينَ — نحب السلام
+              </td>
+              <td><span class="highlight-word">نحن</span></td>
+              <td>ضمير منفصل في محل رفع مبتدأ</td>
+            </tr>
+            <tr>
+              <td><span class="highlight-word">المسلمينَ</span></td>
+              <td>مفعول به منصوب لفعل محذوف وجوبًا تقديره «أخصُّ» أو «أعني»</td>
+            </tr>
+            <tr>
+              <td><span class="highlight-word">نحب السلام</span></td>
+              <td>جملة فعلية في محل رفع خبر المبتدأ</td>
+            </tr>
+            <tr>
+              <td rowspan="2" class="irab-word">أيُّها الطالبُ، اجتهِدْ</td>
+              <td><span class="highlight-word">أيُّها</span></td>
+              <td>«أيُّ» منادى مبني على الضم، و«ها» للتنبيه</td>
+            </tr>
+            <tr>
+              <td><span class="highlight-word">الطالبُ</span></td>
+              <td>صفة لـ«أيّ» مرفوعة</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note">
+          <strong>ملاحظة:</strong> الفعل المحذوف (أخصُّ / أعني) محذوف
+          <strong>وجوبًا</strong> في هذا الأسلوب، ويُقدَّر في الإعراب دائمًا.
+        </div>
+
+        <div class="note blue">
+          <strong>الفرق بين الاختصاص والنداء بـ «أيُّها»:</strong>
+          في الاختصاص لا يكون الضمير ياء المتكلم أو كاف الخطاب مسبوقًا بحرف
+          نداء؛ أما «أيُّها» فيسبقها حرف النداء (يا) فتكون منادى لا اختصاصًا.
+        </div>
+
+        <!-- أمثلة تطبيقية -->
+        <h3 class="sub-title">أمثلة تطبيقية</h3>
+        <ul class="ex-list">
+          <li>
+            <span class="ex-num">◂</span> نحن —
+            <span class="highlight-word">أبناءَ الوطنِ</span> — واجبنا الدفاعُ
+            عنه.
+            <span class="irab-note"
+              >«أبناءَ» مفعول به لفعل محذوف تقديره «أعني»</span
+            >
+          </li>
+          <li>
+            <span class="ex-num">◂</span> أنا —
+            <span class="highlight-word">الطالبَ المجتهدَ</span> — لا أُفرِّط في
+            وقتي.
+            <span class="irab-note">«الطالبَ» مفعول به منصوب</span>
+          </li>
+          <li>
+            <span class="ex-num">◂</span> نحن —
+            <span class="highlight-word">المهندسينَ</span> — نبني الحضارة.
+            <span class="irab-note"
+              >«المهندسينَ» مفعول به منصوب بالياء لأنه جمع مذكر سالم</span
+            >
+          </li>
+        </ul>
+      </section>
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 4 — أسلوب الإغراء والتحذير
+      ══════════════════════════════════════════════════ -->
+      <section id="s4">
+        <h2 class="section-title">
+          <span class="section-num">٤</span>أسلوب الإغراء والتحذير
+        </h2>
+
+        <div class="def-box">
+          <p>
+            <strong>الإغراء:</strong> حَثُّ المخاطَب على أمرٍ محمودٍ وتشجيعه
+            عليه.<br />
+            <strong>التحذير:</strong> تنبيهُ المخاطَب إلى أمرٍ مذمومٍ ليتجنَّبه.
+            <br /><br />
+            كلاهما يعمل عمل الفعل «احذَرْ / الزَمْ» المحذوف وجوبًا في الغالب،
+            والاسم المُحذَّر منه أو المُغرى به يكون
+            <span class="highlight-word">منصوبًا</span>.
+          </p>
+        </div>
+
+        <!-- الإغراء -->
+        <h3 class="sub-title">أولًا: الإغراء</h3>
+
+        <div class="card-grid">
+          <div class="card green">
+            <div class="card-title">✅ الإغراء بالتكرار</div>
+            <p>يُكرَّر الاسم للمبالغة في الحثِّ.</p>
+            <ul class="ex-list green">
+              <li><span class="ex-num">◂</span> الصِّدقَ الصِّدقَ!</li>
+              <li>
+                <span class="ex-num">◂</span> العِلمَ العِلمَ أيها الشبابُ!
+              </li>
+            </ul>
+          </div>
+          <div class="card blue">
+            <div class="card-title">✅ الإغراء بالعطف</div>
+            <p>يُعطف عليه اسم آخر للتوسع.</p>
+            <ul class="ex-list blue">
+              <li><span class="ex-num">◂</span> الصِّدقَ والأمانةَ!</li>
+              <li><span class="ex-num">◂</span> الإخلاصَ والجِدَّ!</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- التحذير -->
+        <h3 class="sub-title">ثانيًا: التحذير</h3>
+
+        <div class="card-grid">
+          <div class="card red">
+            <div class="card-title">⛔ إيَّاكَ وإيَّاكِ ...</div>
+            <p>
+              الصيغة الأشهر للتحذير. «إيَّا» ضمير منفصل منصوب مفعول به لفعل
+              محذوف تقديره «احذَرْ»، وما بعد الواو معطوف أو مفعول معه.
+            </p>
+            <ul class="ex-list red">
+              <li><span class="ex-num">◂</span> إيَّاكَ والكذبَ!</li>
+              <li><span class="ex-num">◂</span> إيَّاكِ والغيبةَ!</li>
+              <li><span class="ex-num">◂</span> إيَّاكم والظلمَ!</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-title">⛔ التحذير بالتكرار أو العطف</div>
+            <p>بدون «إيَّاك»، يُنصب الاسم على التحذير مباشرة.</p>
+            <ul class="ex-list">
+              <li>
+                <span class="ex-num">◂</span> الكذبَ الكذبَ! (تحذير بالتكرار)
+              </li>
+              <li>
+                <span class="ex-num">◂</span> الكسلَ والإهمالَ! (تحذير بالعطف)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="note red">
+          <strong>متى يجوز ذكر الفعل؟</strong> إذا جاء الاسم مرة واحدة وليس
+          مكررًا ولم يُعطف عليه شيء، جاز ذكر الفعل وحذفه:
+          <em>احذَرِ الكذبَ</em> = <em>الكذبَ!</em>
+        </div>
+
+        <!-- الإعراب التفصيلي -->
+        <h3 class="sub-title">الإعراب التفصيلي</h3>
+
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>المثال</th>
+              <th>الكلمة</th>
+              <th>الإعراب</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2" class="irab-word">إيَّاكَ والكذبَ!</td>
+              <td><span class="highlight-word">إيَّاكَ</span></td>
+              <td>
+                ضمير منفصل مبني في محل نصب مفعول به لفعل محذوف وجوبًا تقديره
+                «احذَرْ»
+              </td>
+            </tr>
+            <tr>
+              <td><span class="highlight-word">الكذبَ</span></td>
+              <td>معطوف على «إيَّاكَ» منصوب، أو مفعول معه منصوب</td>
+            </tr>
+            <tr>
+              <td rowspan="2" class="irab-word">الصِّدقَ الصِّدقَ!</td>
+              <td><span class="highlight-word">الصِّدقَ (الأولى)</span></td>
+              <td>مفعول به منصوب لفعل محذوف تقديره «الزَمِ»، والجملة إغراء</td>
+            </tr>
+            <tr>
+              <td><span class="highlight-word">الصِّدقَ (الثانية)</span></td>
+              <td>توكيد لفظي منصوب</td>
+            </tr>
+            <tr>
+              <td rowspan="2" class="irab-word">الكسلَ والإهمالَ!</td>
+              <td><span class="highlight-word">الكسلَ</span></td>
+              <td>مفعول به منصوب لفعل محذوف تقديره «احذَرْ»</td>
+            </tr>
+            <tr>
+              <td><span class="highlight-word">الإهمالَ</span></td>
+              <td>معطوف على «الكسلَ» منصوب</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- شواهد قرآنية -->
+        <h3 class="sub-title">شواهد قرآنية</h3>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿يَا أَيُّهَا الَّذِينَ آمَنُوا عَلَيْكُم أَنفُسَكُمْ﴾
+          </div>
+          <div class="quran-note">
+            المائدة: ١٠٥ —
+            <span class="highlight-word">عَلَيْكُم أَنفُسَكُمْ</span>: أسلوب
+            إغراء بالاهتمام بالنفس وإصلاحها، «أنفسَكم» منصوب على الإغراء.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">﴿فَإِيَّايَ فَاتَّقُونِ﴾</div>
+          <div class="quran-note">
+            النحل: ٥١ — <span class="highlight-word">فَإِيَّايَ</span>: ضمير
+            منفصل منصوب للتحذير والحصر، والتقدير: اتقوني لا غيري.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ﴾
+          </div>
+          <div class="quran-note">
+            الفاتحة: ٥ — <span class="highlight-word">إِيَّاكَ</span>: ضمير
+            منفصل في محل نصب مفعول به مقدَّم لأجل الحصر والاختصاص. (ملاحظة: هنا
+            ليس تحذيرًا بل تخصيص العبادة والاستعانة لله وحده.)
+          </div>
+        </div>
+      </section>
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 5 — أسلوب الاستثناء
+      ══════════════════════════════════════════════════ -->
+      <section id="s5">
+        <h2 class="section-title">
+          <span class="section-num">٥</span>أسلوب الاستثناء
+        </h2>
+
+        <div class="def-box">
+          <p>
+            <strong>الاستثناء</strong> إخراجُ اسمٍ من حكمٍ سبقَهُ بأداةٍ من
+            أدوات الاستثناء. ويتكون من:
+            <span class="highlight-word">المستثنى منه</span> +
+            <span class="highlight-blue">أداة الاستثناء</span> +
+            <span class="highlight-gold">المستثنى</span>.
+          </p>
+        </div>
+
+        <!-- الأدوات -->
+        <h3 class="sub-title">أدوات الاستثناء</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>الأداة</th>
+              <th>نوعها</th>
+              <th>مثال</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word">إلَّا</td>
+              <td><span class="tag tag-hrf">حرف</span></td>
+              <td>جاء الطلابُ إلَّا خالدًا</td>
+            </tr>
+            <tr>
+              <td class="irab-word">غَيْر / سِوى</td>
+              <td><span class="tag tag-ism">اسم</span></td>
+              <td>جاء الطلابُ غيرَ خالدٍ</td>
+            </tr>
+            <tr>
+              <td class="irab-word">خَلَا / عَدَا / حَاشَا</td>
+              <td><span class="tag tag-fil">فعل أو حرف جر</span></td>
+              <td>جاء الطلابُ خَلَا خالدًا (أو خالدٍ)</td>
+            </tr>
+            <tr>
+              <td class="irab-word">لَيْسَ / لَا يَكُونُ</td>
+              <td><span class="tag tag-fil">فعل ناقص</span></td>
+              <td>جاء الطلابُ لَيسَ خالدًا</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- أنواع الاستثناء -->
+        <h3 class="sub-title">أنواع الاستثناء الثلاثة</h3>
+
+        <div class="diagram">
+          <div class="diagram-title">🌿 أنواع الاستثناء وأحكام المستثنى</div>
+          <div class="tree">
+            <p><span class="branch">١ — الاستثناء التام المثبَت</span></p>
+            <p>(ذُكر المستثنى منه + الكلام مثبت)</p>
+            <p>
+              الحكم: المستثنى <span class="leaf">منصوب وجوبًا</span> بعد «إلَّا»
+            </p>
+            <p>مثال: حضرَ الطلابُ إلَّا <span class="leaf2">زيدًا</span>.</p>
+            <br />
+            <p><span class="branch">٢ — الاستثناء التام المنفي</span></p>
+            <p>(ذُكر المستثنى منه + الكلام منفي)</p>
+            <p>
+              الحكم: يجوز في المستثنى
+              <span class="leaf">النصب أو الإتباع (البدل)</span>
+            </p>
+            <p>
+              مثال: ما حضرَ الطلابُ إلَّا
+              <span class="leaf2">زيدًا / زيدٌ</span>.
+            </p>
+            <br />
+            <p><span class="branch">٣ — الاستثناء المفرَّغ</span></p>
+            <p>(لم يُذكر المستثنى منه + الكلام منفي)</p>
+            <p>
+              الحكم: <span class="leaf">لا يُعرَب استثناءً</span>، بل يُعرَب
+              المستثنى
+            </p>
+            <p>حسب موقعه في الجملة (فاعل، مفعول به، مبتدأ...)</p>
+            <p>
+              مثال: ما حضرَ إلَّا <span class="leaf2">زيدٌ</span>. (فاعل مرفوع)
+            </p>
+            <p>
+              مثال: ما رأيتُ إلَّا <span class="leaf2">زيدًا</span>. (مفعول به
+              منصوب)
+            </p>
+          </div>
+        </div>
+
+        <!-- غير وسوى -->
+        <h3 class="sub-title">إعراب «غَير» و«سِوى»</h3>
+
+        <div class="card-grid">
+          <div class="card blue">
+            <div class="card-title">🔵 غَيْر</div>
+            <p>
+              تأخذ إعراب المستثنى بـ«إلَّا» في كل حالاته، وما بعدها مجرور
+              بالإضافة.
+            </p>
+            <ul class="ex-list blue">
+              <li>
+                <span class="ex-num">◂</span> حضرَ الطلابُ
+                <span class="highlight-word">غيرَ</span> خالدٍ.
+                <span class="irab-note"
+                  >«غيرَ» مستثنى منصوب، «خالدٍ» مضاف إليه مجرور</span
+                >
+              </li>
+              <li>
+                <span class="ex-num">◂</span> ما حضرَ أحدٌ
+                <span class="highlight-word">غيرُ / غيرَ</span> خالدٍ.
+                <span class="irab-note"
+                  >يجوز الرفع (بدل) أو النصب (استثناء)</span
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="card gold">
+            <div class="card-title">🟡 سِوى</div>
+            <p>
+              مثل «غير» في أحكامها، وهي اسم منقوص، وما بعدها مجرور بالإضافة
+              دائمًا.
+            </p>
+            <ul class="ex-list gold">
+              <li>
+                <span class="ex-num">◂</span> ما جاء
+                <span class="highlight-word">سِوى</span> عليٍّ.
+                <span class="irab-note"
+                  >«سِوى» اسم منصوب على الاستثناء (مفرَّغ: فاعل)</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- خلا وعدا وحاشا -->
+        <h3 class="sub-title">خَلَا وعَدَا وحَاشَا</h3>
+
+        <div class="note gold">
+          <strong>حكم المستثنى بعدهن:</strong> يجوز فيه وجهان:
+          <strong>النصب</strong> إذا اعتُبرن أفعالًا، و<strong>الجر</strong> إذا
+          اعتُبرن حروف جر.
+        </div>
+
+        <table class="th-blue">
+          <thead>
+            <tr>
+              <th>المثال</th>
+              <th>إعراب بعدهن كفعل</th>
+              <th>إعراب بعدهن كحرف جر</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="irab-word">نجح الطلابُ خَلَا سعيدًا / سعيدٍ</td>
+              <td>سعيدًا: مفعول به منصوب</td>
+              <td>سعيدٍ: اسم مجرور بـ«خَلَا»</td>
+            </tr>
+            <tr>
+              <td class="irab-word">نجح الطلابُ عَدَا سعيدًا / سعيدٍ</td>
+              <td>سعيدًا: مفعول به منصوب</td>
+              <td>سعيدٍ: اسم مجرور بـ«عَدَا»</td>
+            </tr>
+            <tr>
+              <td class="irab-word">نجح الطلابُ حَاشَا سعيدًا / سعيدٍ</td>
+              <td>سعيدًا: مفعول به منصوب</td>
+              <td>سعيدٍ: اسم مجرور بـ«حَاشَا»</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- الإعراب التفصيلي -->
+        <h3 class="sub-title">الإعراب التفصيلي</h3>
+
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>المثال</th>
+              <th>الكلمة</th>
+              <th>الإعراب</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="4" class="irab-word">حضرَ الطلابُ إلَّا خالدًا</td>
+              <td><span class="highlight-word">حضرَ</span></td>
+              <td>فعل ماضٍ مبني على الفتح</td>
+            </tr>
+            <tr>
+              <td><span class="highlight-word">الطلابُ</span></td>
+              <td>فاعل مرفوع وعلامة رفعه الضمة — وهو المستثنى منه</td>
+            </tr>
+            <tr>
+              <td><span class="highlight-word">إلَّا</span></td>
+              <td>أداة استثناء حرف لا محل له من الإعراب</td>
+            </tr>
+            <tr>
+              <td><span class="highlight-word">خالدًا</span></td>
+              <td>مستثنى منصوب وعلامة نصبه الفتحة (استثناء تام مثبت)</td>
+            </tr>
+            <tr>
+              <td rowspan="3" class="irab-word">ما حضرَ إلَّا زيدٌ</td>
+              <td><span class="highlight-word">ما</span></td>
+              <td>حرف نفي</td>
+            </tr>
+            <tr>
+              <td><span class="highlight-word">إلَّا</span></td>
+              <td>أداة استثناء (ملغاة هنا لأن الاستثناء مفرَّغ)</td>
+            </tr>
+            <tr>
+              <td><span class="highlight-word">زيدٌ</span></td>
+              <td>
+                فاعل مرفوع وعلامة رفعه الضمة (استثناء مفرَّغ، لا يُعرَب مستثنى)
+              </td>
+            </tr>
+            <tr>
+              <td rowspan="3" class="irab-word">
+                ما حضرَ الطلابُ إلَّا زيدًا / زيدٌ
+              </td>
+              <td><span class="highlight-word">إلَّا</span></td>
+              <td>أداة استثناء</td>
+            </tr>
+            <tr>
+              <td><span class="highlight-word">زيدًا</span></td>
+              <td>مستثنى منصوب وعلامة نصبه الفتحة (الوجه الأول: النصب)</td>
+            </tr>
+            <tr>
+              <td><span class="highlight-word">زيدٌ</span></td>
+              <td>
+                بدل من «الطلابُ» مرفوع وعلامة رفعه الضمة (الوجه الثاني: الإتباع)
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- شواهد قرآنية -->
+        <h3 class="sub-title">شواهد قرآنية</h3>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿فَسَجَدَ الْمَلَائِكَةُ كُلُّهُمْ أَجْمَعُونَ ۝ إِلَّا إِبْلِيسَ﴾
+          </div>
+          <div class="quran-note">
+            الحجر: ٣٠-٣١ — <span class="highlight-word">إِلَّا إِبْلِيسَ</span>:
+            استثناء تام مثبت، «إبليسَ» مستثنى منصوب وعلامة نصبه الفتحة.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿وَمَا مُحَمَّدٌ إِلَّا رَسُولٌ قَدْ خَلَتْ مِن قَبْلِهِ الرُّسُلُ﴾
+          </div>
+          <div class="quran-note">
+            آل عمران: ١٤٤ — <span class="highlight-word">إِلَّا رَسُولٌ</span>:
+            استثناء مفرَّغ، «رسولٌ» خبر مرفوع لـ«محمد»، وليس مستثنى.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿مَا لَهُم بِهِ مِنْ عِلْمٍ إِلَّا اتِّبَاعَ الظَّنِّ﴾
+          </div>
+          <div class="quran-note">
+            النساء: ١٥٧ —
+            <span class="highlight-word">إِلَّا اتِّبَاعَ الظَّنِّ</span>:
+            استثناء مفرَّغ، «اتباعَ» مستثنى منصوب في موقع المفعول المطلق أو
+            البدل.
+          </div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-text">
+            ﴿إِنَّ الْإِنسَانَ لَفِي خُسْرٍ ۝ إِلَّا الَّذِينَ آمَنُوا﴾
+          </div>
+          <div class="quran-note">
+            العصر: ٢-٣ —
+            <span class="highlight-word">إِلَّا الَّذِينَ آمَنُوا</span>:
+            استثناء تام مثبت، «الذين» مستثنى منصوب أو بدل على الخلاف.
+          </div>
+        </div>
+      </section>
+      <div class="sep"></div>
+
+      <!-- ══════════════════════════════════════════════════
+           SECTION 6 — الملخص الشامل
+      ══════════════════════════════════════════════════ -->
+      <section id="s6">
+        <h2 class="section-title">
+          <span class="section-num">٦</span>الملخص الشامل
+        </h2>
+
+        <div class="sum-grid">
+          <div class="sum-card">
+            <div class="sum-icon">😲</div>
+            <div class="sum-title">أسلوب التعجب</div>
+            <div class="sum-text">
+              صيغتان: «ما أَفعَلَهُ» و«أَفعِلْ بِهِ».<br />
+              المتعجَّب منه منصوب في الأولى، مجرور في الثانية (فاعل محلًّا).
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🏆</div>
+            <div class="sum-title">المدح والذم</div>
+            <div class="sum-text">
+              نِعمَ / بِئسَ / حَبَّذَا / لا حَبَّذَا / سَاءَ.<br />
+              الفاعل بـ«ال» أو مضاف لها أو ضمير+تمييز.<br />
+              المخصوص: مبتدأ مؤخر أو خبر لمحذوف.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🎯</div>
+            <div class="sum-title">الاختصاص</div>
+            <div class="sum-text">
+              ضمير متكلم/مخاطب + اسم منصوب (المختصَّ).<br />
+              الفعل «أخصُّ / أعني» محذوف وجوبًا.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">⚠️</div>
+            <div class="sum-title">الإغراء والتحذير</div>
+            <div class="sum-text">
+              الاسم منصوب بفعل محذوف.<br />
+              التحذير بـ«إيَّاك»، أو بالتكرار، أو بالعطف.<br />
+              الإغراء بالتكرار أو بالعطف.
+            </div>
+          </div>
+          <div class="sum-card">
+            <div class="sum-icon">🔑</div>
+            <div class="sum-title">الاستثناء</div>
+            <div class="sum-text">
+              تام مثبت → نصب وجوبًا.<br />
+              تام منفي → نصب أو إتباع.<br />
+              مفرَّغ → إعراب حسب الموقع.
+            </div>
+          </div>
+        </div>
+
+        <!-- جدول مقارنة سريع -->
+        <h3 class="sub-title" style="margin-top: 40px">جدول مقارنة سريع</h3>
+
+        <table class="th-dark">
+          <thead>
+            <tr>
+              <th>الأسلوب</th>
+              <th>الاسم المنصوب</th>
+              <th>الفعل المحذوف</th>
+              <th>إعراب الاسم</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag-ism">التعجب (ما أَفعَلَ)</span></td>
+              <td>المتعجَّب منه</td>
+              <td>—</td>
+              <td>مفعول به منصوب</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-ism">التعجب (أَفعِلْ بـِ)</span></td>
+              <td>—</td>
+              <td>—</td>
+              <td>فاعل مرفوع محلًّا</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-green">المدح والذم</span></td>
+              <td>المخصوص</td>
+              <td>—</td>
+              <td>مبتدأ مؤخر أو خبر لمحذوف</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-fil">الاختصاص</span></td>
+              <td>المختصَّ</td>
+              <td>أخصُّ / أعني</td>
+              <td>مفعول به منصوب</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-hrf">الإغراء</span></td>
+              <td>المُغرى به</td>
+              <td>الزَمْ / عليك</td>
+              <td>مفعول به منصوب</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-red">التحذير</span></td>
+              <td>المحذَّر منه</td>
+              <td>احذَرْ / اتَّقِ</td>
+              <td>مفعول به منصوب</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-marifa">الاستثناء (تام مثبت)</span></td>
+              <td>المستثنى</td>
+              <td>—</td>
+              <td>منصوب وجوبًا</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-marifa">الاستثناء (مفرَّغ)</span></td>
+              <td>—</td>
+              <td>—</td>
+              <td>حسب موقعه في الجملة</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer
+      style="
+        background: var(--dark);
+        color: #a0a8c0;
+        text-align: center;
+        padding: 24px 20px;
+        font-size: 0.88rem;
+        margin-top: 10px;
+      "
+    >
+      <p style="margin-bottom: 6px">أساسيات علم النحو — الأساليب النحوية</p>
+      <p style="opacity: 0.6">
+        للمراجعة والتعلُّم الذاتي — جميع الشواهد من القرآن الكريم
+      </p>
+    </footer>
+
+    <script>
+      const sections = document.querySelectorAll('section[id]')
+      const navLinks = document.querySelectorAll('nav a')
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navLinks.forEach((l) => l.classList.remove('active'))
+              const active = document.querySelector(
+                `nav a[href="#${entry.target.id}"]`,
+              )
+              if (active) {
+                active.classList.add('active')
+                active.scrollIntoView({ block: 'nearest', inline: 'center' })
+              }
+            }
+          })
+        },
+        { rootMargin: '-20% 0px -70% 0px' },
+      )
+
+      sections.forEach((s) => observer.observe(s))
+
+      navLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault()
+          const target = document.querySelector(link.getAttribute('href'))
+          if (target) target.scrollIntoView({ behavior: 'smooth' })
+        })
+      })
+    </script>
+  </body>
+</html>
